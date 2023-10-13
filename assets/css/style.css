@@ -1,0 +1,211 @@
+@charset "UTF-8";
+
+@font-face {
+    font-family: "GT Cinetype";
+    font-style: normal;
+    font-weight: 400;
+    src: url("../fonts/GT-Cinetype-Regular.woff2") format("woff2");
+}
+
+@font-face {
+    font-family: "GT Cinetype";
+    font-style: italic;
+    font-weight: 400;
+    src: url("../fonts/GT-Cinetype-Regular-Italic.woff2") format("woff2");
+}
+
+@font-face {
+    font-family: "GT Cinetype";
+    font-style: normal;
+    font-weight: 700;
+    src: url("../fonts/GT-Cinetype-Bold.woff2") format("woff2");
+}
+
+@font-face {
+    font-family: "GT Cinetype";
+    font-style: italic;
+    font-weight: 700;
+    src: url("../fonts/GT-Cinetype-Bold-Italic.woff2") format("woff2");
+}
+
+/*  */
+@font-face {
+    font-family: "GT America";
+    font-style: normal;
+    font-weight: 300;
+    src: url("../fonts/GT-America-Standard-Light.woff2") format("woff2");
+}
+
+@font-face {
+    font-family: "GT America";
+    font-style: italic;
+    font-weight: 300;
+    src: url("../fonts/GT-America-Standard-Light-Italic.woff2") format("woff2");
+}
+
+@font-face {
+    font-family: "GT America";
+    font-style: normal;
+    font-weight: 400;
+    src: url("../fonts/GT-America-Standard-Regular.woff2") format("woff2");
+}
+
+@font-face {
+    font-family: "GT America";
+    font-style: italic;
+    font-weight: 400;
+    src: url("../fonts/GT-America-Standard-Regular-Italic.woff2") format("woff2");
+}
+
+@font-face {
+    font-family: "Pitch Sans";
+    font-style: normal;
+    font-weight: 600;
+    src: url("../fonts/Pitch-sans-medium.woff2") format("woff2");
+}
+
+html {
+    font-size: 100%;
+}
+
+:root {
+    --doc-height: 100%;
+    --black: #1d1d1b;
+    --yellow: #feff8a;
+    --body-text-font: "GT America";
+    --body-text-size: 1rem;
+    --secondary-text-font: "GT Cinetype";
+    --secondary-text-size: .8rem;
+    --big-title-font: "GT America";
+    --big-title-size: 6rem;
+    --huge-title-font: "GT America";
+    --huge-title-size: 10rem;
+    --label-text-font: "Pitch Sans";
+    --label-text-size: .8rem;
+    --header-text-font: "GT Cinetype";
+    --header-text-size: 2rem;
+    --main-margin: 4rem;
+    --nav-height: 3rem;
+    --button-size: 2rem;
+    --border: solid 1px var(--black);
+}
+
+body {
+    width: 100%;
+    font-family: "GT Cinetype";
+    font-style: normal;
+    font-weight: 400;
+    line-height: 130%;
+    color: var(--black);
+}
+
+strong {
+    font-weight: 700;
+}
+
+em {
+    font-style: italic;
+}
+
+button {
+    background-color: transparent;
+}
+
+.nav {
+    width: 100%;
+    height: var(--nav-height);
+    font-family: var(--label-text-font);
+    font-size: var(--label-text-size);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    padding: 0 var(--nav-height);
+    background-color: var(--yellow);
+    border-top: var(--border);
+    z-index: 2;
+}
+
+.nav-menu {
+    display: flex;
+}
+
+.nav-menu.lang {
+    gap: 1rem;
+}
+
+.nav-menu.menu {
+    gap: 8rem;
+}
+
+.slider {
+    width: calc(50% + var(--button-size));
+    height: var(--doc-height);
+    /* display: flex; */
+    display: none;
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+
+.slider-button {
+    width: var(--button-size);
+    height: var(--button-size);
+    border: var(--border);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: sticky;
+    top: var(--main-margin);
+    transform: translateX(1px);
+}
+
+.slider-button svg {
+    width: var(--body-text-size);
+    height: var(--body-text-size);
+    stroke: var(--black);
+    stroke-width: 1px;
+}
+
+.slider-wrapper {
+    width: 100%;
+    height: auto;
+    overflow-y: scroll;
+    padding: var(--main-margin);
+    border-left: var(--border);
+}
+
+.block-title {
+    font-family: var(--big-title-font);
+    font-size: var(--big-title-size);
+    font-weight: 300;
+    line-height: 100%;
+    margin-bottom: var(--main-margin);
+}
+
+.block-text {
+    display: flex;
+    justify-content: space-between;
+}
+
+.text-label {
+    width: 15%;
+    font-family: var(--label-text-font);
+    font-size: var(--label-text-size);
+}
+
+.text {
+    width: 75%;
+    font-family: var(--body-text-font);
+    font-size: var(--body-text-size);
+    text-indent: 2.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: .5rem;
+}
+
+.text:last-child {
+    margin-bottom: var(--nav-height);
+}
