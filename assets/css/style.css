@@ -141,14 +141,33 @@ button {
     gap: 6rem;
 }
 
+.menu-element.--target {
+    text-decoration: underline;
+}
+
 .slider {
     width: calc(50% + var(--button-size));
     height: var(--doc-height);
-    /* display: flex; */
     display: none;
     position: absolute;
     top: 0;
     right: 0;
+}
+
+.slider.--display {
+    display: block;
+}
+
+.slider-wrapper {
+    height: var(--doc-height);
+    overflow-y: hidden;
+    display: flex;
+    transform: translateX(100%);
+    transition: transform .5s ease;
+}
+
+.slider-wrapper.--translateX {
+    transform: translateX(0%);
 }
 
 .slider-button {
@@ -161,6 +180,12 @@ button {
     position: sticky;
     top: var(--main-margin);
     transform: translateX(1px);
+    opacity: 0;
+    transition: opacity .5s ease;
+}
+
+.slider-button.--opacity {
+    opacity: 1;
 }
 
 .slider-button svg {
@@ -170,19 +195,12 @@ button {
     stroke-width: 1px;
 }
 
-.slider-wrapper {
+.slider-content {
     width: 100%;
     height: auto;
     overflow-y: scroll;
     padding: var(--main-margin);
     border-left: var(--border);
-    transform: translateX(100%);
-    transition: transform .5s ease;
-}
-
-.slider-button,
-.slider-wrapper {
-    opacity: 0;
 }
 
 .block-title {

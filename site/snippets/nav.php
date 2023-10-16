@@ -37,10 +37,10 @@
         <li><a href="<?= $page->url($hrefDe) ?>" hreflang="<?= $hrefDe ?>"><?= $languageStringDe ?></a></li>
     </ul>
     <ul class="nav-menu menu">
-        <li><?= $about ?></li>
+        <li class="menu-element"><?= $about ?></li>
         <?php foreach($pages->template('page')->listed() as $page) : ?>
-            <li><a href="<?= $page->url() ?>"><?= $page->title() ?></a></li>
+            <li class="menu-element"><a href="<?= $page->url() ?>"><?= $page->title() ?></a></li>
         <?php endforeach ?> 
-        <li><?= $contact ?></li>
+        <li class="menu-element"><?= $contact ?></li>
     </ul>
 </nav>
