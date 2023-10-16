@@ -1,3 +1,5 @@
+<!-- slider-block: turn into blocks -->
+
 <section class="slider">
     <button class="slider-button">
         <svg viewBox="0 0 26 26" fill="none" xmlns="http://www.w3.org/2000/svg">

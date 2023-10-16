@@ -28,7 +28,6 @@
     src: url("../fonts/GT-Cinetype-Bold-Italic.woff2") format("woff2");
 }
 
-/*  */
 @font-face {
     font-family: "GT America";
     font-style: normal;
@@ -97,6 +96,7 @@ body {
     font-weight: 400;
     line-height: 130%;
     color: var(--black);
+    overflow-x: hidden;
 }
 
 strong {
@@ -130,6 +130,7 @@ button {
 
 .nav-menu {
     display: flex;
+    cursor: pointer;
 }
 
 .nav-menu.lang {
@@ -137,7 +138,7 @@ button {
 }
 
 .nav-menu.menu {
-    gap: 8rem;
+    gap: 6rem;
 }
 
 .slider {
@@ -175,6 +176,13 @@ button {
     overflow-y: scroll;
     padding: var(--main-margin);
     border-left: var(--border);
+    transform: translateX(100%);
+    transition: transform .5s ease;
+}
+
+.slider-button,
+.slider-wrapper {
+    opacity: 0;
 }
 
 .block-title {
