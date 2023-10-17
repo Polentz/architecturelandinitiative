@@ -25,6 +25,8 @@ const handleAnchorTags = () => {
 const footer = document.querySelector(".footer");
 const nav = footer.querySelector(".nav");
 const navElement = nav.querySelectorAll(".menu-element");
+const main = document.querySelectorAll("main");
+const scrollContainer = document.querySelectorAll(".scroll-wrapper");
 
 const sliderOpener = () => {
     const sliderContainer = document.querySelectorAll(".slider");
@@ -36,6 +38,9 @@ const sliderOpener = () => {
             slider.classList.add("--display");
             setTimeout(() => {
                 sliderWrapper.classList.add("--translateX");
+                main.forEach(mainEl => {
+                    mainEl.classList.add("--blur");
+                });
             }, 100);
             setTimeout(() => {
                 sliderButton.classList.add("--opacity");
@@ -43,6 +48,9 @@ const sliderOpener = () => {
         };
         const removeClasses = () => {
             sliderWrapper.classList.remove("--translateX");
+            main.forEach(mainEl => {
+                mainEl.classList.remove("--blur");
+            });
             sliderButton.classList.remove("--opacity");
             setTimeout(() => {
                 sliderContent.scrollTo(0, 0);
@@ -91,10 +99,6 @@ const bannerOpener = () => {
             bannerButton.classList.remove("--opacity");
             banner.classList.remove("--display");
             nav.classList.remove("--hide");
-            // setTimeout(() => {
-            //     banner.classList.remove("--display");
-            //     nav.classList.remove("--hide");
-            // }, 500);
         };
         navElement.forEach(element => {
             element.addEventListener("click", () => {
@@ -112,10 +116,60 @@ const bannerOpener = () => {
     });
 };
 
+const handleScrollDirection = () => {
+    scrollContainer.forEach(container => {
+        window.addEventListener("resize", () => {
+            container.scrollTo(0, 0);
+        })
+        container.addEventListener("wheel", (event) => {
+            event.preventDefault();
+            container.scrollLeft += event.deltaY;
+        });
+    });
+};
+
+const handleScrollButton = () => {
+    const scrollButton = document.querySelector(".cover-button");
+    const parentElement = scrollButton.parentElement;
+    const scrollElement = parentElement.querySelector(".scroll-wrapper");
+    const scrollWidth = document.querySelector(".cover-layout-title").offsetWidth;
+    scrollButton.addEventListener("click", () => {
+        scrollElement.scrollBy({
+            left: scrollWidth,
+            behavior: "smooth",
+        });
+    });
+    // const inViewport = (e) => {
+    //     scrollElement.addEventListener("scroll", () => {
+    //         const elementRect = e.getBoundingClientRect();
+    //         return (elementRect.left < innerWidth && elementRect.right > 0);
+    //     });
+    // };
+    // const lastContainer = Array.from(document.querySelectorAll(".cover-layout-title")).pop();
+    // if (inViewport(lastContainer)) {
+    //     scrollButton.style.transform = "rotate(180deg)"
+    //     scrollButton.addEventListener("click", () => {
+    //         scrollElement.scrollTo({
+    //             left: 0,
+    //         });
+    //     });
+    // };
+};
+
+const homepageShuffle = () => {
+    const array = document.querySelectorAll(".main");
+    const randomItem = array[Math.floor(Math.random() * array.length)];
+    console.log(randomItem)
+    randomItem.classList.add("--random");
+}
+
 window.addEventListener("load", () => {
     documentHeight();
+    homepageShuffle();
     sliderOpener();
     bannerOpener();
+    handleScrollDirection();
+    handleScrollButton();
 });
 
 window.addEventListener("resize", () => {
