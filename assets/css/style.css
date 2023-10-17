@@ -70,7 +70,8 @@ html {
 :root {
     --doc-height: 100%;
     --black: #1d1d1b;
-    --yellow: #feff8a;
+    --white: #ffffff;
+    /* --yellow: #feff8a; */
     --body-text-font: "GT America";
     --body-text-size: 1rem;
     --secondary-text-font: "GT Cinetype";
@@ -111,21 +112,46 @@ button {
     background-color: transparent;
 }
 
+.button {
+    width: var(--button-size);
+    height: var(--button-size);
+    border: var(--border);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.button svg {
+    width: var(--body-text-size);
+    height: var(--body-text-size);
+    stroke: var(--black);
+    stroke-width: 1px;
+}
+
+.footer {
+    width: 100%;
+    height: auto;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    background-color: var(--white);
+    border-top: var(--border);
+}
+
 .nav {
     width: 100%;
-    height: var(--nav-height);
+    /* height: var(--nav-height); */
     font-family: var(--label-text-font);
     font-size: var(--label-text-size);
     display: flex;
     justify-content: space-between;
-    align-items: center;
-    position: fixed;
-    bottom: 0;
-    left: 0;
-    padding: 0 var(--nav-height);
-    background-color: var(--yellow);
-    border-top: var(--border);
+    align-items: start;
+    padding: 1rem var(--nav-height);
     z-index: 2;
+}
+
+.nav.--hide {
+    display: none;
 }
 
 .nav-menu {
@@ -143,6 +169,45 @@ button {
 
 .menu-element.--target {
     text-decoration: underline;
+}
+
+.banner {
+    width: 100%;
+    height: auto;
+    font-family: var(--secondary-text-font);
+    font-size: var(--secondary-text-size);
+    display: none;
+    justify-content: space-between;
+    align-items: start;
+    padding: 1rem var(--nav-height);
+}
+
+.banner.--display {
+    display: flex;
+}
+
+.banner-block {
+    display: flex;
+    flex-direction: column;
+    gap: var(--secondary-text-size);
+}
+
+.banner-button {
+    position: absolute;
+    top: var(--button-size);
+    right: var(--main-margin);
+    transform: translateY(-4rem);
+}
+
+.banner-block,
+.banner-button {
+    opacity: 0;
+    transition: opacity .5s ease;
+}
+
+.banner-block.--opacity,
+.banner-button.--opacity {
+    opacity: 1;
 }
 
 .slider {
@@ -171,12 +236,6 @@ button {
 }
 
 .slider-button {
-    width: var(--button-size);
-    height: var(--button-size);
-    border: var(--border);
-    display: flex;
-    justify-content: center;
-    align-items: center;
     position: sticky;
     top: var(--main-margin);
     transform: translateX(1px);
@@ -186,13 +245,6 @@ button {
 
 .slider-button.--opacity {
     opacity: 1;
-}
-
-.slider-button svg {
-    width: var(--body-text-size);
-    height: var(--body-text-size);
-    stroke: var(--black);
-    stroke-width: 1px;
 }
 
 .slider-content {

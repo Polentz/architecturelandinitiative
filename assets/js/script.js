@@ -21,12 +21,17 @@ const handleAnchorTags = () => {
     });
 };
 
+// global variables
+const footer = document.querySelector(".footer");
+const nav = footer.querySelector(".nav");
+const navElement = nav.querySelectorAll(".menu-element");
+
 const sliderOpener = () => {
     const sliderContainer = document.querySelectorAll(".slider");
-    const navElement = document.querySelectorAll(".menu-element");
     sliderContainer.forEach(slider => {
         const sliderWrapper = slider.querySelector(".slider-wrapper");
         const sliderButton = sliderWrapper.querySelector(".slider-button");
+        const sliderContent = sliderWrapper.querySelector(".slider-content");
         const addClasses = () => {
             slider.classList.add("--display");
             setTimeout(() => {
@@ -40,9 +45,10 @@ const sliderOpener = () => {
             sliderWrapper.classList.remove("--translateX");
             sliderButton.classList.remove("--opacity");
             setTimeout(() => {
+                sliderContent.scrollTo(0, 0);
                 slider.classList.remove("--display");
             }, 500);
-        }
+        };
         navElement.forEach(element => {
             element.addEventListener("click", () => {
                 if (element.innerHTML.toLowerCase().includes(slider.id)) {
@@ -63,9 +69,53 @@ const sliderOpener = () => {
     });
 };
 
+const bannerOpener = () => {
+    const bannerContainer = document.querySelectorAll(".banner");
+    bannerContainer.forEach(banner => {
+        const bannerContent = banner.querySelectorAll(".banner-block");
+        const bannerButton = banner.querySelector(".banner-button");
+        const addClasses = () => {
+            nav.classList.add("--hide");
+            banner.classList.add("--display");
+            setTimeout(() => {
+                bannerContent.forEach(content => {
+                    content.classList.add("--opacity");
+                });
+                bannerButton.classList.add("--opacity");
+            }, 100);
+        };
+        const removeClasses = () => {
+            bannerContent.forEach(content => {
+                content.classList.remove("--opacity");
+            });
+            bannerButton.classList.remove("--opacity");
+            banner.classList.remove("--display");
+            nav.classList.remove("--hide");
+            // setTimeout(() => {
+            //     banner.classList.remove("--display");
+            //     nav.classList.remove("--hide");
+            // }, 500);
+        };
+        navElement.forEach(element => {
+            element.addEventListener("click", () => {
+                if (element.innerHTML.toLowerCase().includes(banner.id)) {
+                    addClasses();
+                };
+            });
+        });
+        bannerButton.addEventListener("click", () => {
+            removeClasses();
+        });
+        window.addEventListener("scroll", () => {
+            removeClasses();
+        });
+    });
+};
+
 window.addEventListener("load", () => {
     documentHeight();
     sliderOpener();
+    bannerOpener();
 });
 
 window.addEventListener("resize", () => {

@@ -58,6 +58,7 @@
     ]) ?>
 </head>
 <body>
-    <header class="logo">
+    <header class="header">
+        
     </header>
 
