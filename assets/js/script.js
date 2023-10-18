@@ -3,6 +3,13 @@ console.log(
     'color: #4c00ff; font-family: sans-serif; font-size: .75rem;'
 );
 
+// global variables
+const footer = document.querySelector(".footer");
+const nav = footer.querySelector(".nav");
+const navElement = nav.querySelectorAll(".menu-element");
+const main = document.querySelectorAll(".main");
+const logo = document.querySelector(".logo");
+
 const documentHeight = () => {
     const doc = document.documentElement;
     doc.style.setProperty("--doc-height", `${window.innerHeight}px`);
@@ -21,13 +28,6 @@ const handleAnchorTags = () => {
     });
 };
 
-// global variables
-const footer = document.querySelector(".footer");
-const nav = footer.querySelector(".nav");
-const navElement = nav.querySelectorAll(".menu-element");
-const main = document.querySelectorAll("main");
-const scrollContainer = document.querySelectorAll(".scroll-wrapper");
-
 const sliderOpener = () => {
     const sliderContainer = document.querySelectorAll(".slider");
     sliderContainer.forEach(slider => {
@@ -40,6 +40,8 @@ const sliderOpener = () => {
                 sliderWrapper.classList.add("--translateX");
                 main.forEach(mainEl => {
                     mainEl.classList.add("--blur");
+                    mainEl.classList.add("--translateX");
+                    logo.classList.add("--left");
                 });
             }, 100);
             setTimeout(() => {
@@ -50,6 +52,8 @@ const sliderOpener = () => {
             sliderWrapper.classList.remove("--translateX");
             main.forEach(mainEl => {
                 mainEl.classList.remove("--blur");
+                mainEl.classList.remove("--translateX");
+                logo.classList.remove("--left");
             });
             sliderButton.classList.remove("--opacity");
             setTimeout(() => {
@@ -117,6 +121,7 @@ const bannerOpener = () => {
 };
 
 const handleScrollDirection = () => {
+    const scrollContainer = document.querySelectorAll(".scroll-wrapper");
     scrollContainer.forEach(container => {
         window.addEventListener("resize", () => {
             container.scrollTo(0, 0);
@@ -128,7 +133,7 @@ const handleScrollDirection = () => {
     });
 };
 
-const handleScrollButton = () => {
+const handleCarousel = () => {
     const scrollButton = document.querySelector(".cover-button");
     const parentElement = scrollButton.parentElement;
     const scrollElement = parentElement.querySelector(".scroll-wrapper");
@@ -154,22 +159,36 @@ const handleScrollButton = () => {
     //         });
     //     });
     // };
+    // setInterval(() => {
+    //     scrollElement.scrollBy({
+    //         left: scrollWidth,
+    //         behavior: "smooth",
+    //     });
+    // }, 3000);
 };
 
-const homepageShuffle = () => {
-    const array = document.querySelectorAll(".main");
-    const randomItem = array[Math.floor(Math.random() * array.length)];
-    console.log(randomItem)
-    randomItem.classList.add("--random");
-}
+const homeLayoutsShuffle = () => {
+    const layouts = document.querySelectorAll(".grid-layout, .cover-layout");
+    const randomLayout = layouts[Math.floor(Math.random() * layouts.length)];
+    randomLayout.classList.add("--random");
+    const shuffleButton = document.querySelectorAll(".header-button");
+    shuffleButton.forEach(button => {
+        button.addEventListener("click", () => {
+            layouts.forEach(layout => {
+                if (layout.classList.contains("--random")) {
+                    layout.classList.remove("--random");
+                } else {
+                    layout.classList.add("--random");
+                };
+            });
+        });
+    });
+};
 
 window.addEventListener("load", () => {
     documentHeight();
-    homepageShuffle();
     sliderOpener();
     bannerOpener();
-    handleScrollDirection();
-    handleScrollButton();
 });
 
 window.addEventListener("resize", () => {

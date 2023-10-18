@@ -113,6 +113,47 @@ button {
     background-color: transparent;
 }
 
+.logo {
+    font-family: var(--header-text-font);
+    font-size: var(--header-text-size);
+    display: flex;
+    gap: 1rem;
+    position: fixed;
+    top: var(--half-margin);
+    left: 50%;
+    transform: translateX(-50%);
+    transition: all .5s ease;
+    z-index: 2;
+}
+
+.logo.--left {
+    left: var(--main-margin);
+    transform: translateX(0);
+}
+
+.logo-letter {
+    display: inline-flex;
+}
+
+#A {
+    padding-top: 2rem;
+    padding-right: 2rem;
+}
+
+#L {
+    padding-top: 0;
+    padding-right: 1rem;
+}
+
+#I {
+    padding-top: 2.5rem;
+    padding-right: .5rem;
+}
+
+#N {
+    padding-top: 1rem;
+}
+
 .button {
     width: var(--button-size);
     height: var(--button-size);
@@ -123,10 +164,17 @@ button {
 }
 
 .button svg {
-    width: var(--body-text-size);
-    height: var(--body-text-size);
+    width: 1.4rem;
+    height: 1.4rem;
     stroke: var(--black);
     stroke-width: 1px;
+}
+
+.header-button {
+    position: fixed;
+    top: var(--half-margin);
+    right: var(--main-margin);
+    background-color: var(--white);
 }
 
 .footer {
@@ -137,6 +185,7 @@ button {
     left: 0;
     background-color: var(--white);
     border-top: var(--border);
+    z-index: 4;
 }
 
 .nav {
@@ -148,7 +197,6 @@ button {
     justify-content: space-between;
     align-items: center;
     padding: 0 var(--nav-height);
-    z-index: 2;
 }
 
 .nav.--hide {
@@ -219,6 +267,7 @@ button {
     position: fixed;
     top: 0;
     right: 0;
+    z-index: 3;
 }
 
 .slider.--display {
@@ -297,7 +346,7 @@ button {
     height: var(--doc-height);
     position: relative;
     overflow: hidden;
-    transition: filter .5s ease;
+    transition: all .5s ease;
 }
 
 .main.--random {
@@ -307,6 +356,11 @@ button {
 .main.--blur {
     filter: blur(2rem);
 }
+
+.main.--translateX {
+    transform: translateX(-50vw);
+}
+
 
 .scroll-wrapper {
     display: flex;
@@ -348,12 +402,8 @@ button {
     padding: 5rem var(--main-margin);
 }
 
-.cover-layout-title:nth-child(even) {
-    background-color: cadetblue;
-}
-
-.cover-layout-title:nth-child(odd) {
-    background-color: lightcoral;
+.cover-layout-title:not(:last-child) {
+    border-right: var(--border);
 }
 
 .cover-layout-title h2 {
