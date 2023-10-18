@@ -1,0 +1,36 @@
+title: Project Page
+options:
+  navigation:
+    status: listed
+    template: project
+
+columns:
+  sidebar:
+    width: 1/2
+    sections:
+      media:
+        type: fields
+        fields:
+          gallery:
+            label: Media
+            type: files
+            template: image
+            uploads: image
+            query: page.images.filterBy('template', 'image')
+            layout: cards
+            size: small
+            multiple: true
+            image:
+              icon: true
+              ratio: 4/3
+              back: white
+              cover: true 
+  main:
+    width: 1/2
+    sections: 
+      copy:
+        type: fields
+        fields:
+          blocks:
+            label: Description
+            type: blocks             

@@ -125,7 +125,7 @@ const homeLayoutsShuffle = () => {
     const randomLayout = layouts[Math.floor(Math.random() * layouts.length)];
     randomLayout.classList.add("--random");
     const shuffleButton = document.querySelectorAll(".header-button");
-    const scrollElements = document.querySelectorAll(".scroll-wrapper")
+    const scrollElements = document.querySelectorAll(".scroll-wrapper");
     shuffleButton.forEach(button => {
         button.addEventListener("click", () => {
             layouts.forEach(layout => {
@@ -133,6 +133,7 @@ const homeLayoutsShuffle = () => {
                     layout.classList.remove("--random");
                 } else {
                     layout.classList.add("--random");
+                    logoAnimation();
                 };
             });
             scrollElements.forEach(scrollElement => {
@@ -186,6 +187,24 @@ const handleCarousel = () => {
         threshold: .75,
     });
     observer.observe(lastElement);
+};
+
+const infoOpener = () => {
+    const infoContainer = document.querySelector(".info");
+    const infoWrapper = infoContainer.querySelector(".info-wrapper");
+    const infoButton = infoContainer.querySelector(".info-button");
+    const infoContent = infoContainer.querySelector(".info-content");
+    const galleryContainer = document.querySelector(".gallery");
+    const galleryGrid = galleryContainer.querySelector(".gallery-grid");
+    infoButton.addEventListener("click", () => {
+        infoWrapper.classList.add("--translateX");
+        galleryContainer.classList.add("--width");
+        galleryGrid.classList.add("--change-grid");
+        setTimeout(() => {
+            infoContent.scrollTo(0, 0);
+            infoContainer.classList.add("--hide");
+        }, 500);
+    });
 };
 
 window.addEventListener("load", () => {

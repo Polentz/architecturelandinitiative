@@ -83,9 +83,8 @@ html {
     --label-text-font: "Pitch Sans";
     --label-text-size: .8rem;
     --header-text-font: "GT Cinetype";
-    --header-text-size: 2rem;
+    --header-text-size: 1.5rem;
     --main-margin: 4rem;
-    --medium-margin: 3rem;
     --half-margin: 2rem;
     --nav-height: 3rem;
     --button-size: 2rem;
@@ -347,7 +346,6 @@ button {
     width: 100%;
     height: var(--doc-height);
     position: relative;
-    overflow: hidden;
     transition: all .5s ease;
 }
 
@@ -360,13 +358,22 @@ button {
 }
 
 .main.--translateX {
-    transform: translateX(-50vw);
+    transform: translateX(-50%);
+}
+
+.grid-layout,
+.cover-layout {
+    overflow: hidden;
 }
 
 .scroll-wrapper {
     display: flex;
     overflow-x: scroll;
     scroll-snap-type: x mandatory;
+}
+
+.scroll-wrapper::-webkit-scrollbar {
+    display: none;
 }
 
 .grid-layout-title {
@@ -378,16 +385,16 @@ button {
     padding-left: var(--half-margin);
 }
 
-.grid-layout-title:not(:last-child) {
+/* .grid-layout-title:not(:last-child) {
     border-right: var(--border);
-}
+} */
 
 .grid-layout-title h2 {
     font-family: var(--huge-title-font);
     font-size: var(--huge-title-size);
     font-weight: 200;
     line-height: 1;
-    hyphens: manual;
+    hyphens: auto;
     transform: rotate(180deg);
 }
 
