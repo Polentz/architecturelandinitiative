@@ -85,6 +85,7 @@ html {
     --header-text-font: "GT Cinetype";
     --header-text-size: 2rem;
     --main-margin: 4rem;
+    --medium-margin: 3rem;
     --half-margin: 2rem;
     --nav-height: 3rem;
     --button-size: 2rem;
@@ -127,7 +128,7 @@ button {
 }
 
 .logo.--left {
-    left: var(--main-margin);
+    left: var(--half-margin);
     transform: translateX(0);
 }
 
@@ -173,7 +174,7 @@ button {
 .header-button {
     position: fixed;
     top: var(--half-margin);
-    right: var(--main-margin);
+    right: var(--half-margin);
     background-color: var(--white);
 }
 
@@ -196,7 +197,7 @@ button {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 0 var(--nav-height);
+    padding: 0 var(--half-margin);
 }
 
 .nav.--hide {
@@ -228,7 +229,7 @@ button {
     display: none;
     justify-content: space-between;
     align-items: start;
-    padding: var(--half-margin) var(--nav-height);
+    padding: var(--half-margin) var(--main-margin);
 }
 
 .banner.--display {
@@ -321,6 +322,10 @@ button {
     justify-content: space-between;
 }
 
+.block-text:last-child {
+    margin-bottom: var(--nav-height);
+}
+
 .text-label {
     width: 15%;
     font-family: var(--label-text-font);
@@ -335,10 +340,6 @@ button {
     display: flex;
     flex-direction: column;
     gap: .5rem;
-}
-
-.text:last-child {
-    margin-bottom: var(--nav-height);
 }
 
 .main {
@@ -371,7 +372,10 @@ button {
 .grid-layout-title {
     height: var(--doc-height);
     writing-mode: vertical-rl;
-    padding: 5rem 2rem;
+    padding-top: var(--main-margin);
+    padding-right: var(--half-margin);
+    padding-bottom: calc(var(--nav-height) + var(--half-margin));
+    padding-left: var(--half-margin);
     scroll-snap-align: center;
 }
 
@@ -384,6 +388,7 @@ button {
     font-size: var(--huge-title-size);
     font-weight: 200;
     line-height: 1;
+    hyphens: manual;
     transform: rotate(180deg);
 }
 
@@ -399,7 +404,10 @@ button {
     display: flex;
     align-items: flex-end;
     justify-content: space-between;
-    padding: 5rem var(--main-margin);
+    padding-top: var(--main-margin);
+    padding-right: var(--main-margin);
+    padding-bottom: calc(var(--nav-height) + var(--half-margin));
+    padding-left: var(--main-margin);
 }
 
 .cover-layout-title:not(:last-child) {
@@ -416,8 +424,8 @@ button {
 
 .cover-button {
     position: absolute;
-    bottom: 6rem;
-    right: var(--main-margin);
+    bottom: calc(var(--nav-height) + var(--main-margin));
+    right: var(--half-margin);
     background-color: var(--black);
 }
 

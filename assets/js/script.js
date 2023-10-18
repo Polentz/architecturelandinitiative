@@ -172,6 +172,7 @@ const homeLayoutsShuffle = () => {
     const randomLayout = layouts[Math.floor(Math.random() * layouts.length)];
     randomLayout.classList.add("--random");
     const shuffleButton = document.querySelectorAll(".header-button");
+    const scrollElements = document.querySelectorAll(".scroll-wrapper")
     shuffleButton.forEach(button => {
         button.addEventListener("click", () => {
             layouts.forEach(layout => {
@@ -180,6 +181,11 @@ const homeLayoutsShuffle = () => {
                 } else {
                     layout.classList.add("--random");
                 };
+            });
+            scrollElements.forEach(scrollElement => {
+                scrollElement.scrollTo({
+                    left: 0,
+                });
             });
         });
     });

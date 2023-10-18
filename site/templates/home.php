@@ -20,7 +20,7 @@
             <h2>Schlieren</h2>
         </li>
         <li class="grid-layout-title">
-            <h2>By Us for Us</h2>
+            <h2>Next Project</h2>
         </li>
     </ul>
 </main>
@@ -47,7 +47,7 @@
             <h2>Schlieren</h2>
         </li>
         <li class="cover-layout-title">
-            <h2>Last Element</h2>
+            <h2>Next Project</h2>
         </li>
     </ul>
     <button class="button cover-button">
