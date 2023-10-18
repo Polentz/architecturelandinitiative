@@ -1,5 +1,6 @@
 gsap.registerPlugin(TextPlugin)
-logo.addEventListener("mouseenter", () => {
+
+const logoAnimation = () => {
     // ARCHITECTURE
     gsap.to("#A", {
         text: "R",
@@ -159,6 +160,14 @@ logo.addEventListener("mouseenter", () => {
             ease: "elastic",
         });
     }, 600);
+};
+
+window.addEventListener("load", () => {
+    logoAnimation();
+});
+
+logo.addEventListener("mouseenter", () => {
+    logoAnimation();
 });
 
 logo.addEventListener("mouseleave", () => {

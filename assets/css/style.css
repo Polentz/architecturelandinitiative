@@ -176,6 +176,7 @@ button {
     top: var(--half-margin);
     right: var(--half-margin);
     background-color: var(--white);
+    z-index: 2;
 }
 
 .footer {
@@ -362,7 +363,6 @@ button {
     transform: translateX(-50vw);
 }
 
-
 .scroll-wrapper {
     display: flex;
     overflow-x: scroll;
@@ -376,7 +376,6 @@ button {
     padding-right: var(--half-margin);
     padding-bottom: calc(var(--nav-height) + var(--half-margin));
     padding-left: var(--half-margin);
-    scroll-snap-align: center;
 }
 
 .grid-layout-title:not(:last-child) {
@@ -399,8 +398,10 @@ button {
 
 .cover-layout-title {
     min-width: 100vw;
+    max-width: 100vw;
     width: 100vw;
     height: var(--doc-height);
+    position: relative;
     display: flex;
     align-items: flex-end;
     justify-content: space-between;
@@ -408,6 +409,7 @@ button {
     padding-right: var(--main-margin);
     padding-bottom: calc(var(--nav-height) + var(--half-margin));
     padding-left: var(--main-margin);
+    scroll-snap-align: center;
 }
 
 .cover-layout-title:not(:last-child) {
@@ -427,6 +429,7 @@ button {
     bottom: calc(var(--nav-height) + var(--main-margin));
     right: var(--half-margin);
     background-color: var(--black);
+    z-index: 2;
 }
 
 .cover-button svg {

@@ -120,53 +120,6 @@ const bannerOpener = () => {
     });
 };
 
-const handleScrollDirection = () => {
-    const scrollContainer = document.querySelectorAll(".scroll-wrapper");
-    scrollContainer.forEach(container => {
-        window.addEventListener("resize", () => {
-            container.scrollTo(0, 0);
-        })
-        container.addEventListener("wheel", (event) => {
-            event.preventDefault();
-            container.scrollLeft += event.deltaY;
-        });
-    });
-};
-
-const handleCarousel = () => {
-    const scrollButton = document.querySelector(".cover-button");
-    const parentElement = scrollButton.parentElement;
-    const scrollElement = parentElement.querySelector(".scroll-wrapper");
-    const scrollWidth = document.querySelector(".cover-layout-title").offsetWidth;
-    scrollButton.addEventListener("click", () => {
-        scrollElement.scrollBy({
-            left: scrollWidth,
-            behavior: "smooth",
-        });
-    });
-    // const inViewport = (e) => {
-    //     scrollElement.addEventListener("scroll", () => {
-    //         const elementRect = e.getBoundingClientRect();
-    //         return (elementRect.left < innerWidth && elementRect.right > 0);
-    //     });
-    // };
-    // const lastContainer = Array.from(document.querySelectorAll(".cover-layout-title")).pop();
-    // if (inViewport(lastContainer)) {
-    //     scrollButton.style.transform = "rotate(180deg)"
-    //     scrollButton.addEventListener("click", () => {
-    //         scrollElement.scrollTo({
-    //             left: 0,
-    //         });
-    //     });
-    // };
-    // setInterval(() => {
-    //     scrollElement.scrollBy({
-    //         left: scrollWidth,
-    //         behavior: "smooth",
-    //     });
-    // }, 3000);
-};
-
 const homeLayoutsShuffle = () => {
     const layouts = document.querySelectorAll(".grid-layout, .cover-layout");
     const randomLayout = layouts[Math.floor(Math.random() * layouts.length)];
@@ -189,6 +142,50 @@ const homeLayoutsShuffle = () => {
             });
         });
     });
+};
+
+const handleScrollDirection = () => {
+    const scrollContainer = document.querySelector(".grid-layout .scroll-wrapper");
+    window.addEventListener("resize", () => {
+        scrollContainer.scrollTo(0, 0);
+    });
+    scrollContainer.addEventListener("wheel", (event) => {
+        event.preventDefault();
+        scrollContainer.scrollLeft += event.deltaY;
+    });
+};
+
+const handleCarousel = () => {
+    const scrollButton = document.querySelector(".cover-button");
+    const parentElement = scrollButton.parentElement;
+    const scrollContanier = parentElement.querySelector(".scroll-wrapper");
+    const scrollWidth = window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth;
+    const elementsArray = Array.from(document.querySelectorAll(".cover-layout-title"));
+    const firstElement = elementsArray[0];
+    const lastElement = elementsArray.pop();
+
+    const observer = new window.IntersectionObserver(([entry]) => {
+        if (entry.isIntersecting) {
+            scrollButton.style.transform = "rotate(180deg)"
+            scrollButton.addEventListener("click", () => {
+                firstElement.scrollIntoView({
+                    behavior: "smooth",
+                });
+            });
+        } else {
+            scrollButton.style.transform = "rotate(0deg)";
+            scrollButton.addEventListener("click", () => {
+                scrollContanier.scrollBy({
+                    left: scrollWidth,
+                    behavior: "smooth",
+                });
+            });
+        };
+    }, {
+        root: null,
+        threshold: .75,
+    });
+    observer.observe(lastElement);
 };
 
 window.addEventListener("load", () => {
