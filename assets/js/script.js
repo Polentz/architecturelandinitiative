@@ -196,7 +196,7 @@ const handleProjectButtons = () => {
     const sliderWrapper = sliderContainer.querySelector(".info-slider-wrapper");
     const sliderCloseButton = sliderContainer.querySelector(".slider-button");
     const sliderContent = sliderContainer.querySelector(".slider-content");
-    const iButton = document.querySelector(".i-button");
+    const infoButton = document.querySelector(".i-button");
 
     sliderCloseButton.addEventListener("click", () => {
         sliderWrapper.classList.add("--translateX");
@@ -209,15 +209,14 @@ const handleProjectButtons = () => {
             sliderContainer.classList.add("--hide");
         }, 500);
         setTimeout(() => {
-            iButton.classList.add("--opacity");
+            infoButton.classList.add("--opacity");
         }, 900);
     });
-
     const parentContainer = document.querySelectorAll(".box-wrapper");
     parentContainer.forEach(element => {
         const boxOpenButton = element.querySelector("button");
         const boxContainer = element.querySelector(".inner-box");
-        const boxContent = element.querySelectorAll(".inner-box div");
+        const boxContent = element.querySelectorAll(".inner-box-column");
         const boxReadMore = element.querySelector(".read-more-button");
         const boxCloseButton = element.querySelector(".x-button");
 

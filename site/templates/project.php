@@ -62,15 +62,17 @@
                     </svg>
                 </button>
                 <div class="inner-box">
-                    <div class="inner-box-header">
-                        Lorem, ipsum.
-                    </div>
-                    <div class="inner-box-content">
-                        <div class="text">
-                            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Deserunt ratione a nobis. Rerum ex quisquam reprehenderit! Est ratione sed vel et modi reiciendis quidem temporibus ab sapiente consectetur voluptates maiores eveniet ducimus suscipit dignissimos expedita nisi, id voluptatibus dolore laudantium at illum laborum minima. Id quae odio tenetur ab nostrum...
+                    <div class="inner-box-column">
+                        <div class="inner-box-header">
+                            Lorem, ipsum.
                         </div>
-                        <div class="read-more-button">
-                            Read More
+                        <div class="inner-box-content">
+                            <div class="text">
+                                Lorem ipsum dolor sit amet consectetur, adipisicing elit. Deserunt ratione a nobis. Rerum ex quisquam reprehenderit! Est ratione sed vel et modi reiciendis quidem temporibus ab sapiente consectetur voluptates maiores eveniet ducimus suscipit dignissimos expedita nisi, id voluptatibus dolore laudantium at illum laborum minima. Id quae odio tenetur ab nostrum...
+                            </div>
+                            <div class="read-more-button">
+                                Read More
+                            </div>
                         </div>
                     </div>
                     <button class="button x-button" type="button">
@@ -97,12 +99,30 @@
                     </svg>
                 </button>
                 <div class="inner-box">
-                    <div class="inner-box-header">
-                        Lorem, ipsum.
+                    <div class="inner-box-column">
+                        <div class="inner-box-header">
+                            Lorem, ipsum.
+                        </div>
+                        <div class="inner-box-content">
+                            <ul class="text-label">
+                                <!-- filters with toStructure -->
+                                <li class="filter">Images</li>
+                                <li class="filter">Video</li>
+                                <li class="filter">Maps</li>
+                            </ul>
+                        </div>
                     </div>
-                    <div class="inner-box-content">
-                        <div class="box-text">
-                            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Deserunt ratione a nobis. Rerum ex quisquam reprehenderit! Est ratione sed vel et modi reiciendis quidem temporibus ab sapiente consectetur voluptates maiores eveniet ducimus suscipit dignissimos expedita nisi, id voluptatibus dolore laudantium at illum laborum minima. Id quae odio tenetur ab nostrum...
+                    <div class="inner-box-column">
+                        <div class="inner-box-header">
+                            Lorem, ipsum.
+                        </div>
+                        <div class="inner-box-content">
+                            <ul class="text-label">
+                                <!-- filters with toStructure -->
+                                <li class="filter">Archive Materials</li>
+                                <li class="filter">Research</li>
+                                <li class="filter">Outcomes</li>
+                            </ul>
                         </div>
                     </div>
                     <button class="button x-button" type="button">
@@ -115,7 +135,6 @@
                 </div>
             </div>
         </div>
-
     </div>
 </main>
 
