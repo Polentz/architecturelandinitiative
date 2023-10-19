@@ -189,78 +189,88 @@ const handleCarousel = () => {
     observer.observe(lastElement);
 };
 
-const handleProjectInfo = () => {
-    const infoContainer = document.querySelector(".info");
-    const infoWrapper = infoContainer.querySelector(".info-wrapper");
-    const infoCloseButton = infoContainer.querySelector(".info-close-button");
-    const infoContent = infoContainer.querySelector(".info-content");
+const handleProjectButtons = () => {
     const galleryContainer = document.querySelector(".gallery");
     const galleryGrid = galleryContainer.querySelector(".gallery-grid");
+    const sliderContainer = document.querySelector(".info-slider");
+    const sliderWrapper = sliderContainer.querySelector(".info-slider-wrapper");
+    const sliderCloseButton = sliderContainer.querySelector(".slider-button");
+    const sliderContent = sliderContainer.querySelector(".slider-content");
+    const iButton = document.querySelector(".i-button");
 
-    const infoOpenButton = document.querySelector(".info-open-button");
-    const previewContainer = document.querySelector(".info-preview");
-    const previewContent = document.querySelectorAll(".info-preview div");
-    const previewCloseButton = document.querySelector(".info-preview-button");
-    const readMore = document.querySelector(".preview-button");
-
-    infoCloseButton.addEventListener("click", () => {
-        infoWrapper.classList.add("--translateX");
+    sliderCloseButton.addEventListener("click", () => {
+        sliderWrapper.classList.add("--translateX");
         setTimeout(() => {
             galleryGrid.classList.add("--change-grid");
             galleryContainer.classList.add("--width");
         }, 300);
         setTimeout(() => {
-            infoContent.scrollTo(0, 0);
-            infoContainer.classList.add("--hide");
+            sliderContent.scrollTo(0, 0);
+            sliderContainer.classList.add("--hide");
         }, 500);
         setTimeout(() => {
-            infoOpenButton.classList.add("--opacity");
+            iButton.classList.add("--opacity");
         }, 900);
     });
 
-    infoOpenButton.addEventListener("click", () => {
-        previewContainer.classList.add("--scale-in");
-        infoOpenButton.classList.remove("--opacity");
-        infoOpenButton.classList.add("--scale-out");
-        setTimeout(() => {
-            previewContent.forEach(content => {
-                content.classList.add("--opacity");
+    const parentContainer = document.querySelectorAll(".box-wrapper");
+    parentContainer.forEach(element => {
+        const boxOpenButton = element.querySelector("button");
+        const boxContainer = element.querySelector(".inner-box");
+        const boxContent = element.querySelectorAll(".inner-box div");
+        const boxReadMore = element.querySelector(".read-more-button");
+        const boxCloseButton = element.querySelector(".x-button");
+
+        boxOpenButton.addEventListener("click", () => {
+            boxContainer.classList.add("--display");
+            boxOpenButton.classList.remove("--opacity");
+            setTimeout(() => {
+                boxContainer.classList.add("--scale-in");
+                boxOpenButton.classList.add("--scale-out");
+            }, 100);
+            setTimeout(() => {
+                boxContent.forEach(content => {
+                    content.classList.add("--opacity");
+                });
+                boxCloseButton.classList.add("--opacity");
+            }, 500);
+        });
+
+        boxCloseButton.addEventListener("click", () => {
+            boxContent.forEach(content => {
+                content.classList.remove("--opacity");
             });
-        }, 100);
-        setTimeout(() => {
+            setTimeout(() => {
+                boxCloseButton.classList.remove("--opacity");
+                boxContainer.classList.remove("--scale-in");
+                boxOpenButton.classList.remove("--scale-out");
+                boxOpenButton.classList.add("--opacity");
+            }, 250);
 
-            previewCloseButton.classList.add("--opacity");
-        }, 500);
-    });
-
-    previewCloseButton.addEventListener("click", () => {
-        previewContent.forEach(content => {
-            content.classList.remove("--opacity");
+            setTimeout(() => {
+                boxContainer.classList.remove("--display");
+            }, 750);
         });
-        setTimeout(() => {
-            previewCloseButton.classList.remove("--opacity");
-            previewContainer.classList.remove("--scale-in");
-            infoOpenButton.classList.remove("--scale-out");
-            infoOpenButton.classList.add("--opacity");
-        }, 250);
-    });
 
-    readMore.addEventListener("click", () => {
-        infoContainer.classList.remove("--hide");
-        previewContent.forEach(content => {
-            content.classList.remove("--opacity");
-        });
-        previewCloseButton.classList.remove("--opacity");
-        setTimeout(() => {
-            previewContainer.classList.remove("--scale-in");
-            galleryGrid.classList.remove("--change-grid");
-            galleryContainer.classList.remove("--width");
-        }, 100);
-        setTimeout(() => {
-            infoWrapper.classList.remove("--translateX");
-            infoOpenButton.classList.remove("--opacity");
-            infoOpenButton.classList.remove("--scale-out");
-        }, 500);
+        if (boxReadMore) {
+            boxReadMore.addEventListener("click", () => {
+                sliderContainer.classList.remove("--hide");
+                boxContent.forEach(content => {
+                    content.classList.remove("--opacity");
+                });
+                boxCloseButton.classList.remove("--opacity");
+                setTimeout(() => {
+                    boxContainer.classList.remove("--scale-in");
+                    galleryGrid.classList.remove("--change-grid");
+                    galleryContainer.classList.remove("--width");
+                }, 100);
+                setTimeout(() => {
+                    sliderWrapper.classList.remove("--translateX");
+                    boxOpenButton.classList.remove("--opacity");
+                    boxOpenButton.classList.remove("--scale-out");
+                }, 500);
+            });
+        };
     });
 };
 

@@ -9,10 +9,10 @@
         </button>
         <div class="slider-content">
             <div class="slider-block">
-                <div class="block-title">
+                <div class="slider-block-title">
                     <h2>About</h2>
                 </div>
-                <div class="block-text">
+                <div class="slider-block-text">
                     <div class="text-label">
                         <p>ALIN</p>
                     </div>
