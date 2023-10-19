@@ -86,6 +86,7 @@ html {
     --header-text-size: 1.5rem;
     --main-margin: 4rem;
     --half-margin: 2rem;
+    --double-margin: 8rem;
     --nav-height: 3rem;
     --button-size: 2rem;
     --border: solid 1px var(--black);
@@ -109,7 +110,8 @@ em {
     font-style: italic;
 }
 
-button {
+button,
+a.button {
     width: var(--button-size);
     height: var(--button-size);
     background-color: transparent;
@@ -120,11 +122,12 @@ button {
     font-family: var(--header-text-font);
     font-size: var(--header-text-size);
     display: flex;
-    gap: 1rem;
+    gap: .75rem;
     position: fixed;
     top: var(--half-margin);
-    left: 50%;
-    transform: translateX(-50%);
+    left: var(--half-margin);
+    /* left: 50%;
+    transform: translateX(-50%); */
     transition: all .5s ease;
     z-index: 2;
 }
@@ -374,7 +377,7 @@ button {
 .grid-layout-title {
     height: var(--doc-height);
     writing-mode: vertical-rl;
-    padding-top: var(--main-margin);
+    padding-top: var(--double-margin);
     padding-right: var(--half-margin);
     padding-bottom: calc(var(--nav-height) + var(--half-margin));
     padding-left: var(--half-margin);

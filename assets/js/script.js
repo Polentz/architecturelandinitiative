@@ -189,20 +189,77 @@ const handleCarousel = () => {
     observer.observe(lastElement);
 };
 
-const infoOpener = () => {
+const handleProjectInfo = () => {
     const infoContainer = document.querySelector(".info");
     const infoWrapper = infoContainer.querySelector(".info-wrapper");
-    const infoButton = infoContainer.querySelector(".info-close-button");
+    const infoCloseButton = infoContainer.querySelector(".info-close-button");
     const infoContent = infoContainer.querySelector(".info-content");
     const galleryContainer = document.querySelector(".gallery");
     const galleryGrid = galleryContainer.querySelector(".gallery-grid");
-    infoButton.addEventListener("click", () => {
+
+    const infoOpenButton = document.querySelector(".info-open-button");
+    const previewContainer = document.querySelector(".info-preview");
+    const previewContent = document.querySelectorAll(".info-preview div");
+    const previewCloseButton = document.querySelector(".info-preview-button");
+    const readMore = document.querySelector(".preview-button");
+
+    infoCloseButton.addEventListener("click", () => {
         infoWrapper.classList.add("--translateX");
-        galleryContainer.classList.add("--width");
-        galleryGrid.classList.add("--change-grid");
+        setTimeout(() => {
+            galleryGrid.classList.add("--change-grid");
+            galleryContainer.classList.add("--width");
+        }, 300);
         setTimeout(() => {
             infoContent.scrollTo(0, 0);
             infoContainer.classList.add("--hide");
+        }, 500);
+        setTimeout(() => {
+            infoOpenButton.classList.add("--opacity");
+        }, 900);
+    });
+
+    infoOpenButton.addEventListener("click", () => {
+        previewContainer.classList.add("--scale-in");
+        infoOpenButton.classList.remove("--opacity");
+        infoOpenButton.classList.add("--scale-out");
+        setTimeout(() => {
+            previewContent.forEach(content => {
+                content.classList.add("--opacity");
+            });
+        }, 100);
+        setTimeout(() => {
+
+            previewCloseButton.classList.add("--opacity");
+        }, 500);
+    });
+
+    previewCloseButton.addEventListener("click", () => {
+        previewContent.forEach(content => {
+            content.classList.remove("--opacity");
+        });
+        setTimeout(() => {
+            previewCloseButton.classList.remove("--opacity");
+            previewContainer.classList.remove("--scale-in");
+            infoOpenButton.classList.remove("--scale-out");
+            infoOpenButton.classList.add("--opacity");
+        }, 250);
+    });
+
+    readMore.addEventListener("click", () => {
+        infoContainer.classList.remove("--hide");
+        previewContent.forEach(content => {
+            content.classList.remove("--opacity");
+        });
+        previewCloseButton.classList.remove("--opacity");
+        setTimeout(() => {
+            previewContainer.classList.remove("--scale-in");
+            galleryGrid.classList.remove("--change-grid");
+            galleryContainer.classList.remove("--width");
+        }, 100);
+        setTimeout(() => {
+            infoWrapper.classList.remove("--translateX");
+            infoOpenButton.classList.remove("--opacity");
+            infoOpenButton.classList.remove("--scale-out");
         }, 500);
     });
 };
