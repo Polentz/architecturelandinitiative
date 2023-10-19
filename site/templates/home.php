@@ -1,9 +1,10 @@
 <?= snippet('header') ?>
 
 <main class="grid-layout main">
-    <button class="button header-button">
-        <svg viewBox="0 0 26 26" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <rect x="0.5" y="0.5" width="25" height="25" stroke="#1D1D1B"/>
+    <button class="header-button">
+        <svg viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect x="7.5" y="7.5" width="25" height="25" stroke="#1d1d1b"/>
+            <rect x="0.5" y="0.5" width="39" height="39" stroke="#1d1d1b"/>
         </svg>
     </button>
     <ul class="scroll-wrapper">
@@ -26,14 +27,17 @@
 </main>
 
 <main class="cover-layout main">
-    <button class="button header-button">
-        <svg viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M1 27L0.999999 1L5.33333 1L5.33333 27L9.66667 27L9.66667 1L14 1L14 27L18.3333 27L18.3333 1L22.6667 1L22.6667 27L27 27L27 1" stroke="#1D1D1B"/>
+    <button class="header-button">
+        <svg viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M7 33L7 7L11.3333 7L11.3333 33L15.6667 33L15.6667 7L20 7L20 33L24.3333 33L24.3333 7L28.6667 7L28.6667 33L33 33L33 7" stroke="#1d1d1b"/>
+            <rect x="0.5" y="0.5" width="39" height="39" stroke="#1d1d1b"/>
         </svg>
     </button>
-    <button class="button cover-button">
-        <svg viewBox="0 0 25 22" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M24 11L12.75 21M24 11L12.75 1M24 11L0 11"/>
+    <button class="cover-button">
+        <svg viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect x="0.5" y="0.5" width="39" height="39" fill="#1d1d1b"/>
+            <path d="M32 20L20.75 30M32 20L20.75 10M32 20L8 20" stroke="#ffffff"/>
+            <rect x="0.5" y="0.5" width="39" height="39" stroke="#ffffff"/>
         </svg>
     </button>
     <ul class="scroll-wrapper">

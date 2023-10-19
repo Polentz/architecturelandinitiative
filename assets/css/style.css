@@ -110,7 +110,10 @@ em {
 }
 
 button {
+    width: var(--button-size);
+    height: var(--button-size);
     background-color: transparent;
+    border: none;
 }
 
 .logo {
@@ -154,29 +157,23 @@ button {
     padding-top: 1rem;
 }
 
-.button {
-    width: var(--button-size);
-    height: var(--button-size);
-    border: var(--border);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.button svg {
-    width: 1.4rem;
-    height: 1.4rem;
-    stroke: var(--black);
-    stroke-width: 1px;
-}
+/* button */
 
 .header-button {
     position: fixed;
     top: var(--half-margin);
     right: var(--half-margin);
-    background-color: var(--white);
     z-index: 2;
 }
+
+.info-close-button {
+    position: sticky;
+    top: calc(var(--main-margin) * 2);
+    transform: translateX(1px);
+    transition: opacity .5s ease;
+}
+
+/*  */
 
 .footer {
     width: 100%;
@@ -246,7 +243,6 @@ button {
     position: absolute;
     top: var(--button-size);
     right: var(--main-margin);
-    background-color: var(--white);
     transform: translateY(-4rem);
 }
 
@@ -290,7 +286,6 @@ button {
 .slider-button {
     position: sticky;
     top: var(--main-margin);
-    background-color: var(--white);
     transform: translateX(1px);
     opacity: 0;
     transition: opacity .5s ease;
@@ -383,6 +378,7 @@ button {
     padding-right: var(--half-margin);
     padding-bottom: calc(var(--nav-height) + var(--half-margin));
     padding-left: var(--half-margin);
+    scroll-snap-align: start;
 }
 
 /* .grid-layout-title:not(:last-child) {
@@ -435,10 +431,5 @@ button {
     position: absolute;
     bottom: calc(var(--nav-height) + var(--main-margin));
     right: var(--half-margin);
-    background-color: var(--black);
     z-index: 2;
-}
-
-.cover-button svg {
-    stroke: var(--white);
 }

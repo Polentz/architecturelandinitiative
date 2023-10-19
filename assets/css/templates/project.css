@@ -82,14 +82,6 @@ body {
     transform: translateX(100%);
 }
 
-.info-button {
-    position: sticky;
-    top: calc(var(--main-margin) * 2);
-    background-color: var(--white);
-    transform: translateX(1px);
-    transition: opacity .5s ease;
-}
-
 .info-content {
     width: 100%;
     height: auto;

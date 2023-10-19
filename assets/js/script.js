@@ -192,7 +192,7 @@ const handleCarousel = () => {
 const infoOpener = () => {
     const infoContainer = document.querySelector(".info");
     const infoWrapper = infoContainer.querySelector(".info-wrapper");
-    const infoButton = infoContainer.querySelector(".info-button");
+    const infoButton = infoContainer.querySelector(".info-close-button");
     const infoContent = infoContainer.querySelector(".info-content");
     const galleryContainer = document.querySelector(".gallery");
     const galleryGrid = galleryContainer.querySelector(".gallery-grid");
