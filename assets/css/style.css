@@ -72,6 +72,7 @@ html {
     --black: #1d1d1b;
     --white: #ffffff;
     --background: transparent;
+    --side-background: transparent;
     --main-color: transparent;
     --acc-color: transparent;
     /* --yellow: #feff8a; */
@@ -329,8 +330,8 @@ button {
     width: 100%;
     height: auto;
     padding: var(--main-margin);
+    background: var(--background);
     border-left: var(--border);
-    background-color: var(--background);
     overflow-y: scroll;
 }
 

@@ -25,10 +25,12 @@ const handleColorsShuffle = () => {
     const randomColorSet = colors[Math.floor(Math.random() * colors.length)];
     const mainColor = document.documentElement;
     const accentColor = document.documentElement;
-    const colorSet = document.documentElement;
+    const mainBackground = document.documentElement;
+    const sideBackground = document.documentElement;
     mainColor.style.setProperty("--main-color", `${randomColorSet[0]}`);
     accentColor.style.setProperty("--acc-color", `${randomColorSet[1]}`);
-    colorSet.style.setProperty("--background", `linear-gradient(180deg, ${randomColorSet[1]} 0%, ${randomColorSet[0]} 100%)`);
+    mainBackground.style.setProperty("--background", `linear-gradient(180deg, ${randomColorSet[1]} 0%, ${randomColorSet[0]} 100%)`);
+    sideBackground.style.setProperty("--side-background", `linear-gradient(180deg, ${randomColorSet[0]} 0%, ${randomColorSet[1]} 100%)`);
 };
 
 const handleLayoutsShuffle = () => {
