@@ -71,6 +71,9 @@ html {
     --doc-height: 100%;
     --black: #1d1d1b;
     --white: #ffffff;
+    --background: transparent;
+    --main-color: transparent;
+    --acc-color: transparent;
     /* --yellow: #feff8a; */
     --body-text-font: "GT America";
     --body-text-size: 1rem;
@@ -99,6 +102,7 @@ body {
     font-weight: 400;
     line-height: 130%;
     color: var(--black);
+    background: var(--background);
     overflow-x: hidden;
 }
 
@@ -142,6 +146,11 @@ button {
 .button {
     width: var(--button-size);
     height: var(--button-size);
+}
+
+.button svg {
+    width: 100%;
+    height: 100%;
 }
 
 .logo {
@@ -199,7 +208,7 @@ button {
     position: fixed;
     bottom: 0;
     left: 0;
-    background-color: var(--white);
+    background-color: var(--main-color);
     border-top: var(--border);
     z-index: 4;
 }
@@ -245,6 +254,7 @@ button {
     justify-content: space-between;
     align-items: start;
     padding: var(--half-margin) var(--main-margin);
+    background: var(--main-color);
 }
 
 .banner.--display {
@@ -262,6 +272,8 @@ button {
     top: var(--button-size);
     right: var(--main-margin);
     transform: translateY(-4rem);
+    border: var(--border);
+    background-color: var(--main-color);
 }
 
 .banner-block,
@@ -318,7 +330,7 @@ button {
     height: auto;
     padding: var(--main-margin);
     border-left: var(--border);
-    background-color: var(--white);
+    background-color: var(--background);
     overflow-y: scroll;
 }
 
@@ -395,6 +407,8 @@ button {
     padding-left: var(--half-margin);
     scroll-snap-align: start;
     background-size: 0;
+    background-repeat: no-repeat;
+    transition: background-position .5s ease;
 }
 
 .grid-layout-title::before {
@@ -404,7 +418,7 @@ button {
     position: absolute;
     top: 0;
     left: 0;
-    background-color: var(--white);
+    background: var(--background);
     transition: opacity .5s ease;
 }
 
@@ -414,8 +428,9 @@ button {
 
 .grid-layout-title:hover {
     background-size: cover;
-    background-repeat: no-repeat;
     background-position: center;
+    border-right: var(--border);
+    border-left: var(--border);
 }
 
 .grid-layout-title h2 {

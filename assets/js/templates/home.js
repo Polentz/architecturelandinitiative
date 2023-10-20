@@ -1,5 +1,5 @@
 window.addEventListener("load", () => {
-    homeLayoutsShuffle();
+    handleLayoutsShuffle();
     // handleScrollDirection();
     handleCarousel();
 });

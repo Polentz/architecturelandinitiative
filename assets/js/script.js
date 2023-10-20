@@ -15,6 +15,47 @@ const documentHeight = () => {
     doc.style.setProperty("--doc-height", `${window.innerHeight}px`);
 };
 
+const handleColorsShuffle = () => {
+    const colors = [
+        ["#FEFF8A", "#F1F1F1"],
+        ["#FA7660", "#FFE1E8"],
+        ["#D9A1F8", "#C2FFC8"],
+        ["#7B8EF2", "#F9E7CF"]
+    ]
+    const randomColorSet = colors[Math.floor(Math.random() * colors.length)];
+    const mainColor = document.documentElement;
+    const accentColor = document.documentElement;
+    const colorSet = document.documentElement;
+    mainColor.style.setProperty("--main-color", `${randomColorSet[0]}`);
+    accentColor.style.setProperty("--acc-color", `${randomColorSet[1]}`);
+    colorSet.style.setProperty("--background", `linear-gradient(180deg, ${randomColorSet[1]} 0%, ${randomColorSet[0]} 100%)`);
+};
+
+const handleLayoutsShuffle = () => {
+    const layouts = document.querySelectorAll(".grid-layout, .cover-layout");
+    const randomLayout = layouts[Math.floor(Math.random() * layouts.length)];
+    randomLayout.classList.add("--random");
+    const shuffleButton = document.querySelectorAll(".header-button");
+    const scrollElements = document.querySelectorAll(".scroll-wrapper");
+    shuffleButton.forEach(button => {
+        button.addEventListener("click", () => {
+            layouts.forEach(layout => {
+                if (layout.classList.contains("--random")) {
+                    layout.classList.remove("--random");
+                } else {
+                    layout.classList.add("--random");
+                    logoAnimation();
+                };
+            });
+            scrollElements.forEach(scrollElement => {
+                scrollElement.scrollTo({
+                    left: 0,
+                });
+            });
+        });
+    });
+};
+
 const handleAnchorTags = () => {
     const aTags = document.querySelectorAll(".js-href");
     aTags.forEach(a => {
@@ -120,41 +161,16 @@ const bannerOpener = () => {
     });
 };
 
-const homeLayoutsShuffle = () => {
-    const layouts = document.querySelectorAll(".grid-layout, .cover-layout");
-    const randomLayout = layouts[Math.floor(Math.random() * layouts.length)];
-    randomLayout.classList.add("--random");
-    const shuffleButton = document.querySelectorAll(".header-button");
-    const scrollElements = document.querySelectorAll(".scroll-wrapper");
-    shuffleButton.forEach(button => {
-        button.addEventListener("click", () => {
-            layouts.forEach(layout => {
-                if (layout.classList.contains("--random")) {
-                    layout.classList.remove("--random");
-                } else {
-                    layout.classList.add("--random");
-                    logoAnimation();
-                };
-            });
-            scrollElements.forEach(scrollElement => {
-                scrollElement.scrollTo({
-                    left: 0,
-                });
-            });
-        });
-    });
-};
-
-const handleScrollDirection = () => {
-    const scrollContainer = document.querySelector(".grid-layout .scroll-wrapper");
-    window.addEventListener("resize", () => {
-        scrollContainer.scrollTo(0, 0);
-    });
-    scrollContainer.addEventListener("wheel", (event) => {
-        event.preventDefault();
-        scrollContainer.scrollLeft += event.deltaY;
-    });
-};
+// const handleScrollDirection = () => {
+//     const scrollContainer = document.querySelector(".grid-layout .scroll-wrapper");
+//     window.addEventListener("resize", () => {
+//         scrollContainer.scrollTo(0, 0);
+//     });
+//     scrollContainer.addEventListener("wheel", (event) => {
+//         event.preventDefault();
+//         scrollContainer.scrollLeft += event.deltaY;
+//     });
+// };
 
 const handleCarousel = () => {
     const scrollButton = document.querySelector(".cover-button");
@@ -291,6 +307,7 @@ window.addEventListener("load", () => {
     documentHeight();
     sliderOpener();
     bannerOpener();
+    handleColorsShuffle();
 });
 
 window.addEventListener("resize", () => {
