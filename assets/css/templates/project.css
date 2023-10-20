@@ -178,6 +178,7 @@ body {
     font-family: var(--label-text-font);
     font-size: var(--label-text-size);
     text-align: end;
+    color: var(--white);
     cursor: pointer;
 }
 

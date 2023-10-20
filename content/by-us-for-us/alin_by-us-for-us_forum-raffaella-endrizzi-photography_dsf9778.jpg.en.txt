@@ -3,3 +3,7 @@ Uuid: 1KNquANvkKi0qGBI
 ----
 
 Template: image
+
+----
+
+Sort: 6

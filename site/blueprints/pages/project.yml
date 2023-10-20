@@ -5,6 +5,53 @@ options:
     template: project
 
 columns:
+  cover:
+    sections:
+      cover:
+        type: fields
+        fields:
+          background:
+            type: files
+            label: Background image
+            template: image
+            layout: list
+            size: small
+            max: 1
+            image:
+              back: "#000"
+              icon: false
+              ratio: 1/1
+              cover: true
+  filters:
+    width: 1/1
+    sections:
+      filter:
+        type: fields
+        fields:   
+          filterSetATitle:
+            type: text
+            label: false
+            width: 1/2    
+          filterSetA:
+            type: structure
+            label: '{{ page.filterSetATitle }}'
+            width: 1/2
+            fields:
+              filter:
+                type: text
+                label: Available filters
+          filterSetBTitle:
+            type: text
+            label: false
+            width: 1/2   
+          filterSetB:
+            type: structure
+            label: '{{ page.filterSetBTitle }}'
+            width: 1/2
+            fields:
+              filter:
+                type: text
+                label: Available filters
   sidebar:
     width: 1/2
     sections:
@@ -17,7 +64,7 @@ columns:
             template: image
             uploads: image
             query: page.images.filterBy('template', 'image')
-            layout: cards
+            layout: list
             size: small
             multiple: true
             image:

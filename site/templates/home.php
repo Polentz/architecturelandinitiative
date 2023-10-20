@@ -8,9 +8,11 @@
         </svg>
     </button>
     <ul class="scroll-wrapper">
-        <li class="grid-layout-title">
-            <h2>By Us for Us</h2>
-        </li>
+        <?php foreach ($pages->template('project') as $page): ?>
+            <li class="grid-layout-title" <?php if ($cover = $page->background()->toFile()): ?>style="background-image: url('<?= $cover->url() ?>');"<?php endif ?>>
+                <h2><a href="<?= $page->url() ?>"><?= $page->title()->kt() ?></a></h2>
+            </li>
+        <?php endforeach ?>
         <li class="grid-layout-title">
             <h2>Shared Landscapes</h2>
         </li>
@@ -41,11 +43,11 @@
         </svg>
     </button>
     <ul class="scroll-wrapper">
-        <li class="cover-layout-title" 
-        <?php if ($cover = $page->background()->image()): ?>style="background-image: url('<?= $cover->url() ?>');"
-        <?php endif ?>>
-            <h2>By Us for Us</h2>
-        </li>
+        <?php foreach ($pages->template('project') as $page): ?>
+            <li class="cover-layout-title" <?php if ($cover = $page->background()->toFile()): ?>style="background-image: url('<?= $cover->url() ?>');"<?php endif ?>>
+                <h2><a href="<?= $page->url() ?>"><?= $page->title()->kt() ?></a></h2>
+            </li>
+        <?php endforeach ?>
         <li class="cover-layout-title">
             <h2>Shared Landscapes</h2>
         </li>

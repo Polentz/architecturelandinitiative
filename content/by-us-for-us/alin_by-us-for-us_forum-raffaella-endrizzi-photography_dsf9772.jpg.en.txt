@@ -3,3 +3,7 @@ Uuid: 6vWMCy0eu9auDRkj
 ----
 
 Template: image
+
+----
+
+Sort: 5

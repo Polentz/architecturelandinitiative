@@ -189,4 +189,19 @@ logo.addEventListener("mouseleave", () => {
     });
 });
 
+// gsap.registerPlugin(ScrollTrigger)
+
+// let scrollSections = gsap.utils.toArray(".scroll-wrapper li");
+
+// gsap.to(scrollSections, {
+//     xPercent: -100 * (scrollSections.length - 1),
+//     ease: "none",
+//     ScrollTrigger: {
+//         trigger: ".scroll-wrapper",
+//         pin: true,
+//         scrub: 1,
+//         snap: 1 / (scrollSections.length - 1),
+//         end: () => "+=" + document.querySelector(".scroll-wrapper").offsetWidth
+//     }
+// });
 

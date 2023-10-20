@@ -13,11 +13,9 @@
                 <?php foreach ($page->gallery()->toFiles() as $image) : ?>
                     <figure class="gallery-item">
                         <img src="<?= $image->resize(800, null)->url() ?>" alt="<?= $image->alt() ?>">
-                        <?php if($image->caption()->isNotEmpty()) : ?>
                             <figcaption>
                                 <?= $image->caption()->kt() ?>
                             </figcaption>
-                        <?php endif ?>
                     </figure>
                 <?php endforeach ?>
             </div>
@@ -70,9 +68,9 @@
                             <div class="text">
                                 Lorem ipsum dolor sit amet consectetur, adipisicing elit. Deserunt ratione a nobis. Rerum ex quisquam reprehenderit! Est ratione sed vel et modi reiciendis quidem temporibus ab sapiente consectetur voluptates maiores eveniet ducimus suscipit dignissimos expedita nisi, id voluptatibus dolore laudantium at illum laborum minima. Id quae odio tenetur ab nostrum...
                             </div>
-                            <div class="read-more-button">
+                            <button class="read-more-button" type="button">
                                 Read More
-                            </div>
+                            </button>
                         </div>
                     </div>
                     <button class="button x-button" type="button">
@@ -101,27 +99,27 @@
                 <div class="inner-box">
                     <div class="inner-box-column">
                         <div class="inner-box-header">
-                            Lorem, ipsum.
+                            <?= $page->filterSetATitle()->kt() ?>
                         </div>
                         <div class="inner-box-content">
                             <ul class="text-label">
-                                <!-- filters with toStructure -->
-                                <li class="filter">Images</li>
-                                <li class="filter">Video</li>
-                                <li class="filter">Maps</li>
+                                <?php foreach ($page->filterSetA()->toStructure() as $filter): ?>
+                                    <li id="<?= $filter->filter()->slug() ?>" class="filter" data-filter="<?= $filter->filter()->slug() ?>">
+                                        <?= $filter->filter()->kt() ?></li>
+                                <?php endforeach ?>
                             </ul>
                         </div>
                     </div>
                     <div class="inner-box-column">
                         <div class="inner-box-header">
-                            Lorem, ipsum.
+                            <?= $page->filterSetATitle()->kt() ?>
                         </div>
                         <div class="inner-box-content">
                             <ul class="text-label">
-                                <!-- filters with toStructure -->
-                                <li class="filter">Archive Materials</li>
-                                <li class="filter">Research</li>
-                                <li class="filter">Outcomes</li>
+                                <?php foreach ($page->filterSetB()->toStructure() as $filter): ?>
+                                    <li id="<?= $filter->filter()->slug() ?>" class="filter" data-filter="<?= $filter->filter()->slug() ?>">
+                                        <?= $filter->filter()->kt() ?></li>
+                                <?php endforeach ?>
                             </ul>
                         </div>
                     </div>

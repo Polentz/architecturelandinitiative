@@ -110,12 +110,14 @@ em {
     font-style: italic;
 }
 
-button,
-a.button {
-    width: var(--button-size);
-    height: var(--button-size);
+button {
     background-color: transparent;
     border: none;
+}
+
+.button {
+    width: var(--button-size);
+    height: var(--button-size);
 }
 
 .logo {
@@ -160,16 +162,12 @@ a.button {
     padding-top: 1rem;
 }
 
-/* button */
-
 .header-button {
     position: fixed;
     top: var(--half-margin);
     right: var(--half-margin);
     z-index: 2;
 }
-
-/*  */
 
 .footer {
     width: 100%;
@@ -380,17 +378,36 @@ a.button {
 
 .grid-layout-title {
     height: var(--doc-height);
+    position: relative;
     writing-mode: vertical-rl;
     padding-top: var(--double-margin);
     padding-right: var(--half-margin);
     padding-bottom: calc(var(--nav-height) + var(--half-margin));
     padding-left: var(--half-margin);
     scroll-snap-align: start;
+    background-size: 0;
 }
 
-/* .grid-layout-title:not(:last-child) {
-    border-right: var(--border);
-} */
+.grid-layout-title::before {
+    content: "";
+    width: 100%;
+    height: var(--doc-height);
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: var(--white);
+    transition: opacity .5s ease;
+}
+
+.grid-layout-title:hover::before {
+    opacity: 0;
+}
+
+.grid-layout-title:hover {
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+}
 
 .grid-layout-title h2 {
     font-family: var(--huge-title-font);
@@ -419,11 +436,10 @@ a.button {
     padding-right: var(--main-margin);
     padding-bottom: calc(var(--nav-height) + var(--half-margin));
     padding-left: var(--main-margin);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: top left;
     scroll-snap-align: center;
-}
-
-.cover-layout-title:not(:last-child) {
-    border-right: var(--border);
 }
 
 .cover-layout-title h2 {
