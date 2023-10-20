@@ -192,6 +192,8 @@ const handleCarousel = () => {
 const handleProjectButtons = () => {
     const galleryContainer = document.querySelector(".gallery");
     const galleryGrid = galleryContainer.querySelector(".gallery-grid");
+    const galleryCaption = galleryContainer.querySelectorAll("figcaption");
+    const galleryCaptionItem = galleryContainer.querySelectorAll("figcaption div");
     const sliderContainer = document.querySelector(".info-slider");
     const sliderWrapper = sliderContainer.querySelector(".info-slider-wrapper");
     const sliderCloseButton = sliderContainer.querySelector(".slider-button");
@@ -203,6 +205,9 @@ const handleProjectButtons = () => {
         setTimeout(() => {
             galleryGrid.classList.add("--change-grid");
             galleryContainer.classList.add("--width");
+            galleryCaption.forEach(itemInfo => {
+                itemInfo.classList.add("--display");
+            });
         }, 300);
         setTimeout(() => {
             sliderContent.scrollTo(0, 0);
@@ -210,6 +215,9 @@ const handleProjectButtons = () => {
         }, 500);
         setTimeout(() => {
             infoButton.classList.add("--opacity");
+            galleryCaptionItem.forEach(item => {
+                item.classList.add("--opacity");
+            });
         }, 900);
     });
     const parentContainer = document.querySelectorAll(".box-wrapper");
@@ -262,11 +270,17 @@ const handleProjectButtons = () => {
                     boxContainer.classList.remove("--scale-in");
                     galleryGrid.classList.remove("--change-grid");
                     galleryContainer.classList.remove("--width");
+                    galleryCaptionItem.forEach(item => {
+                        item.classList.remove("--opacity");
+                    });
                 }, 100);
                 setTimeout(() => {
                     sliderWrapper.classList.remove("--translateX");
                     boxOpenButton.classList.remove("--opacity");
                     boxOpenButton.classList.remove("--scale-out");
+                    galleryCaption.forEach(caption => {
+                        caption.classList.remove("--display");
+                    });
                 }, 500);
             });
         };

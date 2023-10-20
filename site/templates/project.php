@@ -1,7 +1,7 @@
 <?= snippet('header') ?>
 
 <main class="project-layout main">
-    <a class="button header-button" href="/">
+    <a class="button header-button" href="<?= $site->url() ?>">
         <svg viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path d="M20 8.65085L31.5 18.2342V31.5H8.5V18.2342L20 8.65085Z" stroke="#1d1d1b"/>
             <rect x="0.5" y="0.5" width="39" height="39" stroke="#1d1d1b"/>
@@ -10,14 +10,38 @@
     <section class="gallery">
         <div class="gallery-wrapper">
             <div class="gallery-grid">
-                <?php foreach ($page->gallery()->toFiles() as $image) : ?>
-                    <figure class="gallery-item">
-                        <img src="<?= $image->resize(800, null)->url() ?>" alt="<?= $image->alt() ?>">
-                            <figcaption>
-                                <?= $image->caption()->kt() ?>
+                <?php foreach ($page->gallery()->toFiles() as $media) : ?>
+                    <?php if ($media->type() == 'image') : ?>
+                        <figure class="gallery-item">
+                            <img src="<?= $media->resize(800, null)->url() ?>" alt="<?= $media->alt() ?>">
+                            <figcaption class="text-label">
+                                <?= $media->caption()->kt() ?>
                             </figcaption>
-                    </figure>
-                <?php endforeach ?>
+                        </figure>
+                    <?php endif ?> 
+                    <?php if ($media->type() == 'video') : ?>
+                        <figure class="gallery-item">
+                            <video src="<?= $media->url() ?>" controls controlslist="noplaybackrate nodownload" disablePictureInPicture type="video"></video>
+                            <figcaption class="text-label">
+                                <?= $media->caption()->kt() ?>
+                            </figcaption>
+                        </figure>
+                    <?php endif ?> 
+                    <?php if ($media->type() == 'audio') : ?>
+                        <figure class="gallery-item" dataset-filterSetA="<?= $media->filterSetA()->slug() ?>" dataset-filterSetB="<?= $media->filterSetB()->slug() ?>">
+                            <audio src="<?= $media->url() ?>" controls preload="metadata" type="audio"></audio>                            
+                            <figcaption>
+                                <div class="text-label">
+                                    <p><?= $page->filterSetATitle() ?>: <?= $media->filterSetA() ?></p>
+                                    <p><?= $page->filterSetBTitle() ?>: <?= $media->filterSetB() ?></p>
+                                </div>
+                                <div class="text-subtext">
+                                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus ea sunt consectetur earum voluptates quis dolore quo neque blanditiis repellat?</p>
+                                </div>
+                            </figcaption>
+                        </figure> 
+                    <?php endif ?>             
+                <?php endforeach ?> 
             </div>
         </div>
     </section>
@@ -99,7 +123,7 @@
                 <div class="inner-box">
                     <div class="inner-box-column">
                         <div class="inner-box-header">
-                            <?= $page->filterSetATitle()->kt() ?>
+                            <p>Filter by <?= $page->filterSetATitle() ?></p>
                         </div>
                         <div class="inner-box-content">
                             <ul class="text-label">
@@ -112,7 +136,7 @@
                     </div>
                     <div class="inner-box-column">
                         <div class="inner-box-header">
-                            <?= $page->filterSetATitle()->kt() ?>
+                            <p>Filter by <?= $page->filterSetBTitle() ?></p>
                         </div>
                         <div class="inner-box-content">
                             <ul class="text-label">
@@ -138,3 +162,7 @@
 
 <?= snippet('slider') ?>
 <?= snippet('footer') ?>
+
+
+
+<!-- $page->gallery()->toFiles() as $media -->

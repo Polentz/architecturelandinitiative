@@ -1,10 +1,9 @@
 title: Image
-options:
-  preview: false
 
 accept: 
   extension: jpg, png, jpeg
-  maxsize: 1258291
+  type: image
+  # maxsize: 1258291
 
 fields:
   caption:

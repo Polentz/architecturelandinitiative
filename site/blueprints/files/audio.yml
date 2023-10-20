@@ -1,0 +1,17 @@
+title: Audio
+
+accept: 
+  extension: mp3
+  type: audio
+
+fields:
+  caption:
+    type: text
+    width: 1/2
+    label: Caption
+  filterSetA:
+    type: tags
+    label: '{{ page.filterSetATitle }}'
+  filterSetB:
+    type: tags
+    label: '{{ page.filterSetBTitle }}'

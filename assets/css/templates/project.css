@@ -56,11 +56,34 @@ body {
 }
 
 .gallery-item {
-    position: sticky;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
 }
 
-.gallery-item img {
+.gallery-item img,
+.gallery-item video,
+.gallery-item audio {
     width: 100%
+}
+
+.gallery-item figcaption {
+    display: none;
+    flex-direction: column;
+    gap: var(--label-text-size);
+}
+
+.gallery-item figcaption div {
+    opacity: 0;
+    transition: opacity .5s .2s ease;
+}
+
+.gallery-item figcaption.--display {
+    display: flex;
+}
+
+.gallery-item figcaption div.--opacity {
+    opacity: 1;
 }
 
 .info-slider {
