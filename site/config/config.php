@@ -9,7 +9,7 @@ return [
     ],
     'routes' => [
         [
-          'pattern' => '/architecturelandinitiative/',
+          'pattern' => 'architecturelandinitiative',
           'action'  => function () {
             return page('home');
           }
