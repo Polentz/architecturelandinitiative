@@ -7,17 +7,12 @@ return [
     'panel' => [
         'css' => 'assets/css/panel.css'
     ],
-    // 'blocks' => [
-    //     'fieldsets' => [
-    //       'custom' => [
-    //         'label' => 'Select a block type:',
-    //         'type' => 'group',
-    //         'fieldsets' => [
-    //           'maintext',
-    //           'subtext',
-    //           'buttons',
-    //           ]
-    //         ],
-    //     ]
-    //         ],
+    'routes' => [
+        [
+          'pattern' => 'https://polentz.github.io/architecturelandinitiative/',
+          'action'  => function () {
+            return page('home');
+          }
+        ],
+      ]
 ];
