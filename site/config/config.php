@@ -9,7 +9,7 @@ return [
     ],
     'routes' => [
         [
-          'pattern' => 'https://polentz.github.io/architecturelandinitiative/',
+          'pattern' => 'polentz.github.io/architecturelandinitiative/',
           'action'  => function () {
             return page('home');
           }
