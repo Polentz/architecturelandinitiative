@@ -64,7 +64,8 @@ body {
 .gallery-item img,
 .gallery-item video,
 .gallery-item audio {
-    width: 100%
+    width: 100%;
+    display: flex;
 }
 
 .gallery-item figcaption {

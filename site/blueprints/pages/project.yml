@@ -4,80 +4,83 @@ options:
     status: listed
     template: project
 
-columns:
-  cover:
-    sections:
-      cover:
-        type: fields
-        fields:
-          background:
-            type: files
-            label: Background image
-            template: image
-            layout: list
-            size: small
-            max: 1
-            image:
-              back: "#000"
-              icon: false
-              ratio: 1/1
-              cover: true
-  filters:
-    width: 1/1
-    sections:
-      filter:
-        type: fields
-        fields:   
-          filterSetATitle:
-            type: text
-            label: false
-            before: Filter by
-            width: 1/2    
-          filterSetA:
-            type: structure
-            label: '{{ page.filterSetATitle }}'
-            width: 1/2
+tabs:
+  page:
+    label: PROJECT PAGE
+    icon: dashboard
+    columns:
+      main:
+        width: 3/4
+        sections:
+          media:
+            type: fields
             fields:
-              filter:
-                type: text
-                label: Available filters
-          filterSetBTitle:
-            type: text
-            label: false
-            before: Filter by
-            width: 1/2   
-          filterSetB:
-            type: structure
-            label: '{{ page.filterSetBTitle }}'
-            width: 1/2
+              gallery:
+                label: Media
+                type: files
+                template: image, audio, video
+                layout: list
+                size: small
+                multiple: true
+                image:
+                  icon: true
+                  ratio: 4/3
+                  back: white
+                  cover: true 
+          copy:
+            type: fields
             fields:
-              filter:
+              blocks:
+                label: Description
+                type: blocks   
+      sidebar:
+        width: 1/4
+        sections:
+          cover:
+            type: fields
+            fields:
+              background:
+                type: files
+                label: Background image
+                template: image
+                layout: list
+                size: small
+                max: 1
+                image:
+                  back: "#000"
+                  icon: false
+                  ratio: 1/1
+                  cover: true
+          filter:
+            type: fields
+            fields:   
+              filterSetATitle:
                 type: text
-                label: Available filters
-  sidebar:
-    width: 1/2
+                label: false
+                before: Filter by    
+              filterSetA:
+                type: structure
+                label: '{{ page.filterSetATitle }}'
+                fields:
+                  filter:
+                    type: text
+                    label: Available filters
+              filterSetBTitle:
+                type: text
+                label: false
+                before: Filter by   
+              filterSetB:
+                type: structure
+                label: '{{ page.filterSetBTitle }}'
+                fields:
+                  filter:
+                    type: text
+                    label: Available filters   
+  subpages:
+    label: MEDIA PAGES
+    icon: grid-full
     sections:
-      media:
-        type: fields
-        fields:
-          gallery:
-            label: Media
-            type: files
-            template: image, audio, video
-            layout: list
-            size: small
-            multiple: true
-            image:
-              icon: true
-              ratio: 4/3
-              back: white
-              cover: true 
-  main:
-    width: 1/2
-    sections: 
-      copy:
-        type: fields
-        fields:
-          blocks:
-            label: Description
-            type: blocks             
+      subpages:
+        type: pages
+        template: media
+

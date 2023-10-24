@@ -30,7 +30,7 @@
                     <?php endif ?> 
                     <?php if ($media->type() == 'audio') : ?>
                         <figure class="gallery-item" dataset-filterSetA="<?= $media->filterSetA()->slug() ?>" dataset-filterSetB="<?= $media->filterSetB()->slug() ?>">
-                            <audio src="<?= $media->url() ?>" controls preload="metadata" type="audio"></audio>                            
+                            <audio src="<?= $media->url() ?>" controls controlslist="noplaybackrate nodownload" preload="metadata" type="audio"></audio>                            
                             <figcaption>
                                 <div class="text-label">
                                     <p><?= $page->filterSetATitle() ?>: <?= $media->filterSetA() ?></p>
