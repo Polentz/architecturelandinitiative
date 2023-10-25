@@ -284,13 +284,13 @@ const handleProjectButtons = () => {
                     content.classList.remove("--opacity");
                 });
                 boxCloseButton.classList.remove("--opacity");
+                galleryCaptionItem.forEach(item => {
+                    item.classList.remove("--opacity");
+                });
                 setTimeout(() => {
                     boxContainer.classList.remove("--scale-in");
-                    galleryGrid.classList.remove("--change-grid");
                     galleryContainer.classList.remove("--width");
-                    galleryCaptionItem.forEach(item => {
-                        item.classList.remove("--opacity");
-                    });
+                    galleryGrid.classList.remove("--change-grid");
                 }, 100);
                 setTimeout(() => {
                     sliderWrapper.classList.remove("--translateX");

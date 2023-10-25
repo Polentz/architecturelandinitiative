@@ -249,8 +249,8 @@ button {
 .banner {
     width: 100%;
     height: auto;
-    font-family: var(--body-text-font);
-    font-size: var(--body-text-size);
+    font-family: var(--secondary-text-font);
+    font-size: var(--secondary-text-size);
     display: none;
     justify-content: space-between;
     align-items: start;

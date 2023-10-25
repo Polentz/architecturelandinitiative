@@ -13,24 +13,24 @@
             <div class="gallery-grid">
                 <?php foreach ($page->gallery()->toFiles() as $media) : ?>
                     <?php if ($media->type() == 'image') : ?>
-                        <figure class="gallery-item">
-                            <img src="<?= $media->resize(800, null)->url() ?>" alt="<?= $media->alt() ?>">
+                        <figure class="gallery-item image-item">
+                            <img src="<?= $media->resize(1200, null)->url() ?>" alt="<?= $media->alt() ?>">
                             <figcaption class="text-label">
                                 <?= $media->caption()->kt() ?>
                             </figcaption>
                         </figure>
                     <?php endif ?> 
                     <?php if ($media->type() == 'video') : ?>
-                        <figure class="gallery-item">
-                            <video src="<?= $media->url() ?>" controls controlslist="noplaybackrate nodownload" disablePictureInPicture type="video"></video>
+                        <figure class="gallery-item video-item">
+                            <video src="<?= $media->url() ?>" autoplay muted controlslist="noplaybackrate nodownload" disablePictureInPicture type="video"></video>
                             <figcaption class="text-label">
                                 <?= $media->caption()->kt() ?>
                             </figcaption>
                         </figure>
                     <?php endif ?> 
                     <?php if ($media->type() == 'audio') : ?>
-                        <figure class="gallery-item" dataset-filterSetA="<?= $media->filterSetA()->slug() ?>" dataset-filterSetB="<?= $media->filterSetB()->slug() ?>">
-                            <audio src="<?= $media->url() ?>" controls controlslist="noplaybackrate nodownload" preload="metadata" type="audio"></audio>                            
+                        <figure class="gallery-item audio-item" dataset-filterSetA="<?= $media->filterSetA()->slug() ?>" dataset-filterSetB="<?= $media->filterSetB()->slug() ?>">
+                            <audio src="<?= $media->url() ?>" controls controlslist="noplaybackrate nodownload" preload="metadata" type="audio"></audio>
                             <figcaption>
                                 <div class="text-label">
                                     <p><?= $page->filterSetATitle() ?>: <?= $media->filterSetA() ?></p>

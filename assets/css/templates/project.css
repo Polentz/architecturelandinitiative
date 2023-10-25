@@ -27,8 +27,9 @@ body {
     width: 100%;
     height: auto;
     display: grid;
-    grid-template-columns: 1.5fr 1.5fr;
-    grid-template-rows: 1fr;
+    grid-template-columns: 1fr 1fr;
+    grid-auto-flow: dense;
+    grid-auto-rows: 1fr;
     grid-gap: var(--half-margin);
     padding-top: var(--double-margin);
     padding-right: calc(var(--main-margin) - var(--button-size));
@@ -36,7 +37,6 @@ body {
     padding-left: var(--main-margin);
     margin-bottom: var(--nav-height);
     overflow-y: scroll;
-    transition: .15s;
 }
 
 .gallery-grid::-webkit-scrollbar {
@@ -46,12 +46,10 @@ body {
 .gallery.--width {
     width: 100%;
     max-width: 100%;
-
 }
 
 .gallery-grid.--change-grid {
-    grid-template-columns: 1fr 1fr 1fr;
-    grid-template-rows: 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
     padding-right: var(--main-margin);
 }
 
@@ -65,8 +63,17 @@ body {
 .gallery-item video,
 .gallery-item audio {
     width: 100%;
-    display: flex;
 }
+
+/* audio temporary style */
+
+.gallery-item audio {
+    height: 2rem;
+    background: white;
+    filter: invert(1);
+}
+
+/* audio temporary style */
 
 .gallery-item figcaption {
     display: none;
