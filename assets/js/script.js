@@ -106,7 +106,7 @@ const sliderOpener = () => {
         };
         navElement.forEach(element => {
             element.addEventListener("click", () => {
-                if (element.innerHTML.toLowerCase().includes(slider.id)) {
+                if (element.id.includes(slider.id)) {
                     if (slider.classList.contains("--display")) {
                         element.classList.remove("--target");
                         removeClasses();

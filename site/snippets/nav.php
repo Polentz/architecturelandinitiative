@@ -37,7 +37,7 @@
             <li><a href="<?= $page->url($hrefDe) ?>" hreflang="<?= $hrefDe ?>"><?= $languageStringDe ?></a></li>
         </ul>
         <ul class="nav-menu menu">
-            <li class="menu-element"><?= $about ?></li>
+            <li id="about-opener" class="menu-element"><?= $about ?></li>
             <?php foreach($pages->template('page')->listed() as $page) : ?>
                 <li class="menu-element"><a href="<?= $page->url() ?>"><?= $page->title() ?></a></li>
             <?php endforeach ?> 
@@ -75,7 +75,6 @@
         </ul>
         <ul class="banner-block">
             <li>
-                <p>Social Media</p>
                 <p><a href="http://" target="_blank" rel="noopener noreferrer">Instagram</a></p>
             </li>
         </ul>
