@@ -60,7 +60,8 @@
     font-family: "Pitch Sans";
     font-style: normal;
     font-weight: 600;
-    src: url("../fonts/Pitch-sans-medium.woff2") format("woff2");
+    src: url("../fonts/pitchsans-medium-webfont.woff2") format("woff2"),
+        url("../fonts/pitchsans-medium-webfont.woff") format("woff");
 }
 
 html {
@@ -75,7 +76,6 @@ html {
     --side-background: transparent;
     --main-color: transparent;
     --acc-color: transparent;
-    /* --yellow: #feff8a; */
     --body-text-font: "GT America";
     --body-text-size: 1rem;
     --secondary-text-font: "GT Cinetype";
