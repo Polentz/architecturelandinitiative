@@ -52,6 +52,7 @@
         'assets/css/style.css',
         '@auto',
     ]) ?>
+    <!-- <link rel="stylesheet" href="https://unpkg.com/mouse-follower@1/dist/mouse-follower.min.css"> -->
 </head>
 <body>
     <header class="header">
