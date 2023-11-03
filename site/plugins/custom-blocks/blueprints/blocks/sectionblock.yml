@@ -1,0 +1,12 @@
+name: Section block
+icon: grid-full
+fields:
+  title:
+    label: Title
+    type: text
+  blocks:
+    label: Text
+    type: blocks
+    fieldsets:
+      - sectiontitle
+      - sectiontext

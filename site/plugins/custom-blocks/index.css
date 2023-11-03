@@ -1,67 +1,59 @@
-/* .k-block-container-type-button,
-.k-block-type-download,
-.k-block-type-link,
-.k-block-type-special {
-    font-family: "Ortica Angular", serif;
-    font-style: normal;
-    font-weight: 700;
-    font-size: .9rem;
-    text-indent: 2rem;
-    position: relative;
-}
-
-.k-block-type-download::after,
-.k-block-type-link::after,
-.k-block-type-special::after {
-    content: "";
-    width: 6px;
-    height: 6px;
-    background-color: black;
-    position: absolute;
-    top: 50%;
-    left: 0;
-    transform: translateY(-50%);
-    border-radius: 50%;
-}
-
-
-.k-block-type-download input,
-.k-block-type-link input,
-.k-block-type-special input {
+.k-block-type-sectiontitle input {
     border: none;
     font: inherit;
+    font-size: 3rem;
 }
 
-.k-block-type-download input:focus,
-.k-block-type-link input:focus,
-.k-block-type-special input:focus {
+.k-block-type-sectiontitle input:focus {
     outline: 0;
     border-color: black;
 }
 
-.k-block-type-maintext,
-.k-block-type-subtext {
-    line-height: 140%;
+/* .slider-block {
+    display: flex;
+    flex-direction: column;
+    gap: var(--half-margin);
 }
 
-.k-block-type-subtext {
-    font-family: "Ortica Linear", serif;
-    font-style: normal;
-    font-weight: 400;
-    font-size: .95rem;
+.slider-block-title {
+    margin-bottom: var(--half-margin);
 }
 
-.buttons {
-    margin: 0 1rem;
+.slider-block-title h2 {
+    font-family: var(--big-title-font);
+    font-size: var(--big-title-size);
+    font-weight: 300;
+    line-height: 100%;
 }
 
-.button {
-    font-family: "Ortica Angular", serif;
-    font-style: normal;
-    font-weight: 700;
-    font-size: .9rem;
+.slider-block-text {
+    display: flex;
+    justify-content: space-between;
 }
 
-.button li {
-    list-style: inside;
+.slider-block-text:last-child {
+    margin-bottom: var(--nav-height);
+}
+
+.slider-block-text .text-label {
+    width: 15%;
+}
+
+.slider-block-text .text {
+    width: 75%;
+}
+
+.text {
+    font-family: var(--body-text-font);
+    font-size: var(--body-text-size);
+    text-indent: 2.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: .5rem;
+}
+
+.text-label {
+    font-family: var(--label-text-font);
+    font-size: var(--label-text-size);
+    line-height: 110%;
 } */

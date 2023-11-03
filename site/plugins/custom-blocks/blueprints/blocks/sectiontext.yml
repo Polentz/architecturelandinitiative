@@ -1,0 +1,19 @@
+name: Section text
+icon: text
+
+fields:
+  subtitle:
+    type: text  
+    width: 1/4
+    placeholder: Your subtitle …
+  copy:
+    type: writer
+    width: 3/4
+    placeholder: Your text …
+    marks:
+      - bold
+      - italic
+      - underline
+      - link
+      - email
+    nodes: false

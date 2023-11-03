@@ -57,6 +57,8 @@
                 </svg>
             </button>
             <div class="slider-content">
+                <?= $page->sectionBlocks()->toBlocks() ?>
+
                 <div class="slider-block">
                     <div class="slider-block-title">
                         <h2>By Us for Us</h2>

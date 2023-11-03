@@ -37,6 +37,7 @@ body {
     padding-left: var(--main-margin);
     margin-bottom: var(--nav-height);
     overflow-y: scroll;
+    scrollbar-width: none;
 }
 
 .gallery-grid::-webkit-scrollbar {

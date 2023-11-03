@@ -1,0 +1,7 @@
+name: Section title
+icon: title
+
+fields:
+  title:
+    type: text
+    placeholder: Your title …

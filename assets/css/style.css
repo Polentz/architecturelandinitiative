@@ -329,14 +329,24 @@ button {
 .slider-content {
     width: 100%;
     height: auto;
+    display: flex;
+    flex-direction: column;
+    gap: var(--main-margin);
     padding: var(--main-margin);
     background: var(--background);
     border-left: var(--border);
     overflow-y: scroll;
+    scrollbar-width: none;
 }
 
 .slider-content::-webkit-scrollbar {
     display: none;
+}
+
+.slider-block {
+    display: flex;
+    flex-direction: column;
+    gap: var(--half-margin);
 }
 
 .slider-block-title {
@@ -344,7 +354,8 @@ button {
     font-size: var(--big-title-size);
     font-weight: 300;
     line-height: 100%;
-    margin-bottom: var(--main-margin);
+    /* margin-bottom: var(--main-margin); */
+    margin-bottom: var(--half-margin);
 }
 
 .slider-block-text {

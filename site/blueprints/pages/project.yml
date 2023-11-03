@@ -19,6 +19,7 @@ tabs:
                 label: Media
                 type: files
                 template: image, audio, video
+                upload: image, audio, video
                 layout: list
                 size: small
                 multiple: true
@@ -30,9 +31,13 @@ tabs:
           copy:
             type: fields
             fields:
-              blocks:
+              sectionBlocks:
                 label: Description
-                type: blocks   
+                type: blocks
+                fieldsets:
+                  - sectionblock
+                  - sectiontitle
+                  - sectiontext
       sidebar:
         width: 1/4
         sections:
