@@ -363,9 +363,9 @@ button {
     justify-content: space-between;
 }
 
-.slider-block-text:last-child {
+/* .slider-block-text:last-child {
     margin-bottom: var(--nav-height);
-}
+} */
 
 .slider-block-text .text-label {
     width: 15%;

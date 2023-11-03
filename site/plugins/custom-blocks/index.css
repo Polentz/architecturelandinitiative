@@ -9,6 +9,25 @@
     border-color: black;
 }
 
+.block {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.block-text {
+    display: flex;
+    justify-content: space-between;
+}
+
+.text-label {
+    width: 15%;
+}
+
+.text {
+    width: 75%;
+}
+
 /* .slider-block {
     display: flex;
     flex-direction: column;

@@ -2,11 +2,20 @@ name: Section block
 icon: grid-full
 fields:
   title:
-    label: Title
+    placeholder: Title …
     type: text
-  blocks:
-    label: Text
-    type: blocks
-    fieldsets:
-      - sectiontitle
-      - sectiontext
+  subtitle:
+    type: text  
+    width: 1/4
+    placeholder: Subtitle …
+  copy:
+    type: writer
+    width: 3/4
+    placeholder: Text …
+    marks:
+      - bold
+      - italic
+      - underline
+      - link
+      - email
+    nodes: false
