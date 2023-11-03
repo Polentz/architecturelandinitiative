@@ -83,8 +83,8 @@ const sliderOpener = () => {
                 sliderWrapper.classList.add("--translateX");
                 main.forEach(mainEl => {
                     mainEl.classList.add("--blur");
-                    mainEl.classList.add("--translateX");
-                    logo.classList.add("--left");
+                    // mainEl.classList.add("--translateX");
+                    // logo.classList.add("--left");
                 });
             }, 100);
             setTimeout(() => {
@@ -95,8 +95,8 @@ const sliderOpener = () => {
             sliderWrapper.classList.remove("--translateX");
             main.forEach(mainEl => {
                 mainEl.classList.remove("--blur");
-                mainEl.classList.remove("--translateX");
-                logo.classList.remove("--left");
+                // mainEl.classList.remove("--translateX");
+                // logo.classList.remove("--left");
             });
             sliderButton.classList.remove("--opacity");
             setTimeout(() => {
@@ -129,9 +129,14 @@ const bannerOpener = () => {
     bannerContainer.forEach(banner => {
         const bannerContent = banner.querySelectorAll(".banner-block");
         const bannerButton = banner.querySelector(".banner-button");
+        const offset = banner.innerHeight
+        console.log(offset)
         const addClasses = () => {
             nav.classList.add("--hide");
             banner.classList.add("--display");
+            main.forEach(mainEl => {
+                mainEl.style.transform = `translateY(-${banner.clientHeight}px)`;
+            });
             setTimeout(() => {
                 bannerContent.forEach(content => {
                     content.classList.add("--opacity");
@@ -140,12 +145,17 @@ const bannerOpener = () => {
             }, 100);
         };
         const removeClasses = () => {
-            bannerContent.forEach(content => {
-                content.classList.remove("--opacity");
+            main.forEach(mainEl => {
+                mainEl.style.transform = "translateY(0)";
             });
-            bannerButton.classList.remove("--opacity");
-            banner.classList.remove("--display");
-            nav.classList.remove("--hide");
+            setTimeout(() => {
+                bannerContent.forEach(content => {
+                    content.classList.remove("--opacity");
+                });
+                bannerButton.classList.remove("--opacity");
+                banner.classList.remove("--display");
+                nav.classList.remove("--hide");
+            }, 150);
         };
         navElement.forEach(element => {
             element.addEventListener("click", () => {
@@ -220,23 +230,22 @@ const handleProjectButtons = () => {
 
     sliderCloseButton.addEventListener("click", () => {
         sliderWrapper.classList.add("--translateX");
+        galleryContainer.classList.add("--width");
         setTimeout(() => {
-            galleryGrid.classList.add("--change-grid");
-            galleryContainer.classList.add("--width");
+            sliderContent.scrollTo(0, 0);
             galleryCaption.forEach(itemInfo => {
                 itemInfo.classList.add("--display");
             });
-        }, 300);
+        }, 450);
         setTimeout(() => {
-            sliderContent.scrollTo(0, 0);
+            galleryCaptionItem.forEach(item => {
+                item.classList.add("--opacity");
+            });
             sliderContainer.classList.add("--hide");
         }, 500);
         setTimeout(() => {
             infoButton.classList.add("--opacity");
-            galleryCaptionItem.forEach(item => {
-                item.classList.add("--opacity");
-            });
-        }, 900);
+        }, 1000);
     });
     const parentContainer = document.querySelectorAll(".box-wrapper");
     parentContainer.forEach(element => {
@@ -245,7 +254,6 @@ const handleProjectButtons = () => {
         const boxContent = element.querySelectorAll(".inner-box-column");
         const boxReadMore = element.querySelector(".read-more-button");
         const boxCloseButton = element.querySelector(".x-button");
-
         boxOpenButton.addEventListener("click", () => {
             boxContainer.classList.add("--display");
             boxOpenButton.classList.remove("--opacity");
@@ -271,7 +279,6 @@ const handleProjectButtons = () => {
                 boxOpenButton.classList.remove("--scale-out");
                 boxOpenButton.classList.add("--opacity");
             }, 250);
-
             setTimeout(() => {
                 boxContainer.classList.remove("--display");
             }, 750);
@@ -280,27 +287,44 @@ const handleProjectButtons = () => {
         if (boxReadMore) {
             boxReadMore.addEventListener("click", () => {
                 sliderContainer.classList.remove("--hide");
+                sliderWrapper.classList.remove("--translateX");
+                galleryContainer.classList.remove("--width");
                 boxContent.forEach(content => {
                     content.classList.remove("--opacity");
                 });
-                boxCloseButton.classList.remove("--opacity");
                 galleryCaptionItem.forEach(item => {
                     item.classList.remove("--opacity");
                 });
+                boxOpenButton.classList.remove("--scale-out");
+
                 setTimeout(() => {
                     boxContainer.classList.remove("--scale-in");
-                    galleryContainer.classList.remove("--width");
-                    galleryGrid.classList.remove("--change-grid");
-                }, 100);
+                    boxCloseButton.classList.remove("--opacity");
+                }, 150);
                 setTimeout(() => {
-                    sliderWrapper.classList.remove("--translateX");
-                    boxOpenButton.classList.remove("--opacity");
-                    boxOpenButton.classList.remove("--scale-out");
                     galleryCaption.forEach(caption => {
                         caption.classList.remove("--display");
                     });
                 }, 500);
+                setTimeout(() => {
+                    boxContainer.classList.remove("--display");
+                }, 650);
             });
+        };
+    });
+};
+
+const applyFilter = (element) => {
+    const items = document.querySelectorAll(".gallery-item");
+    const filterName = element.currentTarget.dataset.filter;
+    items.forEach(item => {
+        const itemFilter = item.dataset.filters;
+        if (itemFilter.includes(filterName)) {
+            item.classList.remove("--unfiltered");
+            item.classList.add("--filtered");
+        } else {
+            item.classList.add("--unfiltered");
+            item.classList.remove("--filtered");
         };
     });
 };

@@ -2,6 +2,67 @@ Title: Architecture Land Initiative
 
 ----
 
+Filterset:
+
+- 
+  category: Another category
+  filter: Filter
+- 
+  category: Gatti
+  filter: Nilo
+- 
+  category: Media type
+  filter: Videos
+  filtercategory: Media type
+- 
+  category: Media type
+  filter: Images
+  filtercategory: Media type
+- 
+  category: Media type
+  filter: Audios
+  filtercategory: Media type
+- 
+  category: Process stage
+  filter: Archive materials
+  filtercategory: Process stage
+- 
+  category: Process stage
+  filter: Research
+  filtercategory: Process Stage
+
+----
+
+Filters: [{"content":{"filtersettitle":"Process Stage","filterset":[{"filter":"Archival materials"},{"filter":"Research"},{"filter":"Outcomes"}]},"id":"5e4c025d-c32f-40bf-b5ca-57d7c2472642","isHidden":false,"type":"filters"},{"content":{"filtersettitle":"Media type","filterset":[{"filter":"Images"},{"filter":"Videos"}]},"id":"d4790380-39a3-4926-bd3b-5a9e9ebb4fe4","isHidden":false,"type":"filters"}]
+
+----
+
+Filtersetbtitle: 
+
+----
+
+Filtersetb:
+
+- 
+  filter: Archive materials
+- 
+  filter: Research
+
+----
+
+Filterseta:
+
+- 
+  filter: Archive materials
+- 
+  filter: Research
+- 
+  filter: Events
+- 
+  filter: Outcomes
+
+----
+
 About:
 
 <p>Architecture Land Initiative (ALIN) is a cooperative based in Geneva and Zürich (Switzerland). ALIN is a non-profit common-benefit platform.</p>
@@ -9,3 +70,7 @@ About:
 <p>By bringing together a changing number of contributors with shared values and work ethos, ALIN, as a collective generates projects for the land and the city as architectures of contribution that foster space for life, with an expanded vision of creating and sharing values.</p>
 <p>Our vision is embedded in trans-scalarity, from a temporal and territorial perspectives, with the aim of unveiling human and non-human affordances for a social and ecological transition. Our initiatives and collaborations range from the intimate scale, such as punctual cultural and popular events, to the large scale involving urban and territorial transformations.</p>
 <p>The platform operates as a flexible infrastructure. It consists of a cooperative legal framework, a communication structure enabling collective work, a series of studios, as well as a set of tools and expertise consolidated in practice and made available to all. Its members – both practitioners and researchers – are connected to various research and teaching institutions in Switzerland and internationally (Zurich University, EPFL, Hong Kong University).</p>
+
+----
+
+Filtersetatitle: 

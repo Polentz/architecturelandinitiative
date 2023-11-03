@@ -13,15 +13,21 @@
             <div class="gallery-grid">
                 <?php foreach ($page->gallery()->toFiles() as $media) : ?>
                     <?php if ($media->type() == 'image') : ?>
-                        <figure class="gallery-item image-item">
+                        <figure class="gallery-item image-item" data-media-type="<?= $media->type() ?>" data-filters="<?= $media->filters() ?>">
                             <img src="<?= $media->resize(1200, null)->url() ?>" alt="<?= $media->alt() ?>">
                             <figcaption class="text-label">
-                                <?= $media->caption()->kt() ?>
+                                <div class="text-label">
+                                    <p><?= $page->filterSetATitle() ?>: <?= $media->filterSetA() ?></p>
+                                    <p>Bla bla bla: <?= $media->filterSetB() ?></p>
+                                </div>
+                                <div class="text-subtext">
+                                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus ea sunt consectetur earum voluptates quis dolore quo neque blanditiis repellat?</p>
+                                </div>
                             </figcaption>
                         </figure>
                     <?php endif ?> 
                     <?php if ($media->type() == 'video') : ?>
-                        <figure class="gallery-item video-item">
+                        <figure class="gallery-item video-item" data-media-type="<?= $media->type() ?>" data-filters="<?= $media->filters() ?>">
                             <video src="<?= $media->url() ?>" autoplay muted controlslist="noplaybackrate nodownload" disablePictureInPicture type="video"></video>
                             <figcaption class="text-label">
                                 <?= $media->caption()->kt() ?>
@@ -29,7 +35,7 @@
                         </figure>
                     <?php endif ?> 
                     <?php if ($media->type() == 'audio') : ?>
-                        <figure class="gallery-item audio-item" dataset-filterSetA="<?= $media->filterSetA()->slug() ?>" dataset-filterSetB="<?= $media->filterSetB()->slug() ?>">
+                        <figure class="gallery-item audio-item" data-media-type="<?= $media->type() ?>" data-filters="<?= $media->filters() ?>">
                             <audio src="<?= $media->url() ?>" controls controlslist="noplaybackrate nodownload" preload="metadata" type="audio"></audio>
                             <figcaption>
                                 <div class="text-label">
@@ -50,28 +56,17 @@
     <section class="info-slider">
         <div class="info-slider-wrapper">
             <button class="button slider-button" type="button">
-                <svg viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <!-- <svg viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <rect x="0.5" y="0.5" width="39" height="39"/>
                     <path d="M8 8L20 20M20 20L32 32M20 20L32 8M20 20L8 32" stroke="#1d1d1b"/>
                     <rect x="0.5" y="0.5" width="39" height="39" stroke="#1d1d1b"/>
+                </svg> -->
+                <svg viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M8 8L20 20M20 20L32 32M20 20L32 8M20 20L8 32" stroke="#1d1d1b"/>
                 </svg>
             </button>
             <div class="slider-content">
                 <?= $page->sectionBlocks()->toBlocks() ?>
-
-                <div class="slider-block">
-                    <div class="slider-block-title">
-                        <h2>By Us for Us</h2>
-                    </div>
-                    <div class="slider-block-text">
-                        <div class="text-label">
-                            <p>By Us for Us</p>
-                        </div>
-                        <div class="text">
-                            <?= $site->about()->kt() ?>
-                        </div>
-                    </div>
-                </div>
             </div>
         </div>
     </section>
@@ -93,7 +88,9 @@
                         </div>
                         <div class="inner-box-content">
                             <div class="text">
-                                Lorem ipsum dolor sit amet consectetur, adipisicing elit. Deserunt ratione a nobis. Rerum ex quisquam reprehenderit! Est ratione sed vel et modi reiciendis quidem temporibus ab sapiente consectetur voluptates maiores eveniet ducimus suscipit dignissimos expedita nisi, id voluptatibus dolore laudantium at illum laborum minima. Id quae odio tenetur ab nostrum...
+                                <?php if ($blocks = $page->sectionBlocks()->toBlocks('sectionblock')) : ?>
+                                    <?= $blocks->first()->copy()->excerpt(300) ?>
+                                <?php endif ?>
                             </div>
                             <button class="read-more-button" type="button">
                                 Read More
@@ -130,13 +127,13 @@
                         </div>
                         <div class="inner-box-content">
                             <ul class="text-label">
-                                <?php foreach ($page->filterSetA()->toStructure() as $filter): ?>
-                                    <li id="<?= $filter->filter()->slug() ?>" class="filter" data-filter="<?= $filter->filter()->slug() ?>">
-                                        <?= $filter->filter()->kt() ?></li>
+                                <?php foreach ($page->filterSetA()->split() as $filter) : ?>
+                                    <li class="filter" data-filter="<?= $filter ?>"><?= $filter ?></li>
                                 <?php endforeach ?>
                             </ul>
                         </div>
                     </div>
+
                     <div class="inner-box-column">
                         <div class="inner-box-header">
                             <p>Filter by <?= $page->filterSetBTitle() ?></p>
@@ -144,7 +141,7 @@
                         <div class="inner-box-content">
                             <ul class="text-label">
                                 <?php foreach ($page->filterSetB()->toStructure() as $filter): ?>
-                                    <li id="<?= $filter->filter()->slug() ?>" class="filter" data-filter="<?= $filter->filter()->slug() ?>">
+                                    <li class="filter" data-filter="<?= $filter->filter() ?>">
                                         <?= $filter->filter()->kt() ?></li>
                                 <?php endforeach ?>
                             </ul>

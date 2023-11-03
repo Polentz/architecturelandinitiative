@@ -36,8 +36,6 @@ tabs:
                 type: blocks
                 fieldsets:
                   - sectionblock
-                  - sectiontitle
-                  - sectiontext
       sidebar:
         width: 1/4
         sections:
@@ -60,16 +58,21 @@ tabs:
             type: fields
             fields:   
               filterSetATitle:
-                type: text
-                label: false
-                before: Filter by    
+                label: Filter by    
+                type: select
+                options:
+                  type: query
+                  query: site.filterSet.toStructure
+                  text: "{{ item.category }}"
+                  value: "{{ item.category }}"
               filterSetA:
-                type: structure
-                label: '{{ page.filterSetATitle }}'
-                fields:
-                  filter:
-                    type: text
-                    label: Available filters
+                label: false
+                type: multiselect
+                options:
+                  type: query
+                  query: site.filterSet.toStructure
+                  text: "{{ item.filter }}"
+                  value: "{{ item.filter }}"
               filterSetBTitle:
                 type: text
                 label: false

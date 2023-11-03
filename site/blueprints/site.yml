@@ -1,5 +1,32 @@
 title: Site
 
-sections:
-  pages:
-    type: pages
+tabs:
+  page:
+    label: PROJECT PAGE
+    icon: dashboard
+    sections:
+      pages:
+        type: pages
+  filters:
+    label: Filter collection
+    sections:
+      filter:
+        type: fields
+        fields:
+          filterSet:
+            label: All filters
+            type: structure
+            sortBy: category asc
+            columns:
+              category:
+                width: 1/2
+              filter:
+                width: 1/2
+            fields:
+              category:
+                type: text
+                label: Filter category
+                before: Filter by 
+              filter:
+                type: text
+                label: Filter

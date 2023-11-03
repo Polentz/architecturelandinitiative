@@ -8,8 +8,17 @@ accept:
 fields:
   caption:
     type: text
-    width: 1/2
+    width: 2/3
     label: Caption
+  filters:
+    label: Filter by
+    width: 1/3
+    type: multiselect
+    options:
+      type: query
+      query: site.filterSet.toStructure
+      text: "{{ item.filter }}"
+      value: "{{ item.filter }}"
   alt:
     type: text
     width: 1/2
