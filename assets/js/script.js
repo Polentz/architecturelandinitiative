@@ -316,7 +316,9 @@ const handleProjectButtons = () => {
 
 const applyFilter = (element) => {
     const items = document.querySelectorAll(".gallery-item");
+    const filterClear = document.querySelector(".deselect-filters");
     const filterName = element.currentTarget.dataset.filter;
+    filterClear.style.display = "block";
     items.forEach(item => {
         const itemFilter = item.dataset.filters;
         if (itemFilter.includes(filterName)) {
@@ -327,6 +329,13 @@ const applyFilter = (element) => {
             item.classList.remove("--filtered");
         };
     });
+    filterClear.addEventListener("click", () => {
+        items.forEach(item => {
+            item.classList.remove("--unfiltered");
+            item.classList.add("--filtered");
+        });
+        filterClear.style.display = "none";
+    })
 };
 
 window.addEventListener("load", () => {

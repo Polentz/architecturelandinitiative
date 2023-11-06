@@ -82,7 +82,7 @@
                     </svg>
                 </button>
                 <div class="inner-box">
-                    <div class="inner-box-column">
+                    <div class="inner-box-column grid-span-2">
                         <div class="inner-box-header">
                             Lorem, ipsum.
                         </div>
@@ -121,7 +121,7 @@
                     </svg>
                 </button>
                 <div class="inner-box">
-                    <div class="inner-box-column">
+                    <div class="inner-box-column grid-span-1">
                         <div class="inner-box-header">
                             <p>Filter by <?= $page->filterSetATitle() ?></p>
                         </div>
@@ -134,7 +134,7 @@
                         </div>
                     </div>
 
-                    <div class="inner-box-column">
+                    <div class="inner-box-column grid-span-1">
                         <div class="inner-box-header">
                             <p>Filter by <?= $page->filterSetBTitle() ?></p>
                         </div>
@@ -147,6 +147,11 @@
                             </ul>
                         </div>
                     </div>
+                                    
+                    <div class="inner-box-column grid-span-2 deselect-filters">
+                        <p class="text-label">Deselect filters</p>
+                    </div>
+
                     <button class="button x-button" type="button">
                         <svg viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <rect x="0.5" y="0.5" width="39" height="39" fill="#1d1d1b"/>

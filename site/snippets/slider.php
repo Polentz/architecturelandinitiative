@@ -12,19 +12,7 @@
             </svg>
         </button>
         <div class="slider-content">
-            <div class="slider-block">
-                <div class="slider-block-title">
-                    <h2>About</h2>
-                </div>
-                <div class="slider-block-text">
-                    <div class="text-label">
-                        <p>ALIN</p>
-                    </div>
-                    <div class="text">
-                        <?= $site->about()->kt() ?>
-                    </div>
-                </div>
-            </div>
+            <?= $site->blocks()->toBlocks() ?>
         </div>
     </div>
 </section>

@@ -6,7 +6,7 @@
         $languageStringFr = 'Fr';
         $hrefDe = 'de';
         $languageStringDe = 'De';
-        $about = 'About';
+        $about = 'Cooperative';
         $contact = 'Contact';
     } else if ($kirby->language()->code() == 'fr') {
         $hrefEn = '/';
@@ -15,7 +15,7 @@
         $languageStringFr = 'Fr';
         $hrefDe = 'de';
         $languageStringDe = 'De';
-        $about = 'À propos';
+        $about = 'Coopératif';
         $contact = 'Contact';
     }
     else if ($kirby->language()->code() == 'de') {
@@ -25,7 +25,7 @@
         $languageStringFr = 'Fr';
         $hrefDe = 'de';
         $languageStringDe = 'De';
-        $about = 'Über uns';
+        $about = 'Genossenschaft';
         $contact = 'Kontakt';
     }
 ?>

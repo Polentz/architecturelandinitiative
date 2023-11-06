@@ -2,11 +2,26 @@ title: Site
 
 tabs:
   page:
-    label: PROJECT PAGE
+    label: Project Page
     icon: dashboard
     sections:
       pages:
         type: pages
+        template:
+          - project
+  about:
+    lable: Cooperative
+    icon: false
+    sections:
+      copy:
+        type: fields
+        fields:
+          blocks:
+            label: Text
+            width: 3/4
+            type: blocks
+            fieldsets:
+              - sectionblock
   filters:
     label: Filter collection
     sections:

@@ -57,20 +57,48 @@ body {
     display: flex;
     flex-direction: column;
     gap: 1rem;
+    place-items: center;
 }
 
-.gallery-item.--filtered {
-    display: flex;
+.gallery-item.--filtered img,
+.gallery-item.--filtered video,
+.gallery-item.--filtered audio {
+    max-width: 100%;
+    min-width: 100%;
+    object-fit: contain;
+    filter: grayscale(0);
 }
 
-.gallery-item.--unfiltered {
-    display: none;
+.gallery-item.--unfiltered img,
+.gallery-item.--unfiltered video,
+.gallery-item.--unfiltered audio {
+    max-width: 10%;
+    min-width: 10%;
+    object-fit: contain;
+    filter: grayscale(1);
 }
 
 .gallery-item img,
 .gallery-item video,
 .gallery-item audio {
     width: 100%;
+    transition: all .3s ease;
+}
+
+.gallery-item.--unfiltered figcaption.--display {
+    display: none;
+}
+
+.gallery-item.--unfiltered figcaption div.--opacity {
+    opacity: 0;
+}
+
+.gallery-item.--filtered figcaption.--display {
+    display: flex;
+}
+
+.gallery-item.--filtered figcaption div.--opacity {
+    opacity: 1;
 }
 
 /* audio temporary style */
@@ -171,7 +199,6 @@ body {
     height: auto;
     color: var(--white);
     background-color: var(--black);
-    /* border: solid 1px var(--white); */
     display: none;
     transform: scale(0);
     transform-origin: bottom left;
@@ -179,7 +206,8 @@ body {
 }
 
 .inner-box.--display {
-    display: flex;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
 }
 
 .inner-box.--scale-in {
@@ -188,11 +216,20 @@ body {
 }
 
 .inner-box-column {
-    flex: 1 1;
+    align-self: stretch;
+    justify-self: stretch;
     outline: solid 1px #fff;
     outline-offset: -0.5px;
     opacity: 0;
     transition: opacity .5s ease;
+}
+
+.inner-box-column.grid-span-1 {
+    grid-column: span 1;
+}
+
+.inner-box-column.grid-span-2 {
+    grid-column: 1 / span 2;
 }
 
 .inner-box-column.--opacity {
@@ -211,6 +248,16 @@ body {
     flex-direction: column;
     gap: .5rem;
     padding: var(--half-margin);
+}
+
+.deselect-filters {
+    display: none;
+    padding: 1rem;
+}
+
+.deselect-filters p {
+    text-align: center;
+    cursor: pointer;
 }
 
 .read-more-button {
