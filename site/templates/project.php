@@ -13,38 +13,62 @@
             <div class="gallery-grid">
                 <?php foreach ($page->gallery()->toFiles() as $media) : ?>
                     <?php if ($media->type() == 'image') : ?>
-                        <figure class="gallery-item image-item" data-media-type="<?= $media->type() ?>" data-filters="<?= $media->filters() ?>">
+                        <figure class="gallery-item image-item" data-<?= $media->filterSetATitle()->slug() ?>="<?= $media->filterSetA()->slug() ?>" data-<?= $media->filterSetBTitle()->slug() ?>="<?= $media->filterSetB()->slug() ?>">
                             <img src="<?= $media->resize(1200, null)->url() ?>" alt="<?= $media->alt() ?>">
-                            <figcaption class="text-label">
+                            <figcaption>
                                 <div class="text-label">
-                                    <p><?= $page->filterSetATitle() ?>: <?= $media->filterSetA() ?></p>
-                                    <p>Bla bla bla: <?= $media->filterSetB() ?></p>
+                                    <?php if ($media->filterSetATitle()->isNotEmpty()) : ?> 
+                                        <p><?= $media->filterSetATitle() ?>: <?= $media->filterSetA()?></p>
+                                    <?php endif ?>
+                                    <?php if ($media->filterSetBTitle()->isNotEmpty()) : ?> 
+                                        <p><?= $media->filterSetBTitle() ?>: <?= $media->filterSetB()?></p>
+                                    <?php endif ?>
                                 </div>
-                                <div class="text-subtext">
-                                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus ea sunt consectetur earum voluptates quis dolore quo neque blanditiis repellat?</p>
-                                </div>
+                                <?php if ($media->caption()->isNotEmpty()) : ?>
+                                    <div class="text-subtext">
+                                        <?= $media->caption()->kt() ?>                                
+                                    </div>
+                                <?php endif ?>
                             </figcaption>
                         </figure>
                     <?php endif ?> 
                     <?php if ($media->type() == 'video') : ?>
-                        <figure class="gallery-item video-item" data-media-type="<?= $media->type() ?>" data-filters="<?= $media->filters() ?>">
+                        <figure class="gallery-item video-item" data-<?= $media->filterSetATitle()->slug() ?>="<?= $media->filterSetA()->slug() ?>" data-<?= $media->filterSetBTitle()->slug() ?>="<?= $media->filterSetB()->slug() ?>">
                             <video src="<?= $media->url() ?>" autoplay muted controlslist="noplaybackrate nodownload" disablePictureInPicture type="video"></video>
-                            <figcaption class="text-label">
-                                <?= $media->caption()->kt() ?>
+                            <figcaption>
+                                <div class="text-label">
+                                    <?php if ($media->filterSetATitle()->isNotEmpty()) : ?> 
+                                        <p><?= $media->filterSetATitle() ?>: <?= $media->filterSetA()?></p>
+                                    <?php endif ?>
+                                    <?php if ($media->filterSetBTitle()->isNotEmpty()) : ?> 
+                                        <p><?= $media->filterSetBTitle() ?>: <?= $media->filterSetB()?></p>
+                                    <?php endif ?>
+                                </div>
+                                <?php if ($media->caption()->isNotEmpty()) : ?>
+                                    <div class="text-subtext">
+                                        <?= $media->caption()->kt() ?>                                
+                                    </div>
+                                <?php endif ?>
                             </figcaption>
                         </figure>
                     <?php endif ?> 
                     <?php if ($media->type() == 'audio') : ?>
-                        <figure class="gallery-item audio-item" data-media-type="<?= $media->type() ?>" data-filters="<?= $media->filters() ?>">
+                        <figure class="gallery-item audio-item" data-<?= $media->filterSetATitle()->slug() ?>="<?= $media->filterSetA()->slug() ?>" data-<?= $media->filterSetBTitle()->slug() ?>="<?= $media->filterSetB()->slug() ?>">
                             <audio src="<?= $media->url() ?>" controls controlslist="noplaybackrate nodownload" preload="metadata" type="audio"></audio>
                             <figcaption>
                                 <div class="text-label">
-                                    <p><?= $page->filterSetATitle() ?>: <?= $media->filterSetA() ?></p>
-                                    <p><?= $page->filterSetBTitle() ?>: <?= $media->filterSetB() ?></p>
+                                    <?php if ($media->filterSetATitle()->isNotEmpty()) : ?> 
+                                        <p><?= $media->filterSetATitle() ?>: <?= $media->filterSetA()?></p>
+                                    <?php endif ?>
+                                    <?php if ($media->filterSetBTitle()->isNotEmpty()) : ?> 
+                                        <p><?= $media->filterSetBTitle() ?>: <?= $media->filterSetB()?></p>
+                                    <?php endif ?>
                                 </div>
-                                <div class="text-subtext">
-                                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus ea sunt consectetur earum voluptates quis dolore quo neque blanditiis repellat?</p>
-                                </div>
+                                <?php if ($media->caption()->isNotEmpty()) : ?>
+                                    <div class="text-subtext">
+                                        <?= $media->caption()->kt() ?>                                
+                                    </div>
+                                <?php endif ?>
                             </figcaption>
                         </figure> 
                     <?php endif ?>             
@@ -123,12 +147,12 @@
                 <div class="inner-box">
                     <div class="inner-box-column grid-span-1">
                         <div class="inner-box-header">
-                            <p>Filter by <?= $page->filterSetATitle() ?></p>
+                            <p>Filter by <?= $page->filterSetATitle()->lower() ?></p>
                         </div>
                         <div class="inner-box-content">
                             <ul class="text-label">
-                                <?php foreach ($page->filterSetA()->split() as $filter) : ?>
-                                    <li class="filter" data-filter="<?= $filter ?>"><?= $filter ?></li>
+                                <?php foreach ($page->filterSetA()->toStructure() as $filter): ?>
+                                    <li class="filter" data-filter="<?= $filter->filter()->slug() ?>"><?= $filter->filter()->kt() ?></li>
                                 <?php endforeach ?>
                             </ul>
                         </div>
@@ -136,13 +160,12 @@
 
                     <div class="inner-box-column grid-span-1">
                         <div class="inner-box-header">
-                            <p>Filter by <?= $page->filterSetBTitle() ?></p>
+                            <p>Filter by <?= $page->filterSetBTitle()->lower() ?></p>
                         </div>
                         <div class="inner-box-content">
                             <ul class="text-label">
                                 <?php foreach ($page->filterSetB()->toStructure() as $filter): ?>
-                                    <li class="filter" data-filter="<?= $filter->filter() ?>">
-                                        <?= $filter->filter()->kt() ?></li>
+                                    <li class="filter" data-filter="<?= $filter->filter()->slug() ?>"><?= $filter->filter()->kt() ?></li>
                                 <?php endforeach ?>
                             </ul>
                         </div>

@@ -1,9 +1,5 @@
-Uuid: 1KNquANvkKi0qGBI
+Uuid: 6Y5eq5J5kOdNyaAH
 
 ----
 
 Template: image
-
-----
-
-Sort: 6

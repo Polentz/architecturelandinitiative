@@ -1,9 +1,29 @@
-Uuid: 706xPMrgrnSpNnkF
+Caption: 
+
+----
+
+Alt: 
+
+----
+
+Filtersetatitle: Type
+
+----
+
+Filtersetbtitle: Process stage
+
+----
+
+Filterseta: Image
+
+----
+
+Filtersetb: Research
+
+----
+
+Uuid: YmTAb71yURWCoirx
 
 ----
 
 Template: image
-
-----
-
-Sort: 3

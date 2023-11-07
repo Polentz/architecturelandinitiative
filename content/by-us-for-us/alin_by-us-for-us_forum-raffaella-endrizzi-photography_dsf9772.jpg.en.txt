@@ -1,9 +1,5 @@
-Uuid: 6vWMCy0eu9auDRkj
+Uuid: HPdMQqQ8SPPeQCTJ
 
 ----
 
 Template: image
-
-----
-
-Sort: 5

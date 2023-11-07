@@ -4,15 +4,15 @@ Title: By Us for Us
 
 Gallery:
 
-- file://MmjZPRLrRyveosad
-- file://706xPMrgrnSpNnkF
-- file://i1lSf35j26ElT6oD
-- file://6vWMCy0eu9auDRkj
-- file://1KNquANvkKi0qGBI
-- file://DSVe54u7G5RnVqks
-- file://tj3qQ7OKtN7YBAD1
-- file://Y9PTI3BJNri8j9UA
-- file://M7c2XSp3qiV97ptg
+- file://hUJ7eIlDLLoPd3mt
+- file://63ptonOF5BURMLyr
+- file://YmTAb71yURWCoirx
+- file://iJJP135dfu2txM8X
+- file://HPdMQqQ8SPPeQCTJ
+- file://6Y5eq5J5kOdNyaAH
+- file://3VTUQiv2zwXfShD6
+- file://GGUDwBYS2QlBlJ8I
+- file://C1dcS7fwmV0NbaIk
 
 ----
 
@@ -20,15 +20,22 @@ Sectionblocks: [{"content":{"title":"By Us for Us","subtitle":"About the project
 
 ----
 
-Background: - file://tj3qQ7OKtN7YBAD1
+Background: - file://C1dcS7fwmV0NbaIk
 
 ----
 
-Filtersetatitle: Media type
+Filtersetatitle: Type
 
 ----
 
-Filterseta: Videos, Images, Audios
+Filterseta:
+
+- 
+  filter: Image
+- 
+  filter: Audio
+- 
+  filter: Video
 
 ----
 
@@ -43,9 +50,27 @@ Filtersetb:
 - 
   filter: Research
 - 
-  filter: Events
-- 
   filter: Outcomes
+
+----
+
+Images:
+
+- file://63ptonOF5BURMLyr
+- file://iJJP135dfu2txM8X
+- file://6Y5eq5J5kOdNyaAH
+- file://YmTAb71yURWCoirx
+- file://3VTUQiv2zwXfShD6
+- file://HPdMQqQ8SPPeQCTJ
+- file://C1dcS7fwmV0NbaIk
+
+----
+
+Audiofiles: - file://hUJ7eIlDLLoPd3mt
+
+----
+
+Videofiles: - file://GGUDwBYS2QlBlJ8I
 
 ----
 

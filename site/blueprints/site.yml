@@ -41,7 +41,7 @@ tabs:
               category:
                 type: text
                 label: Filter category
-                before: Filter by 
+                before: Filter by
               filter:
                 type: text
                 label: Filter

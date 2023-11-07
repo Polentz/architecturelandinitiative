@@ -9,23 +9,8 @@ Blocks: [{"content":{"title":"Cooperative","subtitle":"ALIN","copy":"<p>Architec
 Filterset:
 
 - 
-  category: Another category
-  filter: Filter
-- 
-  category: Gatti
+  category: Cats
   filter: Nilo
-- 
-  category: Media type
-  filter: Videos
-  filtercategory: Media type
-- 
-  category: Media type
-  filter: Images
-  filtercategory: Media type
-- 
-  category: Media type
-  filter: Audios
-  filtercategory: Media type
 - 
   category: Process stage
   filter: Archive materials
@@ -34,6 +19,21 @@ Filterset:
   category: Process stage
   filter: Research
   filtercategory: Process Stage
+- 
+  category: Process stage
+  filter: Outcomes
+- 
+  category: Type
+  filter: Audio
+  filtercategory: Media type
+- 
+  category: Type
+  filter: Image
+  filtercategory: Media type
+- 
+  category: Type
+  filter: Video
+  filtercategory: Media type
 
 ----
 

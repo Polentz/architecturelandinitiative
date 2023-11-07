@@ -7,19 +7,46 @@ accept:
 
 fields:
   caption:
-    type: text
-    width: 2/3
     label: Caption
-  filters:
-    label: Filter by
-    width: 1/3
-    type: multiselect
+    type: text
+    width: 1/2
+  alt:
+    type: text
+    width: 1/2
+    label: Alt Tag
+  filterSetATitle:
+    label: Filter by    
+    type: select
+    width: 1/2
+    options:
+      type: query
+      query: site.filterSet.toStructure
+      text: "{{ item.category }}"
+      value: "{{ item.category }}"
+  filterSetBTitle:
+    label: Filter by    
+    type: select
+    width: 1/2
+    options:
+      type: query
+      query: site.filterSet.toStructure
+      text: "{{ item.category }}"
+      value: "{{ item.category }}"
+  filterSetA:
+    type: select
+    label: Available filters 
+    width: 1/2 
     options:
       type: query
       query: site.filterSet.toStructure
       text: "{{ item.filter }}"
       value: "{{ item.filter }}"
-  alt:
-    type: text
+  filterSetB:
     width: 1/2
-    label: Alt Tag
+    type: select
+    label: Available filters   
+    options:
+      type: query
+      query: site.filterSet.toStructure
+      text: "{{ item.filter }}"
+      value: "{{ item.filter }}"

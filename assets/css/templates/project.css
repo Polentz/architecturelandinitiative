@@ -57,7 +57,7 @@ body {
     display: flex;
     flex-direction: column;
     gap: 1rem;
-    place-items: center;
+    place-items: start stretch;
 }
 
 .gallery-item.--filtered img,
@@ -255,9 +255,19 @@ body {
     padding: 1rem;
 }
 
+.deselect-filters.--display {
+    display: block;
+}
+
 .deselect-filters p {
     text-align: center;
     cursor: pointer;
+    opacity: 0;
+    transition: opacity .5s ease;
+}
+
+.deselect-filters.--opacity p {
+    opacity: 1;
 }
 
 .read-more-button {
@@ -295,4 +305,8 @@ body {
 
 .filter {
     cursor: pointer;
+}
+
+.filter.--target {
+    text-decoration: underline;
 }

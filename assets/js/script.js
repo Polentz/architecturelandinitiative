@@ -314,28 +314,45 @@ const handleProjectButtons = () => {
     });
 };
 
-const applyFilter = (element) => {
-    const items = document.querySelectorAll(".gallery-item");
-    const filterClear = document.querySelector(".deselect-filters");
-    const filterName = element.currentTarget.dataset.filter;
-    filterClear.style.display = "block";
-    items.forEach(item => {
-        const itemFilter = item.dataset.filters;
-        if (itemFilter.includes(filterName)) {
-            item.classList.remove("--unfiltered");
-            item.classList.add("--filtered");
-        } else {
-            item.classList.add("--unfiltered");
-            item.classList.remove("--filtered");
-        };
-    });
-    filterClear.addEventListener("click", () => {
-        items.forEach(item => {
-            item.classList.remove("--unfiltered");
-            item.classList.add("--filtered");
+const filters = document.querySelectorAll(".filter");
+const items = document.querySelectorAll(".gallery-item");
+const filterClear = document.querySelector(".deselect-filters");
+
+const handleFilters = () => {
+    filters.forEach(filter => {
+        filter.addEventListener("click", () => {
+            [...filters].filter(i => i !== filter).forEach(i => i.classList.remove("--target"));
+            filter.classList.add("--target");
+            const filterName = filter.dataset.filter;
+            filterClear.classList.add("--display");
+            setTimeout(() => {
+                filterClear.classList.add("--opacity");
+            }, 100);
+
+
+            items.forEach(item => {
+                // il problema è qui: il data attribute cambia via cms e non si chiama filters
+                const itemFilter = item.dataset.filters;
+                if (itemFilter.includes(filterName)) {
+                    item.classList.remove("--unfiltered");
+                    item.classList.add("--filtered");
+                } else {
+                    item.classList.add("--unfiltered");
+                    item.classList.remove("--filtered");
+                };
+
+            });
+            filterClear.addEventListener("click", () => {
+                items.forEach(item => {
+                    item.classList.remove("--unfiltered");
+                    item.classList.add("--filtered");
+                });
+                filterClear.classList.remove("--opacity");
+                filterClear.classList.remove("--display");
+                filter.classList.remove("--target");
+            });
         });
-        filterClear.style.display = "none";
-    })
+    });
 };
 
 window.addEventListener("load", () => {

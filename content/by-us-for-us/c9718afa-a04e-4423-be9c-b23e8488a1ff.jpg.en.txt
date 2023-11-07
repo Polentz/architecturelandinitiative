@@ -1,9 +1,5 @@
-Uuid: DSVe54u7G5RnVqks
+Uuid: 3VTUQiv2zwXfShD6
 
 ----
 
 Template: image
-
-----
-
-Sort: 1

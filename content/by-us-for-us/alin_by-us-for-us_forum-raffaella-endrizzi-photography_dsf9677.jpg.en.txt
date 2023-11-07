@@ -1,9 +1,5 @@
-Uuid: i1lSf35j26ElT6oD
+Uuid: iJJP135dfu2txM8X
 
 ----
 
 Template: image
-
-----
-
-Sort: 4

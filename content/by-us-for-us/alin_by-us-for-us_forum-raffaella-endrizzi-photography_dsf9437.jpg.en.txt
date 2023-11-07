@@ -2,24 +2,28 @@ Caption:
 
 ----
 
-Filters: Archive materials, Images
-
-----
-
 Alt: 
 
 ----
 
-Processstage: Archive materials
+Filtersetatitle: Type
 
 ----
 
-Uuid: MmjZPRLrRyveosad
+Filtersetbtitle: Process stage
+
+----
+
+Filterseta: Image
+
+----
+
+Filtersetb: Archive materials
+
+----
+
+Uuid: 63ptonOF5BURMLyr
 
 ----
 
 Template: image
-
-----
-
-Sort: 2

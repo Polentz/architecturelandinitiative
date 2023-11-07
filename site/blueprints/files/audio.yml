@@ -6,12 +6,46 @@ accept:
 
 fields:
   caption:
+    label: Caption
     type: text
     width: 1/2
-    label: Caption
+  alt:
+    type: text
+    width: 1/2
+    label: Alt Tag
+  filterSetATitle:
+    label: Filter by    
+    type: select
+    width: 1/2
+    options:
+      type: query
+      query: site.filterSet.toStructure
+      text: "{{ item.category }}"
+      value: "{{ item.category }}"
+  filterSetBTitle:
+    label: Filter by    
+    type: select
+    width: 1/2
+    options:
+      type: query
+      query: site.filterSet.toStructure
+      text: "{{ item.category }}"
+      value: "{{ item.category }}"
   filterSetA:
-    type: tags
-    label: '{{ page.filterSetATitle }}'
+    type: select
+    label: Available filters 
+    width: 1/2 
+    options:
+      type: query
+      query: site.filterSet.toStructure
+      text: "{{ item.filter }}"
+      value: "{{ item.filter }}"
   filterSetB:
-    type: tags
-    label: '{{ page.filterSetBTitle }}'
+    width: 1/2
+    type: select
+    label: Available filters   
+    options:
+      type: query
+      query: site.filterSet.toStructure
+      text: "{{ item.filter }}"
+      value: "{{ item.filter }}"
