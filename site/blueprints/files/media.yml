@@ -1,9 +1,9 @@
-title: Image
+title: Media
 
 accept: 
-  extension: jpg, png, jpeg
-  type: image
-  # maxsize: 1258291
+  extension: jpg, png, jpeg, mp3, mp4
+  mime: image/*, audio/*, video/*
+  type: image, audio, video
 
 fields:
   caption:
@@ -57,5 +57,14 @@ fields:
     options:
       type: query
       query: site.children.template("tool")
+      text: "{{ page.title }}"
+      value: "{{ page.title }}"
+  project:
+    width: 1/2
+    type: select
+    label: Select project
+    options:
+      type: query
+      query: site.children.template("project")
       text: "{{ page.title }}"
       value: "{{ page.title }}"

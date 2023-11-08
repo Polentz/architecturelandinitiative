@@ -1,6 +1,6 @@
 <?= snippet('header') ?>
 
-<main class="project-layout main">
+<main class="main">
     <a class="button header-button" href="<?= $site->url() ?>">
         <svg viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path d="M20 8.65085L31.5 18.2342V31.5H8.5V18.2342L20 8.65085Z" stroke="#1d1d1b"/>
@@ -8,83 +8,11 @@
         </svg>
     </a>
 
-    <section class="gallery">
-        <div class="gallery-wrapper">
-            <div class="gallery-grid">
-                <?php foreach ($page->gallery()->toFiles() as $media) : ?>
-                    <?php if ($media->type() == 'image') : ?>
-                        <figure class="gallery-item image-item" data-filterseta="<?= $media->filterSetA()->slug() ?>" data-filtersetb="<?= $media->filterSetB()->slug() ?>">
-                            <img src="<?= $media->resize(1200, null)->url() ?>" alt="<?= $media->alt() ?>">
-                            <figcaption>
-                                <div class="text-label">
-                                    <?php if ($media->filterSetATitle()->isNotEmpty()) : ?> 
-                                        <p><?= $media->filterSetATitle() ?>: <?= $media->filterSetA()?></p>
-                                    <?php endif ?>
-                                    <?php if ($media->filterSetBTitle()->isNotEmpty()) : ?> 
-                                        <p><?= $media->filterSetBTitle() ?>: <?= $media->filterSetB()?></p>
-                                    <?php endif ?>
-                                </div>
-                                <?php if ($media->caption()->isNotEmpty()) : ?>
-                                    <div class="text-subtext">
-                                        <?= $media->caption()->kt() ?>                                
-                                    </div>
-                                <?php endif ?>
-                            </figcaption>
-                        </figure>
-                    <?php endif ?> 
-                    <?php if ($media->type() == 'video') : ?>
-                        <figure class="gallery-item video-item" data-filterseta="<?= $media->filterSetA()->slug() ?>" data-filtersetb="<?= $media->filterSetB()->slug() ?>">
-                            <video src="<?= $media->url() ?>" autoplay muted controlslist="noplaybackrate nodownload" disablePictureInPicture type="video"></video>
-                            <figcaption>
-                                <div class="text-label">
-                                    <?php if ($media->filterSetATitle()->isNotEmpty()) : ?> 
-                                        <p><?= $media->filterSetATitle() ?>: <?= $media->filterSetA()?></p>
-                                    <?php endif ?>
-                                    <?php if ($media->filterSetBTitle()->isNotEmpty()) : ?> 
-                                        <p><?= $media->filterSetBTitle() ?>: <?= $media->filterSetB()?></p>
-                                    <?php endif ?>
-                                </div>
-                                <?php if ($media->caption()->isNotEmpty()) : ?>
-                                    <div class="text-subtext">
-                                        <?= $media->caption()->kt() ?>                                
-                                    </div>
-                                <?php endif ?>
-                            </figcaption>
-                        </figure>
-                    <?php endif ?> 
-                    <?php if ($media->type() == 'audio') : ?>
-                        <figure class="gallery-item audio-item" data-filterseta="<?= $media->filterSetA()->slug() ?>" data-filtersetb="<?= $media->filterSetB()->slug() ?>">
-                            <audio src="<?= $media->url() ?>" controls controlslist="noplaybackrate nodownload" preload="metadata" type="audio"></audio>
-                            <figcaption>
-                                <div class="text-label">
-                                    <?php if ($media->filterSetATitle()->isNotEmpty()) : ?> 
-                                        <p><?= $media->filterSetATitle() ?>: <?= $media->filterSetA()?></p>
-                                    <?php endif ?>
-                                    <?php if ($media->filterSetBTitle()->isNotEmpty()) : ?> 
-                                        <p><?= $media->filterSetBTitle() ?>: <?= $media->filterSetB()?></p>
-                                    <?php endif ?>
-                                </div>
-                                <?php if ($media->caption()->isNotEmpty()) : ?>
-                                    <div class="text-subtext">
-                                        <?= $media->caption()->kt() ?>                                
-                                    </div>
-                                <?php endif ?>
-                            </figcaption>
-                        </figure> 
-                    <?php endif ?>             
-                <?php endforeach ?> 
-            </div>
-        </div>
-    </section>
+    <?= snippet('gallery') ?>
 
     <section class="info-slider">
         <div class="info-slider-wrapper">
             <button class="button slider-button" type="button">
-                <!-- <svg viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <rect x="0.5" y="0.5" width="39" height="39"/>
-                    <path d="M8 8L20 20M20 20L32 32M20 20L32 8M20 20L8 32" stroke="#1d1d1b"/>
-                    <rect x="0.5" y="0.5" width="39" height="39" stroke="#1d1d1b"/>
-                </svg> -->
                 <svg viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path d="M8 8L20 20M20 20L32 32M20 20L32 8M20 20L8 32" stroke="#1d1d1b"/>
                 </svg>
@@ -154,7 +82,7 @@
                         <div class="inner-box-content">
                             <ul class="text-label">
                                 <?php foreach ($page->filterSetA()->toStructure() as $filter): ?>
-                                    <li class="filter" data-filter="<?= $filter->filter()->slug() ?>"><?= $filter->filter()->kt() ?></li>
+                                    <li class="filter" data-filter="<?= $filter->filter() ?>"><?= $filter->filter()->kt() ?></li>
                                 <?php endforeach ?>
                             </ul>
                         </div>
@@ -167,7 +95,7 @@
                         <div class="inner-box-content">
                             <ul class="text-label">
                                 <?php foreach ($page->filterSetB()->toStructure() as $filter): ?>
-                                    <li class="filter" data-filter="<?= $filter->filter()->slug() ?>"><?= $filter->filter()->kt() ?></li>
+                                    <li class="filter" data-filter="<?= $filter->filter() ?>"><?= $filter->filter()->kt() ?></li>
                                 <?php endforeach ?>
                             </ul>
                         </div>

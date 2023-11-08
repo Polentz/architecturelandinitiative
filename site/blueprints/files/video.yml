@@ -49,3 +49,12 @@ fields:
       query: site.filterSet.toStructure
       text: "{{ item.filter }}"
       value: "{{ item.filter }}"
+  tools:
+    width: 1/2
+    type: multiselect
+    label: Select tools  
+    options:
+      type: query
+      query: site.children.template("tool")
+      text: "{{ page.title }}"
+      value: "{{ page.title }}"

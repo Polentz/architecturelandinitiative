@@ -37,6 +37,18 @@ Filterset:
 
 ----
 
+Images: - file://9rjePQH8YSKAc21M
+
+----
+
+Audiofiles: 
+
+----
+
+Videofiles: 
+
+----
+
 Filters: [{"content":{"filtersettitle":"Process Stage","filterset":[{"filter":"Archival materials"},{"filter":"Research"},{"filter":"Outcomes"}]},"id":"5e4c025d-c32f-40bf-b5ca-57d7c2472642","isHidden":false,"type":"filters"},{"content":{"filtersettitle":"Media type","filterset":[{"filter":"Images"},{"filter":"Videos"}]},"id":"d4790380-39a3-4926-bd3b-5a9e9ebb4fe4","isHidden":false,"type":"filters"}]
 
 ----
