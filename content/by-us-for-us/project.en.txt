@@ -20,6 +20,26 @@ Sectionblocks: [{"content":{"title":"By Us for Us","subtitle":"About the project
 
 ----
 
+Summary:
+
+- 
+  category: Location
+  text: Hong Kong
+- 
+  category: Date
+  text: "2023"
+- 
+  category: COMMISSIONED BY
+  text: Lorem ipsum
+- 
+  category: TOOLS
+  text: Forums
+- 
+  category: OUTCOMES
+  text: Lorem ipsum
+
+----
+
 Background: - file://C1dcS7fwmV0NbaIk
 
 ----

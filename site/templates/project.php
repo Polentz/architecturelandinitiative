@@ -13,7 +13,7 @@
             <div class="gallery-grid">
                 <?php foreach ($page->gallery()->toFiles() as $media) : ?>
                     <?php if ($media->type() == 'image') : ?>
-                        <figure class="gallery-item image-item" data-<?= $media->filterSetATitle()->slug() ?>="<?= $media->filterSetA()->slug() ?>" data-<?= $media->filterSetBTitle()->slug() ?>="<?= $media->filterSetB()->slug() ?>">
+                        <figure class="gallery-item image-item" data-filterseta="<?= $media->filterSetA()->slug() ?>" data-filtersetb="<?= $media->filterSetB()->slug() ?>">
                             <img src="<?= $media->resize(1200, null)->url() ?>" alt="<?= $media->alt() ?>">
                             <figcaption>
                                 <div class="text-label">
@@ -33,7 +33,7 @@
                         </figure>
                     <?php endif ?> 
                     <?php if ($media->type() == 'video') : ?>
-                        <figure class="gallery-item video-item" data-<?= $media->filterSetATitle()->slug() ?>="<?= $media->filterSetA()->slug() ?>" data-<?= $media->filterSetBTitle()->slug() ?>="<?= $media->filterSetB()->slug() ?>">
+                        <figure class="gallery-item video-item" data-filterseta="<?= $media->filterSetA()->slug() ?>" data-filtersetb="<?= $media->filterSetB()->slug() ?>">
                             <video src="<?= $media->url() ?>" autoplay muted controlslist="noplaybackrate nodownload" disablePictureInPicture type="video"></video>
                             <figcaption>
                                 <div class="text-label">
@@ -53,7 +53,7 @@
                         </figure>
                     <?php endif ?> 
                     <?php if ($media->type() == 'audio') : ?>
-                        <figure class="gallery-item audio-item" data-<?= $media->filterSetATitle()->slug() ?>="<?= $media->filterSetA()->slug() ?>" data-<?= $media->filterSetBTitle()->slug() ?>="<?= $media->filterSetB()->slug() ?>">
+                        <figure class="gallery-item audio-item" data-filterseta="<?= $media->filterSetA()->slug() ?>" data-filtersetb="<?= $media->filterSetB()->slug() ?>">
                             <audio src="<?= $media->url() ?>" controls controlslist="noplaybackrate nodownload" preload="metadata" type="audio"></audio>
                             <figcaption>
                                 <div class="text-label">
@@ -107,9 +107,11 @@
                 </button>
                 <div class="inner-box">
                     <div class="inner-box-column grid-span-2">
-                        <div class="inner-box-header">
-                            Lorem, ipsum.
-                        </div>
+                        <ul class="inner-box-header">
+                            <?php foreach ($page->summary()->toStructure() as $summary) : ?>
+                                <li><?= $summary->category()->upper() ?> <?= $summary->text() ?></p>
+                            <?php endforeach ?>
+                        </ul>
                         <div class="inner-box-content">
                             <div class="text">
                                 <?php if ($blocks = $page->sectionBlocks()->toBlocks('sectionblock')) : ?>

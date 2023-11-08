@@ -130,7 +130,6 @@ const bannerOpener = () => {
         const bannerContent = banner.querySelectorAll(".banner-block");
         const bannerButton = banner.querySelector(".banner-button");
         const offset = banner.innerHeight
-        console.log(offset)
         const addClasses = () => {
             nav.classList.add("--hide");
             banner.classList.add("--display");
@@ -329,18 +328,17 @@ const handleFilters = () => {
                 filterClear.classList.add("--opacity");
             }, 100);
 
-
             items.forEach(item => {
-                // il problema è qui: il data attribute cambia via cms e non si chiama filters
-                const itemFilter = item.dataset.filters;
-                if (itemFilter.includes(filterName)) {
+                const itemFilterSetA = item.dataset.filterseta;
+                const itemFilterSetB = item.dataset.filtersetb;
+                const itemFilters = [itemFilterSetA, itemFilterSetB];
+                if (itemFilters.includes(filterName)) {
                     item.classList.remove("--unfiltered");
                     item.classList.add("--filtered");
                 } else {
                     item.classList.add("--unfiltered");
                     item.classList.remove("--filtered");
                 };
-
             });
             filterClear.addEventListener("click", () => {
                 items.forEach(item => {
