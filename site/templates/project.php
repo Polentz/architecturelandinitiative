@@ -8,7 +8,15 @@
         </svg>
     </a>
 
-    <?= snippet('gallery') ?>
+    <section class="gallery">
+        <div class="gallery-wrapper">
+            <div class="gallery-grid">
+                <?php foreach ($page->gallery()->toFiles() as $media) : ?>
+                    <?= snippet('gallery', ['media' => $media]) ?>
+                <?php endforeach ?> 
+            </div>
+        </div>
+    </section>
 
     <section class="info-slider">
         <div class="info-slider-wrapper">
