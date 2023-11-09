@@ -12,7 +12,7 @@ tabs:
       tools:
         type: pages
         template:
-          - tool
+          - tools
       initiative:
         type: pages
         template:

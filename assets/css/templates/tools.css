@@ -1,0 +1,37 @@
+.main {
+    padding-top: var(--double-margin);
+    padding-right: var(--main-margin);
+    padding-bottom: var(--main-margin);
+    padding-left: var(--main-margin);
+    margin-bottom: var(--nav-height);
+    min-height: calc(var(--doc-height) * 1.5);
+}
+
+.page-title {
+    position: absolute;
+    top: var(--half-margin);
+    left: 50%;
+    transform: translateX(-50%);
+    font-family: var(--big-title-font);
+    font-size: var(--big-title-size);
+    font-weight: 300;
+    line-height: 0.8;
+}
+
+.gallery {
+    min-width: 100%;
+    max-width: 100%;
+}
+
+.gallery-grid {
+    padding: 0;
+    overflow-y: hidden;
+}
+
+.gallery-item figcaption {
+    display: flex;
+}
+
+.gallery-item figcaption div {
+    opacity: 1;
+}

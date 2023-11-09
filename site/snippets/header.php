@@ -52,11 +52,11 @@
 </head>
 <body>
     <header class="header">
-        <h1 class="logo">
+        <!-- <h1 class="logo">
             <span id="A" class="logo-letter">A</span>
             <span id="L" class="logo-letter">L</span>
             <span id="I" class="logo-letter">I</span>
             <span id="N" class="logo-letter">N</span>
-        </h1>
+        </h1> -->
+        <h1>A L IN / <?= $page->template() ?> / <?= $page->title() ?></h1>
     </header>
-
