@@ -9,9 +9,6 @@ Blocks: [{"content":{"title":"Cooperative","subtitle":"ALIN","copy":"<p>Architec
 Filterset:
 
 - 
-  category: Cats
-  filter: Nilo
-- 
   category: Process stage
   filter: Archive materials
   filtercategory: Process stage

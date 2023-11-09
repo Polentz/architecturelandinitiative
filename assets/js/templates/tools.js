@@ -1,4 +1,4 @@
 window.addEventListener("load", () => {
-    handleProjectButtons();
+    handleToolsButtons();
     handleFilters();
 });

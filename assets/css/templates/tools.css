@@ -1,21 +1,20 @@
 .main {
+    height: auto;
     padding-top: var(--double-margin);
     padding-right: var(--main-margin);
     padding-bottom: var(--main-margin);
     padding-left: var(--main-margin);
     margin-bottom: var(--nav-height);
-    min-height: calc(var(--doc-height) * 1.5);
+    /* min-height: calc(var(--doc-height) * 1.5); */
+    display: flex;
+    flex-direction: column;
+    gap: var(--main-margin);
 }
 
-.page-title {
-    position: absolute;
-    top: var(--half-margin);
-    left: 50%;
-    transform: translateX(-50%);
-    font-family: var(--big-title-font);
-    font-size: var(--big-title-size);
-    font-weight: 300;
-    line-height: 0.8;
+.intro {
+    font-family: var(--title-font);
+    font-size: var(--title-size);
+    line-height: 110%;
 }
 
 .gallery {

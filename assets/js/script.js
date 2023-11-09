@@ -313,6 +313,44 @@ const handleProjectButtons = () => {
     });
 };
 
+const handleToolsButtons = () => {
+    const boxOpenButton = document.querySelector(".filter-button");
+    const boxContainer = document.querySelector(".inner-box");
+    const boxContent = document.querySelectorAll(".inner-box-column");
+    const boxCloseButton = document.querySelector(".x-button");
+
+    boxOpenButton.addEventListener("click", () => {
+        boxContainer.classList.add("--display");
+        boxOpenButton.classList.remove("--opacity");
+        setTimeout(() => {
+            boxContainer.classList.add("--scale-in");
+            boxOpenButton.classList.add("--scale-out");
+        }, 100);
+        setTimeout(() => {
+            boxContent.forEach(content => {
+                content.classList.add("--opacity");
+            });
+            boxCloseButton.classList.add("--opacity");
+        }, 500);
+    });
+
+    boxCloseButton.addEventListener("click", () => {
+        boxContent.forEach(content => {
+            content.classList.remove("--opacity");
+        });
+        setTimeout(() => {
+            boxCloseButton.classList.remove("--opacity");
+            boxContainer.classList.remove("--scale-in");
+            boxOpenButton.classList.remove("--scale-out");
+            boxOpenButton.classList.add("--opacity");
+        }, 250);
+        setTimeout(() => {
+            boxContainer.classList.remove("--display");
+        }, 750);
+    });
+};
+
+
 const filters = document.querySelectorAll(".filter");
 const items = document.querySelectorAll(".gallery-item");
 const filterClear = document.querySelector(".deselect-filters");

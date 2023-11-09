@@ -80,6 +80,8 @@ html {
     --body-text-size: 1rem;
     --secondary-text-font: "GT Cinetype";
     --secondary-text-size: .8rem;
+    --title-font: "GT America";
+    --title-size: 2rem;
     --big-title-font: "GT America";
     --big-title-size: 6rem;
     --huge-title-font: "GT America";
@@ -106,6 +108,11 @@ body {
     background: var(--background);
     /* background-attachment: local; */
     overflow-x: hidden;
+    scrollbar-width: none;
+}
+
+body::-webkit-scrollbar {
+    display: none;
 }
 
 strong {

@@ -8,7 +8,7 @@ tabs:
       projects:
         type: pages
         template:
-          - project
+          - projects
       tools:
         type: pages
         template:

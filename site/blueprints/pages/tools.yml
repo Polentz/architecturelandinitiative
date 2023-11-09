@@ -1,41 +1,30 @@
-title: Project Page
+title: Tools Page
 options:
   navigation:
     status: all
-    template: projects
+    template: tools
 
 tabs:
   page:
-    label: Project page
+    label: Tools page
     icon: page
     columns:
       main:
         width: 2/3
         sections:
-          gallery:
-            type: fields
-            fields:
-              gallery:
-                label: Gallery
-                type: files
-                uploads:
-                  template: media         
-                layout: list
-                size: small
-                multiple: true
-                image:
-                  icon: true
-                  ratio: 4/3
-                  back: white
-                  cover: true 
           copy:
             type: fields
             fields:
-              sectionBlocks:
+              intro:
                 label: Text
-                type: blocks
-                fieldsets:
-                  - sectionblock
+                type: writer
+                marks:
+                  - bold
+                  - italic
+                  - underline
+                  - link
+                  - email
+                nodes: false
       sidebar:
         width: 1/3
         sections:
