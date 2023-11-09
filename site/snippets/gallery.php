@@ -4,10 +4,10 @@
         <figcaption>
             <div class="text-label">
                 <?php if ($media->filterSetATitle()->isNotEmpty()) : ?> 
-                    <p><?= $media->filterSetATitle() ?>: <?= $media->filterSetA()?></p>
+                    <p>Media type: <?= $media->type()?></p>
                 <?php endif ?>
                 <?php if ($media->filterSetBTitle()->isNotEmpty()) : ?> 
-                    <p><?= $media->filterSetBTitle() ?>: <?= $media->filterSetB()?></p>
+                    <p><?= $media->filterSetBTitle() ?>: <?= $media->filterSetB()->lower()?></p>
                 <?php endif ?>
             </div>
             <?php if ($media->caption()->isNotEmpty()) : ?>

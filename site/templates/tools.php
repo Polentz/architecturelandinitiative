@@ -9,7 +9,7 @@
 
 <main class="main">
     <section class="intro">
-        <?= $page->intro()->kt() ?>
+        <h3><?= $page->intro() ?></h3>
     </section>
 
     <section class="gallery">

@@ -14,8 +14,7 @@ return [
             'type' => 'group',
             'fieldsets' => [
                 'sectionblock',
-                'sectiontitle',
-                'sectiontext',
+                'accordion',
                 ]
             ],
         ],

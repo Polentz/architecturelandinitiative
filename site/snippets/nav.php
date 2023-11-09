@@ -38,8 +38,8 @@
         </ul>
         <ul class="nav-menu menu">
             <li id="about-opener" class="menu-element"><?= $about ?></li>
-            <?php foreach($pages->template('page')->listed() as $page) : ?>
-                <li class="menu-element"><a href="<?= $page->url() ?>"><?= $page->title() ?></a></li>
+            <?php foreach($pages->notTemplate(['error', 'home', 'projects', 'tools']) as $page) : ?>
+                <li class="menu-element <?= e($page->isOpen(), '--current') ?>"><a href="<?= $page->url() ?>"><?= $page->title() ?></a></li>
             <?php endforeach ?> 
             <li class="menu-element"><?= $contact ?></li>
         </ul>

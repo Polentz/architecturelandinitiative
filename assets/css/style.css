@@ -261,7 +261,8 @@ button {
     gap: 6rem;
 }
 
-.menu-element.--target {
+.menu-element.--target,
+.menu-element.--current {
     text-decoration: underline;
 }
 
@@ -354,6 +355,7 @@ button {
     flex-direction: column;
     gap: var(--main-margin);
     padding: var(--main-margin);
+    margin-bottom: var(--nav-height);
     background: var(--background);
     /* background-attachment: local; */
     border-left: var(--border);

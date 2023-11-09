@@ -313,7 +313,7 @@ const handleProjectButtons = () => {
     });
 };
 
-const handleToolsButtons = () => {
+const handleFilterBox = () => {
     const boxOpenButton = document.querySelector(".filter-button");
     const boxContainer = document.querySelector(".inner-box");
     const boxContent = document.querySelectorAll(".inner-box-column");
@@ -347,6 +347,17 @@ const handleToolsButtons = () => {
         setTimeout(() => {
             boxContainer.classList.remove("--display");
         }, 750);
+    });
+};
+
+const accordion = () => {
+    const accordion = document.querySelectorAll(".accordion");
+    accordion.forEach(item => {
+        const opener = item.querySelector(".accordion-header");
+        opener.addEventListener("click", () => {
+            [...accordion].filter(i => i !== item).forEach(i => i.classList.remove("--open"));
+            item.classList.toggle("--open");
+        });
     });
 };
 
@@ -395,7 +406,7 @@ window.addEventListener("load", () => {
     documentHeight();
     sliderOpener();
     bannerOpener();
-    handleColorsShuffle();
+    // handleColorsShuffle();
 });
 
 window.addEventListener("resize", () => {

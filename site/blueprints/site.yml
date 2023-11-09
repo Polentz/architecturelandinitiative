@@ -3,7 +3,7 @@ title: Site
 tabs:
   page:
     label: Pages
-    icon: grid-full
+    icon: page
     sections:
       projects:
         type: pages
@@ -23,7 +23,7 @@ tabs:
           - timeline
   global:
     label: Cooperative
-    icon: circle
+    icon: info
     sections:
       copy:
         type: fields
@@ -58,26 +58,26 @@ tabs:
               filter:
                 type: text
                 label: Filter
-  media:
-    label: Media collection
-    icon: grid
-    sections:
-      media:
-        type: files
-        template: media
-        layout: table
-        columns:
-          filterSetA:
-            label: Filter by
-          filterSetB:
-            label: Filter by
-          tools:
-            label: Related tools
-          project:
-            label: Related project
-        image:
-          icon: true
-          ratio: 1/1
-          back: white
-          cover: true
+  # media:
+  #   label: Media collection
+  #   icon: grid
+  #   sections:
+  #     media:
+  #       type: files
+  #       template: media
+  #       layout: table
+  #       columns:
+  #         filterSetA:
+  #           label: Filter by
+  #         filterSetB:
+  #           label: Filter by
+  #         tools:
+  #           label: Related tools
+  #         project:
+  #           label: Related project
+  #       image:
+  #         icon: true
+  #         ratio: 1/1
+  #         back: white
+  #         cover: true
 

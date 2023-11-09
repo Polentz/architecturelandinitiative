@@ -13,7 +13,7 @@
                 <h2><a href="<?= $page->url() ?>"><?= $page->title()->kt() ?></a></h2>
             </li>
         <?php endforeach ?>
-        <li class="grid-layout-title">
+        <!-- <li class="grid-layout-title">
             <h2>Shared Landscapes</h2>
         </li>
         <li class="grid-layout-title">
@@ -24,7 +24,7 @@
         </li>
         <li class="grid-layout-title">
             <h2>Next Project</h2>
-        </li>
+        </li> -->
     </ul>
 </main>
 
@@ -48,7 +48,7 @@
                 <h2><a href="<?= $page->url() ?>"><?= $page->title()->kt() ?></a></h2>
             </li>
         <?php endforeach ?>
-        <li class="cover-layout-title">
+        <!-- <li class="cover-layout-title">
             <h2>Shared Landscapes</h2>
         </li>
         <li class="cover-layout-title">
@@ -59,7 +59,7 @@
         </li>
         <li class="cover-layout-title">
             <h2>Next Project</h2>
-        </li>
+        </li> -->
     </ul>
 </main>
 

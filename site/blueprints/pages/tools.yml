@@ -17,14 +17,8 @@ tabs:
             fields:
               intro:
                 label: Text
-                type: writer
-                marks:
-                  - bold
-                  - italic
-                  - underline
-                  - link
-                  - email
-                nodes: false
+                type: textarea
+                buttons: false
       sidebar:
         width: 1/3
         sections:
