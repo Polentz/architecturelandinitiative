@@ -33,29 +33,72 @@ const handleColorsShuffle = () => {
     sideBackground.style.setProperty("--side-background", `linear-gradient(180deg, ${randomColorSet[0]} 0%, ${randomColorSet[1]} 100%)`);
 };
 
-const handleLayoutsShuffle = () => {
-    const layouts = document.querySelectorAll(".grid-layout, .cover-layout");
-    const randomLayout = layouts[Math.floor(Math.random() * layouts.length)];
-    randomLayout.classList.add("--random");
-    const shuffleButton = document.querySelectorAll(".header-button");
-    const scrollElements = document.querySelectorAll(".scroll-wrapper");
-    shuffleButton.forEach(button => {
-        button.addEventListener("click", () => {
-            layouts.forEach(layout => {
-                if (layout.classList.contains("--random")) {
-                    layout.classList.remove("--random");
-                } else {
-                    layout.classList.add("--random");
-                    logoAnimation();
-                };
-            });
-            scrollElements.forEach(scrollElement => {
-                scrollElement.scrollTo({
-                    left: 0,
-                });
-            });
-        });
-    });
+// const handleLayoutsShuffle = () => {
+//     const layouts = document.querySelectorAll(".grid-layout, .cover-layout");
+//     const randomLayout = layouts[Math.floor(Math.random() * layouts.length)];
+//     randomLayout.classList.add("--random");
+//     const currentLayout = document.querySelector(".--random");
+//     const shuffleButton = document.querySelectorAll(".header-button");
+//     const projectsButton = document.getElementById("to-projects");
+//     const toolsButton = document.getElementById("to-tools");
+//     const projectsMenu = document.querySelector(".grid-layout");
+//     const toolsMenu = document.querySelector(".cover-layout");
+//     const scrollElements = document.querySelectorAll(".scroll-wrapper");
+//     shuffleButton.forEach(button => {
+//         button.addEventListener("click", () => {
+//             layouts.forEach(layout => {
+//                 if (layout.classList.contains("--random")) {
+//                     layout.classList.remove("--random");
+//                 } else {
+//                     layout.classList.add("--random");
+//                     logoAnimation();
+//                 };
+//             });
+//             scrollElements.forEach(scrollElement => {
+//                 scrollElement.scrollTo({
+//                     left: 0,
+//                 });
+//             });
+//         });
+//     });
+
+//     if (projectsButton.id == `to-${currentLayout.id}`) {
+//         toolsButton.style.display = "none";
+//     } else if (toolsButton.id == `to-${currentLayout.id}`) {
+//         projectsButton.style.display = "none";
+//     };
+
+//     toolsButton.addEventListener("click", () => {
+//         if (projectsMenu.classList.contains("--random")) {
+//             projectsMenu.classList.remove("--random");
+//             toolsButton.style.display = "none";
+//             projectsButton.style.display = "flex";
+//         };
+//         toolsMenu.classList.add("--random");
+//     });
+
+//     projectsButton.addEventListener("click", () => {
+//         if (toolsMenu.classList.contains("--random")) {
+//             toolsMenu.classList.remove("--random");
+//             projectsButton.style.display = "none";
+//             toolsButton.style.display = "flex";
+
+//         };
+//         projectsMenu.classList.add("--random");
+//     });
+// };
+
+const handleHomeButtons = () => {
+    const projectsButton = document.getElementById("to-projects");
+    const toolsButton = document.getElementById("to-tools");
+    const projectsMenu = document.querySelector(".grid-layout");
+    const toolsMenu = document.querySelector(".cover-layout");
+
+    if (projectsMenu) {
+        projectsButton.style.display = "none";
+    } else if (toolsMenu) {
+        toolsButton.style.display = "none";
+    };
 };
 
 const handleAnchorTags = () => {
@@ -172,48 +215,41 @@ const bannerOpener = () => {
     });
 };
 
-// const handleScrollDirection = () => {
-//     const scrollContainer = document.querySelector(".grid-layout .scroll-wrapper");
-//     window.addEventListener("resize", () => {
-//         scrollContainer.scrollTo(0, 0);
-//     });
-//     scrollContainer.addEventListener("wheel", (event) => {
-//         event.preventDefault();
-//         scrollContainer.scrollLeft += event.deltaY;
-//     });
-// };
-
 const handleCarousel = () => {
-    const scrollButton = document.querySelector(".cover-button");
-    const parentElement = scrollButton.parentElement;
-    const scrollContanier = parentElement.querySelector(".scroll-wrapper");
-    const scrollWidth = window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth;
     const elementsArray = Array.from(document.querySelectorAll(".cover-layout-title"));
-    const firstElement = elementsArray[0];
-    const lastElement = elementsArray.pop();
+    const scrollButton = document.querySelector(".cover-button");
 
-    const observer = new window.IntersectionObserver(([entry]) => {
-        if (entry.isIntersecting) {
-            scrollButton.style.transform = "rotate(180deg)"
-            scrollButton.addEventListener("click", () => {
-                firstElement.scrollIntoView({
-                    behavior: "smooth",
+    if (elementsArray.length < 1 && scrollButton) {
+        scrollButton.style.display = "none";
+    } else if (scrollButton) {
+        const parentElement = scrollButton.parentElement;
+        const scrollContanier = parentElement.querySelector(".scroll-wrapper");
+        const scrollWidth = window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth;
+        const firstElement = elementsArray[0];
+        const lastElement = elementsArray.pop();
+        const observer = new window.IntersectionObserver(([entry]) => {
+            if (entry.isIntersecting) {
+                scrollButton.style.transform = "rotate(180deg)"
+                scrollButton.addEventListener("click", () => {
+                    firstElement.scrollIntoView({
+                        // behavior: "smooth",
+                    });
                 });
-            });
-        } else {
-            scrollButton.style.transform = "rotate(0deg)";
-            scrollButton.addEventListener("click", () => {
-                scrollContanier.scrollBy({
-                    left: scrollWidth,
-                    behavior: "smooth",
+            } else {
+                scrollButton.style.transform = "rotate(0deg)";
+                scrollButton.addEventListener("click", () => {
+                    scrollContanier.scrollBy({
+                        left: scrollWidth,
+                        // behavior: "smooth",
+                    });
                 });
-            });
-        };
-    }, {
-        root: null,
-        threshold: .75,
-    });
-    observer.observe(lastElement);
+            };
+        }, {
+            root: null,
+            threshold: .75,
+        });
+        observer.observe(lastElement);
+    };
 };
 
 const handleProjectButtons = () => {
@@ -361,12 +397,10 @@ const accordion = () => {
     });
 };
 
-
-const filters = document.querySelectorAll(".filter");
-const items = document.querySelectorAll(".gallery-item");
-const filterClear = document.querySelector(".deselect-filters");
-
 const handleFilters = () => {
+    const filters = document.querySelectorAll(".filter");
+    const items = document.querySelectorAll(".gallery-item");
+    const filterClear = document.querySelector(".deselect-filters");
     filters.forEach(filter => {
         filter.addEventListener("click", () => {
             [...filters].filter(i => i !== filter).forEach(i => i.classList.remove("--target"));

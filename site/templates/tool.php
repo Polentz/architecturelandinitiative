@@ -8,8 +8,16 @@
 </a> -->
 
 <main class="main">
-    <section>
-        <?= $page->blocks()->toBlocks() ?>
+    <section class="intro">
+        <h3><?= $page->intro() ?></h3>
+    </section>
+
+    <section class="gallery">
+        <div class="gallery-grid">
+            <?php foreach ($pages->files()->filterBy('tools', '*=', $page->title()) as $media) : ?>
+                <?= snippet('gallery', ['media' => $media]) ?>
+            <?php endforeach ?> 
+        </div>
     </section>
 </main>
 

@@ -8,11 +8,11 @@ tabs:
       projects:
         type: pages
         template:
-          - projects
+          - project
       tools:
         type: pages
         template:
-          - tools
+          - tool
       initiative:
         type: pages
         template:

@@ -8,7 +8,7 @@
     </script> -->
     <?= js([
         'assets/js/script.js',
-        'assets/js/animations.js',
+        // 'assets/js/animations.js',
         '@auto',
     ]) ?>
 </body>

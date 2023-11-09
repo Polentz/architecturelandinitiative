@@ -10,5 +10,3 @@
     </ul>
 </main>
 
-<?= snippet('slider') ?>
-<?= snippet('footer') ?>

@@ -16,6 +16,3 @@
         </svg>
     </button>
 </main>
-
-<?= snippet('slider') ?>
-<?= snippet('footer') ?>

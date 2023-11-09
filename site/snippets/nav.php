@@ -38,7 +38,7 @@
         </ul>
         <ul class="nav-menu menu">
             <li id="about-opener" class="menu-element"><?= $about ?></li>
-            <?php foreach($pages->notTemplate(['error', 'home', 'projects', 'tools']) as $page) : ?>
+            <?php foreach($pages->template(['timeline', 'initiative']) as $page) : ?>
                 <li class="menu-element <?= e($page->isOpen(), '--current') ?>"><a href="<?= $page->url() ?>"><?= $page->title() ?></a></li>
             <?php endforeach ?> 
             <li class="menu-element"><?= $contact ?></li>

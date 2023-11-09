@@ -2,7 +2,7 @@ title: Project Page
 options:
   navigation:
     status: all
-    template: projects
+    template: project
 
 tabs:
   page:
