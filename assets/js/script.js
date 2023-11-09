@@ -101,19 +101,6 @@ const handleHomeButtons = () => {
     };
 };
 
-const handleAnchorTags = () => {
-    const aTags = document.querySelectorAll(".js-href");
-    aTags.forEach(a => {
-        a.addEventListener("click", (e) => {
-            e.preventDefault();
-            const href = a.getAttribute("href");
-            document.querySelector(href).scrollIntoView({
-                behavior: "smooth"
-            });
-        });
-    });
-};
-
 const sliderOpener = () => {
     const sliderContainer = document.querySelectorAll(".slider");
     sliderContainer.forEach(slider => {
@@ -169,15 +156,15 @@ const sliderOpener = () => {
 
 const bannerOpener = () => {
     const bannerContainer = document.querySelectorAll(".banner");
+    const bodyElements = document.querySelectorAll(".main, .box-container")
     bannerContainer.forEach(banner => {
         const bannerContent = banner.querySelectorAll(".banner-block");
         const bannerButton = banner.querySelector(".banner-button");
-        const offset = banner.innerHeight
         const addClasses = () => {
             nav.classList.add("--hide");
             banner.classList.add("--display");
-            main.forEach(mainEl => {
-                mainEl.style.transform = `translateY(-${banner.clientHeight}px)`;
+            bodyElements.forEach(element => {
+                element.style.transform = `translateY(-${banner.clientHeight}px)`;
             });
             setTimeout(() => {
                 bannerContent.forEach(content => {
@@ -187,8 +174,8 @@ const bannerOpener = () => {
             }, 100);
         };
         const removeClasses = () => {
-            main.forEach(mainEl => {
-                mainEl.style.transform = "translateY(0)";
+            bodyElements.forEach(element => {
+                element.style.transform = "translateY(0)";
             });
             setTimeout(() => {
                 bannerContent.forEach(content => {

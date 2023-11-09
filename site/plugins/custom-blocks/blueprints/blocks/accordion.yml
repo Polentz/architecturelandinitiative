@@ -1,0 +1,44 @@
+name: Event
+icon: bars
+fields:
+  date:
+    type: date
+    label: Date
+    display: DD.MM.YYYY 
+  topbar:
+    label: Summary
+    type: structure
+    columns:
+      category:
+        width: 1/2
+      text:
+        width: 1/2
+    fields:
+      category:
+        type: text
+      text:
+        type: text
+  title:
+    label: Title
+    type: text
+  subtitle:
+    label: Subtitle
+    type: text
+  body:
+    label: Text
+    type: writer
+    marks:
+      - bold
+      - italic
+      - link
+      - email
+    nodes: false
+  credits:
+    label: Credits
+    type: writer
+    marks:
+      - bold
+      - italic
+      - link
+      - email
+    nodes: false  

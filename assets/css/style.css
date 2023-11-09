@@ -91,7 +91,7 @@ html {
     --header-text-font: "GT Cinetype";
     --header-text-size: 1.5rem;
     --main-margin: 4rem;
-    --half-margin: 2rem;
+    --half-margin: 2.5rem;
     --double-margin: 8rem;
     --nav-height: 3rem;
     --button-size: 2rem;
@@ -197,6 +197,8 @@ button {
     align-items: center;
     justify-content: space-between;
     gap: 1rem;
+    background-color: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(2rem)
 }
 
 .header-button-wrapper span {
@@ -692,9 +694,10 @@ button {
 }
 
 .box-container {
-    position: fixed;
+    position: absolute;
     bottom: calc(var(--nav-height) + var(--half-margin));
     left: var(--half-margin);
+    transition: transform .5s ease;
 }
 
 .box-wrapper {
