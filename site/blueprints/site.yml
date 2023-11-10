@@ -6,21 +6,47 @@ tabs:
     icon: page
     sections:
       projects:
+        label: All Projects
         type: pages
+        layout: list
+        info: "Template: {{page.template}}"
         template:
           - project
+        image: false
       tools:
+        label: All Tools
         type: pages
+        layout: list
+        info: "Template: {{page.template}}"
         template:
           - tool
-      initiative:
+        image: false
+      themes:
+        label: All Themes
         type: pages
+        layout: list
+        info: "Template: {{page.template}}"
+        template:
+          - theme
+        image: false
+      initiative:
+        label: Initiative Page
+        type: pages
+        layout: list
+        info: "Template: {{page.template}}"
         template:
           - initiative
+        create: false
+        image: false
       timeline:
+        label: Timeline Page
         type: pages
+        layout: list
+        info: "Template: {{page.template}}"
         template:
           - timeline
+        create: false
+        image: false
   global:
     label: Cooperative
     icon: info

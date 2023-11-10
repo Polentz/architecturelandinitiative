@@ -15,21 +15,3 @@
     font-size: var(--title-size);
     line-height: 110%;
 }
-
-.gallery {
-    min-width: 100%;
-    max-width: 100%;
-}
-
-.gallery-grid {
-    padding: 0;
-    overflow-y: hidden;
-}
-
-.gallery-item figcaption {
-    display: flex;
-}
-
-.gallery-item figcaption div {
-    opacity: 1;
-}

@@ -1,12 +1,12 @@
-title: Tools Page
+title: Theme Page
 options:
   navigation:
     status: all
-    template: tools
+    template: theme
 
 tabs:
   page:
-    label: Tools Page
+    label: Theme Page
     icon: page
     columns:
       main:
@@ -38,21 +38,6 @@ tabs:
                     type: text
                   text:
                     type: text
-          cover:
-            type: fields
-            fields:
-              background:
-                label: Background image
-                type: files
-                uploads: false
-                layout: list
-                size: small
-                multiple: false
-                image:
-                  back: "#000"
-                  icon: false
-                  ratio: 1/1
-                  cover: true
           filter:
             type: fields
             fields:   

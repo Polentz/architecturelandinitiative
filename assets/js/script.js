@@ -197,9 +197,9 @@ const bannerOpener = () => {
     bannerButton.addEventListener("click", () => {
         removeClasses();
     });
-    window.addEventListener("scroll", () => {
-        removeClasses();
-    });
+    // window.addEventListener("scroll", () => {
+    //     removeClasses();
+    // });
 };
 
 const handleProjectPageElements = () => {

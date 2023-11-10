@@ -6,7 +6,7 @@ options:
 
 tabs:
   page:
-    label: Project page
+    label: Project Page
     icon: page
     columns:
       main:

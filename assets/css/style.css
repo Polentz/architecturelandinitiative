@@ -128,10 +128,6 @@ button {
     border: none;
 }
 
-a {
-    text-decoration: underline;
-}
-
 .text {
     font-family: var(--body-text-font);
     font-size: var(--body-text-size);
@@ -164,6 +160,13 @@ a {
     flex-direction: column;
     gap: .5rem;
 }
+
+.text a,
+.text-subtext a,
+.text-caption a {
+    text-decoration: underline;
+}
+
 
 .button {
     width: var(--button-size);
@@ -282,7 +285,8 @@ a {
     position: fixed;
     bottom: 0;
     left: 0;
-    background-color: var(--main-color);
+    /* background-color: var(--main-color); */
+    background: var(--white);
     border-top: var(--border);
     z-index: 4;
 }
@@ -353,7 +357,8 @@ a {
     right: var(--main-margin);
     transform: translateY(-4rem);
     border: var(--border);
-    background-color: var(--main-color);
+    /* background-color: var(--main-color); */
+    background: var(--white);
 }
 
 .banner-block,
