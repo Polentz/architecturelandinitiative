@@ -2,9 +2,20 @@ name: Event
 icon: bars
 fields:
   date:
-    type: date
     label: Date
+    type: date
     display: DD.MM.YYYY 
+  typology:
+    label: Type
+    type: text
+  project:
+    label: Related project
+    type: select
+    options:
+      type: query
+      query: site.children.template("project")
+      text: "{{ page.title }}"
+      value: "{{ page.title }}"
   topbar:
     label: Summary
     type: structure
@@ -24,6 +35,10 @@ fields:
   subtitle:
     label: Subtitle
     type: text
+  image:
+    label: Image
+    type: files
+    multiple: false  
   body:
     label: Text
     type: writer

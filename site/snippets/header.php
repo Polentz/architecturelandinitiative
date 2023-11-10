@@ -56,7 +56,7 @@
             <span id="A" class="logo-letter">A</span>
             <span id="L" class="logo-letter">L</span>
             <span id="I" class="logo-letter">I</span>
-            <span id="N" class="logo-letter">N</span>
+            <span id="N" class="logo-letter">N</span> 
         </h1> -->
         <?php if ($page->is('home')) : ?>
             <h1>A<span style="margin: 0 2rem;">L</span>I N</h1>

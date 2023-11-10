@@ -1,36 +1,82 @@
 <?php if($block->date()->toDate() > time()) : ?>
-    <div class="accordion --future">
-        <div class="accordion-header">
-            <ul class="accordion-header-topbar">
-                <li class="text-label"><?= $block->date()->toDate('D') ?> <?= $block->date()->toDate('d.m.Y') ?></li>
-                <?php foreach ($block->topbar()->toStructure() as $item): ?>
-                    <li class="text-label"><?= $item->category()->upper() ?> <?= $item->text() ?></li>
-                <?php endforeach ?>
-            </ul>
-            <div class="accordion-header-title">
-                <h3><?= $block->title() ?></h3>
-                <p class="text-subtext"><?= $block->subtitle() ?></p>
-            </div>
-        </div>
-<?php elseif ($block->date()->toDate() < time()) : ?>
-    <div class="accordion --past">
-        <div class="accordion-header">
-            <ul class="accordion-header-topbar">
-                <li class="text-subtext"><?= $block->title() ?></li> 
-                <li class="text-label"><?= $block->date()->toDate('D') ?> <?= $block->date()->toDate('d.m.Y') ?></li>
-                <?php foreach ($block->topbar()->toStructure() as $item): ?>
-                    <li class="text-label"><?= $item->category()->upper() ?> <?= $item->text() ?></li>
-                <?php endforeach ?>
-            </ul>
-        </div>
-<?php endif ?>
-        <div class="accordion-content">
-            <div class="text-subtext">
-                <?= $block->body()->kt() ?>
-            </div>
-            <div class="text-label">
-                <?= $block->credits()->kt() ?>
-            </div>
-            <div class="accordion-image"></div>
-        </div>
+<div class="accordion --ongoing" data-filterseta="<?= $block->typology() ?>" data-filtersetb="<?= $block->project() ?>">
+    <div class="accordion-wrapper">
+        <ul class="accordion-topbar">
+            <li class="text-label"><?= $block->date()->toDate('D') ?> <?= $block->date()->toDate('d.m.Y') ?></li>
+            <?php if ($block->typology()->isNotEmpty()) : ?>
+                <li class="text-label">TYPE <?= $block->typology() ?></li>
+            <?php endif ?>
+            <?php foreach ($block->topbar()->toStructure() as $item): ?>
+                <li class="text-label"><?= $item->category()->upper() ?> <?= $item->text() ?></li>
+            <?php endforeach ?>
+            <?php if ($block->project()->isNotEmpty()) : ?>
+                <li class="text-label">PROJECT <?= $block->project() ?></li>
+            <?php endif ?>
+        </ul>
+        <ul class="accordion-items">
+            <li class="accordion-text">    
+                <div class="accordion-title">            
+                    <h3><?= $block->title() ?></h3>
+                    <?php if ( $block->subtitle()->isNotEmpty()) : ?>
+                        <p class="text"><?= $block->subtitle() ?></p>
+                    <?php endif ?>  
+                </div>
+                <div class="accordion-content">
+                    <div class="accordion-content-block text">
+                        <?= $block->body()->kt() ?>
+                    </div>
+                    <div class="accordion-content-block text-caption">
+                        <?= $block->credits()->kt() ?>
+                    </div>
+                </div>
+            </li>
+            <?php if ($image = $block->image()->toFile()) : ?>
+                <li class="accordion-image">
+                    <img src="<?= $image->url() ?>" alt="<?= $image->alt() ?>">
+                </li>
+            <?php endif ?>
+        </ul>
     </div>
+    </div>
+<?php elseif ($block->date()->toDate() < time()) : ?>
+    <div class="accordion --past" data-filterseta="<?= $block->typology() ?>" data-filtersetb="<?= $block->project() ?>">
+    <div class="accordion-wrapper">
+        <ul class="accordion-topbar">
+            <li class="accordion-topbar-title text-subtext"><?= $block->title() ?></li>
+            <li class="text-label"><?= $block->date()->toDate('D') ?> <?= $block->date()->toDate('d.m.Y') ?></li>
+            <?php if ($block->typology()->isNotEmpty()) : ?>
+                <li class="text-label">TYPE <?= $block->typology() ?></li>
+            <?php endif ?>
+            <?php foreach ($block->topbar()->toStructure() as $item): ?>
+                <li class="text-label"><?= $item->category()->upper() ?> <?= $item->text() ?></li>
+            <?php endforeach ?>
+            <?php if ($block->project()->isNotEmpty()) : ?>
+                <li class="text-label">PROJECT <?= $block->project() ?></li>
+            <?php endif ?>
+        </ul>
+        <ul class="accordion-items">
+            <li class="accordion-text">    
+                <div class="accordion-content">
+                    <div class="accordion-title">            
+                        <h3><?= $block->title() ?></h3>
+                        <?php if ( $block->subtitle()->isNotEmpty()) : ?>
+                            <p class="text"><?= $block->subtitle() ?></p>
+                        <?php endif ?>  
+                    </div>
+                    <div class="accordion-content-block text">
+                        <?= $block->body()->kt() ?>
+                    </div>
+                    <div class="accordion-content-block text-caption">
+                        <?= $block->credits()->kt() ?>
+                    </div>
+                </div>
+            </li>
+            <?php if ($image = $block->image()->toFile()) : ?>
+                <li class="accordion-image">
+                    <img src="<?= $image->url() ?>" alt="<?= $image->alt() ?>">
+                </li>
+            <?php endif ?>
+        </ul>
+    </div>
+</div>
+<?php endif ?>

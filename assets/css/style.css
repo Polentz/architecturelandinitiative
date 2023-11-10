@@ -128,6 +128,10 @@ button {
     border: none;
 }
 
+a {
+    text-decoration: underline;
+}
+
 .text {
     font-family: var(--body-text-font);
     font-size: var(--body-text-size);
@@ -152,6 +156,15 @@ button {
     line-height: 110%;
 }
 
+.text-caption {
+    font-family: var(--label-text-font);
+    font-size: var(--label-text-size);
+    line-height: 110%;
+    display: flex;
+    flex-direction: column;
+    gap: .5rem;
+}
+
 .button {
     width: var(--button-size);
     height: var(--button-size);
@@ -170,7 +183,7 @@ button {
     position: fixed;
     top: var(--half-margin);
     left: 0;
-    z-index: 999;
+    z-index: 2;
     pointer-events: none;
 }
 
@@ -191,6 +204,7 @@ button {
 
 .header-button-wrapper .button {
     width: fit-content;
+    min-width: 0%;
     border: var(--border);
     display: flex;
     flex-direction: row-reverse;
@@ -198,7 +212,8 @@ button {
     justify-content: space-between;
     gap: 1rem;
     background-color: rgba(255, 255, 255, 0.1);
-    backdrop-filter: blur(2rem)
+    backdrop-filter: blur(2rem);
+    transition: all .3s ease;
 }
 
 .header-button-wrapper span {
@@ -206,6 +221,7 @@ button {
 }
 
 .header-button-wrapper .button:hover {
+    min-width: 100%;
     padding-left: 1rem;
 }
 
@@ -310,14 +326,18 @@ button {
     font-family: var(--secondary-text-font);
     font-size: var(--secondary-text-size);
     display: none;
-    justify-content: space-between;
-    align-items: start;
-    padding: var(--half-margin) var(--main-margin);
     background: var(--main-color);
 }
 
 .banner.--display {
+    display: block;
+}
+
+.banner-content {
     display: flex;
+    justify-content: space-between;
+    align-items: start;
+    padding: var(--half-margin) var(--main-margin);
 }
 
 .banner-block {
@@ -694,7 +714,7 @@ button {
 }
 
 .box-container {
-    position: absolute;
+    position: fixed;
     bottom: calc(var(--nav-height) + var(--half-margin));
     left: var(--half-margin);
     transition: transform .5s ease;

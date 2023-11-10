@@ -34,28 +34,29 @@ panel.plugin("architecturelandinitiative/blocks", {
       `
     },
     accordion: {
-      computed: {
-        placeholder() {
-          return "Event ...";
-        }
-      },
       template: `
-      <div class="accordion">
-        <input
-          type="text"
-          :placeholder="placeholder"
-          :value="content.header"
-          @input="update({ header: $event.target.value })"
-        />
-        <div class="accordion-content">
-          <p>
-            <k-writer
-              v-bind="field('body')"
-              :value="content.body"
-              @input="update({ body: $event })">
-            </k-writer>
-          </p>
-        </div>
+      <div class="accordion-topbar">
+        <p>
+          <k-input
+            v-bind="field('title')"
+            :value="content.title"
+            @input="update({ title: $event })">
+          </k-input>
+        </p>
+        <p>
+          <k-input
+            v-bind="field('typology')"
+            :value="content.typology"
+            @input="update({ typology: $event })">
+          </k-input>
+        </p>
+        <p>
+          <k-input
+            v-bind="field('date')"
+            :value="content.date"
+            @input="update({ date: $event })">
+          </k-input>
+        </p>
       </div>
       `
     },

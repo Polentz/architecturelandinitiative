@@ -27,3 +27,8 @@
 .text {
     width: 75%;
 }
+
+.accordion-topbar {
+    display: flex;
+    justify-content: space-between;
+}
