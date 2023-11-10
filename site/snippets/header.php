@@ -59,9 +59,20 @@
             <span id="N" class="logo-letter">N</span> 
         </h1> -->
         <?php if ($page->is('home')) : ?>
-            <h1>A<span style="margin: 0 2rem;">L</span>I N</h1>
+            <h1>
+            <!-- A<span style="margin: 0 2rem;">L</span>I N -->
+                <span id="A" class="logo-letter">ARCHITECTURE</span>
+                <span id="L" class="logo-letter">LAND</span>
+                <span id="IN" class="logo-letter">INITIATIVE</span>
+            </h1>
         <?php else : ?>
-            <h1>A<span style="margin: 0 2rem;">L</span>I N<span style="margin: 0 1rem;">/</span><?= $page->title() ?></h1>
+            <h1>
+                <!-- A<span style="margin: 0 2rem;">L</span>I N -->
+                <span id="A" class="logo-letter">ARCHITECTURE</span>
+                <span id="L" class="logo-letter">LAND</span>
+                <span id="IN" class="logo-letter">INITIATIVE</span>
+                <span style="margin: 0 1rem;">/</span><?= $page->title() ?>
+            </h1>
         <?php endif ?>
         <div class="header-button-wrapper">
             <a href="<?= $site->template('tools')->url() ?>" id="to-tools" class="button" type="button">

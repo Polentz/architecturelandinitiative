@@ -64,7 +64,8 @@ const footer = document.querySelector(".footer");
 const nav = footer.querySelector(".nav");
 const navElement = nav.querySelectorAll(".menu-element");
 const main = document.querySelectorAll(".main");
-const logo = document.querySelector(".logo");
+const header = document.querySelector(".header");
+const logo = document.querySelector(".header h1");
 
 const documentHeight = () => {
     const doc = document.documentElement;

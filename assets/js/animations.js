@@ -3,190 +3,145 @@ gsap.registerPlugin(TextPlugin)
 const logoAnimation = () => {
     // ARCHITECTURE
     gsap.to("#A", {
-        text: "R",
-        ease: "elastic",
+        text: "ARCHITECTURE",
     });
     setTimeout(() => {
         gsap.to("#A", {
-            text: "C",
-            ease: "elastic",
-        });
-    }, 100);
-    setTimeout(() => {
-        gsap.to("#A", {
-            text: "H",
-            ease: "elastic",
-        });
-    }, 150);
-    setTimeout(() => {
-        gsap.to("#A", {
-            text: "I",
-            ease: "elastic",
+            text: "ARCHITCTURE",
         });
     }, 200);
     setTimeout(() => {
         gsap.to("#A", {
-            text: "T",
-            ease: "elastic",
+            text: "ARHITCTURE",
         });
     }, 250);
     setTimeout(() => {
         gsap.to("#A", {
-            text: "E",
-            ease: "elastic",
-        });
-    }, 300);
-    setTimeout(() => {
-        gsap.to("#A", {
-            text: "C",
-            ease: "elastic",
-        });
-    }, 350);
-    setTimeout(() => {
-        gsap.to("#A", {
-            text: "T",
-            ease: "elastic",
+            text: "ARHTETURE",
         });
     }, 400);
     setTimeout(() => {
         gsap.to("#A", {
-            text: "U",
-            ease: "elastic",
+            text: "ARCITTRE",
         });
-    }, 450);
+    }, 650);
     setTimeout(() => {
         gsap.to("#A", {
-            text: "R",
-            ease: "elastic",
+            text: "ARHTCUE",
         });
     }, 500);
     setTimeout(() => {
         gsap.to("#A", {
-            text: "E",
-            ease: "elastic",
+            text: "AHECTR",
         });
     }, 550);
     setTimeout(() => {
         gsap.to("#A", {
-            text: "A",
-            ease: "elastic",
+            text: "ARITE",
         });
     }, 600);
+    setTimeout(() => {
+        gsap.to("#A", {
+            text: "TCUR",
+        });
+    }, 650);
+    setTimeout(() => {
+        gsap.to("#A", {
+            text: "AUE",
+        });
+    }, 700);
+    setTimeout(() => {
+        gsap.to("#A", {
+            text: "AR",
+        });
+    }, 750);
+    setTimeout(() => {
+        gsap.to("#A", {
+            text: "A",
+        });
+    }, 800);
     // LAND
     gsap.to("#L", {
-        text: "A",
+        text: "LAND",
         ease: "elastic",
     });
     setTimeout(() => {
         gsap.to("#L", {
-            text: "A",
-            ease: "elastic",
-        });
-    }, 100);
-    setTimeout(() => {
-        gsap.to("#L", {
-            text: "N",
-            ease: "elastic",
-        });
-    }, 250);
-    setTimeout(() => {
-        gsap.to("#L", {
-            text: "D",
-            ease: "elastic",
-        });
-    }, 500);
-    setTimeout(() => {
-        gsap.to("#L", {
-            text: "L",
-            ease: "elastic",
-        });
-    }, 600);
-    // INITIATIVE
-    gsap.to("#I", {
-        text: "I",
-        ease: "elastic",
-    });
-    gsap.to("#N", {
-        text: "T",
-        ease: "elastic",
-    });
-    setTimeout(() => {
-        gsap.to("#I", {
-            text: "I",
-            ease: "elastic",
-        });
-        gsap.to("#N", {
-            text: "A",
-            ease: "elastic",
-        });
-    }, 200);
-    setTimeout(() => {
-        gsap.to("#I", {
-            text: "T",
-            ease: "elastic",
-        });
-        gsap.to("#N", {
-            text: "I",
-            ease: "elastic",
+            text: "LAN",
         });
     }, 300);
     setTimeout(() => {
-        gsap.to("#I", {
-            text: "I",
-            ease: "elastic",
+        gsap.to("#L", {
+            text: "LA",
         });
-        gsap.to("#N", {
-            text: "V",
-            ease: "elastic",
+    }, 550);
+    setTimeout(() => {
+        gsap.to("#L", {
+            text: "AN",
+        });
+    }, 700);
+    setTimeout(() => {
+        gsap.to("#L", {
+            text: "L",
+        });
+    }, 800);
+    // INITIATIVE
+    gsap.to("#IN", {
+        text: "INITIATIVE",
+        ease: "elastic",
+    });
+    setTimeout(() => {
+        gsap.to("#IN", {
+            text: "INITIATI",
         });
     }, 400);
     setTimeout(() => {
-        gsap.to("#I", {
-            text: "V",
-            ease: "elastic",
-        });
-        gsap.to("#N", {
-            text: "E",
-            ease: "elastic",
+        gsap.to("#IN", {
+            text: "INTIVE",
         });
     }, 500);
     setTimeout(() => {
-        gsap.to("#I", {
-            text: "I",
-            ease: "elastic",
-        });
-        gsap.to("#N", {
-            text: "N",
-            ease: "elastic",
+        gsap.to("#IN", {
+            text: "ITVE",
         });
     }, 600);
+    setTimeout(() => {
+        gsap.to("#IN", {
+            text: "ININ",
+        });
+    }, 700);
+    setTimeout(() => {
+        gsap.to("#IN", {
+            text: "IN",
+        });
+    }, 800);
+
+    setTimeout(() => {
+        document.getElementById("L").style.margin = "0 2rem";
+    }, 800);
 };
 
 window.addEventListener("load", () => {
-    logoAnimation();
+    setTimeout(() => {
+        logoAnimation();
+    }, 1000);
 });
 
 logo.addEventListener("mouseenter", () => {
-    logoAnimation();
+    gsap.to("#A", {
+        text: "ARCHITECTURE",
+    });
+    gsap.to("#L", {
+        text: "LAND",
+    });
+    gsap.to("#IN", {
+        text: "INITIATIVE",
+    });
+    document.getElementById("L").style.margin = "0 0";
 });
 
 logo.addEventListener("mouseleave", () => {
-    gsap.to("#A", {
-        text: "A",
-        ease: "elastic",
-    });
-    gsap.to("#L", {
-        text: "L",
-        ease: "elastic",
-    });
-    gsap.to("#I", {
-        text: "I",
-        ease: "elastic",
-    });
-    gsap.to("#N", {
-        text: "N",
-        ease: "elastic",
-    });
+    logoAnimation();
 });
 
 // gsap.registerPlugin(ScrollTrigger)

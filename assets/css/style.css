@@ -195,6 +195,10 @@ button {
     font-size: var(--secondary-text-size);
     font-weight: 600;
     text-transform: uppercase;
+    pointer-events: all;
+    min-width: 20%;
+    padding: .5rem 0;
+    transform: translateY(-.5rem);
 }
 
 .header-button-wrapper {
@@ -232,7 +236,7 @@ button {
     display: block;
 }
 
-.logo {
+/* .logo {
     font-family: var(--header-text-font);
     font-size: var(--header-text-size);
     display: flex;
@@ -242,14 +246,14 @@ button {
     left: var(--half-margin);
     transition: all .5s ease;
     z-index: 2;
-}
+} */
 
-.logo.--left {
+/* .logo.--left {
     left: var(--half-margin);
     transform: translateX(0);
-}
+} */
 
-.logo-letter {
+/* .logo-letter {
     display: inline-flex;
 }
 
@@ -270,7 +274,7 @@ button {
 
 #N {
     padding-top: 1rem;
-}
+} */
 
 /* .header-button {
     position: fixed;
