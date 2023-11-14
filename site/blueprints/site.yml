@@ -1,6 +1,31 @@
 title: Site
 
 tabs:
+  # projects:
+  #   label: Projects
+  #   icon: page
+  #   sections:
+  #     projects:
+  #       label: false
+  #       type: pages
+  #       layout: list
+  #       info: "Category: {{page.template}}"
+  #       template:
+  #         - project
+  #       image: false
+  # tools:
+  #   label: Tools
+  #   icon: page
+  #   sections:
+  #     tools:
+  #       label: false
+  #       type: pages
+  #       layout: list
+  #       parent: projects
+  #       info: "Category: {{page.template}}"
+  #       template:
+  #         - tool
+  #       image: false
   page:
     label: Pages
     icon: page
@@ -8,24 +33,27 @@ tabs:
       projects:
         label: All Projects
         type: pages
+        parent: site.find("projects")
         layout: list
-        info: "Template: {{page.template}}"
+        info: "Category: {{page.template}}"
         template:
           - project
         image: false
       tools:
         label: All Tools
         type: pages
+        parent: site.find("tools")
         layout: list
-        info: "Template: {{page.template}}"
+        info: "Category: {{page.template}}"
         template:
           - tool
         image: false
       themes:
         label: All Themes
         type: pages
+        parent: site.find("themes")
         layout: list
-        info: "Template: {{page.template}}"
+        info: "Category: {{page.template}}"
         template:
           - theme
         image: false
@@ -33,7 +61,7 @@ tabs:
         label: Initiative Page
         type: pages
         layout: list
-        info: "Template: {{page.template}}"
+        info: "Category: {{page.template}}"
         template:
           - initiative
         create: false
@@ -42,7 +70,7 @@ tabs:
         label: Timeline Page
         type: pages
         layout: list
-        info: "Template: {{page.template}}"
+        info: "Category: {{page.template}}"
         template:
           - timeline
         create: false

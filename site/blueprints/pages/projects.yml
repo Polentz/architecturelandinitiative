@@ -1,0 +1,15 @@
+title: All Projects
+options:
+  navigation:
+    status: all
+    template: project
+
+sections:
+  projects:
+    label: false
+    type: pages
+    layout: list
+    info: "Category: {{page.template}}"
+    template:
+      - project
+    image: false

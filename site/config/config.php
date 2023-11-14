@@ -19,4 +19,15 @@ return [
             ],
         ],
     ],
+    'routes' => [
+        [
+          'pattern' => '/',
+          'language' => '*',
+          'action'  => function ($language) {
+            if ($page = site()->find(['projects', 'tools'])->random()) {
+                return page($page);
+            }
+          }
+        ],
+    ],
 ];

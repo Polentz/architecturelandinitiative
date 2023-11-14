@@ -1,8 +1,6 @@
-<?= snippet('header') ?>
-
 <main id="tools" class="cover-layout main">
     <ul class="scroll-wrapper">
-        <?php foreach ($pages->template('tool') as $page) : ?>
+        <?php foreach ($pages->template('tools')->children() as $page) : ?>
             <li class="cover-layout-title" <?php if ($cover = $page->background()->toFile()) : ?>style="background-image: url('<?= $cover->url() ?>');"<?php endif ?>>
                 <h2><a href="<?= $page->url() ?>"><?= $page->title()->kt() ?></a></h2>
             </li>
