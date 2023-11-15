@@ -6,19 +6,19 @@ Alt:
 
 ----
 
-Filtersetatitle: 
+Filtersetatitle: Type
 
 ----
 
-Filtersetbtitle: 
+Filtersetbtitle: Process stage
 
 ----
 
-Filterseta: 
+Filterseta: Image
 
 ----
 
-Filtersetb: 
+Filtersetb: Archive materials
 
 ----
 

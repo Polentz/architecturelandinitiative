@@ -1,9 +1,37 @@
+Caption: 
+
+----
+
+Alt: 
+
+----
+
+Filtersetatitle: Type
+
+----
+
+Filtersetbtitle: Process stage
+
+----
+
+Filterseta: Video
+
+----
+
+Filtersetb: Outcomes
+
+----
+
+Tools: 
+
+----
+
+Project: 
+
+----
+
 Uuid: sGfzCroXZa8NX7Dv
 
 ----
 
 Template: media
-
-----
-
-Tools: 

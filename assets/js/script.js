@@ -90,18 +90,18 @@ const handleColorsShuffle = () => {
     sideBackground.style.setProperty("--side-background", `linear-gradient(180deg, ${randomColorSet[0]} 0%, ${randomColorSet[1]} 100%)`);
 };
 
-const handleHomepageElements = () => {
-    const projectsButton = document.getElementById("to-projects");
-    const toolsButton = document.getElementById("to-tools");
-    const projectsMenu = document.querySelector(".grid-layout");
-    const toolsMenu = document.querySelector(".cover-layout");
+// const handleHomepageElements = () => {
+//     const projectsButton = document.getElementById("to-projects");
+//     const toolsButton = document.getElementById("to-tools");
+//     const projectsMenu = document.querySelector(".grid-layout");
+//     const toolsMenu = document.querySelector(".cover-layout");
 
-    if (projectsMenu) {
-        projectsButton.style.display = "none";
-    } else if (toolsMenu) {
-        toolsButton.style.display = "none";
-    };
-};
+//     if (projectsMenu) {
+//         projectsButton.style.display = "none";
+//     } else if (toolsMenu) {
+//         toolsButton.style.display = "none";
+//     };
+// };
 
 const sliderOpener = () => {
     const sliderContainer = document.querySelectorAll(".slider");

@@ -1,9 +1,37 @@
+Caption: 
+
+----
+
+Alt: 
+
+----
+
+Filtersetatitle: Type
+
+----
+
+Filtersetbtitle: Process stage
+
+----
+
+Filterseta: Image
+
+----
+
+Filtersetb: Archive materials
+
+----
+
+Tools: 
+
+----
+
+Project: 
+
+----
+
 Uuid: jsQbeKjjzn5c4nlD
 
 ----
 
 Template: media
-
-----
-
-Tools: 

@@ -1,4 +1,5 @@
-gsap.registerPlugin(TextPlugin)
+gsap.registerPlugin(TextPlugin);
+gsap.registerPlugin(Flip);
 
 const logoAnimation = () => {
     // ARCHITECTURE
@@ -7,59 +8,59 @@ const logoAnimation = () => {
     });
     setTimeout(() => {
         gsap.to("#A", {
-            text: "ARCHITCTURE",
-        });
-    }, 200);
-    setTimeout(() => {
-        gsap.to("#A", {
-            text: "ARHITCTURE",
-        });
-    }, 250);
-    setTimeout(() => {
-        gsap.to("#A", {
-            text: "ARHTETURE",
+            text: "ARCHITECTUR",
         });
     }, 400);
     setTimeout(() => {
         gsap.to("#A", {
-            text: "ARCITTRE",
+            text: "ARCHITECTU",
         });
     }, 650);
     setTimeout(() => {
         gsap.to("#A", {
-            text: "ARHTCUE",
-        });
-    }, 500);
-    setTimeout(() => {
-        gsap.to("#A", {
-            text: "AHECTR",
-        });
-    }, 550);
-    setTimeout(() => {
-        gsap.to("#A", {
-            text: "ARITE",
+            text: "ARCHITECT",
         });
     }, 600);
     setTimeout(() => {
         gsap.to("#A", {
-            text: "TCUR",
+            text: "ARCHITEC",
         });
-    }, 650);
+    }, 850);
     setTimeout(() => {
         gsap.to("#A", {
-            text: "AUE",
+            text: "ARCHITE",
         });
     }, 700);
     setTimeout(() => {
         gsap.to("#A", {
-            text: "AR",
+            text: "ARCHIT",
         });
     }, 750);
     setTimeout(() => {
         gsap.to("#A", {
-            text: "A",
+            text: "ARCHI",
         });
     }, 800);
+    setTimeout(() => {
+        gsap.to("#A", {
+            text: "ARCH",
+        });
+    }, 850);
+    setTimeout(() => {
+        gsap.to("#A", {
+            text: "ARC",
+        });
+    }, 900);
+    setTimeout(() => {
+        gsap.to("#A", {
+            text: "AR",
+        });
+    }, 950);
+    setTimeout(() => {
+        gsap.to("#A", {
+            text: "A",
+        });
+    }, 1000);
     // LAND
     gsap.to("#L", {
         text: "LAND",
@@ -69,22 +70,22 @@ const logoAnimation = () => {
         gsap.to("#L", {
             text: "LAN",
         });
-    }, 300);
+    }, 500);
     setTimeout(() => {
         gsap.to("#L", {
             text: "LA",
         });
-    }, 550);
+    }, 750);
     setTimeout(() => {
         gsap.to("#L", {
             text: "AN",
         });
-    }, 700);
+    }, 900);
     setTimeout(() => {
         gsap.to("#L", {
             text: "L",
         });
-    }, 800);
+    }, 1000);
     // INITIATIVE
     gsap.to("#IN", {
         text: "INITIATIVE",
@@ -94,32 +95,39 @@ const logoAnimation = () => {
         gsap.to("#IN", {
             text: "INITIATI",
         });
-    }, 400);
+    }, 600);
     setTimeout(() => {
         gsap.to("#IN", {
             text: "INTIVE",
         });
-    }, 500);
+    }, 700);
     setTimeout(() => {
         gsap.to("#IN", {
             text: "ITVE",
         });
-    }, 600);
+    }, 800);
     setTimeout(() => {
         gsap.to("#IN", {
             text: "ININ",
         });
-    }, 700);
+    }, 900);
     setTimeout(() => {
         gsap.to("#IN", {
             text: "IN",
         });
-    }, 800);
+    }, 1000);
 
     setTimeout(() => {
         document.getElementById("L").style.margin = "0 2rem";
-    }, 800);
+    }, 1000);
 };
+
+gsap.registerPlugin(Flip);
+
+
+
+
+
 
 window.addEventListener("load", () => {
     setTimeout(() => {
@@ -143,20 +151,3 @@ logo.addEventListener("mouseenter", () => {
 logo.addEventListener("mouseleave", () => {
     logoAnimation();
 });
-
-// gsap.registerPlugin(ScrollTrigger)
-
-// let scrollSections = gsap.utils.toArray(".scroll-wrapper li");
-
-// gsap.to(scrollSections, {
-//     xPercent: -100 * (scrollSections.length - 1),
-//     ease: "none",
-//     ScrollTrigger: {
-//         trigger: ".scroll-wrapper",
-//         pin: true,
-//         scrub: 1,
-//         snap: 1 / (scrollSections.length - 1),
-//         end: () => "+=" + document.querySelector(".scroll-wrapper").offsetWidth
-//     }
-// });
-

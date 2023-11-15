@@ -64,7 +64,7 @@
         </h1> -->
         <h1>
             <!-- A<span style="margin: 0 2rem;">L</span>I N -->
-            <a href="/<?= $lang ?>">
+            <a href="<?= $site->page('home')->url() ?>">
                 <span id="A" class="logo-letter">ARCHITECTURE</span>
                 <span id="L" class="logo-letter">LAND</span>
                 <span id="IN" class="logo-letter">INITIATIVE</span>
@@ -75,22 +75,17 @@
             <span style="margin: 0 1rem;">/</span><?= $page->title() ?>
         </h1>
         <div class="header-button-wrapper">
-            <?php foreach ($pages->template('tools') as $tools) : ?>
-                <a href="<?= $tools->url() ?>" id="to-tools" class="button" type="button">
-                    <svg viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <rect x="7.5" y="12.5" width="5" height="25" transform="rotate(-90 7.5 12.5)" stroke="#1d1d1b"/>
-                        <rect x="7.5" y="32.5" width="17" height="25" transform="rotate(-90 7.5 32.5)" stroke="#1d1d1b"/>
-                    </svg>
-                    <span class="text-label">tools</span>
-                </a>
-            <?php endforeach ?>
-            <?php foreach ($pages->template('projects') as $projects) : ?>
-                <a href="<?= $projects->url() ?>" id="to-projects" class="button" type="button">
-                    <svg viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M7 33L7 7L11.3333 7L11.3333 33L15.6667 33L15.6667 7L20 7L20 33L24.3333 33L24.3333 7L28.6667 7L28.6667 33L33 33L33 7" stroke="#1d1d1b"/>
-                    </svg>
-                    <span class="text-label">projects</span>
-                </a>
-            <?php endforeach ?>
+            <a href="<?= $site->page('projects')->url() ?>" id="to-projects" class="button" type="button">
+                <svg viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M7 33L7 7L11.3333 7L11.3333 33L15.6667 33L15.6667 7L20 7L20 33L24.3333 33L24.3333 7L28.6667 7L28.6667 33L33 33L33 7" stroke="#1d1d1b"/>
+                </svg>
+                <span class="text-label">projects</span>
+            </a>
+            <a href="<?= $site->page('tools')->url() ?>" id="to-tools" class="button" type="button">
+                <svg viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <rect x="7.5" y="32.5" width="25" height="25" transform="rotate(-90 7.5 32.5)" stroke="#1d1d1b"/>
+                </svg>
+                <span class="text-label">tools</span>
+            </a>
         </div>
     </header>
