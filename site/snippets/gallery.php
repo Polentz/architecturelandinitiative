@@ -3,9 +3,7 @@
         <img src="<?= $media->resize(1200, null)->url() ?>" alt="<?= $media->alt() ?>">
         <figcaption>
             <div class="text-label">
-                <?php if ($media->filterSetATitle()->isNotEmpty()) : ?> 
-                    <p>Media type: <?= $media->type()?></p>
-                <?php endif ?>
+                <p>Media type: <?= $media->type()?></p>
                 <?php if ($media->filterSetBTitle()->isNotEmpty()) : ?> 
                     <p><?= $media->filterSetBTitle() ?>: <?= $media->filterSetB()->lower()?></p>
                 <?php endif ?>

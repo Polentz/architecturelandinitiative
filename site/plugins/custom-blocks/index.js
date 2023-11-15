@@ -5,21 +5,27 @@ panel.plugin("architecturelandinitiative/blocks", {
         <div class="block">
           <div v-if="content.title" class="block-title">
               <h2>
-                <k-input
+                <k-writer
                     v-bind="field('title')"
+                    :inline="true"
+                    :marks="false"
+                    :nodes="false"
                     :value="content.title"
                     @input="update({ title: $event })">
-                </k-input>
+                </k-writer>
               </h2>
           </div>
           <div v-if="content.copy" class="block-text">
               <div v-if="content.subtitle" class="text-label">
                 <p>
-                  <k-input
+                  <k-writer
                     v-bind="field('subtitle')"
+                    :inline="true"
+                    :marks="false"
+                    :nodes="false"
                     :value="content.subtitle"
                     @input="update({ subtitle: $event })">
-                  </k-input>
+                  </k-writer>
                 </p>
               </div>
               <div class="text">
@@ -31,6 +37,15 @@ panel.plugin("architecturelandinitiative/blocks", {
               </div>
           </div>
         </div>
+      `
+    },
+    contactblock: {
+      template: `
+      <k-writer
+        v-bind="field('copy')"
+        :value="content.copy"
+        @input="update({ copy: $event })">
+      </k-writer>
       `
     },
     accordion: {

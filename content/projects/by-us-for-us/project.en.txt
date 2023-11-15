@@ -40,10 +40,6 @@ Summary:
 
 ----
 
-Background: - file://TEBffZGVCAsEEO94
-
-----
-
 Filtersetatitle: Type
 
 ----
@@ -71,6 +67,10 @@ Filtersetb:
   filter: Research
 - 
   filter: Outcomes
+
+----
+
+Background: - file://TEBffZGVCAsEEO94
 
 ----
 

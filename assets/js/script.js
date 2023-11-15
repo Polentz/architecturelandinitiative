@@ -159,7 +159,7 @@ const sliderOpener = () => {
 const bannerOpener = () => {
     const banner = document.querySelector(".banner");
     const bannerContent = document.querySelector(".banner-content");
-    const bannerContentElements = banner.querySelectorAll(".banner-block");
+    const bannerContentElements = banner.querySelectorAll(".contact-block");
     const bannerButton = banner.querySelector(".banner-button");
     const bodyElements = document.querySelectorAll(".main, .box-container");
     const addClasses = () => {

@@ -348,11 +348,12 @@ button {
     padding: var(--half-margin) var(--main-margin);
 }
 
-.banner-block {
-    display: flex;
-    flex-direction: column;
-    gap: var(--secondary-text-size);
+.contact-block {
     transition: opacity .5s ease;
+}
+
+.contact-block p a {
+    text-decoration: underline;
 }
 
 .banner-button {
@@ -365,12 +366,12 @@ button {
     background: var(--white);
 }
 
-.banner-block,
+.contact-block,
 .banner-button {
     opacity: 0;
 }
 
-.banner-block.--opacity,
+.contact-block.--opacity,
 .banner-button.--opacity {
     opacity: 1;
 }
@@ -587,15 +588,15 @@ button {
     transition: all .75s ease;
 }
 
+.gallery.--width {
+    min-width: 100%;
+    max-width: 100%;
+}
+
 .gallery-wrapper {
     height: var(--doc-height);
     overflow-y: hidden;
     display: flex;
-}
-
-.gallery.--width {
-    min-width: 100%;
-    max-width: 100%;
 }
 
 .gallery-grid {
@@ -669,16 +670,6 @@ button {
 .gallery-item.--filtered figcaption div.--opacity {
     opacity: 1;
 }
-
-/* audio temporary style */
-
-.gallery-item audio {
-    height: 2rem;
-    background: white;
-    filter: invert(1);
-}
-
-/* audio temporary style */
 
 .gallery-item figcaption {
     display: none;

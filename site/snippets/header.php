@@ -69,9 +69,9 @@
                 <span id="L" class="logo-letter">LAND</span>
                 <span id="IN" class="logo-letter">INITIATIVE</span>
             </a>
-            <?php if ($page->parent()) : ?>
+            <!-- <?php if ($page->parent()) : ?>
             <span style="margin: 0 1rem;">/</span><?= $page->parent()->title() ?>
-            <?php endif ?>
+            <?php endif ?> -->
             <span style="margin: 0 1rem;">/</span><?= $page->title() ?>
         </h1>
         <div class="header-button-wrapper">

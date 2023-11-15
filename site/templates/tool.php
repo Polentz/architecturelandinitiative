@@ -7,7 +7,7 @@
 
     <section class="gallery">
         <div class="gallery-grid">
-            <?php foreach ($pages->files()->filterBy('tools', '*=', $page->title()) as $media) : ?>
+            <?php foreach ($pages->children()->files()->filterBy('tools', '*=', $page->title()) as $media) : ?>
                 <?= snippet('gallery', ['media' => $media]) ?>
             <?php endforeach ?> 
         </div>
@@ -20,3 +20,6 @@
 
 <?= snippet('slider') ?>
 <?= snippet('footer') ?>
+
+
+<!-- ->filterBy('tools', '*=', $page->title()) -->

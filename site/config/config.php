@@ -14,6 +14,7 @@ return [
             'type' => 'group',
             'fieldsets' => [
                 'sectionblock',
+                'contactblock',
                 'accordion',
                 ]
             ],

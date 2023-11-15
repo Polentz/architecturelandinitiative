@@ -8,3 +8,110 @@ body {
     overflow-y: hidden;
     display: flex;
 }
+
+/* .gallery {
+    min-width: calc(50% - var(--button-size));
+    max-width: calc(50% - var(--button-size));
+    height: auto;
+    position: relative;
+    transition: all .75s ease;
+}
+
+.gallery.--width {
+    min-width: 100%;
+    max-width: 100%;
+}
+
+.gallery-wrapper {
+    height: var(--doc-height);
+    overflow-y: hidden;
+    display: flex;
+}
+
+.gallery-grid {
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-wrap: wrap;
+    padding-top: var(--double-margin);
+    padding-right: calc(var(--main-margin) - var(--button-size));
+    padding-bottom: calc(var(--main-margin) + var(--nav-height));
+    padding-left: var(--main-margin);
+    overflow-y: scroll;
+    scrollbar-width: none;
+}
+
+.gallery-grid::-webkit-scrollbar {
+    display: none;
+}
+
+.gallery.--width .gallery-grid {
+    padding-right: var(--main-margin);
+}
+
+.gallery-item {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    place-items: start stretch;
+}
+
+.gallery-item.--filtered img,
+.gallery-item.--filtered video,
+.gallery-item.--filtered audio {
+    max-width: 100%;
+    min-width: 100%;
+    object-fit: contain;
+    filter: grayscale(0);
+}
+
+.gallery-item.--unfiltered img,
+.gallery-item.--unfiltered video,
+.gallery-item.--unfiltered audio {
+    max-width: 10%;
+    min-width: 10%;
+    object-fit: contain;
+    filter: grayscale(1);
+}
+
+.gallery-item img,
+.gallery-item video,
+.gallery-item audio {
+    width: 100%;
+    transition: all .3s ease;
+}
+
+.gallery-item.--unfiltered figcaption.--display {
+    display: none;
+}
+
+.gallery-item.--unfiltered figcaption div.--opacity {
+    opacity: 0;
+}
+
+.gallery-item.--filtered figcaption.--display {
+    display: flex;
+}
+
+.gallery-item.--filtered figcaption div.--opacity {
+    opacity: 1;
+}
+
+.gallery-item figcaption {
+    display: none;
+    flex-direction: column;
+    gap: var(--label-text-size);
+}
+
+.gallery-item figcaption div {
+    opacity: 0;
+    transition: opacity .5s .2s ease;
+}
+
+.gallery-item figcaption.--display {
+    display: flex;
+}
+
+.gallery-item figcaption div.--opacity {
+    opacity: 1;
+} */

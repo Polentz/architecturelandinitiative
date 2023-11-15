@@ -75,21 +75,56 @@ tabs:
           - timeline
         create: false
         image: false
-  global:
-    label: Cooperative
+  about:
+    label: About
     icon: info
-    sections:
-      copy:
-        type: fields
-        fields:
-          blocks:
-            label: Text
-            width: 3/4
-            type: blocks
-            fieldsets:
-              - sectionblock
+    columns:
+      main:
+        width: 2/3
+        sections:
+          copy:
+            type: fields
+            fields:
+              blocks:
+                label: Text
+                type: blocks
+                fieldsets:
+                  - sectionblock
+      sidebar:
+        width: 1/3
+        sections:
+          aboutNavLabel:
+            type: fields
+            fields:
+              aboutNavLabel:
+                label: Nav label
+                type: text
+  contact:
+    label: Contact
+    icon: book
+    columns:
+      main:
+        width: 2/3
+        sections:
+          contact:
+            type: fields
+            fields:
+              contactblocks:
+                label: Contact items
+                type: blocks
+                fieldsets:
+                  - contactblock
+      sidebar:
+        width: 1/3
+        sections:
+          instagram:
+            type: fields
+            fields:
+              instagram:
+                label: Instagram
+                type: url
   filters:
-    label: Filter collection
+    label: Filters collection
     icon: filter
     sections:
       filter:
