@@ -6,6 +6,30 @@ Alt:
 
 ----
 
+Project: 
+
+----
+
+Tools: Forum
+
+----
+
+Mediatype: Image
+
+----
+
+Filter: Events
+
+----
+
+Filtername: 
+
+----
+
+Filterbymediatype: 
+
+----
+
 Filtersetatitle: Type
 
 ----
@@ -19,14 +43,6 @@ Filterseta: Image
 ----
 
 Filtersetb: Archive materials
-
-----
-
-Tools: 
-
-----
-
-Project: 
 
 ----
 

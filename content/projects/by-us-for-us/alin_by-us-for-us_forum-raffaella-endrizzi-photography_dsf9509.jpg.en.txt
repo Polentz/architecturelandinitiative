@@ -6,6 +6,26 @@ Alt:
 
 ----
 
+Project: By Us for Us
+
+----
+
+Tools: Forum
+
+----
+
+Mediatype: Image
+
+----
+
+Filter: Archive material
+
+----
+
+Filtername: Process stage
+
+----
+
 Filtersetatitle: Type
 
 ----
@@ -19,14 +39,6 @@ Filterseta: Image
 ----
 
 Filtersetb: Research
-
-----
-
-Tools: Forum
-
-----
-
-Project: By Us for Us
 
 ----
 

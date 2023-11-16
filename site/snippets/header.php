@@ -1,16 +1,3 @@
-<?php
-    if ($kirby->language()->code() == 'en') {
-        $lang = 'en';
-        $langCode = 'en_US';
-    } else if ($kirby->language()->code() == 'fr') {
-        $lang = 'fr';
-        $langCode = 'fr_FR';
-    } else if ($kirby->language()->code() == 'de') {
-        $lang = 'de';
-        $langCode = 'de_DE';
-    }
-?>
-
 <!DOCTYPE html>
 <html lang="<?= $lang ?>">
 <head>
@@ -52,26 +39,15 @@
         'assets/css/style.css',
         '@auto',
     ]) ?>
-    <!-- <link rel="stylesheet" href="https://unpkg.com/mouse-follower@1/dist/mouse-follower.min.css"> -->
 </head>
 <body>
     <header class="header">
-        <!-- <h1 class="logo">
-            <span id="A" class="logo-letter">A</span>
-            <span id="L" class="logo-letter">L</span>
-            <span id="I" class="logo-letter">I</span>
-            <span id="N" class="logo-letter">N</span> 
-        </h1> -->
         <h1>
-            <!-- A<span style="margin: 0 2rem;">L</span>I N -->
             <a href="<?= $site->page('home')->url() ?>">
                 <span id="A" class="logo-letter">ARCHITECTURE</span>
                 <span id="L" class="logo-letter">LAND</span>
                 <span id="IN" class="logo-letter">INITIATIVE</span>
             </a>
-            <!-- <?php if ($page->parent()) : ?>
-            <span style="margin: 0 1rem;">/</span><?= $page->parent()->title() ?>
-            <?php endif ?> -->
             <span style="margin: 0 1rem;">/</span><?= $page->title() ?>
         </h1>
         <div class="header-button-wrapper">

@@ -6,6 +6,30 @@ Alt:
 
 ----
 
+Project: 
+
+----
+
+Tools: 
+
+----
+
+Mediatype: Audio
+
+----
+
+Filter: 
+
+----
+
+Filtername: 
+
+----
+
+Filterbymediatype: 
+
+----
+
 Filtersetatitle: Type
 
 ----
@@ -19,14 +43,6 @@ Filterseta: Audio
 ----
 
 Filtersetb: Research
-
-----
-
-Tools: 
-
-----
-
-Project: 
 
 ----
 

@@ -6,7 +6,7 @@ Blocks: [{"content":{"title":"Cooperative","subtitle":"ALIN","copy":"<p>Architec
 
 ----
 
-Aboutnavlabel: Cooperative
+Aboutnavlabel: Genossenschaft
 
 ----
 
@@ -14,7 +14,7 @@ Contactblocks: [{"content":{"copy":"<p>General inquiry</p><p><a href=\"mailto:ma
 
 ----
 
-Contactnavlabel: Contact
+Contactnavlabel: Kontakt
 
 ----
 

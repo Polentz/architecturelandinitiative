@@ -1,4 +1,4 @@
-title: All Projects
+title: All Tools
 options:
   preview: false
 
@@ -9,5 +9,5 @@ sections:
     layout: list
     info: "Category: {{page.template}}"
     template:
-      - project
+      - tool
     image: false

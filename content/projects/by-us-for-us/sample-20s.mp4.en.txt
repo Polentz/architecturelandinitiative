@@ -6,6 +6,30 @@ Alt:
 
 ----
 
+Project: 
+
+----
+
+Tools: 
+
+----
+
+Filtername: 
+
+----
+
+Filterbymediatype: 
+
+----
+
+Filter: 
+
+----
+
+Mediatype: Video
+
+----
+
 Filtersetatitle: Type
 
 ----
@@ -19,14 +43,6 @@ Filterseta: Video
 ----
 
 Filtersetb: Outcomes
-
-----
-
-Tools: 
-
-----
-
-Project: 
 
 ----
 

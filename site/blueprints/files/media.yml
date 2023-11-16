@@ -5,66 +5,59 @@ accept:
   mime: image/*, audio/*, video/*
   type: image, audio, video
 
-fields:
-  caption:
-    label: Caption
-    type: text
+columns:
+  main:
     width: 1/2
-  alt:
-    type: text
+    sections:
+      content:
+        type: fields
+        fields:
+          caption:
+            label: Caption
+            type: textarea
+            buttons: false
+          alt:
+            type: text
+            label: Alternative Text
+  sidebar:
     width: 1/2
-    label: Alt Tag
-  filterSetATitle:
-    label: Filter by    
-    type: select
-    width: 1/2
-    options:
-      type: query
-      query: site.filterSet.toStructure
-      text: "{{ item.category }}"
-      value: "{{ item.category }}"
-  filterSetBTitle:
-    label: Filter by    
-    type: select
-    width: 1/2
-    options:
-      type: query
-      query: site.filterSet.toStructure
-      text: "{{ item.category }}"
-      value: "{{ item.category }}"
-  filterSetA:
-    type: select
-    label: Available filters 
-    width: 1/2 
-    options:
-      type: query
-      query: site.filterSet.toStructure
-      text: "{{ item.filter }}"
-      value: "{{ item.filter }}"
-  filterSetB:
-    width: 1/2
-    type: select
-    label: Available filters   
-    options:
-      type: query
-      query: site.filterSet.toStructure
-      text: "{{ item.filter }}"
-      value: "{{ item.filter }}"
-  tools:
-    width: 1/2
-    type: multiselect
-    label: Select tools  
-    options:
-      type: query
-      query: site.find("tools").children.template("tool")
-      text: "{{ page.title }}"
-      value: "{{ page.title }}"
-  project:
-    width: 1/2
-    type: select
-    label: Select project
-    options:
-      type: query
-      query: site.find("projects").children.template("project")
-      text: "{{ page.title }}"
-      value: "{{ page.title }}"
+    sections:
+      data:
+        type: fields
+        fields:
+          project:
+            width: 1/2
+            type: select
+            label: Related Project
+            options:
+              type: query
+              query: site.find("projects").children.template("project")
+              text: "{{ page.title }}"
+              value: "{{ page.title }}"
+          tools:
+            width: 1/2
+            type: multiselect
+            label: Related Tools  
+            options:
+              type: query
+              query: site.find("tools").children.template("tool")
+              text: "{{ page.title }}"
+              value: "{{ page.title }}"
+          mediatype:
+            label: Filter by media type
+            type: select 
+            width: 1/2 
+            options:
+              type: query
+              query: site.mediaFilters.toStructure
+              text: "{{ item.filter }}"
+              value: "{{ item.filter }}"   
+          filter:
+            label: Filter by process stage
+            type: select 
+            width: 1/2 
+            options:
+              type: query
+              query: site.processFilters.toStructure
+              text: "{{ item.filter }}"
+              value: "{{ item.filter }}"    

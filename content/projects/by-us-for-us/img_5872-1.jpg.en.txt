@@ -1,9 +1,37 @@
+Caption: 
+
+----
+
+Alt: 
+
+----
+
+Project: 
+
+----
+
+Tools: Atlas
+
+----
+
+Mediatype: Image
+
+----
+
+Filter: 
+
+----
+
+Filtername: 
+
+----
+
+Filterbymediatype: 
+
+----
+
 Uuid: TEBffZGVCAsEEO94
 
 ----
 
 Template: media
-
-----
-
-Tools: 

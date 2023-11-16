@@ -13,28 +13,42 @@
         <div class="inner-box">
             <div class="inner-box-column grid-span-1">
                 <div class="inner-box-header">
-                    <p>Filter by <?= $page->filterSetATitle()->lower() ?></p>
+                    <p>Filter by <?= $page->typeName()->lower() ?></p>
                 </div>
                 <div class="inner-box-content">
                     <ul class="text-label">
-                        <?php foreach ($page->filterSetA()->toStructure() as $filter): ?>
-                            <li class="filter" data-filter="<?= $filter->filter() ?>"><?= $filter->filter()->kt() ?></li>
+                        <?php foreach ($page->types()->split() as $type): ?>
+                            <li class="filter" data-filter="<?= $type ?>"><?= $type ?></li>
                         <?php endforeach ?>
                     </ul>
                 </div>
             </div>
 
             <div class="inner-box-column grid-span-1">
-                <div class="inner-box-header">
-                    <p>Filter by <?= $page->filterSetBTitle()->lower() ?></p>
-                </div>
-                <div class="inner-box-content">
-                    <ul class="text-label">
-                        <?php foreach ($page->filterSetB()->toStructure() as $filter): ?>
-                            <li class="filter" data-filter="<?= $filter->filter() ?>"><?= $filter->filter()->kt() ?></li>
-                        <?php endforeach ?>
-                    </ul>
-                </div>
+                <?php if ($slots->filterByProject()): ?>
+                    <div class="inner-box-header">
+                        <p>Filter by project</p>
+                    </div>
+                    <div class="inner-box-content">
+                        <ul class="text-label">
+                            <?php foreach ($projects as $project): ?>
+                                <li class="filter" data-filter="<?= $project->title() ?>"><?= $project->title() ?></li>
+                            <?php endforeach ?>
+                        </ul>
+                    </div>
+                <?php else : ?>
+                    <div class="inner-box-header">
+                        <p>Filter by <?= $page->filterName()->lower() ?></p>
+                    </div>
+                    <div class="inner-box-content">
+                        <ul class="text-label">
+                            <?php foreach ($page->filters()->split() as $filter): ?>
+                                <li class="filter" data-filter="<?= $filter ?>"><?= $filter ?></li>
+                            <?php endforeach ?>
+                        </ul>
+                    </div>
+                <?php endif ?>
+
             </div>
                             
             <div class="inner-box-column grid-span-2 deselect-filters">

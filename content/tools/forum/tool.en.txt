@@ -2,15 +2,27 @@ Title: Forum
 
 ----
 
-Intro: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Eu augue ut lectus arcu bibendum at varius vel pharetra. Sit amet venenatis urna cursus eget nunc scelerisque viverra mauris. Consectetur a erat nam at lectus. Malesuada fames ac turpis egestas maecenas pharetra. Sed viverra ipsum nunc aliquet. Nunc sed id semper risus in hendrerit. Non enim praesent elementum facilisis leo vel fringilla. Imperdiet sed euismod nisi porta. Eget mauris pharetra et ultrices neque. Ac tincidunt vitae semper quis lectus nulla at volutpat. Est lorem ipsum dolor sit.
-
-----
-
 Summary: 
 
 ----
 
+Intro: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Eu augue ut lectus arcu bibendum at varius vel pharetra. Sit amet venenatis urna cursus eget nunc scelerisque viverra mauris. Consectetur a erat nam at lectus. Malesuada fames ac turpis egestas maecenas pharetra. Sed viverra ipsum nunc aliquet. Nunc sed id semper risus in hendrerit. Non enim praesent elementum facilisis leo vel fringilla. Imperdiet sed euismod nisi porta. Eget mauris pharetra et ultrices neque. Ac tincidunt vitae semper quis lectus nulla at volutpat. Est lorem ipsum dolor sit.
+
+----
+
 Background: 
+
+----
+
+Mediatypes: 
+
+----
+
+Filtername: 
+
+----
+
+Filters: 
 
 ----
 

@@ -1,15 +1,20 @@
 <?php if ($media->type() == 'image') : ?>
-    <figure class="gallery-item image-item" type="<?= $media->type() ?>" data-filterseta="<?= $media->filterSetA() ?>" data-filtersetb="<?= $media->filterSetB() ?>" data-tools="<?= $media->tools() ?>">
+    <figure class="gallery-item image-item" data-type="<?= $media->mediatype() ?>" data-filter="<?= $media->filter() ?>">
         <img src="<?= $media->resize(1200, null)->url() ?>" alt="<?= $media->alt() ?>">
         <figcaption>
-            <div class="text-label">
-                <p>Media type: <?= $media->type()?></p>
-                <?php if ($media->filterSetBTitle()->isNotEmpty()) : ?> 
-                    <p><?= $media->filterSetBTitle() ?>: <?= $media->filterSetB()->lower()?></p>
+            <div class="media-summary text-label">
+                <?php if ($media->mediatype()->isNotEmpty()): ?>
+                    <p>Media type: <?= $media->mediatype() ?></p>
+                <?php endif ?>
+                <?php if ($media->filter()->isNotEmpty()): ?>
+                    <p>Process stage: <?= $media->filter() ?></p>
+                <?php endif ?>
+                <?php if ($slots->filterByProject()): ?>
+                    <p>Project: <?= $media->project()?></p>
                 <?php endif ?>
             </div>
             <?php if ($media->caption()->isNotEmpty()) : ?>
-                <div class="text-subtext">
+                <div class="media-caption text-subtext">
                     <?= $media->caption()->kt() ?>                                
                 </div>
             <?php endif ?>
@@ -18,19 +23,22 @@
 <?php endif ?> 
 
 <?php if ($media->type() == 'video') : ?>
-    <figure class="gallery-item video-item" type="<?= $media->type() ?>" data-filterseta="<?= $media->filterSetA() ?>" data-filtersetb="<?= $media->filterSetB() ?>" data-tools="<?= $media->tools() ?>">
+    <figure class="gallery-item video-item" data-type="<?= $media->mediatype() ?>" data-filter="<?= $media->filter() ?>">
         <video src="<?= $media->url() ?>" autoplay muted controlslist="noplaybackrate nodownload" disablePictureInPicture type="video"></video>
         <figcaption>
-            <div class="text-label">
-                <?php if ($media->filterSetATitle()->isNotEmpty()) : ?> 
-                    <p><?= $media->filterSetATitle() ?>: <?= $media->filterSetA()?></p>
+            <div class="media-summary text-label">
+                <?php if ($media->mediatype()->isNotEmpty()): ?>
+                    <p>Media type: <?= $media->mediatype() ?></p>
                 <?php endif ?>
-                <?php if ($media->filterSetBTitle()->isNotEmpty()) : ?> 
-                    <p><?= $media->filterSetBTitle() ?>: <?= $media->filterSetB()?></p>
+                <?php if ($media->filter()->isNotEmpty()): ?>
+                    <p>Process stage: <?= $media->filter() ?></p>
+                <?php endif ?>
+                <?php if ($slots->filterByProject()): ?>
+                    <p>Project: <?= $media->project()?></p>
                 <?php endif ?>
             </div>
             <?php if ($media->caption()->isNotEmpty()) : ?>
-                <div class="text-subtext">
+                <div class="media-caption text-subtext">
                     <?= $media->caption()->kt() ?>                                
                 </div>
             <?php endif ?>
@@ -39,22 +47,25 @@
 <?php endif ?> 
 
 <?php if ($media->type() == 'audio') : ?>
-    <figure class="gallery-item audio-item" type="<?= $media->type() ?>" data-filterseta="<?= $media->filterSetA() ?>" data-filtersetb="<?= $media->filterSetB() ?>" data-tools="<?= $media->tools() ?>">
+    <figure class="gallery-item audio-item" data-type="<?= $media->mediatype() ?>" data-filter="<?= $media->filter() ?>">
         <audio src="<?= $media->url() ?>" controls controlslist="noplaybackrate nodownload" preload="metadata" type="audio"></audio>
         <figcaption>
-            <div class="text-label">
-                <?php if ($media->filterSetATitle()->isNotEmpty()) : ?> 
-                    <p><?= $media->filterSetATitle() ?>: <?= $media->filterSetA()?></p>
+            <div class="media-summary text-label">
+                <?php if ($media->mediatype()->isNotEmpty()): ?>
+                    <p>Media type: <?= $media->mediatype() ?></p>
                 <?php endif ?>
-                <?php if ($media->filterSetBTitle()->isNotEmpty()) : ?> 
-                    <p><?= $media->filterSetBTitle() ?>: <?= $media->filterSetB()?></p>
+                <?php if ($media->filter()->isNotEmpty()): ?>
+                    <p>Process stage: <?= $media->filter() ?></p>
+                <?php endif ?>
+                <?php if ($slots->filterByProject()): ?>
+                    <p>Project: <?= $media->project()?></p>
                 <?php endif ?>
             </div>
             <?php if ($media->caption()->isNotEmpty()) : ?>
-                <div class="text-subtext">
+                <div class="media-caption text-subtext">
                     <?= $media->caption()->kt() ?>                                
                 </div>
             <?php endif ?>
         </figcaption>
     </figure> 
-<?php endif ?>  
+<?php endif ?>

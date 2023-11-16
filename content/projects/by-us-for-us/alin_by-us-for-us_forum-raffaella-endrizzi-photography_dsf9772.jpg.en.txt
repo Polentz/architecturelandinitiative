@@ -6,6 +6,30 @@ Alt:
 
 ----
 
+Project: 
+
+----
+
+Tools: Atlas
+
+----
+
+Mediatype: Image
+
+----
+
+Filter: 
+
+----
+
+Filtername: 
+
+----
+
+Filterbymediatype: 
+
+----
+
 Filtersetatitle: Type
 
 ----
@@ -19,14 +43,6 @@ Filterseta: Image
 ----
 
 Filtersetb: Archive materials
-
-----
-
-Tools: 
-
-----
-
-Project: 
 
 ----
 

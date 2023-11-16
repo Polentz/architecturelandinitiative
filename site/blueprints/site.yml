@@ -120,6 +120,9 @@ tabs:
           instagram:
             type: fields
             fields:
+              contactNavLabel:
+                label: Nav label
+                type: text
               instagram:
                 label: Instagram
                 type: url
@@ -130,20 +133,24 @@ tabs:
       filter:
         type: fields
         fields:
-          filterSet:
-            label: All filters
+          mediaFilters:
+            label: "Category: media type"
             type: structure
-            sortBy: category asc
-            columns:
-              category:
-                width: 1/2
-              filter:
-                width: 1/2
             fields:
-              category:
+              filter:
                 type: text
-                label: Filter category
-                before: Filter by
+                label: Filter
+          processFilters:
+            label: "Category: process stage"
+            type: structure
+            fields:
+              filter:
+                type: text
+                label: Filter
+          timelineFilters:
+            label: "Category: events type"
+            type: structure
+            fields:
               filter:
                 type: text
                 label: Filter

@@ -1,9 +1,37 @@
+Caption: 
+
+----
+
+Alt: 
+
+----
+
+Project: 
+
+----
+
+Tools: Forum
+
+----
+
+Mediatype: Image
+
+----
+
+Filter: 
+
+----
+
+Filtername: 
+
+----
+
+Filterbymediatype: 
+
+----
+
 Uuid: wERAg66ZnZJEA1uC
 
 ----
 
 Template: media
-
-----
-
-Tools: 

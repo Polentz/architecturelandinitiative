@@ -13,7 +13,7 @@ fields:
     type: select
     options:
       type: query
-      query: site.children.template("project")
+      query: site.find("projects").children.template("project")
       text: "{{ page.title }}"
       value: "{{ page.title }}"
   topbar:

@@ -5,8 +5,13 @@
 </main>
 
 <section class="box-container"> 
-    <?= snippet('filters') ?>
+    <?php snippet('filters', slots: true) ?>
+        <?php slot('filterByProject') ?>
+        <?php endslot() ?>
+    <?php endsnippet() ?>
 </section>
 
 <?= snippet('slider') ?>
 <?= snippet('footer') ?>
+
+

@@ -7,19 +7,15 @@
 
     <section class="gallery">
         <div class="gallery-grid">
-            <?php foreach ($pages->children()->files()->filterBy('tools', '*=', $page->title()) as $media) : ?>
-                <?= snippet('gallery', ['media' => $media]) ?>
+            <?php foreach ($allmedia->filterBy('tools', '*=', $page->title()) as $media) : ?>
+                <?php snippet('gallery', ['media' => $media], slots: true) ?>
+                    <?php slot('filterByProject') ?>
+                    <?php endslot() ?>
+                <?php endsnippet() ?>
             <?php endforeach ?> 
         </div>
     </section>
 </main>
 
-<section class="box-container"> 
-    <?= snippet('filters') ?>
-</section>
-
 <?= snippet('slider') ?>
 <?= snippet('footer') ?>
-
-
-<!-- ->filterBy('tools', '*=', $page->title()) -->

@@ -190,7 +190,7 @@ const bannerOpener = () => {
     };
     navElement.forEach(element => {
         element.addEventListener("click", () => {
-            if (element.innerHTML.toLowerCase().includes(banner.id)) {
+            if (element.id.includes(banner.id)) {
                 addClasses();
             };
         });
@@ -198,9 +198,6 @@ const bannerOpener = () => {
     bannerButton.addEventListener("click", () => {
         removeClasses();
     });
-    // window.addEventListener("scroll", () => {
-    //     removeClasses();
-    // });
 };
 
 const handleProjectPageElements = () => {
@@ -352,9 +349,10 @@ const handleFilters = () => {
             }, 100);
 
             items.forEach(item => {
-                const itemFilterSetA = item.dataset.filterseta;
-                const itemFilterSetB = item.dataset.filtersetb;
-                const itemFilters = [itemFilterSetA, itemFilterSetB];
+                const itemType = item.dataset.type;
+                const itemFilter = item.dataset.filter;
+                const itemFilters = [itemType, itemFilter];
+                console.log(itemType)
                 if (itemFilters.includes(filterName)) {
                     item.classList.remove("--unfiltered");
                     item.classList.add("--filtered");

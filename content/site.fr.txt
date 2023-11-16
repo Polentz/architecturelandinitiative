@@ -6,7 +6,7 @@ Blocks: [{"content":{"title":"Cooperative","subtitle":"ALIN","copy":"<p>Architec
 
 ----
 
-Aboutnavlabel: Cooperative
+Aboutnavlabel: Coopératif
 
 ----
 

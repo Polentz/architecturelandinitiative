@@ -9,8 +9,11 @@
 
 .accordion-topbar {
     display: flex;
+    flex-wrap: wrap;
     align-items: center;
     justify-content: space-between;
+    row-gap: 1rem;
+    column-gap: 2rem;
     border-top: var(--border);
     padding: .5rem 0;
     cursor: pointer;
