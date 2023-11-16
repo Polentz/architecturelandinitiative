@@ -336,7 +336,7 @@ const handleFilterBox = () => {
 
 const handleFilters = () => {
     const filters = document.querySelectorAll(".filter");
-    const items = document.querySelectorAll(".gallery-item");
+    const items = document.querySelectorAll(".gallery-item, .accordion");
     const filterClear = document.querySelector(".deselect-filters");
     filters.forEach(filter => {
         filter.addEventListener("click", () => {

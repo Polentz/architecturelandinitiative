@@ -1,5 +1,5 @@
 <?php if($block->date()->toDate() > time()) : ?>
-<div class="accordion --ongoing" data-filterseta="<?= $block->typology() ?>" data-filtersetb="<?= $block->project() ?>">
+<div class="accordion --ongoing" data-type="<?= $block->typology() ?>" data-filter="<?= $block->project() ?>">
     <div class="accordion-wrapper">
         <ul class="accordion-topbar">
             <li class="text-label"><?= $block->date()->toDate('D') ?> <?= $block->date()->toDate('d.m.Y') ?></li>

@@ -7,6 +7,22 @@
     margin-bottom: var(--nav-height);
 }
 
+.accordion {
+    transition: color .5s ease;
+}
+
+.accordion.--filtered {
+    pointer-events: all;
+    color: var(--black);
+    opacity: 1;
+}
+
+.accordion.--unfiltered {
+    pointer-events: none;
+    color: #1d1d1b50;
+    opacity: .25;
+}
+
 .accordion-topbar {
     display: flex;
     flex-wrap: wrap;

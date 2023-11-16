@@ -39,7 +39,3 @@ Filtersetb:
 ----
 
 Text: 
-
-----
-
-Uuid: gyVMlkXCNR3wcn9g

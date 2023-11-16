@@ -1,23 +1,32 @@
 name: Event
 icon: bars
+wysiwyg: true
 fields:
   date:
     label: Date
     type: date
+    width: 1/2
     display: DD.MM.YYYY 
   typology:
-    label: Type
-    type: text
+    label: Filter by event type
+    type: select 
+    width: 1/2 
+    options:
+      type: query
+      query: site.timelineFilters.toStructure
+      text: "{{ item.filter }}"
+      value: "{{ item.filter }}"   
   project:
     label: Related project
     type: select
+    width: 1/2
     options:
       type: query
       query: site.find("projects").children.template("project")
       text: "{{ page.title }}"
       value: "{{ page.title }}"
   topbar:
-    label: Summary
+    label: Add topbar elements
     type: structure
     columns:
       category:
@@ -32,13 +41,18 @@ fields:
   title:
     label: Title
     type: text
+    width: 1/2
   subtitle:
     label: Subtitle
     type: text
+    width: 1/2
   image:
     label: Image
     type: files
-    multiple: false  
+    width: 1/2
+    layout: cards
+    size: big
+    multiple: false 
   body:
     label: Text
     type: writer

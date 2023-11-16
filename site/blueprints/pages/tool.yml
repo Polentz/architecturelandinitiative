@@ -19,22 +19,6 @@ tabs:
                 type: headline
                 label: Content
                 numbered: false
-              summary:
-                label: Summary
-                type: structure
-                columns:
-                  category:
-                    width: 1/2
-                  text:
-                    width: 1/2
-                fields:
-                  category:
-                    type: text
-                  text:
-                    type: text
-          copy:
-            type: fields
-            fields:
               intro:
                 label: Text
                 type: textarea
