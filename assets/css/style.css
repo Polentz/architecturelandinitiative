@@ -605,7 +605,6 @@ button {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(30%, 1fr));
     grid-auto-flow: dense;
-    grid-auto-rows: 1fr;
     grid-gap: var(--half-margin);
     padding-top: var(--double-margin);
     padding-right: calc(var(--main-margin) - var(--button-size));

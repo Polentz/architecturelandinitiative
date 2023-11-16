@@ -352,7 +352,6 @@ const handleFilters = () => {
                 const itemType = item.dataset.type;
                 const itemFilter = item.dataset.filter;
                 const itemFilters = [itemType, itemFilter];
-                console.log(itemType)
                 if (itemFilters.includes(filterName)) {
                     item.classList.remove("--unfiltered");
                     item.classList.add("--filtered");

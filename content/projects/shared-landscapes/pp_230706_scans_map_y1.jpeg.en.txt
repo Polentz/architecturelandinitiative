@@ -1,0 +1,29 @@
+Caption: 
+
+----
+
+Alt: 
+
+----
+
+Project: {{ page.title }}
+
+----
+
+Tools: Atlas
+
+----
+
+Mediatype: Map
+
+----
+
+Filter: Outcomes
+
+----
+
+Uuid: 15LXf2jCNTOW9Rgu
+
+----
+
+Template: media

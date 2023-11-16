@@ -10,7 +10,7 @@
                     <p>Process stage: <?= $media->filter() ?></p>
                 <?php endif ?>
                 <?php if ($slots->filterByProject()): ?>
-                    <p>Project: <?= $media->project()?></p>
+                    <p>Project: <a href="<?= $media->parent()->url()?>"><?= $media->parent()->title()?></a></p>
                 <?php endif ?>
             </div>
             <?php if ($media->caption()->isNotEmpty()) : ?>
