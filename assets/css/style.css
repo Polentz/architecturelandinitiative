@@ -93,6 +93,7 @@ html {
     --main-margin: 4rem;
     --half-margin: 2.5rem;
     --double-margin: 8rem;
+    --small-margin: 1rem;
     --nav-height: 3rem;
     --button-size: 2rem;
     --border: solid 1px var(--black);
@@ -504,40 +505,13 @@ button {
     border-right: var(--border);
     border-left: var(--border);
     scroll-snap-align: start;
-
-    /* background-size: 0;
-    background-repeat: no-repeat;
-    transition: background-position .5s ease; */
 }
-
-/* .grid-layout-title::before {
-    content: "";
-    width: 100%;
-    height: var(--doc-height);
-    position: absolute;
-    top: 0;
-    left: 0;
-    background: var(--background);
-    transition: opacity .5s ease;
-}
-
-.grid-layout-title:hover::before {
-    opacity: 0;
-}
-
-.grid-layout-title:hover {
-    background-size: cover;
-    background-position: center;
-    border-right: var(--border);
-    border-left: var(--border);
-} */
 
 .grid-layout-title h2 {
     font-family: var(--huge-title-font);
     font-size: var(--huge-title-size);
     font-weight: 200;
     line-height: 1;
-    hyphens: auto;
     transform: rotate(180deg);
 }
 
@@ -585,7 +559,6 @@ button {
     max-width: calc(50% - var(--button-size));
     height: auto;
     position: relative;
-    transition: all .75s ease;
 }
 
 .gallery.--width {
@@ -629,6 +602,22 @@ button {
     place-items: start stretch;
 }
 
+.gallery-item figcaption {
+    display: flex;
+    flex-direction: column;
+    gap: var(--label-text-size);
+    height: 0;
+    max-height: 0;
+    opacity: 0;
+    transition: all .75s ease;
+}
+
+.gallery.--width .gallery-item figcaption {
+    height: auto;
+    max-height: 100%;
+    opacity: 1;
+}
+
 .gallery-item.--filtered img,
 .gallery-item.--filtered video,
 .gallery-item.--filtered audio {
@@ -670,29 +659,15 @@ button {
     opacity: 1;
 }
 
-.gallery-item figcaption {
-    display: none;
-    flex-direction: column;
-    gap: var(--label-text-size);
-}
-
-.gallery-item figcaption div {
-    opacity: 0;
-    transition: opacity .5s .2s ease;
-}
-
-.gallery-item figcaption.--display {
-    display: flex;
-}
-
-.gallery-item figcaption div.--opacity {
-    opacity: 1;
-}
-
 .info-slider {
     width: calc(50% + var(--button-size));
     height: auto;
     position: relative;
+    transition: transform .75s ease;
+}
+
+.info-slider.--translateX {
+    transform: translateX(100%);
 }
 
 .info-slider.--hide {
@@ -703,11 +678,7 @@ button {
     height: var(--doc-height);
     overflow-y: hidden;
     display: flex;
-    transition: all .5s ease;
-}
-
-.info-slider-wrapper.--translateX {
-    transform: translateX(100%);
+    /* transition: all .5s ease; */
 }
 
 .info-slider-wrapper .slider-button {
@@ -721,16 +692,31 @@ button {
     transition: transform .5s ease;
 }
 
-.box-wrapper {
+.box {
     position: absolute;
+    pointer-events: none;
 }
 
-.box-wrapper:first-of-type {
+.box:first-of-type {
     bottom: calc(var(--button-size) + 1rem);
 }
 
-.box-wrapper:last-of-type {
+.box:last-of-type {
     bottom: 0;
+}
+
+.filter-button {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    pointer-events: all;
+    transform: scale(1);
+    transform-origin: bottom left;
+    transition: transform .3s ease-out, opacity .5s ease;
+}
+
+.filter-button.--scale-out {
+    transform: scale(0);
 }
 
 .i-button {
@@ -751,7 +737,6 @@ button {
 
 .i-button.--scale-out {
     transform: scale(0);
-    pointer-events: all;
 }
 
 .inner-box {
@@ -759,15 +744,12 @@ button {
     height: auto;
     color: var(--white);
     background-color: var(--black);
-    display: none;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    pointer-events: none;
     transform: scale(0);
     transform-origin: bottom left;
     transition: transform .3s ease-in;
-}
-
-.inner-box.--display {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
 }
 
 .inner-box.--scale-in {
@@ -799,7 +781,7 @@ button {
 .inner-box-header {
     font-family: var(--secondary-text-font);
     font-size: var(--secondary-text-size);
-    padding: var(--half-margin);
+    padding: var(--small-margin) var(--half-margin);
     border-bottom: solid 1px var(--white);
 }
 
@@ -807,7 +789,7 @@ button {
     display: flex;
     flex-direction: column;
     gap: .5rem;
-    padding: var(--half-margin);
+    padding: var(--small-margin) var(--half-margin);
 }
 
 .deselect-filters {
@@ -840,7 +822,7 @@ button {
 
 .x-button {
     position: absolute;
-    top: var(--main-margin);
+    top: var(--half-margin);
     right: -2rem;
     opacity: 0;
     transition: opacity .5s ease;
@@ -848,19 +830,6 @@ button {
 
 .x-button.--opacity {
     opacity: 1;
-}
-
-.filter-button {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    transform: scale(1);
-    transform-origin: bottom left;
-    transition: transform .3s ease-out, opacity .5s ease;
-}
-
-.filter-button.--scale-out {
-    transform: scale(0);
 }
 
 .filter {

@@ -17,5 +17,9 @@
     </section>
 </main>
 
+<div class="box-container">
+    <?= snippet('filters') ?>
+</div>
+
 <?= snippet('slider') ?>
 <?= snippet('footer') ?>

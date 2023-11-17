@@ -4,30 +4,12 @@ return function ($kirby) {
     if ($kirby->language()->code() == 'en') {
         $lang = 'en';
         $langCode = 'en_US';
-        // $hrefEn = '/';
-        // $languageStringEn = 'En';
-        // $hrefFr = 'fr';
-        // $languageStringFr = 'Fr';
-        // $hrefDe = 'de';
-        // $languageStringDe = 'De';
     } else if ($kirby->language()->code() == 'fr') {
         $lang = 'fr';
         $langCode = 'fr_FR';
-        // $hrefEn = '/';
-        // $languageStringEn = 'En';
-        // $hrefFr = 'fr';
-        // $languageStringFr = 'Fr';
-        // $hrefDe = 'de';
-        // $languageStringDe = 'De';
     } else if ($kirby->language()->code() == 'de') {
         $lang = 'de';
         $langCode = 'de_DE';
-        // $hrefEn = '/';
-        // $languageStringEn = 'En';
-        // $hrefFr = 'fr';
-        // $languageStringFr = 'Fr';
-        // $hrefDe = 'de';
-        // $languageStringDe = 'De';
     }
 
     $languageStringEn = 'En';

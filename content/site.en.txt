@@ -26,14 +26,19 @@ Mediafilters:
 
 - 
   filter: Image
+  filterslug: image
 - 
   filter: Map
+  filterslug: map
 - 
   filter: Plan
+  filterslug: plan
 - 
   filter: Audio
+  filterslug: audio
 - 
   filter: Video
+  filterslug: video
 
 ----
 

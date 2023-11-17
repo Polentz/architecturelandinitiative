@@ -4,12 +4,12 @@
     <?= $page->blocks()->toBlocks()->sortBy('date', 'desc') ?>
 </main>
 
-<section class="box-container"> 
+<div class="box-container">
     <?php snippet('filters', slots: true) ?>
         <?php slot('filterByProject') ?>
         <?php endslot() ?>
     <?php endsnippet() ?>
-</section>
+</div>
 
 <?= snippet('slider') ?>
 <?= snippet('footer') ?>

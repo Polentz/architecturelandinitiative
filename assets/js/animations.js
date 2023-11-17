@@ -1,6 +1,3 @@
-gsap.registerPlugin(TextPlugin);
-gsap.registerPlugin(Flip);
-
 const logoAnimation = () => {
     // ARCHITECTURE
     gsap.to("#A", {

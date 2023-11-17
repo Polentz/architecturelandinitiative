@@ -3,6 +3,9 @@ console.log(
     'color: #4c00ff; font-family: sans-serif; font-size: .75rem;'
 );
 
+gsap.registerPlugin(TextPlugin);
+gsap.registerPlugin(Flip);
+
 // const handleLayoutsShuffle = () => {
 //     const layouts = document.querySelectorAll(".grid-layout, .cover-layout");
 //     const randomLayout = layouts[Math.floor(Math.random() * layouts.length)];
@@ -200,137 +203,103 @@ const bannerOpener = () => {
     });
 };
 
-const handleProjectPageElements = () => {
-    const galleryContainer = document.querySelector(".gallery");
-    const galleryGrid = galleryContainer.querySelector(".gallery-grid");
-    const galleryCaption = galleryContainer.querySelectorAll("figcaption");
-    const galleryCaptionItem = galleryContainer.querySelectorAll("figcaption div");
-    const sliderContainer = document.querySelector(".info-slider");
-    const sliderWrapper = sliderContainer.querySelector(".info-slider-wrapper");
-    const sliderCloseButton = sliderContainer.querySelector(".slider-button");
-    const sliderContent = sliderContainer.querySelector(".slider-content");
-    const infoButton = document.querySelector(".i-button");
+const handleBoxElements = () => {
+    const boxes = document.querySelectorAll(".box");
+    boxes.forEach(box => {
+        const openButton = box.querySelector(".button");
+        const innerBox = box.querySelector(".inner-box");
+        const innerBoxItems = box.querySelectorAll(".inner-box-column");
+        const closeButton = box.querySelector(".x-button");
 
-    sliderCloseButton.addEventListener("click", () => {
-        sliderWrapper.classList.add("--translateX");
-        galleryContainer.classList.add("--width");
+        const addClasses = () => {
+            innerBox.classList.add("--scale-in");
+            openButton.classList.add("--scale-out");
+            setTimeout(() => {
+                innerBoxItems.forEach(content => {
+                    content.classList.add("--opacity");
+                });
+                closeButton.classList.add("--opacity");
+            }, 500);
+        };
+
+        const removeClasses = () => {
+            innerBoxItems.forEach(content => {
+                content.classList.remove("--opacity");
+            });
+            setTimeout(() => {
+                closeButton.classList.remove("--opacity");
+                innerBox.classList.remove("--scale-in");
+                openButton.classList.remove("--scale-out");
+            }, 250);
+        }
+
+        openButton.addEventListener("click", () => {
+            addClasses();
+        });
+
+        closeButton.addEventListener("click", () => {
+            removeClasses();
+        });
+    });
+};
+
+const handleProjectInfo = () => {
+    const gallery = document.querySelector(".gallery");
+    const slider = document.querySelector(".info-slider");
+    const sliderButton = slider.querySelector(".slider-button");
+    const sliderContent = slider.querySelector(".slider-content");
+    const infoButton = document.querySelector(".i-button");
+    const innerBox = document.querySelectorAll(".inner-box");
+    const readMoreButton = document.querySelector(".read-more-button");
+
+    sliderButton.addEventListener("click", () => {
+        const state = Flip.getState(".gallery, .gallery-item");
+        gallery.classList.add("--width");
+        slider.classList.add("--translateX");
+        infoButton.classList.remove("--scale-out");
+
         setTimeout(() => {
+            slider.classList.add("--hide");
             sliderContent.scrollTo(0, 0);
-            galleryCaption.forEach(itemInfo => {
-                itemInfo.classList.add("--display");
-            });
-        }, 450);
-        setTimeout(() => {
-            galleryCaptionItem.forEach(item => {
-                item.classList.add("--opacity");
-            });
-            sliderContainer.classList.add("--hide");
         }, 500);
         setTimeout(() => {
             infoButton.classList.add("--opacity");
         }, 1000);
-    });
-    const parentContainer = document.querySelectorAll(".box-wrapper");
-    parentContainer.forEach(element => {
-        const boxOpenButton = element.querySelector("button");
-        const boxContainer = element.querySelector(".inner-box");
-        const boxContent = element.querySelectorAll(".inner-box-column");
-        const boxReadMore = element.querySelector(".read-more-button");
-        const boxCloseButton = element.querySelector(".x-button");
-        boxOpenButton.addEventListener("click", () => {
-            boxContainer.classList.add("--display");
-            boxOpenButton.classList.remove("--opacity");
-            setTimeout(() => {
-                boxContainer.classList.add("--scale-in");
-                boxOpenButton.classList.add("--scale-out");
-            }, 100);
-            setTimeout(() => {
-                boxContent.forEach(content => {
-                    content.classList.add("--opacity");
-                });
-                boxCloseButton.classList.add("--opacity");
-            }, 500);
+
+        Flip.from(state, {
+            duration: 0.75,
+            stagger: {
+                from: "start",
+                axis: "x",
+                amount: 0.75,
+            },
+            ease: "power2.inOut",
         });
-
-        boxCloseButton.addEventListener("click", () => {
-            boxContent.forEach(content => {
-                content.classList.remove("--opacity");
-            });
-            setTimeout(() => {
-                boxCloseButton.classList.remove("--opacity");
-                boxContainer.classList.remove("--scale-in");
-                boxOpenButton.classList.remove("--scale-out");
-                boxOpenButton.classList.add("--opacity");
-            }, 250);
-            setTimeout(() => {
-                boxContainer.classList.remove("--display");
-            }, 750);
-        });
-
-        if (boxReadMore) {
-            boxReadMore.addEventListener("click", () => {
-                sliderContainer.classList.remove("--hide");
-                sliderWrapper.classList.remove("--translateX");
-                galleryContainer.classList.remove("--width");
-                boxContent.forEach(content => {
-                    content.classList.remove("--opacity");
-                });
-                galleryCaptionItem.forEach(item => {
-                    item.classList.remove("--opacity");
-                });
-                boxOpenButton.classList.remove("--scale-out");
-
-                setTimeout(() => {
-                    boxContainer.classList.remove("--scale-in");
-                    boxCloseButton.classList.remove("--opacity");
-                }, 150);
-                setTimeout(() => {
-                    galleryCaption.forEach(caption => {
-                        caption.classList.remove("--display");
-                    });
-                }, 500);
-                setTimeout(() => {
-                    boxContainer.classList.remove("--display");
-                }, 650);
-            });
-        };
-    });
-};
-
-const handleFilterBox = () => {
-    const boxOpenButton = document.querySelector(".filter-button");
-    const boxContainer = document.querySelector(".inner-box");
-    const boxContent = document.querySelectorAll(".inner-box-column");
-    const boxCloseButton = document.querySelector(".x-button");
-
-    boxOpenButton.addEventListener("click", () => {
-        boxContainer.classList.add("--display");
-        boxOpenButton.classList.remove("--opacity");
-        setTimeout(() => {
-            boxContainer.classList.add("--scale-in");
-            boxOpenButton.classList.add("--scale-out");
-        }, 100);
-        setTimeout(() => {
-            boxContent.forEach(content => {
-                content.classList.add("--opacity");
-            });
-            boxCloseButton.classList.add("--opacity");
-        }, 500);
     });
 
-    boxCloseButton.addEventListener("click", () => {
-        boxContent.forEach(content => {
-            content.classList.remove("--opacity");
+    readMoreButton.addEventListener("click", () => {
+        const state = Flip.getState(".gallery, .gallery-item");
+        slider.classList.remove("--hide");
+        gallery.classList.remove("--width");
+        infoButton.classList.remove("--opacity");
+        innerBox.forEach(box => {
+            if (box.classList.contains("--scale-in")) {
+                box.classList.remove("--scale-in")
+            };
         });
         setTimeout(() => {
-            boxCloseButton.classList.remove("--opacity");
-            boxContainer.classList.remove("--scale-in");
-            boxOpenButton.classList.remove("--scale-out");
-            boxOpenButton.classList.add("--opacity");
-        }, 250);
-        setTimeout(() => {
-            boxContainer.classList.remove("--display");
-        }, 750);
+            slider.classList.remove("--translateX");
+        }, 150);
+        Flip.from(state, {
+            duration: 0.75,
+            stagger: {
+                from: "start",
+                axis: "x",
+                amount: 0.75,
+            },
+            ease: "power2.inOut",
+        });
+
     });
 };
 
@@ -338,6 +307,7 @@ const handleFilters = () => {
     const filters = document.querySelectorAll(".filter");
     const items = document.querySelectorAll(".gallery-item, .accordion");
     const filterClear = document.querySelector(".deselect-filters");
+    // const filterClear = document.querySelectorAll(".--all");
     filters.forEach(filter => {
         filter.addEventListener("click", () => {
             [...filters].filter(i => i !== filter).forEach(i => i.classList.remove("--target"));
@@ -347,6 +317,9 @@ const handleFilters = () => {
             setTimeout(() => {
                 filterClear.classList.add("--opacity");
             }, 100);
+            // filterClear.forEach(all => {
+            //     all.classList.remove("--target");
+            // });
 
             items.forEach(item => {
                 const itemType = item.dataset.type;
@@ -367,6 +340,7 @@ const handleFilters = () => {
                 });
                 filterClear.classList.remove("--opacity");
                 filterClear.classList.remove("--display");
+                // all.classList.add("--target");
                 filter.classList.remove("--target");
             });
         });
