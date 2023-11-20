@@ -1,150 +1,205 @@
 const logoAnimation = () => {
     // ARCHITECTURE
     gsap.to("#A", {
-        text: "ARCHITECTURE",
+        text: {
+            value: "ARCHITECTURE",
+            type: "diff",
+        }
     });
-    setTimeout(() => {
-        gsap.to("#A", {
-            text: "ARCHITECTUR",
-        });
-    }, 400);
-    setTimeout(() => {
-        gsap.to("#A", {
-            text: "ARCHITECTU",
-        });
-    }, 650);
-    setTimeout(() => {
-        gsap.to("#A", {
-            text: "ARCHITECT",
-        });
-    }, 600);
-    setTimeout(() => {
-        gsap.to("#A", {
-            text: "ARCHITEC",
-        });
-    }, 850);
-    setTimeout(() => {
-        gsap.to("#A", {
-            text: "ARCHITE",
-        });
-    }, 700);
-    setTimeout(() => {
-        gsap.to("#A", {
-            text: "ARCHIT",
-        });
-    }, 750);
-    setTimeout(() => {
-        gsap.to("#A", {
-            text: "ARCHI",
-        });
-    }, 800);
-    setTimeout(() => {
-        gsap.to("#A", {
-            text: "ARCH",
-        });
-    }, 850);
-    setTimeout(() => {
-        gsap.to("#A", {
-            text: "ARC",
-        });
-    }, 900);
-    setTimeout(() => {
-        gsap.to("#A", {
-            text: "AR",
-        });
-    }, 950);
-    setTimeout(() => {
-        gsap.to("#A", {
-            text: "A",
-        });
-    }, 1000);
+    gsap.to("#A", {
+        text: {
+            value: "ARCHITECTUR",
+            type: "diff",
+        },
+        delay: .45,
+    });
+    gsap.to("#A", {
+        text: {
+            value: "ARCHITECTU",
+            type: "diff",
+        },
+        delay: .5,
+    });
+    gsap.to("#A", {
+        text: {
+            value: "ARCHITECT",
+            type: "diff",
+        },
+        delay: .55,
+    });
+    gsap.to("#A", {
+        text: {
+            value: "ARCHITEC",
+            type: "diff",
+        },
+        delay: .6,
+    });
+    gsap.to("#A", {
+        text: {
+            value: "ARCHITECTU",
+            type: "diff",
+        },
+        delay: .65,
+    });
+    gsap.to("#A", {
+        text: {
+            value: "ARCHITE",
+            type: "diff",
+        },
+        delay: .7,
+    });
+    gsap.to("#A", {
+        text: {
+            value: "ARCHIT",
+            type: "diff",
+        },
+        delay: .75,
+    });
+    gsap.to("#A", {
+        text: {
+            value: "ARCHI",
+            type: "diff",
+        },
+        delay: .8,
+    });
+    gsap.to("#A", {
+        text: {
+            value: "ARCH",
+            type: "diff",
+        },
+        delay: .85,
+    });
+    gsap.to("#A", {
+        text: {
+            value: "ARC",
+            type: "diff",
+        },
+        delay: .8,
+    });
+    gsap.to("#A", {
+        text: {
+            value: "AR",
+            type: "diff",
+        },
+        delay: .95,
+    });
+    gsap.to("#A", {
+        text: {
+            value: "A",
+            type: "diff",
+        },
+        delay: 1,
+    });
     // LAND
     gsap.to("#L", {
-        text: "LAND",
-        ease: "elastic",
-    });
-    setTimeout(() => {
-        gsap.to("#L", {
-            text: "LAN",
-        });
-    }, 500);
-    setTimeout(() => {
-        gsap.to("#L", {
-            text: "LA",
-        });
-    }, 750);
-    setTimeout(() => {
-        gsap.to("#L", {
-            text: "AN",
-        });
-    }, 900);
-    setTimeout(() => {
-        gsap.to("#L", {
-            text: "L",
-        });
-    }, 1000);
-    // INITIATIVE
-    gsap.to("#IN", {
-        text: "INITIATIVE",
-        ease: "elastic",
-    });
-    setTimeout(() => {
-        gsap.to("#IN", {
-            text: "INITIATI",
-        });
-    }, 600);
-    setTimeout(() => {
-        gsap.to("#IN", {
-            text: "INTIVE",
-        });
-    }, 700);
-    setTimeout(() => {
-        gsap.to("#IN", {
-            text: "ITVE",
-        });
-    }, 800);
-    setTimeout(() => {
-        gsap.to("#IN", {
-            text: "ININ",
-        });
-    }, 900);
-    setTimeout(() => {
-        gsap.to("#IN", {
-            text: "IN",
-        });
-    }, 1000);
-
-    setTimeout(() => {
-        document.getElementById("L").style.margin = "0 2rem";
-    }, 1000);
-};
-
-gsap.registerPlugin(Flip);
-
-
-
-
-
-
-window.addEventListener("load", () => {
-    setTimeout(() => {
-        logoAnimation();
-    }, 1000);
-});
-
-logo.addEventListener("mouseenter", () => {
-    gsap.to("#A", {
-        text: "ARCHITECTURE",
+        text: {
+            value: "LAND",
+            type: "diff",
+        },
     });
     gsap.to("#L", {
-        text: "LAND",
+        text: {
+            value: "LAN",
+            type: "diff",
+        },
+        delay: .5,
+    });
+    gsap.to("#L", {
+        text: {
+            value: "LA",
+            type: "diff",
+        },
+        delay: .75,
+    });
+    gsap.to("#L", {
+        text: {
+            value: "AN",
+            type: "diff",
+        },
+        delay: .9,
+    });
+    gsap.to("#L", {
+        text: {
+            value: "L",
+            type: "diff",
+        },
+        delay: 1,
+    });
+    // INITIATIVE
+    gsap.to("#IN", {
+        text: {
+            value: "INITIATIVE",
+            type: "diff",
+        },
     });
     gsap.to("#IN", {
-        text: "INITIATIVE",
+        text: {
+            value: "INITIATIV",
+            type: "diff",
+        },
+        delay: .6,
     });
-    document.getElementById("L").style.margin = "0 0";
-});
+    gsap.to("#IN", {
+        text: {
+            value: "INITIAT",
+            type: "diff",
+        },
+        delay: .65,
+    });
+    gsap.to("#IN", {
+        text: {
+            value: "INTIVE",
+            type: "diff",
+        },
+        delay: .7,
+    });
+    gsap.to("#IN", {
+        text: {
+            value: "ITVE",
+            type: "diff",
+        },
+        delay: .8,
+    });
+    gsap.to("#IN", {
+        text: {
+            value: "ININ",
+            type: "diff",
+        },
+        delay: .9,
+    });
+    gsap.to("#IN", {
+        text: {
+            value: "IN",
+            type: "diff",
+        },
+        delay: 1,
+        x: 32,
+    });
 
-logo.addEventListener("mouseleave", () => {
-    logoAnimation();
-});
+    // setTimeout(() => {
+    //     document.getElementById("L").style.margin = "0 2rem";
+    // }, 1000);
+};
+
+// window.addEventListener("load", () => {
+//     setTimeout(() => {
+//         logoAnimation();
+//     }, 800);
+// });
+
+// logo.addEventListener("mouseenter", () => {
+//     gsap.to("#A", {
+//         text: "ARCHITECTURE",
+//     });
+//     gsap.to("#L", {
+//         text: "LAND",
+//     });
+//     gsap.to("#IN", {
+//         text: "INITIATIVE",
+//     });
+//     document.getElementById("L").style.margin = "0 0";
+// });
+
+// logo.addEventListener("mouseleave", () => {
+//     logoAnimation();
+// });

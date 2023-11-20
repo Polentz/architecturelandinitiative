@@ -3,8 +3,14 @@ console.log(
     'color: #4c00ff; font-family: sans-serif; font-size: .75rem;'
 );
 
-gsap.registerPlugin(TextPlugin);
-gsap.registerPlugin(Flip);
+gsap.registerPlugin(Observer, TextPlugin, Flip);
+
+const footer = document.querySelector(".footer");
+const nav = footer.querySelector(".nav");
+const navElement = nav.querySelectorAll(".menu-element");
+const main = document.querySelectorAll(".main");
+const header = document.querySelector(".header");
+const logo = document.querySelector(".header h1");
 
 // const handleLayoutsShuffle = () => {
 //     const layouts = document.querySelectorAll(".grid-layout, .cover-layout");
@@ -61,15 +67,6 @@ gsap.registerPlugin(Flip);
 //     });
 // };
 
-
-// global variables
-const footer = document.querySelector(".footer");
-const nav = footer.querySelector(".nav");
-const navElement = nav.querySelectorAll(".menu-element");
-const main = document.querySelectorAll(".main");
-const header = document.querySelector(".header");
-const logo = document.querySelector(".header h1");
-
 const documentHeight = () => {
     const doc = document.documentElement;
     doc.style.setProperty("--doc-height", `${window.innerHeight}px`);
@@ -93,19 +90,6 @@ const handleColorsShuffle = () => {
     sideBackground.style.setProperty("--side-background", `linear-gradient(180deg, ${randomColorSet[0]} 0%, ${randomColorSet[1]} 100%)`);
 };
 
-// const handleHomepageElements = () => {
-//     const projectsButton = document.getElementById("to-projects");
-//     const toolsButton = document.getElementById("to-tools");
-//     const projectsMenu = document.querySelector(".grid-layout");
-//     const toolsMenu = document.querySelector(".cover-layout");
-
-//     if (projectsMenu) {
-//         projectsButton.style.display = "none";
-//     } else if (toolsMenu) {
-//         toolsButton.style.display = "none";
-//     };
-// };
-
 const sliderOpener = () => {
     const sliderContainer = document.querySelectorAll(".slider");
     sliderContainer.forEach(slider => {
@@ -118,10 +102,8 @@ const sliderOpener = () => {
                 sliderWrapper.classList.add("--translateX");
                 main.forEach(mainEl => {
                     mainEl.classList.add("--blur");
-                    // mainEl.classList.add("--translateX");
-                    // logo.classList.add("--left");
                 });
-            }, 100);
+            }, 200);
             setTimeout(() => {
                 sliderButton.classList.add("--opacity");
             }, 600);
@@ -130,8 +112,6 @@ const sliderOpener = () => {
             sliderWrapper.classList.remove("--translateX");
             main.forEach(mainEl => {
                 mainEl.classList.remove("--blur");
-                // mainEl.classList.remove("--translateX");
-                // logo.classList.remove("--left");
             });
             sliderButton.classList.remove("--opacity");
             setTimeout(() => {
@@ -273,7 +253,7 @@ const handleProjectInfo = () => {
                 axis: "x",
                 amount: 0.75,
             },
-            ease: "power2.inOut",
+            ease: "power1.out",
         });
     });
 
@@ -297,9 +277,8 @@ const handleProjectInfo = () => {
                 axis: "x",
                 amount: 0.75,
             },
-            ease: "power2.inOut",
+            ease: "power1.out",
         });
-
     });
 };
 
@@ -307,7 +286,6 @@ const handleFilters = () => {
     const filters = document.querySelectorAll(".filter");
     const items = document.querySelectorAll(".gallery-item, .accordion");
     const filterClear = document.querySelector(".deselect-filters");
-    // const filterClear = document.querySelectorAll(".--all");
     filters.forEach(filter => {
         filter.addEventListener("click", () => {
             [...filters].filter(i => i !== filter).forEach(i => i.classList.remove("--target"));
@@ -317,9 +295,6 @@ const handleFilters = () => {
             setTimeout(() => {
                 filterClear.classList.add("--opacity");
             }, 100);
-            // filterClear.forEach(all => {
-            //     all.classList.remove("--target");
-            // });
 
             items.forEach(item => {
                 const itemType = item.dataset.type;
@@ -340,7 +315,6 @@ const handleFilters = () => {
                 });
                 filterClear.classList.remove("--opacity");
                 filterClear.classList.remove("--display");
-                // all.classList.add("--target");
                 filter.classList.remove("--target");
             });
         });
@@ -397,13 +371,84 @@ const accordion = () => {
     });
 };
 
+const split = (h1) => {
+    let words = h1.textContent.split(' ');
+    words = words.map(word => {
+        let letters = word.split('');
+        letters = letters.map(letter => `<span class="letter">${letter}</span>`);
+        return letters.join('');
+    });
+    h1.innerHTML = words.join(' ');
+};
+
+split(document.querySelector(".logo-word-1"));
+split(document.querySelector(".logo-word-2"));
+split(document.querySelector(".logo-word-3"));
+split(document.querySelector(".logo-element"));
+
+const architecture = Array.from(document.querySelectorAll(".logo-word-1 .letter"));
+const land = Array.from(document.querySelectorAll(".logo-word-2 .letter"));
+const initiative = Array.from(document.querySelectorAll(".logo-word-3 .letter"));
+const elements = Array.from(document.querySelectorAll(".logo-element .letter"));
+const a = architecture.splice(1, 11);
+const l = land.splice(1, 3);
+const i = initiative.splice(2, 8);
+const all = [a, l, i];
+
+const animateAll = () => {
+    elements.forEach(element => {
+        element.parentElement.style.display = "inline-block";
+    });
+    let tl = gsap.timeline();
+    tl.from(elements, {
+        autoAlpha: 0,
+        stagger: 0.1,
+        scale: 0,
+    });
+    tl.to(all, {
+        duration: 1.5,
+        autoAlpha: 0,
+        stagger: 0.2,
+        scale: 0,
+    });
+}
+
+const animateName = () => {
+    gsap.to(all, {
+        duration: 1.5,
+        autoAlpha: 0,
+        stagger: 0.1,
+        scale: 0,
+    });
+};
+
+const undoAnimation = () => {
+    gsap.to(all, {
+        duration: 1.5,
+        autoAlpha: 1,
+        stagger: 0.1,
+        scale: 1,
+    });
+};
+
+logo.addEventListener("mouseenter", () => {
+    undoAnimation();
+});
+
+logo.addEventListener("mouseleave", () => {
+    animateName();
+});
+
 window.addEventListener("load", () => {
     documentHeight();
+    animateAll();
     sliderOpener();
     bannerOpener();
-    // handleColorsShuffle();
+    handleColorsShuffle();
 });
 
 window.addEventListener("resize", () => {
     documentHeight();
 });
+
+

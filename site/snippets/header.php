@@ -43,12 +43,15 @@
 <body>
     <header class="header">
         <h1>
-            <a href="<?= $site->page('home')->url() ?>">
-                <span id="A" class="logo-letter">ARCHITECTURE</span>
-                <span id="L" class="logo-letter">LAND</span>
-                <span id="IN" class="logo-letter">INITIATIVE</span>
+            <!-- <span id="A" class="logo-letter">A</span>
+            <span id="L" class="logo-letter">L</span>
+            <span id="IN" class="logo-letter">IN</span> -->
+            <a class="logo" href="<?= $site->page('home')->url() ?>">
+                <span class="logo-word-1">Architecture</span>
+                <span class="logo-word-2">Land</span>
+                <span class="logo-word-3">INitiative</span>
             </a>
-            <span style="margin: 0 1rem;">/</span><?= $page->title() ?>
+            <span class="logo-element">/&emsp;&emsp;<?= $page->title() ?></span>
         </h1>
         <div class="header-button-wrapper">
             <a href="<?= $site->page('projects')->url() ?>" id="to-projects" class="button" type="button">

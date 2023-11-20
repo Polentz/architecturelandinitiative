@@ -27,9 +27,7 @@
 }
 
 .gallery-item figcaption {
-    display: flex;
-}
-
-.gallery-item figcaption div {
+    height: auto;
+    max-height: unset;
     opacity: 1;
 }

@@ -101,6 +101,7 @@ html {
 
 body {
     width: 100%;
+    min-height: var(--doc-height);
     font-family: "GT Cinetype";
     font-style: normal;
     font-weight: 400;
@@ -198,9 +199,36 @@ button {
     text-transform: uppercase;
     pointer-events: all;
     min-width: 20%;
-    padding: .5rem 0;
-    transform: translateY(-.5rem);
+    /* padding: .5rem 0;
+    transform: translateY(-.5rem); */
 }
+
+.letter {
+    display: inline-block;
+    position: relative;
+}
+
+.logo-element {
+    display: none;
+    /* text-transform: uppercase; */
+    margin: 0 1rem;
+}
+
+/* .logo-name {
+    display: inline-block;
+    line-height: 1;
+    height: min-content;
+    overflow: hidden;
+}
+
+.header .letter {
+    display: inline-block;
+
+} */
+
+/* .header .logo-letter {
+    opacity: 0;
+} */
 
 .header-button-wrapper {
     display: flex;
@@ -451,6 +479,10 @@ button {
     margin-bottom: var(--half-margin);
 }
 
+.slider-block-title h2 {
+    overflow-wrap: break-word;
+}
+
 .slider-block-text {
     display: flex;
     justify-content: space-between;
@@ -503,7 +535,7 @@ button {
     padding-bottom: calc(var(--nav-height) + var(--half-margin));
     padding-left: var(--half-margin);
     border-right: var(--border);
-    border-left: var(--border);
+    /* border-left: var(--border); */
     scroll-snap-align: start;
 }
 
