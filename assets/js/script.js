@@ -286,38 +286,55 @@ const handleFilters = () => {
     const filters = document.querySelectorAll(".filter");
     const items = document.querySelectorAll(".gallery-item, .accordion");
     const filterClear = document.querySelector(".deselect-filters");
+
+    const applyFilters = (filter) => {
+        const filterByType = filter.dataset.type;
+        const filterByCategory = filter.dataset.category;
+
+        items.forEach(item => {
+            const itemType = item.dataset.type;
+            const itemCategory = item.dataset.category;
+            if (itemType == filterByType) {
+                item.classList.remove("--unfiltered");
+                item.classList.add("--filtered");
+            } else if (itemCategory == filterByCategory) {
+                item.classList.remove("--unfiltered");
+                item.classList.add("--filtered");
+            } else {
+                item.classList.add("--unfiltered");
+                item.classList.remove("--filtered");
+            };
+        });
+
+    };
+
+    const removeFilters = () => {
+        filterClear.classList.remove("--opacity");
+        filterClear.classList.remove("--display");
+        filters.forEach(filter => {
+            filter.classList.remove("--target");
+        });
+        items.forEach(item => {
+            item.classList.remove("--unfiltered");
+            item.classList.add("--filtered");
+        });
+    }
+
     filters.forEach(filter => {
         filter.addEventListener("click", () => {
             [...filters].filter(i => i !== filter).forEach(i => i.classList.remove("--target"));
             filter.classList.add("--target");
-            const filterName = filter.dataset.filter;
             filterClear.classList.add("--display");
             setTimeout(() => {
                 filterClear.classList.add("--opacity");
             }, 100);
 
-            items.forEach(item => {
-                const itemType = item.dataset.type;
-                const itemFilter = item.dataset.filter;
-                const itemFilters = [itemType, itemFilter];
-                if (itemFilters.includes(filterName)) {
-                    item.classList.remove("--unfiltered");
-                    item.classList.add("--filtered");
-                } else {
-                    item.classList.add("--unfiltered");
-                    item.classList.remove("--filtered");
-                };
-            });
-            filterClear.addEventListener("click", () => {
-                items.forEach(item => {
-                    item.classList.remove("--unfiltered");
-                    item.classList.add("--filtered");
-                });
-                filterClear.classList.remove("--opacity");
-                filterClear.classList.remove("--display");
-                filter.classList.remove("--target");
-            });
+            applyFilters(filter);
         });
+    });
+
+    filterClear.addEventListener("click", () => {
+        removeFilters();
     });
 };
 
@@ -444,7 +461,7 @@ window.addEventListener("load", () => {
     animateAll();
     sliderOpener();
     bannerOpener();
-    handleColorsShuffle();
+    // handleColorsShuffle();
 });
 
 window.addEventListener("resize", () => {

@@ -6,7 +6,7 @@ Blocks: [{"content":{"date":"2023-11-30","typology":"Exhibition","project":"By U
 
 ----
 
-Typename: 
+Typename: Event type
 
 ----
 

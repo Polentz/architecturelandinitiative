@@ -6,10 +6,6 @@ Alt:
 
 ----
 
-Project: 
-
-----
-
 Tools: 
 
 ----
@@ -18,7 +14,11 @@ Mediatype: Audio
 
 ----
 
-Filter: 
+Filter: Archive material
+
+----
+
+Project: 
 
 ----
 
