@@ -8,7 +8,7 @@ gsap.registerPlugin(Observer, TextPlugin, Flip);
 const footer = document.querySelector(".footer");
 const nav = footer.querySelector(".nav");
 const navElement = nav.querySelectorAll(".menu-element");
-const main = document.querySelectorAll(".main");
+const main = document.querySelector(".main");
 const header = document.querySelector(".header");
 const logo = document.querySelector(".header h1");
 
@@ -92,43 +92,38 @@ const handleColorsShuffle = () => {
 
 const sliderOpener = () => {
     const sliderContainer = document.querySelectorAll(".slider");
+
     sliderContainer.forEach(slider => {
         const sliderWrapper = slider.querySelector(".slider-wrapper");
         const sliderButton = sliderWrapper.querySelector(".slider-button");
         const sliderContent = sliderWrapper.querySelector(".slider-content");
+
         const addClasses = () => {
             slider.classList.add("--display");
             setTimeout(() => {
                 sliderWrapper.classList.add("--translateX");
-                main.forEach(mainEl => {
-                    mainEl.classList.add("--blur");
-                });
+                main.classList.add("--blur");
             }, 200);
             setTimeout(() => {
                 sliderButton.classList.add("--opacity");
             }, 600);
         };
+
         const removeClasses = () => {
             sliderWrapper.classList.remove("--translateX");
-            main.forEach(mainEl => {
-                mainEl.classList.remove("--blur");
-            });
+            main.classList.remove("--blur");
             sliderButton.classList.remove("--opacity");
             setTimeout(() => {
                 sliderContent.scrollTo(0, 0);
                 slider.classList.remove("--display");
             }, 500);
         };
+
         navElement.forEach(element => {
             element.addEventListener("click", () => {
                 if (element.id.includes(slider.id)) {
-                    if (slider.classList.contains("--display")) {
-                        element.classList.remove("--target");
-                        removeClasses();
-                    } else {
-                        element.classList.add("--target");
-                        addClasses();
-                    };
+                    element.classList.add("--target");
+                    addClasses();
                 };
             });
             sliderButton.addEventListener("click", () => {
@@ -142,35 +137,39 @@ const sliderOpener = () => {
 const bannerOpener = () => {
     const banner = document.querySelector(".banner");
     const bannerContent = document.querySelector(".banner-content");
-    const bannerContentElements = banner.querySelectorAll(".contact-block");
     const bannerButton = banner.querySelector(".banner-button");
-    const bodyElements = document.querySelectorAll(".main, .box-container");
+    const bodyElements = gsap.utils.toArray(".main, .box-container");
+    const bannerelements = gsap.utils.toArray(bannerContent, bannerButton);
+
     const addClasses = () => {
         nav.classList.add("--hide");
         banner.classList.add("--display");
-        bodyElements.forEach(element => {
-            element.style.transform = `translateY(-${bannerContent.clientHeight}px)`;
+        const tl = gsap.timeline();
+        gsap.set(bannerelements, {
+            opacity: 0
         });
-        setTimeout(() => {
-            bannerContentElements.forEach(content => {
-                content.classList.add("--opacity");
-            });
-            bannerButton.classList.add("--opacity");
-        }, 100);
+        tl.to(bodyElements, {
+            y: `-${bannerContent.clientHeight}`,
+        })
+        tl.to(bannerelements, {
+            duration: 0.5,
+            opacity: 1,
+        }, "-=75%");
+        tl.from(".contact-block", {
+            y: 20,
+            stagger: 0.1,
+        }, "<");
+
     };
+
     const removeClasses = () => {
-        bodyElements.forEach(element => {
-            element.style.transform = "translateY(0)";
+        gsap.to(bodyElements, {
+            y: 0,
         });
-        setTimeout(() => {
-            bannerContentElements.forEach(content => {
-                content.classList.remove("--opacity");
-            });
-            bannerButton.classList.remove("--opacity");
-            banner.classList.remove("--display");
-            nav.classList.remove("--hide");
-        }, 150);
+        banner.classList.remove("--display");
+        nav.classList.remove("--hide");
     };
+
     navElement.forEach(element => {
         element.addEventListener("click", () => {
             if (element.id.includes(banner.id)) {
@@ -225,28 +224,32 @@ const handleBoxElements = () => {
 
 const handleProjectInfo = () => {
     const gallery = document.querySelector(".gallery");
-    const galleryGrid = document.querySelector(".gallery-grid");
     const slider = document.querySelector(".info-slider");
     const sliderButton = slider.querySelector(".slider-button");
     const sliderContent = slider.querySelector(".slider-content");
     const infoButton = document.querySelector(".i-button");
     const innerBox = document.querySelectorAll(".inner-box");
     const readMoreButton = document.querySelector(".read-more-button");
+    let tl = gsap.timeline();
 
     sliderButton.addEventListener("click", () => {
-        const state = Flip.getState(".gallery, .gallery-item, .gallery-item");
+        const state = Flip.getState(".gallery, .gallery-item");
         gallery.classList.add("--width");
-        slider.classList.add("--translateX");
         infoButton.classList.remove("--scale-out");
-        setTimeout(() => {
-            slider.classList.add("--hide");
-            sliderContent.scrollTo(0, 0);
-        }, 500);
-        setTimeout(() => {
-            infoButton.classList.add("--opacity");
-        }, 1000);
+
+        tl.to(slider, {
+            duration: 0.5,
+            xPercent: 100,
+            ease: "power1.out",
+        });
+
+        tl.to(slider, {
+            display: "none",
+            onUpdate: () => sliderContent.scrollTo(0, 0),
+        });
 
         Flip.from(state, {
+            absolute: true,
             duration: 0.5,
             stagger: {
                 from: "start",
@@ -254,23 +257,47 @@ const handleProjectInfo = () => {
                 amount: 0.5,
             },
             ease: "power1.out",
+            simple: true,
+        });
+
+        gsap.to(infoButton, {
+            duration: 0.5,
+            delay: 1,
+            opacity: 1,
+            pointerEvents: "all",
+            ease: "power1.out",
         });
     });
 
     readMoreButton.addEventListener("click", () => {
-        const state = Flip.getState(".gallery, .gallery-item, .gallery-item");
-        slider.classList.remove("--hide");
+        const state = Flip.getState(".gallery, .gallery-item");
         gallery.classList.remove("--width");
-        infoButton.classList.remove("--opacity");
         innerBox.forEach(box => {
             if (box.classList.contains("--scale-in")) {
-                box.classList.remove("--scale-in")
+                box.classList.remove("--scale-in");
             };
         });
-        setTimeout(() => {
-            slider.classList.remove("--translateX");
-        }, 250);
+
+        gsap.to(infoButton, {
+            duration: 0.5,
+            opacity: 0,
+            pointerEvents: "none",
+            ease: "power1.out",
+        });
+
+        tl.to(slider, {
+            duration: 0.15,
+            display: "flex",
+        });
+
+        tl.to(slider, {
+            duration: 0.5,
+            xPercent: 0,
+            ease: "power1.out",
+        });
+
         Flip.from(state, {
+            absolute: true,
             duration: 0.5,
             stagger: {
                 from: "start",
@@ -278,6 +305,7 @@ const handleProjectInfo = () => {
                 amount: 0,
             },
             ease: "power1.out",
+            simple: true,
         });
     });
 };
@@ -379,10 +407,22 @@ const accordion = () => {
     const accordion = document.querySelectorAll(".accordion");
     accordion.forEach(item => {
         const openers = item.querySelectorAll(".accordion-title, .accordion-topbar");
+        const elements = item.querySelectorAll(".accordion-image, .accordion-content-block");
         openers.forEach(opener => {
             opener.addEventListener("click", () => {
                 [...accordion].filter(i => i !== item).forEach(i => i.classList.remove("--open"));
                 item.classList.toggle("--open");
+                const paddingOffset = 128;
+                const itemPosition = item.getBoundingClientRect().top;
+                const offsetPosition = itemPosition + window.scrollY - paddingOffset;
+                window.scrollTo({
+                    top: offsetPosition,
+                    behavior: "smooth"
+                });
+                gsap.from(elements, {
+                    duration: 0.5,
+                    opacity: 0,
+                });
             });
         });
     });

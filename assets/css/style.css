@@ -188,7 +188,7 @@ button {
     position: fixed;
     top: var(--half-margin);
     left: 0;
-    z-index: 2;
+    z-index: 3;
     pointer-events: none;
 }
 
@@ -199,8 +199,6 @@ button {
     text-transform: uppercase;
     pointer-events: all;
     min-width: 20%;
-    /* padding: .5rem 0;
-    transform: translateY(-.5rem); */
 }
 
 .letter {
@@ -376,9 +374,9 @@ button {
     padding: var(--half-margin) var(--main-margin);
 }
 
-.contact-block {
+/* .contact-block {
     transition: opacity .5s ease;
-}
+} */
 
 .contact-block p a {
     text-decoration: underline;
@@ -393,7 +391,7 @@ button {
     background-color: var(--main-color);
 }
 
-.contact-block,
+/* .contact-block,
 .banner-button {
     opacity: 0;
 }
@@ -401,7 +399,7 @@ button {
 .contact-block.--opacity,
 .banner-button.--opacity {
     opacity: 1;
-}
+} */
 
 .slider {
     width: calc(50% + var(--button-size));
@@ -410,7 +408,7 @@ button {
     position: fixed;
     top: 0;
     right: 0;
-    z-index: 3;
+    z-index: 2;
 }
 
 .slider.--display {
@@ -498,7 +496,6 @@ button {
     width: 100%;
     height: var(--doc-height);
     position: relative;
-    transition: all .5s ease;
 }
 
 .main.--blur {
@@ -656,7 +653,6 @@ button {
     position: fixed;
     bottom: calc(var(--nav-height) + var(--half-margin));
     left: var(--half-margin);
-    transition: transform .5s ease;
 }
 
 .box {
@@ -683,26 +679,6 @@ button {
 }
 
 .filter-button.--scale-out {
-    transform: scale(0);
-}
-
-.i-button {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    opacity: 0;
-    pointer-events: none;
-    transform: scale(1);
-    transform-origin: bottom left;
-    transition: transform .3s ease-out, opacity .5s ease;
-}
-
-.i-button.--opacity {
-    opacity: 1;
-    pointer-events: all;
-}
-
-.i-button.--scale-out {
     transform: scale(0);
 }
 

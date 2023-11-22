@@ -101,11 +101,11 @@
     display: none;
 }
 
-.accordion-content-block {
+/* .accordion-content-block {
     opacity: 0;
     transition: opacity .5s ease;
 }
 
 .--open .accordion-content .accordion-content-block {
     opacity: 1;
-}
+} */
