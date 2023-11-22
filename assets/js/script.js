@@ -225,6 +225,7 @@ const handleBoxElements = () => {
 
 const handleProjectInfo = () => {
     const gallery = document.querySelector(".gallery");
+    const galleryGrid = document.querySelector(".gallery-grid");
     const slider = document.querySelector(".info-slider");
     const sliderButton = slider.querySelector(".slider-button");
     const sliderContent = slider.querySelector(".slider-content");
@@ -233,11 +234,10 @@ const handleProjectInfo = () => {
     const readMoreButton = document.querySelector(".read-more-button");
 
     sliderButton.addEventListener("click", () => {
-        const state = Flip.getState(".gallery, .gallery-item");
+        const state = Flip.getState(".gallery, .gallery-item, .gallery-item");
         gallery.classList.add("--width");
         slider.classList.add("--translateX");
         infoButton.classList.remove("--scale-out");
-
         setTimeout(() => {
             slider.classList.add("--hide");
             sliderContent.scrollTo(0, 0);
@@ -247,18 +247,18 @@ const handleProjectInfo = () => {
         }, 1000);
 
         Flip.from(state, {
-            duration: 0.75,
+            duration: 0.5,
             stagger: {
                 from: "start",
                 axis: "x",
-                amount: 0.75,
+                amount: 0.5,
             },
             ease: "power1.out",
         });
     });
 
     readMoreButton.addEventListener("click", () => {
-        const state = Flip.getState(".gallery, .gallery-item");
+        const state = Flip.getState(".gallery, .gallery-item, .gallery-item");
         slider.classList.remove("--hide");
         gallery.classList.remove("--width");
         infoButton.classList.remove("--opacity");
@@ -269,13 +269,13 @@ const handleProjectInfo = () => {
         });
         setTimeout(() => {
             slider.classList.remove("--translateX");
-        }, 150);
+        }, 250);
         Flip.from(state, {
-            duration: 0.75,
+            duration: 0.5,
             stagger: {
                 from: "start",
                 axis: "x",
-                amount: 0.75,
+                amount: 0,
             },
             ease: "power1.out",
         });

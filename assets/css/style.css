@@ -72,10 +72,10 @@ html {
     --doc-height: 100%;
     --black: #1d1d1b;
     --white: #ffffff;
-    --background: transparent;
-    --side-background: transparent;
-    --main-color: transparent;
-    --acc-color: transparent;
+    --background: #f2ece7;
+    --side-background: #f2ece7;
+    --main-color: #f2ece7;
+    --acc-color: #f2ece7;
     --body-text-font: "GT America";
     --body-text-size: 1rem;
     --secondary-text-font: "GT Cinetype";
@@ -318,8 +318,7 @@ button {
     position: fixed;
     bottom: 0;
     left: 0;
-    /* background-color: var(--main-color); */
-    background: white;
+    background-color: var(--main-color);
     border-top: var(--border);
     z-index: 4;
 }
@@ -391,8 +390,7 @@ button {
     right: var(--main-margin);
     transform: translateY(-4rem);
     border: var(--border);
-    /* background-color: var(--main-color); */
-    background: var(--white);
+    background-color: var(--main-color);
 }
 
 .contact-block,
@@ -503,10 +501,6 @@ button {
     transition: all .5s ease;
 }
 
-.main.--random {
-    display: none;
-}
-
 .main.--blur {
     filter: blur(2rem);
 }
@@ -535,7 +529,6 @@ button {
     padding-bottom: calc(var(--nav-height) + var(--half-margin));
     padding-left: var(--half-margin);
     border-right: var(--border);
-    /* border-left: var(--border); */
     scroll-snap-align: start;
 }
 
@@ -587,15 +580,8 @@ button {
 }
 
 .gallery {
-    min-width: calc(50% - var(--button-size));
-    max-width: calc(50% - var(--button-size));
     height: auto;
     position: relative;
-}
-
-.gallery.--width {
-    min-width: 100%;
-    max-width: 100%;
 }
 
 .gallery-wrapper {
@@ -608,23 +594,8 @@ button {
     width: 100%;
     height: auto;
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(30%, 1fr));
     grid-auto-flow: dense;
     grid-gap: var(--half-margin);
-    padding-top: var(--double-margin);
-    padding-right: calc(var(--main-margin) - var(--button-size));
-    padding-bottom: calc(var(--main-margin) + var(--nav-height));
-    padding-left: var(--main-margin);
-    overflow-y: scroll;
-    scrollbar-width: none;
-}
-
-.gallery-grid::-webkit-scrollbar {
-    display: none;
-}
-
-.gallery.--width .gallery-grid {
-    padding-right: var(--main-margin);
 }
 
 .gallery-item {
@@ -638,16 +609,6 @@ button {
     display: flex;
     flex-direction: column;
     gap: var(--label-text-size);
-    height: 0;
-    max-height: 0;
-    opacity: 0;
-    transition: all .75s ease;
-}
-
-.gallery.--width .gallery-item figcaption {
-    height: auto;
-    max-height: 100%;
-    opacity: 1;
 }
 
 .gallery-item.--filtered img,
@@ -688,32 +649,6 @@ button {
 }
 
 .gallery-item.--filtered figcaption div.--opacity {
-    opacity: 1;
-}
-
-.info-slider {
-    width: calc(50% + var(--button-size));
-    height: auto;
-    position: relative;
-    transition: transform .75s ease;
-}
-
-.info-slider.--translateX {
-    transform: translateX(100%);
-}
-
-.info-slider.--hide {
-    display: none;
-}
-
-.info-slider-wrapper {
-    height: var(--doc-height);
-    overflow-y: hidden;
-    display: flex;
-    /* transition: all .5s ease; */
-}
-
-.info-slider-wrapper .slider-button {
     opacity: 1;
 }
 

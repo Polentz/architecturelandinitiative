@@ -1,10 +1,65 @@
-html,
-body {
-    overflow: hidden;
+.gallery {
+    width: 50%;
 }
 
-.main {
+.gallery.--width {
+    width: 100%;
+}
+
+.gallery-grid {
+    grid-template-columns: 1fr 1fr;
+    padding-top: var(--double-margin);
+    padding-right: var(--main-margin);
+    padding-bottom: calc(var(--main-margin) + var(--nav-height));
+    padding-left: var(--main-margin);
+    overflow-y: scroll;
+    scrollbar-width: none;
+}
+
+.gallery-grid::-webkit-scrollbar {
+    display: none;
+}
+
+.gallery.--width .gallery-grid {
+    grid-template-columns: 1fr 1fr 1fr;
+}
+
+.gallery-item figcaption {
+    height: 0;
+    max-height: 0;
+    opacity: 0;
+    transition: all .75s ease;
+}
+
+.gallery.--width .gallery-item figcaption {
+    height: auto;
+    max-height: 100%;
+    opacity: 1;
+}
+
+.info-slider {
+    width: calc(50% + var(--button-size));
+    height: auto;
+    position: absolute;
+    top: 0;
+    right: 0;
+    transition: transform .75s ease;
+}
+
+.info-slider.--translateX {
+    transform: translateX(100%);
+}
+
+.info-slider.--hide {
+    display: none;
+}
+
+.info-slider-wrapper {
     height: var(--doc-height);
     overflow-y: hidden;
     display: flex;
+}
+
+.info-slider-wrapper .slider-button {
+    opacity: 1;
 }
