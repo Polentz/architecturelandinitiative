@@ -476,19 +476,11 @@ button {
 } */
 
 .gallery {
-    /* height: auto; */
     position: relative;
-}
-
-.gallery-wrapper {
-    /* height: var(--doc-height);
-    overflow-y: hidden; */
-    display: flex;
 }
 
 .gallery-grid {
     width: 100%;
-    /* height: auto; */
     display: grid;
     grid-auto-flow: dense;
     grid-gap: var(--half-margin);

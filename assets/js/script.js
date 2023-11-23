@@ -72,7 +72,72 @@ const documentHeight = () => {
     doc.style.setProperty("--doc-height", `${window.innerHeight}px`);
 };
 
-const handleColorsShuffle = () => {
+const cursor = () => {
+    const letters = ["A", "L", "I", "N"];
+    letters.forEach(letter => {
+        const follower = document.createElement("span");
+        follower.classList.add("follower");
+        follower.innerHTML = letter;
+        document.body.appendChild(follower);
+    });
+    const cursor = document.createElement("span");
+    cursor.classList.add("cursor");
+    document.body.appendChild(cursor);
+
+    window.addEventListener("mousemove", (e) => {
+        gsap.set(".cursor", {
+            xPercent: -50,
+            yPercent: -50,
+        });
+        gsap.set(".follower", {
+            xPercent: -50,
+            yPercent: -50,
+        });
+        gsap.to(".cursor", 0.2, {
+            display: "block",
+            x: e.clientX,
+            y: e.clientY,
+        });
+        gsap.to(".follower", 0.8, {
+            display: "block",
+            x: e.clientX,
+            y: e.clientY,
+            stagger: 0.1
+        });
+    });
+
+    const anchorTags = document.querySelectorAll("a, .menu-element, button, .filter, .deselect-filters");
+    anchorTags.forEach(a => {
+        a.addEventListener("mouseenter", () => {
+            gsap.to(".cursor", {
+                duration: 1,
+                scale: 0.2,
+                opacity: 1,
+                // filter: "invert(1)",
+                ease: "power1.out"
+            });
+            gsap.to(".follower", {
+                scale: 0
+            });
+        });
+
+        a.addEventListener("mouseleave", () => {
+            gsap.to(".cursor", {
+                duration: 1,
+                delay: 0.2,
+                scale: 1,
+                opacity: 1,
+                // filter: "invert(0)",
+                ease: "power1.out"
+            });
+            gsap.to(".follower", {
+                scale: 1
+            });
+        });
+    });
+};
+
+const shuffleColors = () => {
     const colors = [
         ["#FEFF8A", "#F1F1F1"],
         ["#FA7660", "#FFE1E8"],
@@ -90,7 +155,7 @@ const handleColorsShuffle = () => {
     sideBackground.style.setProperty("--side-background", `linear-gradient(180deg, ${randomColorSet[0]} 0%, ${randomColorSet[1]} 100%)`);
 };
 
-const handleVerticalScroll = () => {
+const verticalScroll = () => {
     let sections = gsap.utils.toArray(".main div");
     gsap.to(sections, {
         xPercent: -100 * (sections.length - 1),
@@ -507,88 +572,13 @@ logo.addEventListener("mouseleave", () => {
     animateName();
 });
 
-const cursor = () => {
-    const createFollower = () => {
-        const letters = ["A", "L", "I", "N"];
-        letters.forEach(letter => {
-            const follower = document.createElement("span");
-            follower.classList.add("follower");
-            follower.innerHTML = letter;
-            document.body.appendChild(follower);
-        });
-    };
-    const createCursor = () => {
-        const cursor = document.createElement("span");
-        cursor.classList.add("cursor");
-        document.body.appendChild(cursor);
-    };
-
-    window.addEventListener("load", () => {
-        createFollower();
-        createCursor();
-    });
-
-    window.addEventListener("mousemove", (e) => {
-        gsap.set(".cursor", {
-            xPercent: -50,
-            yPercent: -50,
-        });
-        gsap.set(".follower", {
-            xPercent: -50,
-            yPercent: -50,
-        });
-        gsap.to(".cursor", 0.2, {
-            display: "block",
-            x: e.clientX,
-            y: e.clientY,
-        });
-        gsap.to(".follower", 0.8, {
-            display: "block",
-            x: e.clientX,
-            y: e.clientY,
-            stagger: 0.1
-        });
-    });
-
-    const anchorTags = document.querySelectorAll("a, .menu-element, button, .filter, .deselect-filters");
-    anchorTags.forEach(a => {
-        a.addEventListener("mouseenter", () => {
-            gsap.to(".cursor", {
-                duration: 1,
-                scale: 0.2,
-                opacity: 1,
-                // filter: "invert(1)",
-                ease: "power1.out"
-            });
-            gsap.to(".follower", {
-                scale: 0
-            });
-        });
-
-        a.addEventListener("mouseleave", () => {
-            gsap.to(".cursor", {
-                duration: 1,
-                delay: 0.2,
-                scale: 1,
-                opacity: 1,
-                // filter: "invert(0)",
-                ease: "power1.out"
-            });
-            gsap.to(".follower", {
-                scale: 1
-            });
-        });
-    });
-};
-
-cursor();
-
 window.addEventListener("load", () => {
     documentHeight();
+    cursor();
     animateAll();
     sliderOpener();
     bannerOpener();
-    handleColorsShuffle();
+    shuffleColors();
 });
 
 window.addEventListener("resize", () => {

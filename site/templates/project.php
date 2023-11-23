@@ -3,12 +3,10 @@
 <main class="main">
     <?php if ($page->gallery()->isNotEmpty()) : ?>
         <section class="gallery">
-            <div class="gallery-wrapper">
-                <div class="gallery-grid">
-                    <?php foreach ($page->gallery()->toFiles() as $media) : ?>
-                        <?= snippet('gallery', ['media' => $media]) ?>
-                    <?php endforeach ?> 
-                </div>
+            <div class="gallery-grid">
+                <?php foreach ($page->gallery()->toFiles() as $media) : ?>
+                    <?= snippet('gallery', ['media' => $media]) ?>
+                <?php endforeach ?> 
             </div>
         </section>
     <?php endif ?>
