@@ -15,7 +15,7 @@
                 <p>Filter by <?= $page->typeName()->lower() ?></p>
             </div>
             <div class="inner-box-content">
-                <ul class="text-label">
+                <ul class="filter-wrapper text-label">
                     <?php foreach ($page->types()->split() as $type): ?>
                         <li id="<?= Str::slug($type) ?>" class="filter" data-type="<?= Str::slug($type) ?>"><?= $type ?></li>
                     <?php endforeach ?>
@@ -29,7 +29,7 @@
                     <p>Filter by project</p>
                 </div>
                 <div class="inner-box-content">
-                    <ul class="text-label">
+                    <ul class="filter-wrapper text-label">
                         <?php foreach ($projects as $project): ?>
                             <li id="<?= $project->title()->slug() ?>" class="filter" data-type="<?= $project->title()->slug() ?>"><?= $project->title() ?></li>
                         <?php endforeach ?>
@@ -41,7 +41,7 @@
                     <p>Filter by <?= $page->filterName()->lower() ?></p>
                 </div>
                 <div class="inner-box-content">
-                    <ul class="text-label">
+                    <ul class="filter-wrapper  text-label">
                         <?php foreach ($page->filters()->split() as $filter): ?>
                             <li id="<?= Str::slug($filter) ?>" class="filter" data-category="<?= Str::slug($filter) ?>"><?= $filter ?></li>
                         <?php endforeach ?>

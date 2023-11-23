@@ -51,7 +51,7 @@
                             <?php endif ?>
                         </div>
                         <button class="read-more-button" type="button">
-                            Read More
+                            <p>Read More</p>
                         </button>
                     </div>
                 <?php endif ?>

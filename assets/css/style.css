@@ -64,6 +64,10 @@
         url("../fonts/pitchsans-medium-webfont.woff") format("woff");
 }
 
+/* * {
+    cursor: none;
+} */
+
 html {
     font-size: 100%;
     cursor: none;
@@ -281,9 +285,55 @@ button {
     gap: 6rem;
 }
 
+.menu-element {
+    position: relative;
+    white-space: nowrap;
+}
+
+.menu-element::before {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 1px;
+    background: var(--black);
+    top: 75%;
+    left: 0;
+    pointer-events: none;
+    -webkit-transform-origin: 0% 50%;
+    -ms-transform-origin: 0% 50%;
+    transform-origin: 0% 50%;
+    -webkit-transform: scale3d(0, 0, 1);
+    transform: scale3d(0, 0, 1);
+    -webkit-transition: -webkit-transform .2s;
+    transition: -webkit-transform .2s;
+    -o-transition: transform .2s;
+    transition: transform .2s;
+    transition: transform .2s, -webkit-transform .2s;
+}
+
+.menu-element:hover::before {
+    -webkit-transform: scale3d(1, 1, 1);
+    transform: scale3d(1, 1, 1);
+}
+
 .menu-element.--target,
 .menu-element.--current {
-    text-decoration: underline;
+    pointer-events: none;
+}
+
+.menu-element.--target::after,
+.menu-element.--current::after {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 1px;
+    background: var(--black);
+    top: 75%;
+    left: 0;
+    pointer-events: none;
+    -webkit-transform-origin: 0% 50%;
+    -ms-transform-origin: 0% 50%;
+    transform-origin: 0% 50%;
 }
 
 .banner {
@@ -632,12 +682,11 @@ button {
 }
 
 .deselect-filters.--display {
-    display: block;
+    display: flex;
+    justify-content: center;
 }
 
 .deselect-filters p {
-    text-align: center;
-    cursor: pointer;
     opacity: 0;
     transition: opacity .5s ease;
 }
@@ -649,9 +698,9 @@ button {
 .read-more-button {
     font-family: var(--label-text-font);
     font-size: var(--label-text-size);
-    text-align: end;
     color: var(--white);
-    cursor: pointer;
+    display: flex;
+    justify-content: flex-end;
 }
 
 .x-button {
@@ -666,12 +715,67 @@ button {
     opacity: 1;
 }
 
+.filter-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+}
+
+.read-more-button p,
+.deselect-filters p,
 .filter {
+    position: relative;
+    white-space: nowrap;
+    width: fit-content;
     cursor: pointer;
 }
 
+.read-more-button p::before,
+.deselect-filters p::before,
+.filter::before {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 1px;
+    background: var(--white);
+    top: 95%;
+    left: 0;
+    pointer-events: none;
+    -webkit-transform-origin: 0% 50%;
+    -ms-transform-origin: 0% 50%;
+    transform-origin: 0% 50%;
+    -webkit-transform: scale3d(0, 0, 1);
+    transform: scale3d(0, 0, 1);
+    -webkit-transition: -webkit-transform .2s;
+    transition: -webkit-transform .2s;
+    -o-transition: transform .2s;
+    transition: transform .2s;
+    transition: transform .2s, -webkit-transform .2s;
+}
+
+.read-more-button p:hover::before,
+.deselect-filters p:hover::before,
+.filter:hover::before {
+    -webkit-transform: scale3d(1, 1, 1);
+    transform: scale3d(1, 1, 1);
+}
+
 .filter.--target {
-    text-decoration: underline;
+    pointer-events: none;
+}
+
+.filter.--target::after {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 1px;
+    background: var(--white);
+    top: 75%;
+    left: 0;
+    pointer-events: none;
+    -webkit-transform-origin: 0% 50%;
+    -ms-transform-origin: 0% 50%;
+    transform-origin: 0% 50%;
 }
 
 .cursor {

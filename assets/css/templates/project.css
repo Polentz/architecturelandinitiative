@@ -1,7 +1,3 @@
-.main {
-    height: auto;
-}
-
 .gallery {
     width: 50%;
     height: auto;
@@ -18,14 +14,7 @@
     padding-right: var(--main-margin);
     padding-bottom: calc(var(--main-margin) + var(--nav-height));
     padding-left: var(--main-margin);
-    /* overflow-y: scroll;
-    scrollbar-width: none; */
 }
-
-/* 
-.gallery-grid::-webkit-scrollbar {
-    display: none;
-} */
 
 .gallery.--width .gallery-grid {
     grid-template-columns: 1fr 1fr 1fr;

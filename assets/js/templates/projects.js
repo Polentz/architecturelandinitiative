@@ -1,3 +1,3 @@
 window.addEventListener("load", () => {
-    verticalScroll();
+    horizontalScroll();
 });

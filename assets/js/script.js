@@ -137,14 +137,84 @@ const cursor = () => {
     });
 };
 
+const split = (domElement) => {
+    let words = domElement.textContent.split(' ');
+    words = words.map(word => {
+        let letters = word.split('');
+        letters = letters.map(letter => `<span class="letter">${letter}</span>`);
+        return letters.join('');
+    });
+    domElement.innerHTML = words.join(' ');
+};
+
+split(document.querySelector(".logo-word-1"));
+split(document.querySelector(".logo-word-2"));
+split(document.querySelector(".logo-word-3"));
+split(document.querySelector(".logo-element"));
+
+const architecture = Array.from(document.querySelectorAll(".logo-word-1 .letter"));
+const land = Array.from(document.querySelectorAll(".logo-word-2 .letter"));
+const initiative = Array.from(document.querySelectorAll(".logo-word-3 .letter"));
+const elements = Array.from(document.querySelectorAll(".logo-element .letter"));
+const a = architecture.splice(1, 11);
+const l = land.splice(1, 3);
+const i = initiative.splice(2, 8);
+const all = [a, l, i];
+
+const animateAll = () => {
+    elements.forEach(element => {
+        element.parentElement.style.display = "inline-block";
+    });
+    let tl = gsap.timeline();
+    tl.from(elements, {
+        autoAlpha: 0,
+        stagger: 0.1,
+        scale: 0,
+    });
+    tl.to(all, {
+        duration: 1.5,
+        autoAlpha: 0,
+        stagger: 0.2,
+        scale: 0,
+    });
+}
+
+const animateName = () => {
+    gsap.to(all, {
+        duration: 1.5,
+        autoAlpha: 0,
+        stagger: 0.1,
+        scale: 0,
+    });
+};
+
+const reverseAnimateName = () => {
+    gsap.to(all, {
+        duration: 1.5,
+        autoAlpha: 1,
+        stagger: 0.1,
+        scale: 1,
+    });
+};
+
+logo.addEventListener("mouseenter", () => {
+    reverseAnimateName();
+});
+
+logo.addEventListener("mouseleave", () => {
+    animateName();
+});
+
 const shuffleColors = () => {
     const colors = [
-        ["#FEFF8A", "#F1F1F1"],
-        ["#FA7660", "#FFE1E8"],
-        ["#D9A1F8", "#C2FFC8"],
-        ["#7B8EF2", "#F9E7CF"]
+        ["#feff8a", "#f2ece7"],
+        ["#fa7660", "#ffe1e8"],
+        ["#d9a1f8", "#c2ffc8"],
+        ["#7b8ef2", "#f9e7cf"]
     ]
+
     const randomColorSet = colors[Math.floor(Math.random() * colors.length)];
+    const randomDeg = Math.floor(Math.random() * (180 - 100 + 1) + 100);
     const mainColor = document.documentElement;
     const accentColor = document.documentElement;
     const mainBackground = document.documentElement;
@@ -155,7 +225,7 @@ const shuffleColors = () => {
     sideBackground.style.setProperty("--side-background", `linear-gradient(180deg, ${randomColorSet[0]} 0%, ${randomColorSet[1]} 100%)`);
 };
 
-const verticalScroll = () => {
+const horizontalScroll = () => {
     let sections = gsap.utils.toArray(".main div");
     gsap.to(sections, {
         xPercent: -100 * (sections.length - 1),
@@ -183,6 +253,7 @@ const sliderOpener = () => {
             setTimeout(() => {
                 sliderWrapper.classList.add("--translateX");
                 main.classList.add("--blur");
+                document.body.style.overflow = "hidden";
             }, 200);
             setTimeout(() => {
                 sliderButton.classList.add("--opacity");
@@ -192,6 +263,7 @@ const sliderOpener = () => {
         const removeClasses = () => {
             sliderWrapper.classList.remove("--translateX");
             main.classList.remove("--blur");
+            document.body.style.overflow = "inherit";
             sliderButton.classList.remove("--opacity");
             setTimeout(() => {
                 sliderContent.scrollTo(0, 0);
@@ -206,10 +278,12 @@ const sliderOpener = () => {
                     addClasses();
                 };
             });
-            sliderButton.addEventListener("click", () => {
+        });
+        sliderButton.addEventListener("click", () => {
+            navElement.forEach(element => {
                 element.classList.remove("--target");
-                removeClasses();
-            });
+            })
+            removeClasses();
         });
     });
 };
@@ -218,7 +292,7 @@ const bannerOpener = () => {
     const banner = document.querySelector(".banner");
     const bannerContent = document.querySelector(".banner-content");
     const bannerButton = banner.querySelector(".banner-button");
-    const bodyElements = gsap.utils.toArray(".main, .box-container, .info-slider");
+    const bodyElements = gsap.utils.toArray(".main, .box-container, .info-slider, .slider");
     const bannerelements = gsap.utils.toArray(bannerContent, bannerButton);
 
     const addClasses = () => {
@@ -504,75 +578,8 @@ const accordion = () => {
     });
 };
 
-const split = (h1) => {
-    let words = h1.textContent.split(' ');
-    words = words.map(word => {
-        let letters = word.split('');
-        letters = letters.map(letter => `<span class="letter">${letter}</span>`);
-        return letters.join('');
-    });
-    h1.innerHTML = words.join(' ');
-};
-
-split(document.querySelector(".logo-word-1"));
-split(document.querySelector(".logo-word-2"));
-split(document.querySelector(".logo-word-3"));
-split(document.querySelector(".logo-element"));
-
-const architecture = Array.from(document.querySelectorAll(".logo-word-1 .letter"));
-const land = Array.from(document.querySelectorAll(".logo-word-2 .letter"));
-const initiative = Array.from(document.querySelectorAll(".logo-word-3 .letter"));
-const elements = Array.from(document.querySelectorAll(".logo-element .letter"));
-const a = architecture.splice(1, 11);
-const l = land.splice(1, 3);
-const i = initiative.splice(2, 8);
-const all = [a, l, i];
-
-const animateAll = () => {
-    elements.forEach(element => {
-        element.parentElement.style.display = "inline-block";
-    });
-    let tl = gsap.timeline();
-    tl.from(elements, {
-        autoAlpha: 0,
-        stagger: 0.1,
-        scale: 0,
-    });
-    tl.to(all, {
-        duration: 1.5,
-        autoAlpha: 0,
-        stagger: 0.2,
-        scale: 0,
-    });
-}
-
-const animateName = () => {
-    gsap.to(all, {
-        duration: 1.5,
-        autoAlpha: 0,
-        stagger: 0.1,
-        scale: 0,
-    });
-};
-
-const undoAnimation = () => {
-    gsap.to(all, {
-        duration: 1.5,
-        autoAlpha: 1,
-        stagger: 0.1,
-        scale: 1,
-    });
-};
-
-logo.addEventListener("mouseenter", () => {
-    undoAnimation();
-});
-
-logo.addEventListener("mouseleave", () => {
-    animateName();
-});
-
 window.addEventListener("load", () => {
+    history.scrollRestoration = "manual";
     documentHeight();
     cursor();
     animateAll();

@@ -1,5 +1,4 @@
 .main {
-    height: auto;
     padding-top: var(--double-margin);
     padding-right: var(--main-margin);
     padding-bottom: var(--main-margin);
@@ -22,5 +21,4 @@
 
 .gallery-grid {
     grid-template-columns: repeat(auto-fill, minmax(30%, 1fr));
-    /* overflow-y: hidden; */
 }
