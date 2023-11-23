@@ -6,11 +6,11 @@
     <?php endif ?>
     <?php if ($block->copy()->isNotEmpty()) : ?>
         <div class="slider-block-text">
-            <?php if ($block->subtitle()->isNotEmpty()) : ?>
+            <!-- <?php if ($block->subtitle()->isNotEmpty()) : ?>
                 <div class="text-label">
                     <p><?= $block->subtitle() ?></p>
                 </div>
-            <?php endif ?>
+            <?php endif ?> -->
             <div class="text">
                 <?= $block->copy()->kt() ?>
             </div>

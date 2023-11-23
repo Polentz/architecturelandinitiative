@@ -3,7 +3,7 @@ console.log(
     'color: #4c00ff; font-family: sans-serif; font-size: .75rem;'
 );
 
-gsap.registerPlugin(Observer, TextPlugin, Flip);
+gsap.registerPlugin(ScrollTrigger, Flip);
 
 const footer = document.querySelector(".footer");
 const nav = footer.querySelector(".nav");
@@ -90,6 +90,21 @@ const handleColorsShuffle = () => {
     sideBackground.style.setProperty("--side-background", `linear-gradient(180deg, ${randomColorSet[0]} 0%, ${randomColorSet[1]} 100%)`);
 };
 
+const handleVerticalScroll = () => {
+    let sections = gsap.utils.toArray(".main div");
+    gsap.to(sections, {
+        xPercent: -100 * (sections.length - 1),
+        ease: "none",
+        scrollTrigger: {
+            trigger: ".main",
+            pin: true,
+            scrub: 0.5,
+            snap: 1 / (sections.length - 1),
+            end: () => "+=" + document.querySelector(".main").offsetWidth
+        }
+    });
+};
+
 const sliderOpener = () => {
     const sliderContainer = document.querySelectorAll(".slider");
 
@@ -138,7 +153,7 @@ const bannerOpener = () => {
     const banner = document.querySelector(".banner");
     const bannerContent = document.querySelector(".banner-content");
     const bannerButton = banner.querySelector(".banner-button");
-    const bodyElements = gsap.utils.toArray(".main, .box-container");
+    const bodyElements = gsap.utils.toArray(".main, .box-container, .info-slider");
     const bannerelements = gsap.utils.toArray(bannerContent, bannerButton);
 
     const addClasses = () => {
@@ -250,7 +265,7 @@ const handleProjectInfo = () => {
 
         Flip.from(state, {
             absolute: true,
-            duration: 0.5,
+            duration: 1,
             stagger: {
                 from: "start",
                 axis: "x",
@@ -366,42 +381,38 @@ const handleFilters = () => {
     });
 };
 
-const carousel = () => {
-    const elementsArray = Array.from(document.querySelectorAll(".cover-layout-title"));
-    const scrollButton = document.querySelector(".cover-button");
+// const carousel = () => {
+//     const elementsArray = Array.from(document.querySelectorAll(".cover-layout-item"));
+//     const scrollButton = document.querySelector(".cover-button");
 
-    if (elementsArray.length < 1 && scrollButton) {
-        scrollButton.style.display = "none";
-    } else if (scrollButton) {
-        const parentElement = scrollButton.parentElement;
-        const scrollContanier = parentElement.querySelector(".scroll-wrapper");
-        const scrollWidth = window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth;
-        const firstElement = elementsArray[0];
-        const lastElement = elementsArray.pop();
-        const observer = new window.IntersectionObserver(([entry]) => {
-            if (entry.isIntersecting) {
-                scrollButton.style.transform = "rotate(180deg)"
-                scrollButton.addEventListener("click", () => {
-                    firstElement.scrollIntoView({
-                        // behavior: "smooth",
-                    });
-                });
-            } else {
-                scrollButton.style.transform = "rotate(0deg)";
-                scrollButton.addEventListener("click", () => {
-                    scrollContanier.scrollBy({
-                        left: scrollWidth,
-                        // behavior: "smooth",
-                    });
-                });
-            };
-        }, {
-            root: null,
-            threshold: .75,
-        });
-        observer.observe(lastElement);
-    };
-};
+//     if (elementsArray.length < 1 && scrollButton) {
+//         scrollButton.style.display = "none";
+//     } else if (scrollButton) {
+//         const scrollContanier = document.querySelector(".cover-layout");
+//         const scrollWidth = window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth;
+//         const firstElement = elementsArray[0];
+//         const lastElement = elementsArray.pop();
+//         const observer = new window.IntersectionObserver(([entry]) => {
+//             if (entry.isIntersecting) {
+//                 scrollButton.style.transform = "rotate(180deg)"
+//                 scrollButton.addEventListener("click", () => {
+//                     firstElement.scrollIntoView();
+//                 });
+//             } else {
+//                 scrollButton.style.transform = "rotate(0deg)";
+//                 scrollButton.addEventListener("click", () => {
+//                     scrollContanier.scrollBy({
+//                         left: scrollWidth
+//                     });
+//                 });
+//             };
+//         }, {
+//             root: null,
+//             threshold: .75,
+//         });
+//         observer.observe(lastElement);
+//     };
+// };
 
 const accordion = () => {
     const accordion = document.querySelectorAll(".accordion");
@@ -496,12 +507,88 @@ logo.addEventListener("mouseleave", () => {
     animateName();
 });
 
+const cursor = () => {
+    const createFollower = () => {
+        const letters = ["A", "L", "I", "N"];
+        letters.forEach(letter => {
+            const follower = document.createElement("span");
+            follower.classList.add("follower");
+            follower.innerHTML = letter;
+            document.body.appendChild(follower);
+        });
+    };
+    const createCursor = () => {
+        const cursor = document.createElement("span");
+        cursor.classList.add("cursor");
+        document.body.appendChild(cursor);
+    };
+
+    window.addEventListener("load", () => {
+        createFollower();
+        createCursor();
+    });
+
+    window.addEventListener("mousemove", (e) => {
+        gsap.set(".cursor", {
+            xPercent: -50,
+            yPercent: -50,
+        });
+        gsap.set(".follower", {
+            xPercent: -50,
+            yPercent: -50,
+        });
+        gsap.to(".cursor", 0.2, {
+            display: "block",
+            x: e.clientX,
+            y: e.clientY,
+        });
+        gsap.to(".follower", 0.8, {
+            display: "block",
+            x: e.clientX,
+            y: e.clientY,
+            stagger: 0.1
+        });
+    });
+
+    const anchorTags = document.querySelectorAll("a, .menu-element, button, .filter, .deselect-filters");
+    anchorTags.forEach(a => {
+        a.addEventListener("mouseenter", () => {
+            gsap.to(".cursor", {
+                duration: 1,
+                scale: 0.2,
+                opacity: 1,
+                // filter: "invert(1)",
+                ease: "power1.out"
+            });
+            gsap.to(".follower", {
+                scale: 0
+            });
+        });
+
+        a.addEventListener("mouseleave", () => {
+            gsap.to(".cursor", {
+                duration: 1,
+                delay: 0.2,
+                scale: 1,
+                opacity: 1,
+                // filter: "invert(0)",
+                ease: "power1.out"
+            });
+            gsap.to(".follower", {
+                scale: 1
+            });
+        });
+    });
+};
+
+cursor();
+
 window.addEventListener("load", () => {
     documentHeight();
     animateAll();
     sliderOpener();
     bannerOpener();
-    // handleColorsShuffle();
+    handleColorsShuffle();
 });
 
 window.addEventListener("resize", () => {

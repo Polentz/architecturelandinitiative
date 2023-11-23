@@ -66,5 +66,12 @@
                 </svg>
                 <span class="text-label">tools</span>
             </a>
+            <a href="<?= $site->page('tools')->url() ?>" id="to-practices" class="button" type="button">
+                <svg viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <rect x="0.5" y="0.5" width="39" height="39"/>
+                    <path d="M7 8H33M7 12H33M7 16H33M7 20H33M7 24H33M7 28H33M7 32H33" stroke="#1d1d1b"/>
+                </svg>
+                <span class="text-label">practices</span>
+            </a>
         </div>
     </header>
