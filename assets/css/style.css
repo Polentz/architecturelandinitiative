@@ -539,6 +539,19 @@ button {
     color: var(--current-color);
 }
 
+.grid-layout-item .item-title {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.grid-layout-item .word {
+    width: fit-content;
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
+    display: flex;
+    flex-wrap: nowrap;
+}
+
 /* .cover-button {
     position: absolute;
     bottom: calc(var(--nav-height) + var(--main-margin));
@@ -561,7 +574,6 @@ button {
     display: flex;
     flex-direction: column;
     gap: 1rem;
-    place-items: start stretch;
 }
 
 .gallery-item figcaption {

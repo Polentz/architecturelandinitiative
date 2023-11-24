@@ -6,7 +6,7 @@
             <h2><a href="<?= $tool->url() ?>"><?= $tool->title()->kt() ?></a></h2>
         </div> -->
         <div class="grid-layout-item">
-            <h2><a href="<?= $tool->url() ?>"><?= $tool->title()->kt() ?></a></h2>
+            <h2><a class="item-title" data-name="<?= $tool->title() ?>" href="<?= $tool->url() ?>"></a></h2>
         </div>
     <?php endforeach ?>
     <!-- <button class="button cover-button" type="button">

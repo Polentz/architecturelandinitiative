@@ -113,7 +113,6 @@ const cursor = () => {
                 duration: 1,
                 scale: 0.4,
                 opacity: 1,
-                // filter: "invert(1)",
                 ease: "power1.out"
             });
             gsap.to(".follower", {
@@ -127,7 +126,6 @@ const cursor = () => {
                 delay: 0.2,
                 scale: 1,
                 opacity: 1,
-                // filter: "invert(0)",
                 ease: "power1.out"
             });
             gsap.to(".follower", {
@@ -204,6 +202,30 @@ logo.addEventListener("mouseenter", () => {
 logo.addEventListener("mouseleave", () => {
     animateName();
 });
+
+const animateTitle = () => {
+    document.querySelectorAll(".item-title").forEach(title => {
+        let content = title.dataset.name
+        const eachWord = content.match(/(\w+)/g);
+        eachWord.forEach(word => {
+            let div = document.createElement("div");
+            div.classList.add("word");
+            let text = document.createTextNode(word);
+            div.appendChild(text);
+            title.appendChild(div);
+        });
+    });
+
+    document.querySelectorAll(".word").forEach(word => {
+        split(word);
+        const title = Array.from(word.querySelectorAll(".letter"));
+        gsap.from(title, 1, {
+            duration: 0.5,
+            x: -100,
+            stagger: 0.1,
+        });
+    });
+};
 
 const shuffleColors = () => {
     const colors = [
@@ -602,6 +624,10 @@ window.addEventListener("load", () => {
     sliderOpener();
     bannerOpener();
     shuffleColors();
+    gsap.from(".main", {
+        duration: 1,
+        autoAlpha: 0,
+    });
 });
 
 window.addEventListener("resize", () => {
