@@ -29,7 +29,6 @@ Blocks: [{"content":{"title":"By Us, for Us","subtitle":"About the project","cop
 Gallery:
 
 - file://jJvZ0RLBDz2ydeKL
-- file://YwTXJbNyawqCphOy
 - file://zywVl467a9mGGLLp
 - file://2cuzbce69XKlcSIu
 - file://akAHCX8KeVBoaMdw

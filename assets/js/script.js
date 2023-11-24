@@ -111,7 +111,7 @@ const cursor = () => {
         a.addEventListener("mouseenter", () => {
             gsap.to(".cursor", {
                 duration: 1,
-                scale: 0.2,
+                scale: 0.4,
                 opacity: 1,
                 // filter: "invert(1)",
                 ease: "power1.out"
@@ -207,34 +207,50 @@ logo.addEventListener("mouseleave", () => {
 
 const shuffleColors = () => {
     const colors = [
-        ["#feff8a", "#f2ece7"],
-        ["#fa7660", "#ffe1e8"],
-        ["#d9a1f8", "#c2ffc8"],
-        ["#7b8ef2", "#f9e7cf"]
+        // ["#feff8a", "#A7EAF3"],
+        // ["#d9a1f8", "#c2ffc8"],
+        // ["#7b8ef2", "#f9e7cf"],
+        // ["#FDD5E3", "#b8fffe"]
+
+
+        // ["#f2ece7", "#A7EAF3"],
+        // ["#feff8a", "#f2ece7"],
+        // ["#f2ece7", "#c2ffc8"],
+        // ["#d9a1f8", "#f2ece7"],
+
+        ["#4864f9", "#eeeddb"],
+        ["#5dd5ae", "#eeeddb"],
+        ["#a867fd", "#eeeddb"],
+        ["#ffe145", "#eeeddb"],
     ]
 
     const randomColorSet = colors[Math.floor(Math.random() * colors.length)];
-    const randomDeg = Math.floor(Math.random() * (180 - 100 + 1) + 100);
+    const randomDeg = Math.floor(Math.random() * (350 - 10) + 10);
     const mainColor = document.documentElement;
     const accentColor = document.documentElement;
     const mainBackground = document.documentElement;
-    const sideBackground = document.documentElement;
+    // const sideBackground = document.documentElement;
     mainColor.style.setProperty("--main-color", `${randomColorSet[0]}`);
     accentColor.style.setProperty("--acc-color", `${randomColorSet[1]}`);
-    mainBackground.style.setProperty("--background", `linear-gradient(180deg, ${randomColorSet[1]} 0%, ${randomColorSet[0]} 100%)`);
-    sideBackground.style.setProperty("--side-background", `linear-gradient(180deg, ${randomColorSet[0]} 0%, ${randomColorSet[1]} 100%)`);
+    mainBackground.style.setProperty("--background", `linear-gradient(${randomDeg}deg, ${randomColorSet[1]} 20%, ${randomColorSet[0]} 100%)`);
+    // sideBackground.style.setProperty("--side-background", `linear-gradient(180deg, ${randomColorSet[0]} 0%, ${randomColorSet[1]} 100%)`);
 };
 
 const horizontalScroll = () => {
     let sections = gsap.utils.toArray(".main div");
+    const tl = gsap.timeline();
     gsap.to(sections, {
         xPercent: -100 * (sections.length - 1),
         ease: "none",
         scrollTrigger: {
             trigger: ".main",
             pin: true,
-            scrub: 0.5,
-            snap: 1 / (sections.length - 1),
+            scrub: 1,
+            snap: {
+                snapTo: 1 / (sections.length - 1),
+                duration: .25,
+                ease: "power1.inOut"
+            },
             end: () => "+=" + document.querySelector(".main").offsetWidth
         }
     });

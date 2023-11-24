@@ -48,13 +48,7 @@
     display: flex;
 }
 
-.info-slider .slider-content {
-    background: var(--background);
-    background-attachment: fixed;
-}
-
 .info-slider .slider-button {
-    background-color: transparent;
     opacity: 1;
 }
 

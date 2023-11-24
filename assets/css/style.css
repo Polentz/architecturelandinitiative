@@ -77,10 +77,12 @@ html {
     --doc-height: 100%;
     --black: #1d1d1b;
     --white: #ffffff;
-    --background: #f2ece7;
-    --side-background: #f2ece7;
-    --main-color: #f2ece7;
-    --acc-color: #f2ece7;
+    --background: ;
+    /* --side-background: #eeeddb; */
+    --main-color: ;
+    --acc-color: ;
+    --current-color: #eeeddb;
+    --shade-color: #eeeddb80;
     --body-text-font: "GT America";
     --body-text-size: 1rem;
     --secondary-text-font: "GT Cinetype";
@@ -106,7 +108,6 @@ html {
 
 body {
     width: 100%;
-    min-height: var(--doc-height);
     font-family: "GT Cinetype";
     font-style: normal;
     font-weight: 400;
@@ -126,7 +127,7 @@ em {
 }
 
 button {
-    background-color: transparent;
+    background: transparent;
     border: none;
 }
 
@@ -228,7 +229,7 @@ button {
     align-items: center;
     justify-content: space-between;
     gap: 1rem;
-    background-color: rgba(255, 255, 255, 0.1);
+    background: var(--shade-color);
     backdrop-filter: blur(2rem);
     transition: all .3s ease;
 }
@@ -252,7 +253,10 @@ button {
     position: fixed;
     bottom: 0;
     left: 0;
-    background-color: var(--main-color);
+    /* background: var(--main-color); */
+    /* background: var(--current-color); */
+    background: var(--shade-color);
+    backdrop-filter: blur(2rem);
     border-top: var(--border);
     z-index: 4;
 }
@@ -342,7 +346,6 @@ button {
     font-family: var(--secondary-text-font);
     font-size: var(--secondary-text-size);
     display: none;
-    background: var(--main-color);
 }
 
 .banner.--display {
@@ -356,9 +359,9 @@ button {
     padding: var(--half-margin) var(--main-margin);
 }
 
-.contact-block p a {
+/* .contact-block p a {
     text-decoration: underline;
-}
+} */
 
 .banner-button {
     position: absolute;
@@ -366,7 +369,13 @@ button {
     right: var(--main-margin);
     transform: translateY(-4rem);
     border: var(--border);
-    background-color: var(--main-color);
+    /* background: var(--main-color); */
+    background: var(--shade-color);
+    /* backdrop-filter: blur(2rem); */
+}
+
+.banner-button svg {
+    fill: var(--white);
 }
 
 .slider {
@@ -400,7 +409,9 @@ button {
     top: var(--main-margin);
     transform: translateX(1px);
     border: var(--border);
-    background-color: var(--acc-color);
+    /* background: var(--acc-color); */
+    background: var(--shade-color);
+    backdrop-filter: blur(2rem);
     opacity: 0;
     transition: opacity .5s ease;
 }
@@ -419,7 +430,9 @@ button {
     padding-right: var(--main-margin);
     padding-bottom: calc(var(--main-margin) + var(--nav-height));
     padding-left: var(--main-margin);
-    background-color: var(--acc-color);
+    /* background: var(--acc-color); */
+    background: var(--shade-color);
+    backdrop-filter: blur(2rem);
     border-left: var(--border);
     overflow-y: scroll;
     scrollbar-width: none;
@@ -461,6 +474,12 @@ button {
 } */
 
 .main {
+    min-height: var(--doc-height);
+    background: var(--background);
+    background-attachment: fixed;
+    /* background-size: 100% 100%; */
+    /* background-position: 0px 0px, 0px 0px, 0px 0px, 0px 0px, 0px 0px, 0px 0px, 0px 0px, 0px 0px, 0px 0px, 0px 0px, 0px 0px;
+    background-image: radial-gradient(18% 28% at 24% 50%, #CEFAFFFF 7%, #073AFF00 100%), radial-gradient(18% 28% at 18% 71%, #FFFFFF59 1%, #073AFF00 100%), radial-gradient(70% 53% at 36% 76%, #73F2FFFF 0%, #073AFF00 100%), radial-gradient(42% 53% at 15% 94%, #FFFFFFFF 7%, #073AFF00 100%), radial-gradient(42% 53% at 34% 72%, #FFFFFFFF 7%, #073AFF00 100%), radial-gradient(18% 28% at 35% 87%, #FFFFFFFF 7%, #073AFF00 100%), radial-gradient(31% 43% at 7% 98%, #FFFFFFFF 24%, #073AFF00 100%), radial-gradient(21% 37% at 72% 23%, #D3FF6D9C 24%, #073AFF00 100%), radial-gradient(35% 56% at 91% 74%, #8A4FFFF5 9%, #073AFF00 100%), radial-gradient(74% 86% at 67% 38%, #6DFFAEF5 24%, #073AFF00 100%), linear-gradient(125deg, #4EB5FFFF 1%, #4C00FCFF 100%); */
     transition: filter .5s ease-in;
 }
 
@@ -484,9 +503,10 @@ button {
 }
 
 .grid-layout-item {
+    min-width: 25%;
     writing-mode: vertical-rl;
     padding-top: var(--double-margin);
-    padding-right: var(--half-margin);
+    padding-right: var(--small-margin);
     padding-left: var(--half-margin);
     border-right: var(--border);
 }
@@ -516,6 +536,7 @@ button {
 
 .cover-layout-item h2 {
     max-width: 75%;
+    color: var(--current-color);
 }
 
 /* .cover-button {
@@ -627,7 +648,7 @@ button {
     width: 500px;
     height: auto;
     color: var(--white);
-    background-color: var(--black);
+    background: var(--black);
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     pointer-events: none;
@@ -784,8 +805,9 @@ button {
     left: 0;
     width: var(--secondary-text-size);
     height: var(--secondary-text-size);
+    padding: 4px;
     border-radius: 50%;
-    background: #1d1d1b;
+    background: var(--black);
     z-index: 999;
     pointer-events: none;
     display: none;

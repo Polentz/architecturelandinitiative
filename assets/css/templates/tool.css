@@ -1,12 +1,12 @@
 .main {
-    padding-top: var(--double-margin);
-    padding-right: var(--main-margin);
-    padding-bottom: var(--main-margin);
-    padding-left: var(--main-margin);
-    margin-bottom: var(--nav-height);
     display: flex;
     flex-direction: column;
     gap: var(--main-margin);
+    padding-top: var(--double-margin);
+    padding-right: var(--main-margin);
+    padding-bottom: calc(var(--main-margin) + var(--nav-height));
+    padding-left: var(--main-margin);
+    /* margin-bottom: var(--nav-height); */
 }
 
 .intro {

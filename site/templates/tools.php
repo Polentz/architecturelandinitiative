@@ -2,7 +2,10 @@
 
 <main id="tools" class="cover-layout main">
     <?php foreach ($tools as $tool) : ?>
-        <div class="cover-layout-item" <?php if ($cover = $tool->background()->toFile()) : ?>style="background-image: url('<?= $cover->url() ?>');"<?php endif ?>>
+        <!-- <div class="cover-layout-item" <?php if ($cover = $tool->background()->toFile()) : ?>style="background-image: url('<?= $cover->url() ?>');"<?php endif ?>>
+            <h2><a href="<?= $tool->url() ?>"><?= $tool->title()->kt() ?></a></h2>
+        </div> -->
+        <div class="grid-layout-item">
             <h2><a href="<?= $tool->url() ?>"><?= $tool->title()->kt() ?></a></h2>
         </div>
     <?php endforeach ?>

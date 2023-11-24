@@ -42,8 +42,8 @@
     <div class="accordion --past" data-type="<?= $block->typology() ?>" data-category="<?= $block->project() ?>">
     <div class="accordion-wrapper">
         <ul class="accordion-topbar">
-            <li class="accordion-topbar-title text-subtext"><?= $block->title() ?></li>
             <li class="text-label"><?= $block->date()->toDate('D') ?> <?= $block->date()->toDate('d.m.Y') ?></li>
+            <li class="accordion-topbar-title text-subtext"><?= $block->title() ?></li>
             <?php if ($block->typology()->isNotEmpty()) : ?>
                 <li class="text-label">TYPE <?= $block->typology() ?></li>
             <?php endif ?>
