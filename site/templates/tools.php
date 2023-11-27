@@ -1,21 +1,27 @@
 <?= snippet('header') ?>
 
-<main id="tools" class="cover-layout main">
-    <?php foreach ($tools as $tool) : ?>
-        <!-- <div class="cover-layout-item" <?php if ($cover = $tool->background()->toFile()) : ?>style="background-image: url('<?= $cover->url() ?>');"<?php endif ?>>
-            <h2><a href="<?= $tool->url() ?>"><?= $tool->title()->kt() ?></a></h2>
-        </div> -->
-        <div class="grid-layout-item">
-            <h2><a class="item-title" data-name="<?= $tool->title() ?>" href="<?= $tool->url() ?>"></a></h2>
+<main class="main">
+    <section class="grid-layout">
+        <?php foreach ($tools as $tool) : ?>
+            <div class="grid-layout-item">
+                <h2><a class="item-title" data-name="<?= $tool->title() ?>" href="<?= $tool->url() ?>"></a></h2>
+            </div>
+        <?php endforeach ?>
+            <div class="grid-layout-item">
+                <h2><a class="item-title" data-name="Transcalar drawing" href=""></a></h2>
+            </div>
+            <div class="grid-layout-item">
+                <h2><a class="item-title" data-name="Meta-theme" href=""></a></h2>
+            </div>
+    </section>
+    <section class="page-intro"> 
+        <div class="text-label">
+            <p><?= $page->title() ?></p>
         </div>
-    <?php endforeach ?>
-    <!-- <button class="button cover-button" type="button">
-        <svg viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <rect x="0.5" y="0.5" width="39" height="39" fill="#1d1d1b"/>
-            <path d="M32 20L20.75 30M32 20L20.75 10M32 20L8 20" stroke="#ffffff"/>
-            <rect x="0.5" y="0.5" width="39" height="39" stroke="#ffffff"/>
-        </svg>
-    </button> -->
+        <div class="text-intro">
+            <p>In recent years, we've developed our own 'toolshed' through our first projects in Switzerland and Hong Kong. The various tools and formats we've developed are all interfaces that enable us to work with and bring into dialogue different communities, spatial practices, situated social and ecological issues, and the historical dynamics of places in order to read the violence of the spatial dynamics at work and ask better questions. With our work, we aim to strengthen the power to act and inhabit of the different actors contributing to these processes by weaving a collective and simultaneous transformation of the spatial, the legal and the imaginary starting with new shared gestures and attentions.</p>
+        </div>
+    </section>
 </main>
 
 <?= snippet('slider') ?>

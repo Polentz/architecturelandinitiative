@@ -1,7 +1,9 @@
 <?= snippet('header') ?>
 
 <main class="main">
-    <?= $page->blocks()->toBlocks()->sortBy('date', 'desc') ?>
+    <section class="accordion-layout">
+        <?= $page->blocks()->toBlocks()->sortBy('date', 'desc') ?>
+    </section>
 </main>
 
 <div class="box-container">

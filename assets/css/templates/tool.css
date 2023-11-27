@@ -9,11 +9,11 @@
     /* margin-bottom: var(--nav-height); */
 }
 
-.intro {
+/* .intro {
     font-family: var(--title-font);
     font-size: var(--title-size);
     line-height: 110%;
-}
+} */
 
 .gallery {
     width: 100%;

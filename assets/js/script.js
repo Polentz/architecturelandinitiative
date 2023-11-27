@@ -10,7 +10,7 @@ const nav = footer.querySelector(".nav");
 const navElement = nav.querySelectorAll(".menu-element");
 const main = document.querySelector(".main");
 const header = document.querySelector(".header");
-const logo = document.querySelector(".header h1");
+const logo = document.querySelector(".logo");
 
 // const handleLayoutsShuffle = () => {
 //     const layouts = document.querySelectorAll(".grid-layout, .cover-layout");
@@ -218,12 +218,17 @@ const animateTitle = () => {
 
     document.querySelectorAll(".word").forEach(word => {
         split(word);
-        const title = Array.from(word.querySelectorAll(".letter"));
-        gsap.from(title, 1, {
+        const title = word.querySelectorAll(".letter");
+        let tl = gsap.timeline();
+        tl.from(title, {
             duration: 0.5,
-            x: -100,
+            delay: 0.25,
+            xPercent: -100,
             stagger: 0.1,
         });
+        tl.to(word, {
+            clipPath: "none"
+        })
     });
 };
 
@@ -243,7 +248,8 @@ const shuffleColors = () => {
         ["#4864f9", "#eeeddb"],
         ["#5dd5ae", "#eeeddb"],
         ["#a867fd", "#eeeddb"],
-        ["#ffe145", "#eeeddb"],
+        // ["#ffe145", "#eeeddb"],
+        ["#c4854b", "#eeeddb"]
     ]
 
     const randomColorSet = colors[Math.floor(Math.random() * colors.length)];
@@ -259,22 +265,52 @@ const shuffleColors = () => {
 };
 
 const horizontalScroll = () => {
-    let sections = gsap.utils.toArray(".main div");
-    const tl = gsap.timeline();
+    // let sections = gsap.utils.toArray(".main div");
+    // gsap.to(sections, {
+    //     xPercent: -100 * (sections.length - 1),
+    //     ease: "none",
+    //     scrollTrigger: {
+    //         trigger: ".main",
+    //         pin: true,
+    //         scrub: 1,
+    //         snap: {
+    //             snapTo: 1 / (sections.length - 1),
+    //             duration: .25,
+    //             ease: "power1.inOut"
+    //         },
+    //         end: () => "+=" + document.querySelector(".main").offsetWidth
+    //     }
+    // });
+
+    let sections = gsap.utils.toArray(".grid-layout div");
     gsap.to(sections, {
-        xPercent: -100 * (sections.length - 1),
+        xPercent: -100 * (sections.length),
         ease: "none",
         scrollTrigger: {
-            trigger: ".main",
+            trigger: ".grid-layout",
             pin: true,
-            scrub: 1,
+            scrub: .5,
             snap: {
-                snapTo: 1 / (sections.length - 1),
+                snapTo: 1 / (sections.length),
                 duration: .25,
                 ease: "power1.inOut"
             },
-            end: () => "+=" + document.querySelector(".main").offsetWidth
-        }
+        },
+    });
+    gsap.to(".page-intro", {
+        y: "0",
+        ease: "none",
+        scrollTrigger: {
+            trigger: ".grid-layout",
+            start: "bottom bottom",
+            pin: false,
+            scrub: .5,
+            snap: {
+                snapTo: 1,
+                duration: .5,
+                ease: "power1.inOut"
+            },
+        },
     });
 };
 
@@ -330,7 +366,7 @@ const bannerOpener = () => {
     const banner = document.querySelector(".banner");
     const bannerContent = document.querySelector(".banner-content");
     const bannerButton = banner.querySelector(".banner-button");
-    const bodyElements = gsap.utils.toArray(".main, .box-container, .info-slider, .slider");
+    const bodyElements = gsap.utils.toArray(".main section, .box-container, .info-slider, .slider");
     const bannerelements = gsap.utils.toArray(bannerContent, bannerButton);
 
     const addClasses = () => {
@@ -342,7 +378,7 @@ const bannerOpener = () => {
         });
         tl.to(bodyElements, {
             y: `-${bannerContent.clientHeight}`,
-        })
+        });
         tl.to(bannerelements, {
             duration: 0.5,
             opacity: 1,
@@ -351,7 +387,6 @@ const bannerOpener = () => {
             y: 20,
             stagger: 0.1,
         }, "<");
-
     };
 
     const removeClasses = () => {
@@ -617,17 +652,13 @@ const accordion = () => {
 };
 
 window.addEventListener("load", () => {
-    history.scrollRestoration = "manual";
+    // history.scrollRestoration = "manual";
     documentHeight();
     cursor();
     animateAll();
     sliderOpener();
     bannerOpener();
     shuffleColors();
-    gsap.from(".main", {
-        duration: 1,
-        autoAlpha: 0,
-    });
 });
 
 window.addEventListener("resize", () => {

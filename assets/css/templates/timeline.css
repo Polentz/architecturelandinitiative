@@ -22,16 +22,27 @@
     opacity: .25;
 }
 
+.accordion-divider {
+    border-top: var(--border);
+    padding: .5rem 0;
+    /* background: var(--black);
+    color: var(--white); */
+    /* text-align: center; */
+}
+
 .accordion-topbar {
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    justify-content: space-between;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(0, 1fr));
     row-gap: 1rem;
     column-gap: 2rem;
     border-top: var(--border);
     padding: .5rem 0;
     cursor: pointer;
+}
+
+.topbar-item:last-child {
+    justify-self: end;
+    text-align: end;
 }
 
 .accordion.--ongoing .accordion-topbar,
@@ -55,7 +66,7 @@
     display: flex;
     flex-direction: column;
     gap: .5rem;
-    margin: var(--half-margin) 0;
+    margin: var(--small-margin) 0 var(--half-margin) 0;
     cursor: pointer;
 }
 
@@ -96,6 +107,6 @@
     display: flex;
 }
 
-.--open .accordion-topbar-title {
+.--open .topbar-title {
     display: none;
 }

@@ -26,8 +26,9 @@ fields:
       text: "{{ page.title }}"
       value: "{{ page.title }}"
   topbar:
-    label: Add topbar elements
+    label: "Add topbar elements (max: 2)"
     type: structure
+    max: 2
     columns:
       category:
         width: 1/2

@@ -43,35 +43,32 @@
 <body>
     <header class="header">
         <h1>
-            <!-- <span id="A" class="logo-letter">A</span>
-            <span id="L" class="logo-letter">L</span>
-            <span id="IN" class="logo-letter">IN</span> -->
             <a class="logo" href="<?= $site->page('home')->url() ?>">
                 <span class="logo-word-1">Architecture</span>
                 <span class="logo-word-2">Land</span>
                 <span class="logo-word-3">INitiative</span>
             </a>
-            <span class="logo-element">/&emsp;&emsp;<?= $page->title() ?></span>
+            <span class="logo-element text-label"><?= $page->title() ?></span>
         </h1>
         <div class="header-button-wrapper">
             <a href="<?= $site->page('projects')->url() ?>" id="to-projects" class="button" type="button">
                 <svg viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path d="M7 33L7 7L11.3333 7L11.3333 33L15.6667 33L15.6667 7L20 7L20 33L24.3333 33L24.3333 7L28.6667 7L28.6667 33L33 33L33 7" stroke="#1d1d1b"/>
                 </svg>
-                <span class="text-label">projects</span>
+                <span class="text-label">Projects</span>
             </a>
             <a href="<?= $site->page('tools')->url() ?>" id="to-tools" class="button" type="button">
                 <svg viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <rect x="7.5" y="32.5" width="25" height="25" transform="rotate(-90 7.5 32.5)" stroke="#1d1d1b"/>
                 </svg>
-                <span class="text-label">tools</span>
+                <span class="text-label">Tools</span>
             </a>
-            <a href="<?= $site->page('tools')->url() ?>" id="to-practices" class="button" type="button">
+            <a href="<?= $site->page('themes')->url() ?>" id="to-practices" class="button" type="button">
                 <svg viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <rect x="0.5" y="0.5" width="39" height="39"/>
                     <path d="M7 8H33M7 12H33M7 16H33M7 20H33M7 24H33M7 28H33M7 32H33" stroke="#1d1d1b"/>
                 </svg>
-                <span class="text-label">practices</span>
+                <span class="text-label">Practices</span>
             </a>
         </div>
     </header>

@@ -1,7 +1,7 @@
 <?= snippet('header') ?>
 
 <main class="main">
-    <section class="intro">
+    <section class="text-intro">
         <h3><?= $page->intro() ?></h3>
     </section>
 
