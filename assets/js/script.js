@@ -12,61 +12,6 @@ const main = document.querySelector(".main");
 const header = document.querySelector(".header");
 const logo = document.querySelector(".logo");
 
-// const handleLayoutsShuffle = () => {
-//     const layouts = document.querySelectorAll(".grid-layout, .cover-layout");
-//     const randomLayout = layouts[Math.floor(Math.random() * layouts.length)];
-//     randomLayout.classList.add("--random");
-//     const currentLayout = document.querySelector(".--random");
-//     const shuffleButton = document.querySelectorAll(".header-button");
-//     const projectsButton = document.getElementById("to-projects");
-//     const toolsButton = document.getElementById("to-tools");
-//     const projectsMenu = document.querySelector(".grid-layout");
-//     const toolsMenu = document.querySelector(".cover-layout");
-//     const scrollElements = document.querySelectorAll(".scroll-wrapper");
-//     shuffleButton.forEach(button => {
-//         button.addEventListener("click", () => {
-//             layouts.forEach(layout => {
-//                 if (layout.classList.contains("--random")) {
-//                     layout.classList.remove("--random");
-//                 } else {
-//                     layout.classList.add("--random");
-//                     logoAnimation();
-//                 };
-//             });
-//             scrollElements.forEach(scrollElement => {
-//                 scrollElement.scrollTo({
-//                     left: 0,
-//                 });
-//             });
-//         });
-//     });
-
-//     if (projectsButton.id == `to-${currentLayout.id}`) {
-//         toolsButton.style.display = "none";
-//     } else if (toolsButton.id == `to-${currentLayout.id}`) {
-//         projectsButton.style.display = "none";
-//     };
-
-//     toolsButton.addEventListener("click", () => {
-//         if (projectsMenu.classList.contains("--random")) {
-//             projectsMenu.classList.remove("--random");
-//             toolsButton.style.display = "none";
-//             projectsButton.style.display = "flex";
-//         };
-//         toolsMenu.classList.add("--random");
-//     });
-
-//     projectsButton.addEventListener("click", () => {
-//         if (toolsMenu.classList.contains("--random")) {
-//             toolsMenu.classList.remove("--random");
-//             projectsButton.style.display = "none";
-//             toolsButton.style.display = "flex";
-
-//         };
-//         projectsMenu.classList.add("--random");
-//     });
-// };
-
 const documentHeight = () => {
     const doc = document.documentElement;
     doc.style.setProperty("--doc-height", `${window.innerHeight}px`);
@@ -234,21 +179,9 @@ const animateTitle = () => {
 
 const shuffleColors = () => {
     const colors = [
-        // ["#feff8a", "#A7EAF3"],
-        // ["#d9a1f8", "#c2ffc8"],
-        // ["#7b8ef2", "#f9e7cf"],
-        // ["#FDD5E3", "#b8fffe"]
-
-
-        // ["#f2ece7", "#A7EAF3"],
-        // ["#feff8a", "#f2ece7"],
-        // ["#f2ece7", "#c2ffc8"],
-        // ["#d9a1f8", "#f2ece7"],
-
         ["#4864f9", "#eeeddb"],
         ["#5dd5ae", "#eeeddb"],
         ["#a867fd", "#eeeddb"],
-        // ["#ffe145", "#eeeddb"],
         ["#c4854b", "#eeeddb"]
     ]
 
@@ -257,31 +190,12 @@ const shuffleColors = () => {
     const mainColor = document.documentElement;
     const accentColor = document.documentElement;
     const mainBackground = document.documentElement;
-    // const sideBackground = document.documentElement;
     mainColor.style.setProperty("--main-color", `${randomColorSet[0]}`);
     accentColor.style.setProperty("--acc-color", `${randomColorSet[1]}`);
     mainBackground.style.setProperty("--background", `linear-gradient(${randomDeg}deg, ${randomColorSet[1]} 20%, ${randomColorSet[0]} 100%)`);
-    // sideBackground.style.setProperty("--side-background", `linear-gradient(180deg, ${randomColorSet[0]} 0%, ${randomColorSet[1]} 100%)`);
 };
 
 const horizontalScroll = () => {
-    // let sections = gsap.utils.toArray(".main div");
-    // gsap.to(sections, {
-    //     xPercent: -100 * (sections.length - 1),
-    //     ease: "none",
-    //     scrollTrigger: {
-    //         trigger: ".main",
-    //         pin: true,
-    //         scrub: 1,
-    //         snap: {
-    //             snapTo: 1 / (sections.length - 1),
-    //             duration: .25,
-    //             ease: "power1.inOut"
-    //         },
-    //         end: () => "+=" + document.querySelector(".main").offsetWidth
-    //     }
-    // });
-
     let sections = gsap.utils.toArray(".grid-layout div");
     gsap.to(sections, {
         xPercent: -100 * (sections.length),
@@ -316,7 +230,6 @@ const horizontalScroll = () => {
 
 const sliderOpener = () => {
     const sliderContainer = document.querySelectorAll(".slider");
-
     sliderContainer.forEach(slider => {
         const sliderWrapper = slider.querySelector(".slider-wrapper");
         const sliderButton = sliderWrapper.querySelector(".slider-button");
@@ -593,39 +506,6 @@ const handleFilters = () => {
     });
 };
 
-// const carousel = () => {
-//     const elementsArray = Array.from(document.querySelectorAll(".cover-layout-item"));
-//     const scrollButton = document.querySelector(".cover-button");
-
-//     if (elementsArray.length < 1 && scrollButton) {
-//         scrollButton.style.display = "none";
-//     } else if (scrollButton) {
-//         const scrollContanier = document.querySelector(".cover-layout");
-//         const scrollWidth = window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth;
-//         const firstElement = elementsArray[0];
-//         const lastElement = elementsArray.pop();
-//         const observer = new window.IntersectionObserver(([entry]) => {
-//             if (entry.isIntersecting) {
-//                 scrollButton.style.transform = "rotate(180deg)"
-//                 scrollButton.addEventListener("click", () => {
-//                     firstElement.scrollIntoView();
-//                 });
-//             } else {
-//                 scrollButton.style.transform = "rotate(0deg)";
-//                 scrollButton.addEventListener("click", () => {
-//                     scrollContanier.scrollBy({
-//                         left: scrollWidth
-//                     });
-//                 });
-//             };
-//         }, {
-//             root: null,
-//             threshold: .75,
-//         });
-//         observer.observe(lastElement);
-//     };
-// };
-
 const accordion = () => {
     const accordion = document.querySelectorAll(".accordion");
     accordion.forEach(item => {
@@ -652,7 +532,6 @@ const accordion = () => {
 };
 
 window.addEventListener("load", () => {
-    // history.scrollRestoration = "manual";
     documentHeight();
     cursor();
     animateAll();
