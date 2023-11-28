@@ -73,11 +73,9 @@ html {
     --doc-height: 100%;
     --black: #1d1d1b;
     --white: #ffffff;
-    --background: ;
-    /* --side-background: #eeeddb; */
     --main-color: ;
     --acc-color: ;
-    --current-color: #eeeddb;
+    --background: ;
     --shade-color: #eeeddb80;
     --body-text-font: "GT America";
     --body-text-size: 1rem;
@@ -99,7 +97,9 @@ html {
     --small-margin: 1rem;
     --nav-height: 3rem;
     --button-size: 2rem;
-    --border: solid 1px var(--black);
+    --border-black: solid 1px var(--black);
+    --border-white: solid 1px var(--white);
+    --border-color: solid 1px var(--main-color);
 }
 
 body {
@@ -262,7 +262,7 @@ button {
 .header-button-wrapper .button {
     width: fit-content;
     min-width: 0%;
-    border: var(--border);
+    border: var(--border-black);
     display: flex;
     flex-direction: row-reverse;
     align-items: center;
@@ -294,7 +294,7 @@ button {
     left: 0;
     background: var(--shade-color);
     backdrop-filter: blur(2rem);
-    border-top: var(--border);
+    border-top: var(--border-black);
     z-index: 4;
 }
 
@@ -396,19 +396,13 @@ button {
     padding: var(--half-margin) var(--main-margin);
 }
 
-/* .contact-block p a {
-    text-decoration: underline;
-} */
-
 .banner-button {
     position: absolute;
     top: var(--button-size);
     right: var(--main-margin);
     transform: translateY(-4rem);
-    border: var(--border);
-    /* background: var(--main-color); */
+    border: var(--border-black);
     background: var(--shade-color);
-    /* backdrop-filter: blur(2rem); */
 }
 
 .banner-button svg {
@@ -445,8 +439,7 @@ button {
     position: sticky;
     top: var(--main-margin);
     transform: translateX(1px);
-    border: var(--border);
-    /* background: var(--acc-color); */
+    border: var(--border-black);
     background: var(--shade-color);
     backdrop-filter: blur(2rem);
     opacity: 0;
@@ -467,10 +460,9 @@ button {
     padding-right: var(--main-margin);
     padding-bottom: calc(var(--main-margin) + var(--nav-height));
     padding-left: var(--main-margin);
-    /* background: var(--acc-color); */
     background: var(--shade-color);
     backdrop-filter: blur(2rem);
-    border-left: var(--border);
+    border-left: var(--border-black);
     overflow-y: scroll;
     scrollbar-width: none;
 }
@@ -543,11 +535,10 @@ button {
     writing-mode: vertical-rl;
     padding-right: var(--small-margin);
     padding-left: var(--double-margin);
-    border-right: var(--border);
+    border-right: var(--border-black);
 }
 
 .page-intro {
-    /* max-width: 50%; */
     position: relative;
     display: flex;
     flex-direction: column;
@@ -556,10 +547,6 @@ button {
     padding-bottom: calc(var(--main-margin) + var(--nav-height));
     padding-left: var(--main-margin);
     transform: translateY(-15%);
-    /* font-family: var(--big-title-font);
-    font-size: var(--big-title-size);
-    font-weight: 300;
-    line-height: 100%; */
 }
 
 .cover-layout-item {
@@ -587,7 +574,7 @@ button {
 
 .cover-layout-item h2 {
     max-width: 75%;
-    color: var(--current-color);
+    color: var(--acc-color);
 }
 
 .grid-layout-item .item-title {
@@ -602,14 +589,6 @@ button {
     clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
     display: flex;
     flex-wrap: nowrap;
-}
-
-.word.--unclip {
-    clip-path: none;
-}
-
-.item-title:hover {
-    color: var(--main-color);
 }
 
 /* .cover-button {
@@ -737,7 +716,7 @@ button {
 .inner-box-column {
     align-self: stretch;
     justify-self: stretch;
-    outline: solid 1px #fff;
+    outline: var(--border-white);
     outline-offset: -0.5px;
     opacity: 0;
     transition: opacity .5s ease;
@@ -759,7 +738,7 @@ button {
     font-family: var(--secondary-text-font);
     font-size: var(--secondary-text-size);
     padding: var(--small-margin) var(--half-margin);
-    border-bottom: solid 1px var(--white);
+    border-bottom: var(--border-white);
 }
 
 .inner-box-content {

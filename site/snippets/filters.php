@@ -33,7 +33,6 @@
                         <?php foreach ($projects as $project): ?>
                             <li id="<?= $project->title()->slug() ?>" class="filter" data-type="<?= $project->title()->slug() ?>"><?= $project->title() ?></li>
                         <?php endforeach ?>
-
                     </ul>
                 </div>
             <?php else : ?>
@@ -45,7 +44,6 @@
                         <?php foreach ($page->filters()->split() as $filter): ?>
                             <li id="<?= Str::slug($filter) ?>" class="filter" data-category="<?= Str::slug($filter) ?>"><?= $filter ?></li>
                         <?php endforeach ?>
-                        <!-- <li class="filter --all --target">All</li> -->
                     </ul>
                 </div>
             <?php endif ?>

@@ -163,9 +163,9 @@ const animateTitle = () => {
 
     document.querySelectorAll(".word").forEach(word => {
         split(word);
-        const title = word.querySelectorAll(".letter");
+        const letters = word.querySelectorAll(".letter");
         let tl = gsap.timeline();
-        tl.from(title, {
+        tl.from(letters, {
             duration: 0.5,
             delay: 0.25,
             xPercent: -100,
@@ -173,8 +173,27 @@ const animateTitle = () => {
         });
         tl.to(word, {
             clipPath: "none"
-        })
+        });
     });
+    document.querySelectorAll(".item-title").forEach(title => {
+        title.addEventListener("mouseenter", () => {
+            const letters = title.querySelectorAll(".word .letter");
+            gsap.to(letters, {
+                duration: 0.1,
+                color: "var(--main-color)",
+                stagger: 0.02,
+            });
+        });
+        title.addEventListener("mouseleave", () => {
+            const letters = title.querySelectorAll(".word .letter");
+            gsap.to(letters, {
+                duration: 0.1,
+                color: "var(--black)",
+                stagger: 0.02,
+            });
+        });
+    });
+
 };
 
 const shuffleColors = () => {
