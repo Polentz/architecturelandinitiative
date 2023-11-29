@@ -48,44 +48,37 @@ const animateTitleYAxis = () => {
     });
 };
 
-// gsap.utils.toArray(".item-title").forEach(title => {
-//     let tl = gsap.timeline();
-//     tl.from(title, {
-//         xPercent: 0,
-//     });
-//     tl.to(title, {
-//         xPercent: -100,
-//         ease: "linear",
-//         scrollTrigger: {
-//             trigger: ".main",
-//             start: "top top",
-//             // end: "+=500",
-//             end: "center center",
-//             scrub: false,
-//         },
-//     });
-// });
-
-
-// document.querySelectorAll(".item-title").forEach(title => {
-//     title.addEventListener("mouseenter", () => {
-//         const letters = title.parentNode.querySelectorAll(".letter");
-//         gsap.to(letters, {
-//             duration: 0.1,
-//             color: "var(--main-color)",
-//             stagger: 0.01,
-//         });
-//     });
-//     title.addEventListener("mouseleave", () => {
-//         const letters = title.parentNode.querySelectorAll(".letter");
-//         gsap.to(letters, {
-//             duration: 0.1,
-//             color: "var(--black)",
-//             stagger: 0.01,
-//         });
-//     });
-// });
+const scrollTitle = () => {
+    document.body.style.overflow = "auto";
+    document.scrollingElement.scrollTo(0, 0);
+    gsap.utils.toArray(".grid-layout-item").forEach((item, index) => {
+        const wrapper = item.querySelector(".wrapper");
+        const [x, xEnd] = (index % 2) ? ["50%", (wrapper.scrollWidth - item.offsetWidth) * -1] : [wrapper.scrollWidth * -1, 0];
+        gsap.fromTo(wrapper, { x }, {
+            x: xEnd,
+            scrollTrigger: {
+                trigger: item,
+                scrub: .5,
+            }
+        });
+    });
+    gsap.to(".page-intro", {
+        yPercent: "0",
+        ease: "none",
+        scrollTrigger: {
+            trigger: ".page-intro",
+            start: "65% bottom",
+            scrub: .5,
+            snap: {
+                snapTo: 1,
+                duration: .25,
+                ease: "power1.inOut"
+            },
+        },
+    });
+};
 
 window.addEventListener("load", () => {
     animateTitleYAxis();
+    scrollTitle();
 });
