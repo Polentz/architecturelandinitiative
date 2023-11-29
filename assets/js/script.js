@@ -151,7 +151,8 @@ logo.addEventListener("mouseleave", () => {
 const animateTitle = () => {
     document.querySelectorAll(".item-title").forEach(title => {
         let content = title.dataset.name
-        const eachWord = content.match(/(\w+)/g);
+        // const eachWord = content.match(/(\w+)/g);
+        const eachWord = content.match(/([\w-/]+)/g);
         eachWord.forEach(word => {
             let div = document.createElement("div");
             div.classList.add("word");
@@ -166,7 +167,7 @@ const animateTitle = () => {
         const letters = word.querySelectorAll(".letter");
         let tl = gsap.timeline();
         tl.from(letters, {
-            duration: 0.5,
+            duration: 0.3,
             delay: 0.25,
             xPercent: -100,
             stagger: 0.1,
@@ -193,7 +194,6 @@ const animateTitle = () => {
             });
         });
     });
-
 };
 
 const shuffleColors = () => {

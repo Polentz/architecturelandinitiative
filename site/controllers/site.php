@@ -21,6 +21,7 @@ return function ($kirby) {
 
     $projects = $kirby->collection('projects');
     $tools = $kirby->collection('tools'); 
+    $themes = $kirby->collection('themes'); 
     $allmedia = $kirby->collection('allmedia'); 
 
     // return compact('lang', 'langCode', 'projects' , 'tools', 'allmedia');
@@ -36,6 +37,7 @@ return function ($kirby) {
         'hrefDe' => $hrefDe,
         'projects' => $projects,
         'tools' => $tools,
+        'themes' => $themes,
         'allmedia' => $allmedia,
     ];
 };

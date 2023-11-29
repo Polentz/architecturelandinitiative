@@ -645,9 +645,9 @@ button {
     padding-right: var(--main-margin);
     padding-bottom: calc(var(--main-margin) + var(--nav-height));
     padding-left: var(--main-margin);
-    -webkit-transform: translateY(-15%);
-    -ms-transform: translateY(-15%);
-    transform: translateY(-15%);
+    -webkit-transform: translateY(-20%);
+    -ms-transform: translateY(-20%);
+    transform: translateY(-20%);
 }
 
 .cover-layout-item {
