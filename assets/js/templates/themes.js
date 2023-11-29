@@ -1,5 +1,4 @@
 const animateTitleYAxis = () => {
-
     document.querySelectorAll(".item-title").forEach(title => {
         let content = title.dataset.name
         let cloneContent = content + " / " + content;
@@ -12,7 +11,6 @@ const animateTitleYAxis = () => {
             title.appendChild(div);
         });
     });
-
     document.querySelectorAll(".word").forEach(word => {
         split(word);
         const letters = word.querySelectorAll(".letter");
@@ -27,7 +25,6 @@ const animateTitleYAxis = () => {
             clipPath: "none",
         });
     });
-
     document.querySelectorAll(".item-title").forEach(title => {
         title.addEventListener("mouseenter", () => {
             const letters = title.querySelectorAll(".word .letter");
@@ -63,11 +60,11 @@ const scrollTitle = () => {
         });
     });
     gsap.to(".page-intro", {
-        yPercent: "0",
+        y: "0",
         ease: "none",
         scrollTrigger: {
             trigger: ".page-intro",
-            start: "65% bottom",
+            start: "35% bottom",
             scrub: .5,
             snap: {
                 snapTo: 1,

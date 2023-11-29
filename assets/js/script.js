@@ -248,44 +248,6 @@ const horizontalScroll = () => {
     });
 };
 
-// const section = document.querySelector("section.horizontal")
-// const thisPinWrap = section.querySelector(".pin-wrap");
-// const thisAnimWrap = thisPinWrap.querySelector(".animation-wrap");
-// const items = thisPinWrap.querySelectorAll(".grid-layout-item");
-
-// let getToValue = () => -(thisAnimWrap.scrollWidth - window.innerWidth);
-
-// gsap.fromTo(thisAnimWrap, {
-//     x: () => thisAnimWrap.classList.contains('to-right') ? 0 : getToValue()
-// }, {
-//     x: () => thisAnimWrap.classList.contains('to-right') ? getToValue() : 0,
-//     ease: "none",
-//     scrollTrigger: {
-//         trigger: section,
-//         start: "top top",
-//         end: () => "+=" + (thisAnimWrap.scrollWidth - window.innerWidth),
-//         pin: thisPinWrap,
-//         // invalidateOnRefresh: true,
-//         scrub: .5,
-//         markers: true,
-//     }
-// });
-// gsap.to(".page-intro", {
-//     y: "0",
-//     ease: "none",
-//     scrollTrigger: {
-//         trigger: ".grid-layout",
-//         start: "bottom bottom",
-//         pin: false,
-//         scrub: .5,
-//         snap: {
-//             snapTo: 1,
-//             duration: .25,
-//             ease: "power1.inOut"
-//         },
-//     },
-// });
-
 const sliderOpener = () => {
     const sliderContainer = document.querySelectorAll(".slider");
     sliderContainer.forEach(slider => {
