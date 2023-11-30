@@ -18,14 +18,15 @@
 .block-text {
     display: flex;
     justify-content: space-between;
+    gap: var(--small-margin);
 }
 
 .text-label {
-    width: 15%;
+    flex: 1 1 15%;
 }
 
 .text {
-    width: 75%;
+    flex: 1 1 75%;
 }
 
 .accordion-topbar {

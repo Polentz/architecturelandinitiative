@@ -1,3 +1,4 @@
+    <div class="loader"></div>
     <footer class="footer">
         <?= snippet('nav') ?>
         <?= snippet('contact') ?>

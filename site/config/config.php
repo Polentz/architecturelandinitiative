@@ -25,7 +25,7 @@ return [
           'pattern' => '/',
           'language' => '*',
           'action'  => function ($language) {
-            if ($page = site()->find(['projects', 'tools'])->random()) {
+            if ($page = site()->find(['projects', 'tools', 'themes'])->random()) {
                 return page($page);
             }
           }

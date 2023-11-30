@@ -15,6 +15,10 @@ tabs:
                 type: headline
                 label: Content
                 numbered: false
+              intro:
+                label: Text
+                type: textarea
+                buttons: false
               blocks:
                 label: Timeline
                 type: blocks

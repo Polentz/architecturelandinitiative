@@ -3,7 +3,7 @@ console.log(
     'color: #4c00ff; font-family: sans-serif; font-size: .75rem;'
 );
 
-gsap.registerPlugin(ScrollTrigger, Flip);
+gsap.registerPlugin(ScrollTrigger, Observer, Flip);
 
 const footer = document.querySelector(".footer");
 const nav = footer.querySelector(".nav");
@@ -15,6 +15,17 @@ const logo = document.querySelector(".logo");
 const documentHeight = () => {
     const doc = document.documentElement;
     doc.style.setProperty("--doc-height", `${window.innerHeight}px`);
+};
+
+const loader = () => {
+    document.scrollingElement.scrollTo(0, 0);
+    gsap.to(document.querySelector(".loader"), {
+        autoAlpha: 0,
+        duration: 1,
+        onComplete: () => {
+            document.querySelector(".loader").remove();
+        },
+    });
 };
 
 const cursor = () => {
@@ -47,7 +58,7 @@ const cursor = () => {
             display: "block",
             x: e.clientX,
             y: e.clientY,
-            stagger: 0.1
+            stagger: 0.1,
         });
     });
 
@@ -58,10 +69,10 @@ const cursor = () => {
                 duration: 1,
                 scale: 0.4,
                 opacity: 1,
-                ease: "power1.out"
+                ease: "power1.out",
             });
             gsap.to(".follower", {
-                scale: 0
+                scale: 0,
             });
         });
 
@@ -71,10 +82,10 @@ const cursor = () => {
                 delay: 0.2,
                 scale: 1,
                 opacity: 1,
-                ease: "power1.out"
+                ease: "power1.out",
             });
             gsap.to(".follower", {
-                scale: 1
+                scale: 1,
             });
         });
     });
@@ -148,19 +159,18 @@ logo.addEventListener("mouseleave", () => {
     animateName();
 });
 
-const animateTitle = () => {
-    document.querySelectorAll(".item-title").forEach(title => {
-        let content = title.dataset.name
-        const eachWord = content.match(/([\w-/]+)/g);
-        eachWord.forEach(word => {
-            let div = document.createElement("div");
-            div.classList.add("word");
-            let text = document.createTextNode(word);
-            div.appendChild(text);
-            title.appendChild(div);
-        });
+const splitTitle = (element, content) => {
+    const eachWord = content.match(/([\w-/]+)/g);
+    eachWord.forEach(word => {
+        let div = document.createElement("div");
+        div.classList.add("word");
+        let text = document.createTextNode(word);
+        div.appendChild(text);
+        element.appendChild(div);
     });
+};
 
+const animateTitle = (y, x, stagger) => {
     document.querySelectorAll(".word").forEach(word => {
         split(word);
         const letters = word.querySelectorAll(".letter");
@@ -168,20 +178,22 @@ const animateTitle = () => {
         tl.from(letters, {
             duration: 0.3,
             delay: 0.25,
-            xPercent: -100,
-            stagger: 0.1,
+            xPercent: x,
+            yPercent: y,
+            stagger: stagger
         });
         tl.to(word, {
             clipPath: "none"
         });
     });
+
     document.querySelectorAll(".item-title").forEach(title => {
         title.addEventListener("mouseenter", () => {
             const letters = title.querySelectorAll(".word .letter");
             gsap.to(letters, {
                 duration: 0.1,
                 color: "var(--main-color)",
-                stagger: 0.02,
+                stagger: 0.01,
             });
         });
         title.addEventListener("mouseleave", () => {
@@ -189,7 +201,7 @@ const animateTitle = () => {
             gsap.to(letters, {
                 duration: 0.1,
                 color: "var(--black)",
-                stagger: 0.02,
+                stagger: 0.01,
             });
         });
     });
@@ -200,9 +212,8 @@ const shuffleColors = () => {
         ["#4864f9", "#eeeddb"],
         ["#5dd5ae", "#eeeddb"],
         ["#a867fd", "#eeeddb"],
-        ["#c4854b", "#eeeddb"]
-    ]
-
+        // ["#c4854b", "#eeeddb"]
+    ];
     const randomColorSet = colors[Math.floor(Math.random() * colors.length)];
     const randomDeg = Math.floor(Math.random() * (350 - 10) + 10);
     const mainColor = document.documentElement;
@@ -214,7 +225,8 @@ const shuffleColors = () => {
 };
 
 const horizontalScroll = () => {
-    const section = document.querySelector("section.horizontal")
+    const section = document.querySelector(".horizontal");
+    const items = document.querySelectorAll(".scroll-item");
     const thisPinWrap = section.querySelector(".pin-wrap");
     const thisAnimWrap = thisPinWrap.querySelector(".animation-wrap");
     document.scrollingElement.scrollTo(0, 0);
@@ -229,20 +241,25 @@ const horizontalScroll = () => {
             start: "top top",
             end: () => "+=" + (thisAnimWrap.scrollWidth - window.innerWidth),
             pin: thisPinWrap,
-            scrub: .5,
-        }
+            scrub: 0.5,
+            snap: {
+                snapTo: 1 / (items.length - 1),
+                duration: 0.25,
+                ease: "power1.inOut",
+            },
+        },
     });
     gsap.to(".page-intro", {
         yPercent: "0",
         ease: "none",
         scrollTrigger: {
-            trigger: ".grid-layout",
+            trigger: section,
             start: "bottom bottom",
-            scrub: .5,
+            scrub: 0.5,
             snap: {
                 snapTo: 1,
-                duration: .25,
-                ease: "power1.inOut"
+                duration: 0.25,
+                ease: "power1.inOut",
             },
         },
     });
@@ -260,7 +277,6 @@ const sliderOpener = () => {
             setTimeout(() => {
                 sliderWrapper.classList.add("--translateX");
                 main.classList.add("--blur");
-                document.body.style.overflow = "hidden";
             }, 200);
             setTimeout(() => {
                 sliderButton.classList.add("--opacity");
@@ -270,7 +286,6 @@ const sliderOpener = () => {
         const removeClasses = () => {
             sliderWrapper.classList.remove("--translateX");
             main.classList.remove("--blur");
-            document.body.style.overflow = "inherit";
             sliderButton.classList.remove("--opacity");
             setTimeout(() => {
                 sliderContent.scrollTo(0, 0);
@@ -410,11 +425,11 @@ const handleProjectInfo = () => {
 
         Flip.from(state, {
             absolute: true,
-            duration: 1,
+            duration: 0.75,
             stagger: {
                 from: "start",
                 axis: "x",
-                amount: 0.5,
+                amount: 0.25,
             },
             ease: "power1.out",
             simple: true,
@@ -540,7 +555,7 @@ const accordion = () => {
                 const offsetPosition = itemPosition + window.scrollY - paddingOffset;
                 window.scrollTo({
                     top: offsetPosition,
-                    behavior: "smooth"
+                    behavior: "smooth",
                 });
                 gsap.from(elements, {
                     duration: 0.5,
@@ -553,6 +568,7 @@ const accordion = () => {
 
 window.addEventListener("load", () => {
     documentHeight();
+    loader();
     cursor();
     animateAll();
     sliderOpener();

@@ -1,9 +1,16 @@
 .main {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    gap: var(--main-margin);
     padding-top: var(--double-margin);
     padding-right: var(--main-margin);
-    padding-bottom: var(--main-margin);
+    padding-bottom: calc(var(--main-margin) + var(--nav-height));
     padding-left: var(--main-margin);
-    margin-bottom: var(--nav-height);
 }
 
 .accordion {
@@ -25,7 +32,7 @@
 }
 
 .accordion-divider {
-    border-top: var(--border-color);
+    border-top: var(--border-black);
     padding: .5rem 0;
 }
 
@@ -37,7 +44,7 @@
     -webkit-column-gap: 2rem;
     -moz-column-gap: 2rem;
     column-gap: 2rem;
-    border-top: var(--border-color);
+    border-top: var(--border-black);
     padding: .5rem 0;
     cursor: pointer;
 }
@@ -50,7 +57,7 @@
 
 .accordion.--ongoing .accordion-topbar,
 .accordion:last-of-type .accordion-topbar {
-    border-bottom: var(--border-color);
+    border-bottom: var(--border-black);
 }
 
 .accordion-items {
@@ -116,7 +123,7 @@
 }
 
 .--open .accordion-topbar {
-    border-bottom: var(--border-color);
+    border-bottom: var(--border-black);
 }
 
 .--open .accordion-image {

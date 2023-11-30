@@ -84,9 +84,7 @@ html {
     --title-font: "GT America";
     --title-size: 2rem;
     --big-title-font: "GT America";
-    --big-title-size: 6rem;
-    --huge-title-font: "GT America";
-    --huge-title-size: calc(1rem + 7.5vw);
+    --big-title-size: calc(1rem + 6.5vw);
     --label-text-font: "Pitch Sans";
     --label-text-size: .8rem;
     --header-text-font: "GT Cinetype";
@@ -125,6 +123,16 @@ em {
 button {
     background: transparent;
     border: none;
+}
+
+.loader {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: #eeeddb;
+    z-index: 999;
 }
 
 .text {
@@ -572,18 +580,19 @@ button {
     overflow-wrap: break-word;
 }
 
-/* .slider-block-text {
+.slider-block-text {
     display: flex;
     justify-content: space-between;
+    gap: var(--small-margin);
 }
 
 .slider-block-text .text-label {
-    width: 15%;
+    flex: 1 1 15%;
 }
 
 .slider-block-text .text {
-    width: 75%;
-} */
+    flex: 1 1 75%;
+}
 
 .main {
     min-height: var(--doc-height);
@@ -603,24 +612,24 @@ button {
     filter: blur(1rem);
 }
 
-.grid-layout.horizontal {
+.horizontal {
     overflow-x: hidden;
+    border-bottom: var(--border-black);
 }
 
-.grid-layout.horizontal .pin-wrap,
-.grid-layout.horizontal .animation-wrap {
+.horizontal .pin-wrap,
+.horizontal .animation-wrap {
     display: flex;
     position: relative;
     z-index: 1;
     height: var(--doc-height);
 }
 
-.grid-layout.horizontal .animation-wrap.to-right {
+.horizontal .animation-wrap.to-right {
     float: left;
-    padding-right: 25vw;
 }
 
-.grid-layout.horizontal .grid-layout-item {
+.horizontal .grid-layout-item {
     position: relative;
     width: 25vw;
     height: var(--doc-height);
@@ -633,40 +642,54 @@ button {
     border-right: var(--border-black);
 }
 
-.grid-layout.horizontal .animation-wrap .grid-layout-item:nth-child(2n+2) {
-    align-items: flex-start;
+.horizontal .grid-layout-item:last-of-type {
+    margin-right: 25vw;
 }
 
-.grid-layout.horizontal .animation-wrap .grid-layout-item:nth-child(4n+4) {
+.horizontal .cover-layout-item {
+    position: relative;
+    min-width: 100vw;
+    height: var(--doc-height);
+    flex: 0 0 100vw;
+    display: flex;
     align-items: flex-end;
+    justify-content: center;
+    padding-bottom: calc(var(--nav-height) + var(--small-margin));
+    padding-left: var(--main-margin);
+    border-right: var(--border-black);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
 }
 
-.grid-layout-item h2 {
-    font-family: var(--huge-title-font);
-    font-size: var(--huge-title-size);
+.horizontal h2,
+.vertical h2 {
+    font-family: var(--big-title-font);
+    font-size: var(--big-title-size);
     font-weight: 200;
     line-height: 1;
 }
 
-.grid-layout.horizontal .grid-layout-item h2 {
+.horizontal .grid-layout-item h2 {
     -webkit-transform: rotate(180deg);
     -ms-transform: rotate(180deg);
     transform: rotate(180deg);
 }
 
-.grid-layout-item .item-title {
+.item-title {
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
 }
 
-.grid-layout.horizontal .item-title {
+.horizontal .item-title {
     -ms-flex-wrap: wrap;
     flex-wrap: wrap;
     gap: var(--small-margin);
 }
 
-.grid-layout-item .word {
+.horizontal .word,
+.vertical .word {
     width: -webkit-fit-content;
     width: -moz-fit-content;
     width: fit-content;
@@ -679,11 +702,11 @@ button {
     flex-wrap: nowrap;
 }
 
-.grid-layout.vertical {
+.vertical {
     padding-top: var(--double-margin);
 }
 
-.grid-layout.vertical .grid-layout-item {
+.vertical .grid-layout-item {
     position: relative;
     height: 15vw;
     display: flex;
@@ -695,13 +718,16 @@ button {
     border-bottom: var(--border-black);
 }
 
-.grid-layout.vertical .item-title {
+.vertical .item-title {
     flex-wrap: nowrap;
     gap: var(--main-margin);
 }
 
 .page-intro {
+    width: 100vw;
     min-height: var(--doc-height);
+    position: relative;
+    flex: 0 0 100vw;
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
@@ -922,8 +948,8 @@ button {
     -webkit-box-direction: normal;
     -ms-flex-direction: column;
     flex-direction: column;
-    gap: .5rem;
-    padding: var(--small-margin) var(--half-margin);
+    gap: var(--small-margin);
+    padding: var(--half-margin);
 }
 
 .deselect-filters {

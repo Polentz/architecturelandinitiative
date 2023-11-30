@@ -1,6 +1,10 @@
 <?= snippet('header') ?>
 
 <main class="main">
+    <section class="text-intro">
+        <h3><?= $page->intro() ?></h3>
+    </section>
+    
     <section class="accordion-layout">
         <?= $page->blocks()->toBlocks()->sortBy('date', 'desc') ?>
     </section>
