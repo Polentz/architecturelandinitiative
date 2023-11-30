@@ -17,6 +17,11 @@ const documentHeight = () => {
     doc.style.setProperty("--doc-height", `${window.innerHeight}px`);
 };
 
+const documentWidth = () => {
+    const doc = document.documentElement;
+    doc.style.setProperty("--doc-width", `${window.innerWidth}px`);
+};
+
 const loader = () => {
     document.scrollingElement.scrollTo(0, 0);
     gsap.to(document.querySelector(".loader"), {
@@ -167,20 +172,24 @@ const splitTitle = (element, content) => {
         let text = document.createTextNode(word);
         div.appendChild(text);
         element.appendChild(div);
+        split(div);
     });
 };
 
-const animateTitle = (y, x, stagger) => {
+const animateTitle = (x, y, stagger) => {
     document.querySelectorAll(".word").forEach(word => {
-        split(word);
         const letters = word.querySelectorAll(".letter");
         let tl = gsap.timeline();
+        tl.to(letters, {
+            autoAlpha: 1,
+            duration: 0.3,
+        });
         tl.from(letters, {
             duration: 0.3,
             delay: 0.25,
             xPercent: x,
             yPercent: y,
-            stagger: stagger
+            stagger: stagger,
         });
         tl.to(word, {
             clipPath: "none"
@@ -239,7 +248,7 @@ const horizontalScroll = () => {
         scrollTrigger: {
             trigger: section,
             start: "top top",
-            end: () => "+=" + (thisAnimWrap.scrollWidth - window.innerWidth),
+            // end: () => "+=" + (thisAnimWrap.scrollWidth - window.innerWidth),
             pin: thisPinWrap,
             scrub: 0.5,
             snap: {
@@ -568,6 +577,8 @@ const accordion = () => {
 
 window.addEventListener("load", () => {
     documentHeight();
+    documentWidth();
+    document.scrollingElement.scrollTo(0, 0);
     loader();
     cursor();
     animateAll();
@@ -578,6 +589,7 @@ window.addEventListener("load", () => {
 
 window.addEventListener("resize", () => {
     documentHeight();
+    documentWidth();
 });
 
 

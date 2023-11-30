@@ -5,9 +5,9 @@ document.querySelectorAll(".item-title").forEach(title => {
 
 
 const scrollTitle = () => {
-    document.body.style.overflow = "auto";
-    document.scrollingElement.scrollTo(0, 0);
-    gsap.utils.toArray(".grid-layout-item").forEach((item, index) => {
+    // document.body.style.overflow = "auto";
+    // document.scrollingElement.scrollTo(0, 0);
+    gsap.utils.toArray(".vertical .grid-layout-item").forEach((item, index) => {
         const wrapper = item.querySelector(".wrapper");
         const [x, xEnd] = (index % 2) ? ["50%", (wrapper.scrollWidth - item.offsetWidth) * -1] : [wrapper.scrollWidth * -1, 0];
         gsap.fromTo(wrapper, { x }, {
@@ -35,6 +35,6 @@ const scrollTitle = () => {
 };
 
 window.addEventListener("load", () => {
-    animateTitle(100, "none", 0.05);
+    animateTitle("none", 100, 0.05);
     scrollTitle();
 });

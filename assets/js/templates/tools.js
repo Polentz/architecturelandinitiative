@@ -4,6 +4,6 @@ document.querySelectorAll(".item-title").forEach(title => {
 });
 
 window.addEventListener("load", () => {
-    animateTitle(100, "none", 0.05);
+    animateTitle("none", 100, 0.05);
     horizontalScroll();
 });

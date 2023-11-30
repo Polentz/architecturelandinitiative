@@ -71,6 +71,7 @@ html {
 
 :root {
     --doc-height: 100%;
+    --doc-width: 100%;
     --black: #1d1d1b;
     --white: #ffffff;
     --main-color: ;
@@ -131,7 +132,7 @@ button {
     left: 0;
     right: 0;
     bottom: 0;
-    background: #eeeddb;
+    background: #1d1d1b;
     z-index: 999;
 }
 
@@ -632,8 +633,10 @@ button {
 .horizontal .grid-layout-item {
     position: relative;
     width: 25vw;
+    /* width: calc(var(--doc-width) / 4); */
     height: var(--doc-height);
     flex: 0 0 25vw;
+    /* flex: 0 0 calc(var(--doc-width) / 4); */
     -webkit-writing-mode: vertical-rl;
     -ms-writing-mode: tb-rl;
     writing-mode: vertical-rl;
@@ -648,9 +651,11 @@ button {
 
 .horizontal .cover-layout-item {
     position: relative;
-    min-width: 100vw;
+    width: 100vw;
+    /* width: var(--doc-width); */
     height: var(--doc-height);
     flex: 0 0 100vw;
+    flex: 0 0 var(--doc-width);
     display: flex;
     align-items: flex-end;
     justify-content: center;
@@ -702,6 +707,10 @@ button {
     flex-wrap: nowrap;
 }
 
+.item-title .letter {
+    opacity: 0;
+}
+
 .vertical {
     padding-top: var(--double-margin);
 }
@@ -724,10 +733,10 @@ button {
 }
 
 .page-intro {
-    width: 100vw;
+    width: var(--doc-width);
     min-height: var(--doc-height);
     position: relative;
-    flex: 0 0 100vw;
+    flex: 0 0 var(--doc-width);
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
