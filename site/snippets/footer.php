@@ -1,4 +1,5 @@
     <div class="loader"></div>
+    <div class="cursor-wrapper"></div>
     <footer class="footer">
         <?= snippet('nav') ?>
         <?= snippet('contact') ?>

@@ -77,7 +77,8 @@ html {
     --main-color: ;
     --acc-color: ;
     --background: ;
-    --shade-color: #eeeddb80;
+    /* --shade-color: #f0eceb75; */
+    --shade-color: #f0eceb;
     --body-text-font: "GT America";
     --body-text-size: 1rem;
     --secondary-text-font: "GT Cinetype";
@@ -102,7 +103,9 @@ html {
 }
 
 body {
-    width: 100%;
+    width: 100vw;
+    max-width: 100%;
+    min-height: var(--doc-height);
     font-family: "GT Cinetype";
     font-style: normal;
     font-weight: 400;
@@ -346,7 +349,17 @@ button {
     backdrop-filter: blur(2rem);
     border-top: var(--border-black);
     z-index: 4;
+    /* -webkit-transition: all .25s ease-in;
+    transition: all .25s ease-in;
+    -o-transition: all .25s ease-in;
+    transition: all .25s ease-in; */
 }
+
+/* .footer.--blur {
+    -webkit-backdrop-filter: blur(0);
+    backdrop-filter: blur(0);
+    background: var(--acc-color);
+} */
 
 .nav {
     width: 100%;
@@ -471,10 +484,6 @@ button {
     background: var(--shade-color);
 }
 
-.banner-button svg {
-    fill: var(--white);
-}
-
 .slider {
     width: calc(50% + var(--button-size));
     height: var(--doc-height);
@@ -552,7 +561,14 @@ button {
     border-left: var(--border-black);
     overflow-y: scroll;
     scrollbar-width: none;
+    /* transition: all .25s ease-in; */
 }
+
+/* .slider-content.--blur {
+    -webkit-backdrop-filter: blur(0);
+    backdrop-filter: blur(0);
+    background: var(--acc-color);
+} */
 
 .slider-content::-webkit-scrollbar {
     display: none;
@@ -597,8 +613,8 @@ button {
 
 .main {
     min-height: var(--doc-height);
-    background: var(--background);
-    background-attachment: fixed;
+    /* background: var(--background); 
+    background-attachment: fixed;*/
     pointer-events: all;
     -webkit-transition: -webkit-filter .25s ease-in;
     transition: -webkit-filter .25s ease-in;
@@ -620,23 +636,15 @@ button {
 
 .horizontal .pin-wrap,
 .horizontal .animation-wrap {
-    display: flex;
-    position: relative;
-    z-index: 1;
     height: var(--doc-height);
-}
-
-.horizontal .animation-wrap.to-right {
-    float: left;
+    display: flex;
 }
 
 .horizontal .grid-layout-item {
     position: relative;
     width: 25vw;
-    /* width: calc(var(--doc-width) / 4); */
     height: var(--doc-height);
     flex: 0 0 25vw;
-    /* flex: 0 0 calc(var(--doc-width) / 4); */
     -webkit-writing-mode: vertical-rl;
     -ms-writing-mode: tb-rl;
     writing-mode: vertical-rl;
@@ -652,10 +660,8 @@ button {
 .horizontal .cover-layout-item {
     position: relative;
     width: 100vw;
-    /* width: var(--doc-width); */
     height: var(--doc-height);
     flex: 0 0 100vw;
-    flex: 0 0 var(--doc-width);
     display: flex;
     align-items: flex-end;
     justify-content: center;

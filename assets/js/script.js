@@ -1,9 +1,9 @@
-console.log(
-    '%cDesign & Code: Giulia Polenta https://www.iampolenta.com/',
-    'color: #4c00ff; font-family: sans-serif; font-size: .75rem;'
-);
+// console.log(
+//     '%cDesign & Code: Giulia Polenta https://www.iampolenta.com/',
+//     'color: #4c00ff; font-family: sans-serif; font-size: .75rem;'
+// );
 
-gsap.registerPlugin(ScrollTrigger, Observer, Flip);
+gsap.registerPlugin(ScrollTrigger, Flip);
 
 const footer = document.querySelector(".footer");
 const nav = footer.querySelector(".nav");
@@ -39,11 +39,11 @@ const cursor = () => {
         const follower = document.createElement("span");
         follower.classList.add("follower");
         follower.innerHTML = letter;
-        document.body.appendChild(follower);
+        document.querySelector(".cursor-wrapper").appendChild(follower);
     });
     const cursor = document.createElement("span");
     cursor.classList.add("cursor");
-    document.body.appendChild(cursor);
+    document.querySelector(".cursor-wrapper").appendChild(cursor);
 
     window.addEventListener("mousemove", (e) => {
         gsap.set(".cursor", {
@@ -54,7 +54,7 @@ const cursor = () => {
             xPercent: -50,
             yPercent: -50,
         });
-        gsap.to(".cursor", 0.2, {
+        gsap.to(".cursor", 0, {
             display: "block",
             x: e.clientX,
             y: e.clientY,
@@ -91,6 +91,34 @@ const cursor = () => {
             });
             gsap.to(".follower", {
                 scale: 1,
+            });
+        });
+    });
+
+    const blackBox = document.querySelectorAll(".inner-box");
+    blackBox.forEach(box => {
+        box.addEventListener("mouseenter", () => {
+            gsap.to(".cursor", {
+                duration: 0,
+                background: "var(--white)",
+                ease: "none",
+            });
+            gsap.to(".follower", {
+                duration: 0,
+                autoAlpha: 0,
+                ease: "none",
+            });
+        });
+        box.addEventListener("mouseleave", () => {
+            gsap.to(".cursor", {
+                duration: 0,
+                background: "var(--black)",
+                ease: "none",
+            });
+            gsap.to(".follower", {
+                duration: 0,
+                autoAlpha: 1,
+                ease: "none",
             });
         });
     });
@@ -218,10 +246,14 @@ const animateTitle = (x, y, stagger) => {
 
 const shuffleColors = () => {
     const colors = [
-        ["#4864f9", "#eeeddb"],
-        ["#5dd5ae", "#eeeddb"],
-        ["#a867fd", "#eeeddb"],
-        // ["#c4854b", "#eeeddb"]
+        // ["#4864f9", "#eeeddb"],
+        // ["#239a5a", "#eeeddb"],
+        // ["#a867fd", "#eeeddb"],
+
+        ["#4864f9", "#f0eceb"],
+        ["#9fbd58", "#f0eceb"],
+        ["#a867fd", "#f0eceb"],
+
     ];
     const randomColorSet = colors[Math.floor(Math.random() * colors.length)];
     const randomDeg = Math.floor(Math.random() * (350 - 10) + 10);
@@ -230,7 +262,7 @@ const shuffleColors = () => {
     const mainBackground = document.documentElement;
     mainColor.style.setProperty("--main-color", `${randomColorSet[0]}`);
     accentColor.style.setProperty("--acc-color", `${randomColorSet[1]}`);
-    mainBackground.style.setProperty("--background", `linear-gradient(${randomDeg}deg, ${randomColorSet[1]} 20%, ${randomColorSet[0]} 100%)`);
+    mainBackground.style.setProperty("--background", `linear-gradient(0deg, ${randomColorSet[1]} 0%, ${randomColorSet[1]} 10%, ${randomColorSet[0]} 100%)`);
 };
 
 const horizontalScroll = () => {
@@ -238,7 +270,6 @@ const horizontalScroll = () => {
     const items = document.querySelectorAll(".scroll-item");
     const thisPinWrap = section.querySelector(".pin-wrap");
     const thisAnimWrap = thisPinWrap.querySelector(".animation-wrap");
-    document.scrollingElement.scrollTo(0, 0);
     let getToValue = () => -(thisAnimWrap.scrollWidth - window.innerWidth);
     gsap.fromTo(thisAnimWrap, {
         x: () => thisAnimWrap.classList.contains('to-right') ? 0 : getToValue()
@@ -248,7 +279,7 @@ const horizontalScroll = () => {
         scrollTrigger: {
             trigger: section,
             start: "top top",
-            // end: () => "+=" + (thisAnimWrap.scrollWidth - window.innerWidth),
+            end: () => "+=" + (thisAnimWrap.scrollWidth - window.innerWidth),
             pin: thisPinWrap,
             scrub: 0.5,
             snap: {
@@ -289,6 +320,7 @@ const sliderOpener = () => {
             }, 200);
             setTimeout(() => {
                 sliderButton.classList.add("--opacity");
+                // sliderContent.classList.add("--blur");
             }, 600);
         };
 
@@ -296,6 +328,7 @@ const sliderOpener = () => {
             sliderWrapper.classList.remove("--translateX");
             main.classList.remove("--blur");
             sliderButton.classList.remove("--opacity");
+            // sliderContent.classList.remove("--blur");
             setTimeout(() => {
                 sliderContent.scrollTo(0, 0);
                 slider.classList.remove("--display");
@@ -329,6 +362,7 @@ const bannerOpener = () => {
     const addClasses = () => {
         nav.classList.add("--hide");
         banner.classList.add("--display");
+        // footer.classList.add("--blur");
         const tl = gsap.timeline();
         gsap.set(bannerelements, {
             opacity: 0
@@ -352,6 +386,7 @@ const bannerOpener = () => {
         });
         banner.classList.remove("--display");
         nav.classList.remove("--hide");
+        // footer.classList.remove("--blur");
     };
 
     navElement.forEach(element => {
@@ -578,7 +613,6 @@ const accordion = () => {
 window.addEventListener("load", () => {
     documentHeight();
     documentWidth();
-    document.scrollingElement.scrollTo(0, 0);
     loader();
     cursor();
     animateAll();
