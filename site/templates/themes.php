@@ -1,25 +1,25 @@
 <?= snippet('header') ?>
 
 <main class="main">
-    <section class="grid-layout vertical">
-        <div class="grid-layout-item">
-            <h2 class="wrapper">
-                <a class="item-title" data-name="Resources / Reports / Publications" href=""></a>
+    <section class="marquee-layout scroll-y">
+        <div class="marquee-layout-item">
+            <h2 class="item-title">
+                <a data-name="Resources / Reports / Publications" href=""></a>
             </h2>
         </div>
-        <div class="grid-layout-item">
-            <h2 class="wrapper">
-                <a class="item-title" data-name="Teaching / Education" href=""></a>
+        <div class="marquee-layout-item">
+            <h2 class="item-title">
+                <a data-name="Teaching / Education" href=""></a>
             </h2>
         </div>
-        <div class="grid-layout-item">
-            <h2 class="wrapper">
-                <a class="item-title" data-name="Grants / Fellowships / Residencies" href=""></a>
+        <div class="marquee-layout-item">
+            <h2 class="item-title">
+                <a data-name="Grants / Fellowships / Residencies" href=""></a>
             </h2>
         </div>
-        <div class="grid-layout-item">
-            <h2 class="wrapper">
-                <a class="item-title" data-name="Talks / Lectures / Readings" href=""></a>
+        <div class="marquee-layout-item">
+            <h2 class="item-title">
+                <a data-name="Talks / Lectures / Readings" href=""></a>
             </h2>
         </div>
     </section>

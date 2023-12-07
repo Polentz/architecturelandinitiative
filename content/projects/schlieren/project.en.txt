@@ -1,0 +1,33 @@
+Title: Schlieren
+
+----
+
+Summary: 
+
+----
+
+Blocks: 
+
+----
+
+Gallery: 
+
+----
+
+Typename: Media type
+
+----
+
+Types: 
+
+----
+
+Filtername: Process stage
+
+----
+
+Filters: 
+
+----
+
+Uuid: OW9IEQcLZECxmmk8

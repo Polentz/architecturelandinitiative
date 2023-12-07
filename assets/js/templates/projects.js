@@ -1,9 +1,9 @@
-document.querySelectorAll(".item-title").forEach(title => {
+document.querySelectorAll(".item-title a, .item-title p").forEach(title => {
     const thisContent = title.dataset.name;
     splitTitle(title, thisContent);
 });
 
 window.addEventListener("load", () => {
-    horizontalScroll();
+    horizontalScroll("75% bottom");
     animateTitle(-100, "none", 0.1);
 });

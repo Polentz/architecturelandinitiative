@@ -207,6 +207,7 @@ const splitTitle = (element, content) => {
 const animateTitle = (x, y, stagger) => {
     document.querySelectorAll(".word").forEach(word => {
         const letters = word.querySelectorAll(".letter");
+        const labels = gsap.utils.toArray(".item-title-label");
         let tl = gsap.timeline();
         tl.to(letters, {
             autoAlpha: 1,
@@ -222,9 +223,17 @@ const animateTitle = (x, y, stagger) => {
         tl.to(word, {
             clipPath: "none"
         });
+        labels.forEach(label => {
+            if (label) {
+                tl.to(label, {
+                    opacity: 1,
+                    duration: 0.3,
+                });
+            }
+        })
     });
 
-    document.querySelectorAll(".item-title").forEach(title => {
+    document.querySelectorAll(".item-title a").forEach(title => {
         title.addEventListener("mouseenter", () => {
             const letters = title.querySelectorAll(".word .letter");
             gsap.to(letters, {
@@ -265,43 +274,45 @@ const shuffleColors = () => {
     mainBackground.style.setProperty("--background", `linear-gradient(0deg, ${randomColorSet[1]} 0%, ${randomColorSet[1]} 10%, ${randomColorSet[0]} 100%)`);
 };
 
-const horizontalScroll = () => {
-    const section = document.querySelector(".horizontal");
-    const items = document.querySelectorAll(".scroll-item");
-    const thisPinWrap = section.querySelector(".pin-wrap");
-    const thisAnimWrap = thisPinWrap.querySelector(".animation-wrap");
-    let getToValue = () => -(thisAnimWrap.scrollWidth - window.innerWidth);
-    gsap.fromTo(thisAnimWrap, {
-        x: () => thisAnimWrap.classList.contains('to-right') ? 0 : getToValue()
-    }, {
-        x: () => thisAnimWrap.classList.contains('to-right') ? getToValue() : 0,
+const horizontalScroll = (textSnapStart) => {
+    let items = gsap.utils.toArray(".scroll-items");
+    let pageWrapper = document.querySelector("main");
+
+    gsap.to(".page-intro", {
+        x: "0",
         ease: "none",
         scrollTrigger: {
-            trigger: section,
-            start: "top top",
-            end: () => "+=" + (thisAnimWrap.scrollWidth - window.innerWidth),
-            pin: thisPinWrap,
+            trigger: ".page-intro",
+            start: textSnapStart,
             scrub: 0.5,
             snap: {
-                snapTo: 1 / (items.length - 1),
-                duration: 0.25,
+                snapTo: 1,
+                duration: 0.5,
                 ease: "power1.inOut",
             },
         },
     });
-    gsap.to(".page-intro", {
-        yPercent: "0",
-        ease: "none",
-        scrollTrigger: {
-            trigger: section,
-            start: "bottom bottom",
-            scrub: 0.5,
-            snap: {
-                snapTo: 1,
-                duration: 0.25,
-                ease: "power1.inOut",
+
+    items.forEach((container, i) => {
+        let localItems = container.querySelectorAll(".scroll-item");
+        let distance = () => {
+            let lastItemBounds = localItems[localItems.length - 1].getBoundingClientRect();
+            let containerBounds = container.getBoundingClientRect();
+            return Math.max(0, lastItemBounds.right - containerBounds.right);
+        };
+        gsap.to(container, {
+            x: () => -distance(),
+            ease: "none",
+            scrollTrigger: {
+                trigger: container,
+                start: "top top",
+                pinnedContainer: pageWrapper,
+                end: () => "+=" + distance(),
+                pin: pageWrapper,
+                scrub: true,
+                invalidateOnRefresh: true
             },
-        },
+        });
     });
 };
 
@@ -320,7 +331,6 @@ const sliderOpener = () => {
             }, 200);
             setTimeout(() => {
                 sliderButton.classList.add("--opacity");
-                // sliderContent.classList.add("--blur");
             }, 600);
         };
 
@@ -328,7 +338,6 @@ const sliderOpener = () => {
             sliderWrapper.classList.remove("--translateX");
             main.classList.remove("--blur");
             sliderButton.classList.remove("--opacity");
-            // sliderContent.classList.remove("--blur");
             setTimeout(() => {
                 sliderContent.scrollTo(0, 0);
                 slider.classList.remove("--display");
@@ -356,7 +365,7 @@ const bannerOpener = () => {
     const banner = document.querySelector(".banner");
     const bannerContent = document.querySelector(".banner-content");
     const bannerButton = banner.querySelector(".banner-button");
-    const bodyElements = gsap.utils.toArray(".main section, .box-container, .info-slider, .slider");
+    const bodyElements = gsap.utils.toArray(".main, .box-container, .info-slider, .slider");
     const bannerelements = gsap.utils.toArray(bannerContent, bannerButton);
 
     const addClasses = () => {
@@ -620,6 +629,13 @@ window.addEventListener("load", () => {
     bannerOpener();
     shuffleColors();
 });
+
+// setInterval(() => {
+//     reverseAnimateName();
+//     setTimeout(() => {
+//         animateName();
+//     }, 5000);
+// }, 8000);
 
 window.addEventListener("resize", () => {
     documentHeight();

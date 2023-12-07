@@ -6,7 +6,7 @@
     </ul>
     <ul class="nav-menu menu">
         <li id="about-opener" class="menu-element"><?= $site->aboutNavLabel() ?></li>
-        <?php foreach($pages->template(['timeline', 'initiative']) as $page) : ?>
+        <?php foreach($pages->template('timeline') as $page) : ?>
             <li class="menu-element <?= e($page->isOpen(), '--current') ?>"><a href="<?= $page->url() ?>"><?= $page->title() ?></a></li>
         <?php endforeach ?> 
         <li id="contact-opener" class="menu-element"><?= $site->contactNavLabel() ?></li>

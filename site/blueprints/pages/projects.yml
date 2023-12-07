@@ -11,3 +11,4 @@ sections:
     template:
       - project
     image: false
+    sortable: true
