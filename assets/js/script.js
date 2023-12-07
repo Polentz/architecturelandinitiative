@@ -164,7 +164,22 @@ const animateAll = () => {
         stagger: 0.2,
         scale: 0,
     });
-}
+
+    let loopTl = gsap.timeline({ delay: 14, repeat: -1, repeatDelay: 8 });
+    loopTl.to(all, {
+        duration: 1.5,
+        autoAlpha: 1,
+        stagger: 0.1,
+        scale: 1,
+    });
+    loopTl.to(all, {
+        duration: 1.5,
+        autoAlpha: 0,
+        stagger: 0.1,
+        scale: 0,
+    });
+
+};
 
 const animateName = () => {
     gsap.to(all, {
@@ -183,23 +198,6 @@ const reverseAnimateName = () => {
         scale: 1,
     });
 };
-
-const loopLogoAnimation = () => {
-    let tl = gsap.timeline();
-    tl.to(all, {
-        duration: 1.5,
-        autoAlpha: 0,
-        stagger: 0.1,
-        scale: 0,
-    });
-    tl.to(all, {
-        duration: 1.5,
-        autoAlpha: 1,
-        stagger: 0.1,
-        scale: 1,
-    });
-
-}
 
 logo.addEventListener("mouseenter", () => {
     reverseAnimateName();
@@ -645,9 +643,6 @@ window.addEventListener("load", () => {
     sliderOpener();
     bannerOpener();
     shuffleColors();
-    setInterval(() => {
-        loopLogoAnimation();
-    }, 8000);
 });
 
 window.addEventListener("resize", () => {
