@@ -184,6 +184,23 @@ const reverseAnimateName = () => {
     });
 };
 
+const loopLogoAnimation = () => {
+    let tl = gsap.timeline();
+    tl.to(all, {
+        duration: 1.5,
+        autoAlpha: 0,
+        stagger: 0.1,
+        scale: 0,
+    });
+    tl.to(all, {
+        duration: 1.5,
+        autoAlpha: 1,
+        stagger: 0.1,
+        scale: 1,
+    });
+
+}
+
 logo.addEventListener("mouseenter", () => {
     reverseAnimateName();
 });
@@ -628,14 +645,10 @@ window.addEventListener("load", () => {
     sliderOpener();
     bannerOpener();
     shuffleColors();
+    setInterval(() => {
+        loopLogoAnimation();
+    }, 8000);
 });
-
-// setInterval(() => {
-//     reverseAnimateName();
-//     setTimeout(() => {
-//         animateName();
-//     }, 5000);
-// }, 8000);
 
 window.addEventListener("resize", () => {
     documentHeight();

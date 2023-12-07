@@ -612,9 +612,8 @@ button {
 }
 
 .main {
+    width: 100%;
     min-height: var(--doc-height);
-    /* background: var(--background); 
-    background-attachment: fixed;*/
     pointer-events: all;
     -webkit-transition: -webkit-filter .25s ease-in;
     transition: -webkit-filter .25s ease-in;
@@ -628,16 +627,6 @@ button {
     -webkit-filter: blur(1rem);
     filter: blur(1rem);
 }
-
-/* .horizontal {
-    overflow-x: hidden;
-}
-
-.horizontal .pin-wrap,
-.horizontal .animation-wrap {
-    height: var(--doc-height);
-    display: flex;
-} */
 
 .scroll-x {
     overflow: hidden;
