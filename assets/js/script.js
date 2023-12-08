@@ -165,17 +165,17 @@ const animateAll = () => {
         scale: 0,
     });
 
-    let loopTl = gsap.timeline({ delay: 14, repeat: -1, repeatDelay: 8 });
+    let loopTl = gsap.timeline({ delay: 12, repeat: -1, repeatDelay: 8 });
     loopTl.to(all, {
         duration: 1.5,
         autoAlpha: 1,
-        stagger: 0.1,
+        stagger: 0.2,
         scale: 1,
     });
     loopTl.to(all, {
         duration: 1.5,
         autoAlpha: 0,
-        stagger: 0.1,
+        stagger: 0.2,
         scale: 0,
     });
 
@@ -185,7 +185,7 @@ const animateName = () => {
     gsap.to(all, {
         duration: 1.5,
         autoAlpha: 0,
-        stagger: 0.1,
+        stagger: 0.2,
         scale: 0,
     });
 };
@@ -194,7 +194,7 @@ const reverseAnimateName = () => {
     gsap.to(all, {
         duration: 1.5,
         autoAlpha: 1,
-        stagger: 0.1,
+        stagger: 0.2,
         scale: 1,
     });
 };
@@ -325,7 +325,12 @@ const horizontalScroll = (textSnapStart) => {
                 end: () => "+=" + distance(),
                 pin: pageWrapper,
                 scrub: true,
-                invalidateOnRefresh: true
+                invalidateOnRefresh: true,
+                snap: {
+                    snapTo: 1,
+                    duration: 0.5,
+                    ease: "power1.inOut",
+                },
             },
         });
     });

@@ -40,7 +40,7 @@
     display: -ms-grid;
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(0, 1fr));
-    row-gap: 1rem;
+    row-gap: var(--small-margin);
     -webkit-column-gap: 2rem;
     -moz-column-gap: 2rem;
     column-gap: 2rem;

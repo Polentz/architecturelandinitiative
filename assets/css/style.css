@@ -78,7 +78,6 @@ html {
     --acc-color: ;
     --background: ;
     --shade-color: #f0eceb75;
-    /* --shade-color: #f0eceb; */
     --body-text-font: "GT America";
     --body-text-size: 1rem;
     --secondary-text-font: "GT Cinetype";
@@ -103,7 +102,7 @@ html {
 }
 
 body {
-    width: 100vw;
+    width: 100%;
     max-width: 100%;
     min-height: var(--doc-height);
     font-family: "GT Cinetype";
@@ -293,7 +292,7 @@ button {
     -webkit-box-align: end;
     -ms-flex-align: end;
     align-items: end;
-    gap: 1rem;
+    gap: var(--small-margin);
     pointer-events: all;
 }
 
@@ -316,7 +315,7 @@ button {
     -webkit-box-pack: justify;
     -ms-flex-pack: justify;
     justify-content: space-between;
-    gap: 1rem;
+    gap: var(--small-margin);
     background: var(--shade-color);
     -webkit-backdrop-filter: blur(2rem);
     backdrop-filter: blur(2rem);
@@ -331,7 +330,7 @@ button {
 
 .header-button-wrapper .button:hover {
     min-width: unset;
-    padding-left: 1rem;
+    padding-left: var(--small-margin);
 }
 
 .header-button-wrapper .button:hover span {
@@ -390,7 +389,7 @@ button {
 }
 
 .nav-menu.lang {
-    gap: 1rem;
+    gap: var(--small-margin);
 }
 
 .nav-menu.menu {
@@ -649,7 +648,7 @@ button {
 
 .grid-layout-item {
     position: relative;
-    min-width: 32%;
+    min-width: 25vw;
     height: var(--doc-height);
     -webkit-writing-mode: vertical-rl;
     -ms-writing-mode: tb-rl;
@@ -793,7 +792,7 @@ button {
     -webkit-box-direction: normal;
     -ms-flex-direction: column;
     flex-direction: column;
-    gap: 1rem;
+    gap: var(--small-margin);
 }
 
 .gallery-item figcaption {
@@ -861,8 +860,10 @@ button {
 
 .box-container {
     position: fixed;
-    bottom: calc(var(--nav-height) + var(--half-margin));
-    left: var(--half-margin);
+    /* top: 50%; */
+    bottom: calc(var(--nav-height) + var(--main-margin));
+    right: 4.5rem;
+    transform: translateY(-50%);
 }
 
 .box {
@@ -871,7 +872,7 @@ button {
 }
 
 .box:first-of-type {
-    bottom: calc(var(--button-size) + 1rem);
+    bottom: calc(var(--button-size) + var(--small-margin));
 }
 
 .box:last-of-type {
@@ -886,9 +887,9 @@ button {
     -webkit-transform: scale(1);
     -ms-transform: scale(1);
     transform: scale(1);
-    -webkit-transform-origin: bottom left;
-    -ms-transform-origin: bottom left;
-    transform-origin: bottom left;
+    -webkit-transform-origin: bottom right;
+    -ms-transform-origin: bottom right;
+    transform-origin: bottom right;
     -webkit-transition: opacity .5s ease, -webkit-transform .3s ease-out;
     transition: opacity .5s ease, -webkit-transform .3s ease-out;
     -o-transition: transform .3s ease-out, opacity .5s ease;
@@ -903,7 +904,10 @@ button {
 }
 
 .inner-box {
-    width: 500px;
+    position: absolute;
+    right: -2rem;
+    bottom: 0;
+    width: calc(50vw - var(--half-margin));
     height: auto;
     color: var(--white);
     background: var(--black);
@@ -914,9 +918,9 @@ button {
     -webkit-transform: scale(0);
     -ms-transform: scale(0);
     transform: scale(0);
-    -webkit-transform-origin: bottom left;
-    -ms-transform-origin: bottom left;
-    transform-origin: bottom left;
+    -webkit-transform-origin: bottom right;
+    -ms-transform-origin: bottom right;
+    transform-origin: bottom right;
     -webkit-transition: -webkit-transform .3s ease-in;
     transition: -webkit-transform .3s ease-in;
     -o-transition: transform .3s ease-in;
@@ -981,7 +985,7 @@ button {
 
 .deselect-filters {
     display: none;
-    padding: 1rem;
+    padding: var(--small-margin);
 }
 
 .deselect-filters.--display {
@@ -1019,7 +1023,7 @@ button {
 .x-button {
     position: absolute;
     top: var(--half-margin);
-    right: -2rem;
+    left: -2rem;
     opacity: 0;
     -webkit-transition: opacity .5s ease;
     -o-transition: opacity .5s ease;

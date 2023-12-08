@@ -11,8 +11,8 @@ const scrollTitle = () => {
             x: xEnd,
             scrollTrigger: {
                 trigger: item,
-                scrub: .5,
-            }
+                scrub: 0.5,
+            },
         });
     });
     gsap.to(".page-intro", {
@@ -20,7 +20,7 @@ const scrollTitle = () => {
         ease: "none",
         scrollTrigger: {
             trigger: ".page-intro",
-            start: "35% bottom",
+            start: "50% bottom",
             scrub: 0.5,
             snap: {
                 snapTo: 1,
