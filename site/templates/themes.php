@@ -2,30 +2,28 @@
 
 <main class="main">
     <section class="marquee-layout scroll-y">
-        <div class="marquee-layout-item">
-            <h2 class="item-title">
-                <a data-name="Resources / Reports / Publications" href=""></a>
-            </h2>
-        </div>
-        <div class="marquee-layout-item">
-            <h2 class="item-title">
-                <a data-name="Teaching / Education" href=""></a>
-            </h2>
-        </div>
-        <div class="marquee-layout-item">
-            <h2 class="item-title">
-                <a data-name="Grants / Fellowships / Residencies" href=""></a>
-            </h2>
-        </div>
-        <div class="marquee-layout-item">
-            <h2 class="item-title">
-                <a data-name="Talks / Lectures / Readings" href=""></a>
-            </h2>
-        </div>
+        <?php foreach ($themes->listed() as $theme) : ?> 
+            <?php if ($theme) : ?>
+                <div class="marquee-layout-item">
+                    <h2 class="item-title">
+                        <a data-name="<?= $theme->title() ?>" href="<?= $theme->url() ?>"></a>
+                    </h2>
+                </div>
+            <?php endif ?>
+        <?php endforeach ?>
+        <?php foreach ($themes->unlisted() as $theme) : ?> 
+            <?php if ($theme) : ?>
+                <div class="marquee-layout-item">
+                    <h2 class="item-title">
+                        <p data-name="<?= $theme->title() ?>" href="<?= $theme->url() ?>"></p>
+                    </h2>
+                </div>
+            <?php endif ?>
+        <?php endforeach ?>
     </section>
     <section class="page-intro"> 
         <div class="text-intro">
-            <p>The platform/practice is a space for learning by doing, where we conduct experiments to shape new initiatives and help develop new models for architectural practice. The platform/practice allow us to define relevant areas of focus, reveal opportunities for action, test informed hypotheses, and share original learning. In doing so, we aim to grow new networks for collaboration and scale the resonance of our work.</p>
+            <h3><?= $page->intro() ?></h3>        
         </div>
     </section>
 </main>

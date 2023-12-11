@@ -1,76 +1,53 @@
 title: Site
 
 tabs:
-  # projects:
-  #   label: Projects
-  #   icon: page
-  #   sections:
-  #     projects:
-  #       label: false
-  #       type: pages
-  #       layout: list
-  #       info: "Category: {{page.template}}"
-  #       template:
-  #         - project
-  #       image: false
-  # tools:
-  #   label: Tools
-  #   icon: page
-  #   sections:
-  #     tools:
-  #       label: false
-  #       type: pages
-  #       layout: list
-  #       parent: projects
-  #       info: "Category: {{page.template}}"
-  #       template:
-  #         - tool
-  #       image: false
   page:
     label: Pages
     icon: page
     sections:
       projects:
-        label: All Projects
+        label: Projects
         type: pages
-        parent: site.find("projects")
+        parent: site.find('projects')
         layout: list
-        info: "Category: {{page.template}}"
+        info: false
         template:
           - project
         image: false
       tools:
-        label: All Tools
+        label: Tools
         type: pages
-        parent: site.find("tools")
+        parent: site.find('tools')
         layout: list
-        info: "Category: {{page.template}}"
+        info: false
         template:
           - tool
         image: false
       themes:
-        label: All Themes
+        label: Platform
         type: pages
-        parent: site.find("themes")
+        parent: site.find('themes')
         layout: list
-        info: "Category: {{page.template}}"
+        info: false
         template:
           - theme
         image: false
-      initiative:
-        label: Initiative Page
-        type: pages
-        layout: list
-        info: "Category: {{page.template}}"
-        template:
-          - initiative
-        create: false
-        image: false
+
+      # initiative:
+      #   label: Initiative Page
+      #   type: pages
+      #   layout: list
+      #   info: "Category: {{page.template}}"
+      #   template:
+      #     - initiative
+      #   create: false
+      #   image: false
+
       timeline:
         label: Timeline Page
         type: pages
         layout: list
-        info: "Category: {{page.template}}"
+        info: false
         template:
           - timeline
         create: false

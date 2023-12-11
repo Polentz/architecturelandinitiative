@@ -1,5 +1,5 @@
 <?php
 
-return function ($site) {
-    return $site->find('projects')->children();
+return function ($pages) {
+    return $pages->template('projects')->children();
 };

@@ -1,4 +1,4 @@
-document.querySelectorAll(".item-title a").forEach(title => {
+document.querySelectorAll(".item-title a, .item-title p").forEach(title => {
     const thisContent = title.dataset.name + " / " + title.dataset.name;
     splitTitle(title, thisContent);
 });

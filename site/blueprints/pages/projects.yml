@@ -1,13 +1,18 @@
-title: All Projects
-options:
-  preview: false
+title: Projects
 
 sections:
+  content:
+    type: fields
+    fields:
+      intro:
+        label: Introduction text
+        type: textarea
+        buttons: false
   projects:
     label: false
     type: pages
     layout: list
-    info: "Category: {{page.template}}"
+    info: false
     template:
       - project
     image: false

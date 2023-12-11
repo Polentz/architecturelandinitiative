@@ -12,17 +12,19 @@
                     <?php endif ?>
                 <?php endforeach ?>
                 <?php foreach ($projects->unlisted() as $project) : ?> 
-                    <div class="grid-layout-item scroll-item">
-                        <span class="item-title-label text-label">What's next</span>
-                        <h2 class="item-title"><p data-name="<?= $project->title() ?>"></p></h2>
-                    </div>
+                    <?php if ($project) : ?>
+                        <div class="grid-layout-item scroll-item">
+                            <span class="item-title-label text-label">What's next</span>
+                            <h2 class="item-title"><p data-name="<?= $project->title() ?>"></p></h2>
+                        </div>
+                    <?php endif ?>
                 <?php endforeach ?>
             </div>
         </div>
     </section>
     <section class="page-intro">    
         <div class="text-intro">
-            <p>Architecture Land Initiative brings together design, research, and strategic thinking to address the necessity for a shift towards a less destructive, 'non-extractive' architecture. Multidisciplinary in nature, our initiatives support community-led solutions, acknowledge lived experiences and provide blueprints for direct action.</p>
+            <h3><?= $page->intro() ?></h3>
         </div>
     </section>
 </main>

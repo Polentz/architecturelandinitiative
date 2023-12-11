@@ -1,13 +1,18 @@
-title: All Tools
-options:
-  preview: false
+title: Tools
 
 sections:
-  projects:
+  content:
+    type: fields
+    fields:
+      intro:
+        label: Introduction text
+        type: textarea
+        buttons: false
+  tools:
     label: false
     type: pages
     layout: list
-    info: "Category: {{page.template}}"
+    info: false
     template:
       - tool
     image: false

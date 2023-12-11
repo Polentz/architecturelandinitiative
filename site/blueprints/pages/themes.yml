@@ -1,0 +1,19 @@
+title: Platform
+
+sections:
+  content:
+    type: fields
+    fields:
+      intro:
+        label: Introduction text
+        type: textarea
+        buttons: false
+  projects:
+    label: false
+    type: pages
+    layout: list
+    info: false
+    template:
+      - theme
+    image: false
+    sortable: true
