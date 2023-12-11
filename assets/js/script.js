@@ -244,10 +244,12 @@ const animateTitle = (x, y, stagger) => {
                     opacity: 1,
                     duration: 0.3,
                 });
-            }
-        })
+            };
+        });
     });
+};
 
+const handleTitleHover = () => {
     document.querySelectorAll(".item-title a").forEach(title => {
         title.addEventListener("mouseenter", () => {
             const letters = title.querySelectorAll(".word .letter");
@@ -266,7 +268,7 @@ const animateTitle = (x, y, stagger) => {
             });
         });
     });
-};
+}
 
 const shuffleColors = () => {
     const colors = [
