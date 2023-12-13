@@ -24,8 +24,6 @@ return function ($kirby) {
     $themes = $kirby->collection('themes'); 
     $allmedia = $kirby->collection('allmedia'); 
 
-    // return compact('lang', 'langCode', 'projects' , 'tools', 'allmedia');
-
     return [
         'lang' => $lang,
         'langCode' => $langCode,
