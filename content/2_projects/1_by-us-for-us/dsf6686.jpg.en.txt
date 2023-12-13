@@ -1,8 +1,12 @@
-Caption: © Raffaella Endrizzi
+Caption: To Kwa Wan, 50 Chi Kiang St X 96 Ko Shan Road, January 2021, ©Raffaella Endrizzi photography
 
 ----
 
 Alt: 
+
+----
+
+Info: 
 
 ----
 
@@ -14,7 +18,7 @@ Mediatype: Image
 
 ----
 
-Filter: Site visits
+Filter: Site visit
 
 ----
 

@@ -1,8 +1,12 @@
-Caption: 
+Caption: To Kwa Wan, January 2021, ©Architecture Land Initiative
 
 ----
 
 Alt: 
+
+----
+
+Info: 
 
 ----
 
@@ -14,7 +18,7 @@ Mediatype: Image
 
 ----
 
-Filter: Site visits
+Filter: Site visit
 
 ----
 

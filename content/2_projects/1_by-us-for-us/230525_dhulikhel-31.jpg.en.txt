@@ -1,8 +1,12 @@
-Caption: © Raffaella Endrizzi
+Caption: Kowloon City, Hoi Sham Park Loading Dock, May 2023, ©Raffaella Endrizzi photography
 
 ----
 
 Alt: 
+
+----
+
+Info: 
 
 ----
 
@@ -14,7 +18,7 @@ Mediatype: Image
 
 ----
 
-Filter: 
+Filter: Site visit
 
 ----
 

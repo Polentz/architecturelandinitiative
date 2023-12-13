@@ -1,8 +1,12 @@
-Caption: © Raffaella Endrizzi
+Caption: 
 
 ----
 
 Alt: 
+
+----
+
+Info: 
 
 ----
 
@@ -14,7 +18,7 @@ Mediatype: Image
 
 ----
 
-Filter: 
+Filter: Site visit
 
 ----
 

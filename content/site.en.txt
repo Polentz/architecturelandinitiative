@@ -41,6 +41,8 @@ Mediafilters:
   filterslug: video
 - 
   filter: Document
+- 
+  filter: Drawing
 
 ----
 
@@ -56,6 +58,8 @@ Processfilters:
   filter: Outcome
 - 
   filter: Site visit
+- 
+  filter: Process
 
 ----
 
