@@ -6,8 +6,4 @@ Intro: The platform/practice is a space for learning by doing, where we conduct 
 
 ----
 
-Text: 
-
-----
-
 Uuid: E3BspL994sov4yIx

@@ -8,7 +8,7 @@ sections:
         label: Introduction text
         type: textarea
         buttons: false
-  tools:
+  items:
     label: false
     type: pages
     layout: list

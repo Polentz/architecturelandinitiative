@@ -1,4 +1,7 @@
-<?= snippet('header') ?>
+<?php snippet('header', slots: true) ?>
+    <?php slot('themesHeader') ?>
+    <?php endslot() ?>
+<?php endsnippet() ?>
 
 <main class="main">
     <section class="marquee-layout scroll-y">

@@ -1,4 +1,9 @@
-<?= snippet('header') ?>
+<?php snippet('header', slots: true) ?>
+    <?php slot('projectsHeader') ?>
+    <?php endslot() ?>
+<?php endsnippet() ?>
+
+
 
 <main class="main">
     <section class="grid-layout scroll-x">
