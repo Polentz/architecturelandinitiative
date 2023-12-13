@@ -30,8 +30,8 @@
                 </div>
                 <div class="inner-box-content">
                     <ul class="filter-wrapper text-label">
-                        <?php foreach ($projects as $project): ?>
-                            <li id="<?= $project->title()->slug() ?>" class="filter" data-type="<?= $project->title()->slug() ?>"><?= $project->title() ?></li>
+                        <?php foreach ($projects->listed() as $project): ?>
+                            <li id="<?= $project->title()->slug() ?>" class="filter" data-project="<?= $project->title()->slug() ?>"><?= $project->title() ?></li>
                         <?php endforeach ?>
                     </ul>
                 </div>

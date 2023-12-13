@@ -10,19 +10,27 @@ Background: - file://nM0o3GtueIU54SbY
 
 ----
 
+Typename: type
+
+----
+
+Types: Image
+
+----
+
+Filtername: project
+
+----
+
+Filters: By Us for Us
+
+----
+
 Summary: 
 
 ----
 
 Mediatypes: 
-
-----
-
-Filtername: 
-
-----
-
-Filters: 
 
 ----
 

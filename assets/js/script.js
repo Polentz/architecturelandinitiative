@@ -462,6 +462,10 @@ const handleBoxElements = () => {
         closeButton.addEventListener("click", () => {
             removeClasses();
         });
+
+        document.querySelector(".deselect-filters").addEventListener("click", () => {
+            removeClasses();
+        });
     });
 };
 
@@ -559,16 +563,22 @@ const handleFilters = () => {
     const filterClear = document.querySelector(".deselect-filters");
 
     const applyFilters = (filter) => {
+        window.scrollTo(0, 0);
         const filterByType = filter.dataset.type;
         const filterByCategory = filter.dataset.category;
+        const filterByProject = filter.dataset.project;
 
         items.forEach(item => {
             const itemType = item.dataset.type;
             const itemCategory = item.dataset.category;
+            const itemProject = item.dataset.project;
             if (itemType == filterByType) {
                 item.classList.remove("--unfiltered");
                 item.classList.add("--filtered");
             } else if (itemCategory == filterByCategory) {
+                item.classList.remove("--unfiltered");
+                item.classList.add("--filtered");
+            } else if (itemProject == filterByProject) {
                 item.classList.remove("--unfiltered");
                 item.classList.add("--filtered");
             } else {
@@ -576,7 +586,6 @@ const handleFilters = () => {
                 item.classList.remove("--filtered");
             };
         });
-
     };
 
     const removeFilters = () => {
@@ -599,7 +608,7 @@ const handleFilters = () => {
             setTimeout(() => {
                 filterClear.classList.add("--opacity");
             }, 100);
-
+            console.log(filter.dataset.project)
             applyFilters(filter);
         });
     });
