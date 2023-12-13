@@ -5,33 +5,44 @@ tabs:
     label: Pages
     icon: page
     sections:
-      projects:
-        label: Projects
+      allpages:
+        label: Website main pages
         type: pages
-        parent: site.find('projects')
-        layout: list
-        info: false
-        template:
-          - project
         image: false
-      tools:
-        label: Tools
-        type: pages
-        parent: site.find('tools')
-        layout: list
-        info: false
+        # layout: cards
         template:
-          - tool
-        image: false
-      themes:
-        label: Platform
-        type: pages
-        parent: site.find('platform')
-        layout: list
-        info: false
-        template:
-          - theme
-        image: false
+          - projects
+          - tools
+          - themes
+          - timeline
+        sortable: false
+      # projects:
+      #   label: Projects
+      #   type: pages
+      #   query: site.find('projects')
+      #   layout: list
+      #   info: false
+      #   template:
+      #     - project
+      #   image: false
+      # tools:
+      #   label: Tools
+      #   type: pages
+      #   parent: site.find('tools')
+      #   layout: list
+      #   info: false
+      #   template:
+      #     - tool
+      #   image: false
+      # themes:
+      #   label: Platform
+      #   type: pages
+      #   parent: site.find('platform')
+      #   layout: list
+      #   info: false
+      #   template:
+      #     - theme
+      #   image: false
 
       # initiative:
       #   label: Initiative Page
@@ -43,15 +54,15 @@ tabs:
       #   create: false
       #   image: false
 
-      timeline:
-        label: Timeline
-        type: pages
-        layout: list
-        info: false
-        template:
-          - timeline
-        create: false
-        image: false
+      # timeline:
+      #   label: Timeline
+      #   type: pages
+      #   layout: list
+      #   info: false
+      #   template:
+      #     - timeline
+      #   create: false
+      #   image: false
   about:
     label: About
     icon: info
@@ -74,7 +85,7 @@ tabs:
             type: fields
             fields:
               aboutNavLabel:
-                label: Nav label
+                label: Menu label
                 type: text
   contact:
     label: Contact
@@ -98,7 +109,7 @@ tabs:
             type: fields
             fields:
               contactNavLabel:
-                label: Nav label
+                label: Menu label
                 type: text
               instagram:
                 label: Instagram
