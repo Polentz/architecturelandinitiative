@@ -5,13 +5,6 @@
 
 gsap.registerPlugin(ScrollTrigger, Flip);
 
-const footer = document.querySelector(".footer");
-const nav = footer.querySelector(".nav");
-const navElement = nav.querySelectorAll(".menu-element");
-const main = document.querySelector(".main");
-const header = document.querySelector(".header");
-const logo = document.querySelector(".logo");
-
 const documentHeight = () => {
     const doc = document.documentElement;
     doc.style.setProperty("--doc-height", `${window.innerHeight}px`);
@@ -122,6 +115,13 @@ const cursor = () => {
         });
     });
 };
+
+const footer = document.querySelector(".footer");
+const nav = footer.querySelector(".nav");
+const navElement = nav.querySelectorAll(".menu-element");
+const main = document.querySelector(".main");
+const header = document.querySelector(".header");
+const logo = document.querySelector(".logo");
 
 const split = (domElement) => {
     let words = domElement.textContent.split(' ');
@@ -271,10 +271,6 @@ const handleTitleHover = () => {
 
 const shuffleColors = () => {
     const colors = [
-        // ["#4864f9", "#eeeddb"],
-        // ["#239a5a", "#eeeddb"],
-        // ["#a867fd", "#eeeddb"],
-
         ["#4864f9", "#f0eceb"],
         ["#9fbd58", "#f0eceb"],
         ["#a867fd", "#f0eceb"],
@@ -392,7 +388,6 @@ const bannerOpener = () => {
     const addClasses = () => {
         nav.classList.add("--hide");
         banner.classList.add("--display");
-        // footer.classList.add("--blur");
         const tl = gsap.timeline();
         gsap.set(bannerelements, {
             opacity: 0
@@ -416,7 +411,6 @@ const bannerOpener = () => {
         });
         banner.classList.remove("--display");
         nav.classList.remove("--hide");
-        // footer.classList.remove("--blur");
     };
 
     navElement.forEach(element => {
@@ -661,18 +655,6 @@ const handleGallery = () => {
         });
     });
 };
-
-const closeGallery = () => {
-    const zoomedElements = document.querySelectorAll(".gallery-item.--zoom-in img");
-    zoomedElements.forEach(element => {
-        element.addEventListener("click", () => {
-            [...galleryItems].filter(i => i !== element).forEach(i => {
-                i.parentElement.classList.remove("--opacity");
-            });
-            element.parentElement.classList.remove("--zoom-in");
-        });
-    });
-}
 
 const accordion = () => {
     const accordion = document.querySelectorAll(".accordion");

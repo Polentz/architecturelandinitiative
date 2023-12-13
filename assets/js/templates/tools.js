@@ -12,7 +12,6 @@ const observerOptions = {
 const observer = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
         const animatedEl = entry.target.querySelectorAll(".letter");
-        // const word = gsap.utils.toArray(".word");
         if (entry.intersectionRatio > 0) {
             let tl = gsap.timeline();
             tl.to(animatedEl, {
@@ -24,9 +23,6 @@ const observer = new IntersectionObserver((entries) => {
                 yPercent: 100,
                 stagger: 0.05,
             });
-            // tl.to(word, {
-            //     clipPath: "none"
-            // });
             observer.unobserve(entry.target);
         };
     });

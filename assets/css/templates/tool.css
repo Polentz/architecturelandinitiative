@@ -20,3 +20,16 @@
 .gallery-grid {
     grid-template-columns: repeat(auto-fill, minmax(30%, 1fr));
 }
+
+.gallery-item img,
+.gallery-item video,
+.gallery-item audio {
+    cursor: zoom-in;
+    pointer-events: all;
+}
+
+.gallery-item.--zoom-in img,
+.gallery-item.--zoom-in video,
+.gallery-item.--zoom-in audio {
+    cursor: zoom-out;
+}
