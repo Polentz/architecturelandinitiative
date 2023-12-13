@@ -1,0 +1,29 @@
+Caption: 
+
+----
+
+Alt: 
+
+----
+
+Info: 
+
+----
+
+Tools: 
+
+----
+
+Mediatype: Document
+
+----
+
+Filter: Archive material
+
+----
+
+Uuid: F1szg9SNOUJlJMe5
+
+----
+
+Template: media

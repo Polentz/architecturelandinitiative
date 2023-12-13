@@ -1,0 +1,25 @@
+Caption: © Raffaella Endrizzi
+
+----
+
+Alt: 
+
+----
+
+Tools: 
+
+----
+
+Mediatype: Image
+
+----
+
+Filter: Site visits
+
+----
+
+Uuid: y430y0Ab05CHkR1c
+
+----
+
+Template: media

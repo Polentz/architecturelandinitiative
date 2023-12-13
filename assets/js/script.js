@@ -23,7 +23,6 @@ const documentWidth = () => {
 };
 
 const loader = () => {
-    document.scrollingElement.scrollTo(0, 0);
     gsap.to(document.querySelector(".loader"), {
         autoAlpha: 0,
         duration: 1,
@@ -616,6 +615,65 @@ const handleFilters = () => {
     });
 };
 
+const handleGallery = () => {
+    const galleryItems = document.querySelectorAll(".gallery-item img, .gallery-item video, .gallery-item audio");
+    const paddingOffset = 128;
+    const addClasses = (item) => {
+        [...galleryItems].filter(i => i !== item).forEach(i => {
+            i.parentNode.classList.remove("--zoom-in");
+            i.parentNode.classList.add("--opacity");
+        });
+        item.parentNode.classList.remove("--opacity");
+        item.parentNode.classList.add("--zoom-in");
+        const itemPosition = item.getBoundingClientRect().top;
+        const offsetPosition = itemPosition + window.scrollY - paddingOffset;
+        window.scrollTo({
+            top: offsetPosition,
+            behavior: "smooth",
+        });
+        gsap.to(".box-container", {
+            autoAlpha: 0,
+            ease: "power1.out",
+        });
+    };
+    const removeClasses = (item) => {
+        [...galleryItems].filter(i => i !== item).forEach(i => {
+            i.parentNode.classList.remove("--opacity");
+        });
+        item.parentNode.classList.remove("--zoom-in");
+        const itemPosition = item.getBoundingClientRect().top;
+        const offsetPosition = itemPosition + window.scrollY - paddingOffset;
+        window.scrollTo({
+            top: offsetPosition,
+        });
+        gsap.to(".box-container", {
+            autoAlpha: 1,
+            ease: "power1.out",
+        });
+    };
+    galleryItems.forEach(item => {
+        item.addEventListener("click", () => {
+            if (item.parentNode.classList.contains("--zoom-in")) {
+                removeClasses(item)
+            } else {
+                addClasses(item);
+            };
+        });
+    });
+};
+
+const closeGallery = () => {
+    const zoomedElements = document.querySelectorAll(".gallery-item.--zoom-in img");
+    zoomedElements.forEach(element => {
+        element.addEventListener("click", () => {
+            [...galleryItems].filter(i => i !== element).forEach(i => {
+                i.parentElement.classList.remove("--opacity");
+            });
+            element.parentElement.classList.remove("--zoom-in");
+        });
+    });
+}
+
 const accordion = () => {
     const accordion = document.querySelectorAll(".accordion");
     accordion.forEach(item => {
@@ -642,6 +700,7 @@ const accordion = () => {
 };
 
 window.addEventListener("load", () => {
+    history.scrollRestoration = "manual";
     documentHeight();
     documentWidth();
     loader();

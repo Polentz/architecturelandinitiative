@@ -17,30 +17,18 @@ columns:
             type: textarea
             buttons: false
           alt:
-            type: text
             label: Alternative Text
+            type: text
+          info:
+            label: Further information
+            type: textarea
+            buttons: false
   sidebar:
     width: 1/2
     sections:
       data:
         type: fields
         fields:
-          # project:
-          #   width: 1/2
-          #   type: select
-          #   label: Related Project
-          #   options:
-          #     type: query
-          #     query: site.find("projects").children.template("project")
-          #     text: "{{ page.title }}"
-          #     value: "{{ page.title }}"
-          # project:
-          #   width: 1/2
-          #   type: text
-          #   label: Related Project
-          #   placeholder: "{{ page.title }}"
-          #   default: "{{ page.title }}"
-          #   disabled: true
           tools:
             width: 1/2
             type: multiselect

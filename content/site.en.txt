@@ -39,6 +39,8 @@ Mediafilters:
 - 
   filter: Video
   filterslug: video
+- 
+  filter: Document
 
 ----
 
@@ -49,9 +51,11 @@ Processfilters:
 - 
   filter: Research
 - 
-  filter: Events
+  filter: Event
 - 
-  filter: Outcomes
+  filter: Outcome
+- 
+  filter: Site visit
 
 ----
 
