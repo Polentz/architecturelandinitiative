@@ -22,7 +22,7 @@ fields:
     width: 1/2
     options:
       type: query
-      query: site.find("projects").children.template("project")
+      query: site.grandchildren.template("project")
       text: "{{ page.title }}"
       value: "{{ page.title }}"
   topbar:
@@ -60,8 +60,10 @@ fields:
     marks:
       - bold
       - italic
+      - underline
       - link
       - email
+      - clear
     nodes: false
   credits:
     label: Credits
@@ -69,6 +71,8 @@ fields:
     marks:
       - bold
       - italic
+      - underline
       - link
       - email
-    nodes: false  
+      - clear
+    nodes: false

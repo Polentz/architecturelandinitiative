@@ -18,4 +18,5 @@ fields:
       - underline
       - link
       - email
+      - clear
     nodes: false

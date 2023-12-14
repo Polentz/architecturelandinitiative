@@ -28,7 +28,7 @@ tabs:
                 label: Background image
                 uploads:
                   template: media 
-                query: site.find('projects').children.files.filterBy('template', 'media')
+                query: site.grandchildren.files.filterBy('template', 'media')
                 layout: list
                 size: small
                 multiple: false
@@ -50,9 +50,7 @@ tabs:
               typeName:
                 label: Filter by    
                 type: text
-                width: 1/2
-                placeholder: Media type 
-                default: "Media type"        
+                width: 1/2       
               types: 
                 type: multiselect
                 label: Available filters   
@@ -65,13 +63,3 @@ tabs:
                 label: Filter by    
                 type: text
                 width: 1/2
-                placeholder: Process stage 
-                default: "Process stage" 
-              # filters:
-              #   type: multiselect
-              #   label: Available filters   
-              #   options:
-              #     type: query
-              #     query: site.children.find('projects').children
-              #     text: "{{ item.title }}"
-              #     value: "{{ item.title }}"

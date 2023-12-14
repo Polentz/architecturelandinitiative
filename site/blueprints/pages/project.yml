@@ -50,9 +50,7 @@ tabs:
               typeName:
                 label: Filter by    
                 type: text
-                width: 1/2
-                placeholder: Media type 
-                default: "Media type"        
+                width: 1/2 
               types: 
                 type: multiselect
                 label: Available filters   
@@ -65,8 +63,6 @@ tabs:
                 label: Filter by    
                 type: text
                 width: 1/2
-                placeholder: Process stage 
-                default: "Process stage" 
               filters:
                 type: multiselect
                 label: Available filters   

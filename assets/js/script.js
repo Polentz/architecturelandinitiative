@@ -372,7 +372,7 @@ const sliderOpener = () => {
         sliderButton.addEventListener("click", () => {
             navElement.forEach(element => {
                 element.classList.remove("--target");
-            })
+            });
             removeClasses();
         });
     });
@@ -657,7 +657,7 @@ const handleGallery = () => {
     galleryItems.forEach(item => {
         item.addEventListener("click", () => {
             if (item.parentNode.classList.contains("--zoom-in")) {
-                removeClasses(item)
+                removeClasses(item);
             } else {
                 addClasses(item);
             };

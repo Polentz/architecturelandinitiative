@@ -48,17 +48,3 @@ tabs:
                   query: site.timelineFilters.toStructure
                   text: "{{ item.filter }}"
                   value: "{{ item.filter }}"
-              # filterName:
-              #   label: Filter by    
-              #   type: text
-              #   width: 1/2
-              #   placeholder: Project 
-              #   default: "Project"    
-              # filters:
-              #   type: select
-              #   label: Available filters   
-              #   options:
-              #     type: query
-              #     query: site.find('projects').children
-              #     text: "{{ page.title }}"
-              #     value: "{{ page.title }}"

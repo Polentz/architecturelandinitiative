@@ -2,8 +2,9 @@ title: Site
 
 tabs:
   page:
-    label: Pages
-    icon: page
+    label: Website pages
+    # icon: page
+    icon: angle-right
     sections:
       allpages:
         label: Website main pages
@@ -64,8 +65,9 @@ tabs:
       #   create: false
       #   image: false
   about:
-    label: About
-    icon: info
+    label: Cooperative
+    # icon: info
+    icon: angle-right
     columns:
       main:
         width: 2/3
@@ -89,7 +91,8 @@ tabs:
                 type: text
   contact:
     label: Contact
-    icon: book
+    # icon: book
+    icon: angle-right
     columns:
       main:
         width: 2/3
@@ -116,7 +119,8 @@ tabs:
                 type: url
   filters:
     label: Filters collection
-    icon: filter
+    # icon: filter
+    icon: angle-right
     sections:
       filter:
         type: fields
@@ -142,26 +146,43 @@ tabs:
               filter:
                 type: text
                 label: Filter
-  # media:
-  #   label: Media collection
-  #   icon: grid
-  #   sections:
-  #     media:
-  #       type: files
-  #       template: media
-  #       layout: table
-  #       columns:
-  #         filterSetA:
-  #           label: Filter by
-  #         filterSetB:
-  #           label: Filter by
-  #         tools:
-  #           label: Related tools
-  #         project:
-  #           label: Related project
-  #       image:
-  #         icon: true
-  #         ratio: 1/1
-  #         back: white
-  #         cover: true
+  seo:
+    label: Website metadata
+    # icon: circle
+    icon: angle-right
+    columns:
+      main:
+        width: 1/2
+        sections:
+          seocontent:
+            type: fields
+            fields:
+              description:
+                label: Description
+                type: textarea
+                buttons: false
+              keywords:
+                label: Keywords
+                type: tags         
+      image:
+        width: 1/2
+        sections:
+          image:
+            type: fields
+            fields:
+              ogimage:
+                label: OG Image
+                type: files
+                template: image
+                uploads: image
+                layout: cards
+                size: huge
+                multiple: false
+                image:
+                  back: "#000"
+                  icon: false
+                  ratio: 6/3
+                  cover: true
+
+
 

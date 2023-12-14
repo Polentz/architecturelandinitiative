@@ -4,64 +4,8 @@
     font-family: "GT Cinetype";
     font-style: normal;
     font-weight: 400;
-    src: url("../fonts/GT-Cinetype-Regular.woff2") format("woff2");
-}
-
-@font-face {
-    font-family: "GT Cinetype";
-    font-style: italic;
-    font-weight: 400;
-    src: url("../fonts/GT-Cinetype-Regular-Italic.woff2") format("woff2");
-}
-
-@font-face {
-    font-family: "GT Cinetype";
-    font-style: normal;
-    font-weight: 700;
-    src: url("../fonts/GT-Cinetype-Bold.woff2") format("woff2");
-}
-
-@font-face {
-    font-family: "GT Cinetype";
-    font-style: italic;
-    font-weight: 700;
-    src: url("../fonts/GT-Cinetype-Bold-Italic.woff2") format("woff2");
-}
-
-@font-face {
-    font-family: "GT America";
-    font-style: normal;
-    font-weight: 300;
-    src: url("../fonts/GT-America-Standard-Light.woff2") format("woff2");
-}
-
-@font-face {
-    font-family: "GT America";
-    font-style: italic;
-    font-weight: 300;
-    src: url("../fonts/GT-America-Standard-Light-Italic.woff2") format("woff2");
-}
-
-@font-face {
-    font-family: "GT America";
-    font-style: normal;
-    font-weight: 400;
-    src: url("../fonts/GT-America-Standard-Regular.woff2") format("woff2");
-}
-
-@font-face {
-    font-family: "GT America";
-    font-style: italic;
-    font-weight: 400;
-    src: url("../fonts/GT-America-Standard-Regular-Italic.woff2") format("woff2");
-}
-
-@font-face {
-    font-family: "Pitch Sans";
-    font-style: normal;
-    font-weight: 600;
-    src: url("../fonts/pitchsans-medium-webfont.woff2") format("woff2"),
-        url("../fonts/pitchsans-medium-webfont.woff") format("woff");
+    src: url("../fonts/GT-Cinetype-Regular.woff2") format("woff2"),
+        url("../fonts/GT-Cinetype-Regular.woff") format("woff");
 }
 
 :root {
@@ -74,7 +18,7 @@ html {
     font-weight: 400;
 }
 
-.k-field-name-filterseta .k-field-header,
+/* .k-field-name-filterseta .k-field-header,
 .k-field-name-filtersetb .k-field-header {
     display: none;
-}
+} */

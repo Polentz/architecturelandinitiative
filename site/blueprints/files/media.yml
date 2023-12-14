@@ -14,15 +14,29 @@ columns:
         fields:
           caption:
             label: Caption
-            type: textarea
-            buttons: false
+            type: writer
+            marks:
+              - bold
+              - italic
+              - underline
+              - link
+              - email
+              - clear
+            nodes: false
+          info:
+            label: Further information
+            type: writer
+            marks:
+              - bold
+              - italic
+              - underline
+              - link
+              - email
+              - clear
+            nodes: false
           alt:
             label: Alternative Text
             type: text
-          info:
-            label: Further information
-            type: textarea
-            buttons: false
   sidebar:
     width: 1/2
     sections:
@@ -35,7 +49,7 @@ columns:
             label: Related Tools  
             options:
               type: query
-              query: site.find("tools").children.template("tool")
+              query: site.grandchildren.template("tool")
               text: "{{ page.title }}"
               value: "{{ page.title }}"
           gap:
