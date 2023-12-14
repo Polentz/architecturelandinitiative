@@ -1,5 +1,5 @@
 <?php snippet('header', slots: true) ?>
-    <?php slot('toolsHeader') ?>
+    <?php slot('pathsHeader') ?>
     <?php endslot() ?>
 <?php endsnippet() ?>
 

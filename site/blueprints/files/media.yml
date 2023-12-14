@@ -37,7 +37,7 @@ columns:
           alt:
             label: Alternative Text
             type: text
-  sidebar:
+  filters:
     width: 1/2
     sections:
       data:

@@ -1,8 +1,7 @@
 <?php snippet('header', slots: true) ?>
-    <?php slot('projectsHeader') ?>
+    <?php slot('pathsHeader') ?>
     <?php endslot() ?>
 <?php endsnippet() ?>
-
 
 
 <main class="main">

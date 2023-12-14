@@ -52,7 +52,8 @@ html {
     --title-font: "GT America";
     --title-size: 2rem;
     --big-title-font: "GT America";
-    --big-title-size: calc(1rem + 6.5vw);
+    /* --big-title-size: calc(1rem + 6.5vw); */
+    --big-title-size: clamp(3.75rem, 1rem + 8vw, 6.75rem);
     --label-text-font: "Pitch Sans";
     --label-text-size: .8rem;
     --header-text-font: "GT Cinetype";
@@ -323,8 +324,29 @@ hr {
     transition: all .3s ease;
 }
 
-.header-button-wrapper span {
+.header-button-wrapper .button span {
     display: none;
+}
+
+.header-button-wrapper .button.--current {
+    width: auto;
+    min-width: unset;
+    height: auto;
+    flex-direction: column;
+    padding-bottom: var(--small-margin);
+}
+
+.header-button-wrapper .button.--current:hover {
+    padding-left: 0;
+}
+
+.header-button-wrapper .button.--current svg {
+    width: 2rem;
+}
+
+.header-button-wrapper .button.--current span {
+    writing-mode: vertical-rl;
+    transform: rotate(180deg);
 }
 
 .header-button-wrapper .button:hover {
@@ -332,7 +354,8 @@ hr {
     padding-left: var(--small-margin);
 }
 
-.header-button-wrapper .button:hover span {
+.header-button-wrapper .button:hover span,
+.header-button-wrapper .button.--current span {
     display: block;
 }
 
@@ -638,6 +661,7 @@ hr {
     writing-mode: vertical-rl;
     padding-right: var(--small-margin);
     padding-bottom: calc(var(--nav-height) + var(--small-margin));
+    padding-left: var(--small-margin);
     border-right: var(--border-black);
 }
 
@@ -691,7 +715,7 @@ hr {
 .scroll-x .item-title p {
     -ms-flex-wrap: wrap;
     flex-wrap: wrap;
-    gap: var(--small-margin);
+    column-gap: var(--small-margin);
 }
 
 .item-title .word {
@@ -1239,4 +1263,21 @@ hr {
 
 .--open .topbar-title {
     display: none;
+}
+
+@media screen and (max-width: 780px) {
+    :root {
+        --main-margin: 3rem;
+        --half-margin: 1.5rem;
+        --double-margin: 6rem;
+    }
+}
+
+
+
+@media screen and (max-width: 320px) {
+    .grid-layout-item {
+        min-width: 50vw;
+        padding-left: var(--main-margin);
+    }
 }

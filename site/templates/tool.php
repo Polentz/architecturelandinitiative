@@ -10,7 +10,7 @@
 
     <section class="gallery">
         <div class="gallery-grid">
-            <?php foreach ($allmedia->filterBy('tools', '*=', $page->title()) as $media) : ?>
+            <?php foreach ($allmedia->filterBy('tools', '*=', $page->title())->shuffle() as $media) : ?>
                 <?php snippet('gallery', ['media' => $media], slots: true) ?>
                     <?php slot('filterByProject') ?>
                     <?php endslot() ?>

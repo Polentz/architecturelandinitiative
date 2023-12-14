@@ -7,7 +7,7 @@
     <?php if ($page->gallery()->isNotEmpty()) : ?>
         <section class="gallery">
             <div class="gallery-grid">
-                <?php foreach ($page->gallery()->toFiles() as $media) : ?>
+                <?php foreach ($page->gallery()->toFiles()->shuffle() as $media) : ?>
                     <?= snippet('gallery', ['media' => $media]) ?>
                 <?php endforeach ?> 
             </div>

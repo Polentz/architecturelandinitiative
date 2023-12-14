@@ -136,7 +136,10 @@ const split = (domElement) => {
 split(document.querySelector(".logo-word-1"));
 split(document.querySelector(".logo-word-2"));
 split(document.querySelector(".logo-word-3"));
-split(document.querySelector(".logo-element"));
+if (document.querySelector(".logo-element")) {
+    split(document.querySelector(".logo-element"));
+};
+
 
 const architecture = Array.from(document.querySelectorAll(".logo-word-1 .letter"));
 const land = Array.from(document.querySelectorAll(".logo-word-2 .letter"));
