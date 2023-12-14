@@ -42,9 +42,21 @@ tabs:
                 default: "Event type"        
               types: 
                 type: multiselect
-                label: Available filters   
+                label: Available filters
                 options:
                   type: query
                   query: site.timelineFilters.toStructure
                   text: "{{ item.filter }}"
                   value: "{{ item.filter }}"
+              filterName:
+                label: Filter by    
+                type: text
+                width: 1/2
+              filters:
+                type: multiselect
+                label: Available filters
+                options:
+                  type: query
+                  query: site.grandchildren.template("project")
+                  text: "{{ page.title }}"
+                  value: "{{ page.title }}"

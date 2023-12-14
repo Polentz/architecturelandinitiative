@@ -26,12 +26,15 @@
         <div class="inner-box-column grid-span-1">
             <?php if ($slots->filterByProject()): ?>
                 <div class="inner-box-header">
-                    <p>Filter by project</p>
+                    <p>Filter by <?= $page->filterName()->lower() ?></p>
                 </div>
                 <div class="inner-box-content">
                     <ul class="filter-wrapper text-label">
-                        <?php foreach ($projects->listed() as $project): ?>
+                        <!-- <?php foreach ($projects as $project): ?>
                             <li id="<?= $project->title()->slug() ?>" class="filter" data-project="<?= $project->title()->slug() ?>"><?= $project->title() ?></li>
+                        <?php endforeach ?> -->
+                        <?php foreach ($page->filters()->split() as $filter): ?>
+                            <li id="<?= Str::slug($filter) ?>" class="filter" data-category="<?= Str::slug($filter) ?>"><?= $filter ?></li>
                         <?php endforeach ?>
                     </ul>
                 </div>

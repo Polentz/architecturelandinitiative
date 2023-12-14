@@ -18,11 +18,11 @@ Types: Public Event, Workshop, Forum, Exhibition, Performance, Talk
 
 ----
 
-Filtername: 
+Filtername: Project
 
 ----
 
-Filters: 
+Filters: By Us for Us, Shared Landscapes
 
 ----
 

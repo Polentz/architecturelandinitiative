@@ -10,7 +10,7 @@ Background: - file://nM0o3GtueIU54SbY
 
 ----
 
-Typename: Type
+Typename: Media type
 
 ----
 
@@ -18,7 +18,7 @@ Types: Image
 
 ----
 
-Filtername: 
+Filtername: Project
 
 ----
 

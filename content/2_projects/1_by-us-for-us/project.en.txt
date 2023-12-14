@@ -26,7 +26,7 @@ Blocks: [{"content":{"title":"By Us, <br>for Us","subtitle":"","copy":"<p><em>By
 
 ----
 
-Typename: Type
+Typename: Media type
 
 ----
 
@@ -34,7 +34,7 @@ Types: Image, Video, Drawing, Plan, Map, Document
 
 ----
 
-Filtername: Stage
+Filtername: Process stage
 
 ----
 
