@@ -87,7 +87,7 @@ const cursor = () => {
         });
     });
 
-    const blackBox = document.querySelectorAll(".inner-box");
+    const blackBox = document.querySelectorAll(".inner-box, .pdf");
     blackBox.forEach(box => {
         box.addEventListener("mouseenter", () => {
             gsap.to(".cursor", {
@@ -622,7 +622,7 @@ const handleFilters = () => {
 };
 
 const handleGallery = () => {
-    const galleryItems = document.querySelectorAll(".gallery-item img, .gallery-item video, .gallery-item audio");
+    const galleryItems = document.querySelectorAll(".gallery-item img, .gallery-item video, .gallery-item audio, .gallery-item .pdf");
     const paddingOffset = 128;
     const addClasses = (item) => {
         [...galleryItems].filter(i => i !== item).forEach(i => {

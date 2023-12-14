@@ -1,9 +1,9 @@
 title: Media
 
 accept: 
-  extension: jpg, png, jpeg, mp3, mp4
-  mime: image/*, audio/*, video/*
-  type: image, audio, video
+  extension: jpg, png, jpeg, mp3, mp4, pdf
+  # mime: image/*, audio/*, video/*, pdf/*
+  type: image, audio, video, document
 
 columns:
   main:
@@ -13,7 +13,6 @@ columns:
         type: fields
         fields:
           caption:
-            label: Caption
             type: writer
             marks:
               - bold

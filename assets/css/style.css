@@ -829,6 +829,23 @@ hr {
     pointer-events: none;
 }
 
+.gallery-item .pdf {
+    min-width: 200px;
+    min-height: 200px;
+    width: 100%;
+    background: var(--black);
+    color: var(--acc-color);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: var(--half-margin);
+    padding: var(--small-margin);
+}
+
+.gallery-item .pdf .button {
+    align-self: flex-end;
+}
+
 .gallery-item .media-info {
     display: none;
 }

@@ -41,11 +41,13 @@
         </button>
         <div class="inner-box">
             <div class="inner-box-column grid-span-2">
-                <ul class="inner-box-header">
-                    <?php foreach ($page->summary()->toStructure() as $summary) : ?>
-                        <li><?= $summary->category()->upper() ?> <?= $summary->text() ?></li>
-                    <?php endforeach ?>
-                </ul>
+                <?php if ($page->summary()->isNotEmpty()) : ?>
+                    <ul class="inner-box-header">
+                        <?php foreach ($page->summary()->toStructure() as $summary) : ?>
+                            <li><?= $summary->category()->upper() ?> <?= $summary->text() ?></li>
+                        <?php endforeach ?>
+                    </ul>
+                <?php endif ?>
                 <?php if ($page->blocks()->isNotEmpty()) : ?>
                     <div class="inner-box-content">
                         <div class="text">
