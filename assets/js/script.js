@@ -637,12 +637,16 @@ const handleFilters = () => {
 const handleGallery = () => {
     const handleMediaQuery = (e) => {
         if (!e.matches) {
+            let zoomedItem;
             const galleryItems = document.querySelectorAll(".gallery-item img, .gallery-item video, .gallery-item audio, .gallery-item .pdf");
             const paddingOffset = 128;
             const addClasses = (item) => {
                 [...galleryItems].filter(i => i !== item).forEach(i => {
                     i.parentNode.classList.remove("--zoom-in");
                     i.parentNode.classList.add("--opacity");
+                });
+                item.parentNode.addEventListener("click", (event) => {
+                    event.stopPropagation();
                 });
                 item.parentNode.classList.remove("--opacity");
                 item.parentNode.classList.add("--zoom-in");
@@ -661,6 +665,9 @@ const handleGallery = () => {
                 [...galleryItems].filter(i => i !== item).forEach(i => {
                     i.parentNode.classList.remove("--opacity");
                 });
+                item.parentNode.removeEventListener('click', (event) => {
+                    event.stopPropagation();
+                });
                 item.parentNode.classList.remove("--zoom-in");
                 const itemPosition = item.getBoundingClientRect().top;
                 const offsetPosition = itemPosition + window.scrollY - paddingOffset;
@@ -673,13 +680,20 @@ const handleGallery = () => {
                 });
             };
             galleryItems.forEach(item => {
-                item.addEventListener("click", () => {
+                item.addEventListener("click", (event) => {
                     if (item.parentNode.classList.contains("--zoom-in")) {
                         removeClasses(item);
                     } else {
+                        zoomedItem = item;
                         addClasses(item);
+                        event.stopPropagation();
                     };
                 });
+            });
+            document.body.addEventListener("click", () => {
+                if (zoomedItem !== undefined && zoomedItem.parentNode != undefined) {
+                    removeClasses(zoomedItem)
+                };
             });
         };
     };
