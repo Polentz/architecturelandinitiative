@@ -34,6 +34,14 @@
     cursor: zoom-out;
 }
 
+@media screen and (max-width: 720px) {
+    .gallery-grid {
+        -ms-grid-columns: 1fr 1fr;
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+
 @media screen and (max-width: 600px) {
     .gallery-grid {
         -ms-grid-columns: 1fr;

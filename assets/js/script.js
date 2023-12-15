@@ -5,6 +5,14 @@
 
 gsap.registerPlugin(ScrollTrigger, Flip);
 
+const footer = document.querySelector(".footer");
+const nav = footer.querySelector(".nav");
+const navElement = nav.querySelectorAll(".menu-element");
+const main = document.querySelector(".main");
+const header = document.querySelector(".header");
+const logo = document.querySelector(".logo");
+const mediaQuery = window.matchMedia("(max-width: 600px)");
+
 const documentHeight = () => {
     const doc = document.documentElement;
     doc.style.setProperty("--doc-height", `${window.innerHeight}px`);
@@ -26,103 +34,101 @@ const loader = () => {
 };
 
 const cursor = () => {
-    const letters = ["A", "L", "I", "N"];
-    letters.forEach(letter => {
-        const follower = document.createElement("span");
-        follower.classList.add("follower");
-        follower.innerHTML = letter;
-        document.querySelector(".cursor-wrapper").appendChild(follower);
-    });
-    const cursor = document.createElement("span");
-    cursor.classList.add("cursor");
-    document.querySelector(".cursor-wrapper").appendChild(cursor);
+    const handleMediaQuery = (e) => {
+        if (!e.matches) {
+            const letters = ["A", "L", "I", "N"];
+            letters.forEach(letter => {
+                const follower = document.createElement("span");
+                follower.classList.add("follower");
+                follower.innerHTML = letter;
+                document.querySelector(".cursor-wrapper").appendChild(follower);
+            });
+            const cursor = document.createElement("span");
+            cursor.classList.add("cursor");
+            document.querySelector(".cursor-wrapper").appendChild(cursor);
 
-    window.addEventListener("mousemove", (e) => {
-        gsap.set(".cursor", {
-            xPercent: -50,
-            yPercent: -50,
-        });
-        gsap.set(".follower", {
-            xPercent: -50,
-            yPercent: -50,
-        });
-        gsap.to(".cursor", 0, {
-            display: "block",
-            x: e.clientX,
-            y: e.clientY,
-        });
-        gsap.to(".follower", 0.8, {
-            display: "block",
-            x: e.clientX,
-            y: e.clientY,
-            stagger: 0.1,
-        });
-    });
+            window.addEventListener("mousemove", (e) => {
+                gsap.set(".cursor", {
+                    xPercent: -50,
+                    yPercent: -50,
+                });
+                gsap.set(".follower", {
+                    xPercent: -50,
+                    yPercent: -50,
+                });
+                gsap.to(".cursor", 0, {
+                    display: "block",
+                    x: e.clientX,
+                    y: e.clientY,
+                });
+                gsap.to(".follower", 0.8, {
+                    display: "block",
+                    x: e.clientX,
+                    y: e.clientY,
+                    stagger: 0.1,
+                });
+            });
 
-    const anchorTags = document.querySelectorAll("a, .menu-element, button, .filter, .deselect-filters");
-    anchorTags.forEach(a => {
-        a.addEventListener("mouseenter", () => {
-            gsap.to(".cursor", {
-                duration: 1,
-                scale: 0.4,
-                opacity: 1,
-                ease: "power1.out",
-            });
-            gsap.to(".follower", {
-                scale: 0,
-            });
-        });
+            const anchorTags = document.querySelectorAll("a, .menu-element, button, .filter, .deselect-filters");
+            anchorTags.forEach(a => {
+                a.addEventListener("mouseenter", () => {
+                    gsap.to(".cursor", {
+                        duration: 1,
+                        scale: 0.4,
+                        opacity: 1,
+                        ease: "power1.out",
+                    });
+                    gsap.to(".follower", {
+                        scale: 0,
+                    });
+                });
 
-        a.addEventListener("mouseleave", () => {
-            gsap.to(".cursor", {
-                duration: 1,
-                delay: 0.2,
-                scale: 1,
-                opacity: 1,
-                ease: "power1.out",
+                a.addEventListener("mouseleave", () => {
+                    gsap.to(".cursor", {
+                        duration: 1,
+                        delay: 0.2,
+                        scale: 1,
+                        opacity: 1,
+                        ease: "power1.out",
+                    });
+                    gsap.to(".follower", {
+                        scale: 1,
+                    });
+                });
             });
-            gsap.to(".follower", {
-                scale: 1,
-            });
-        });
-    });
 
-    const blackBox = document.querySelectorAll(".inner-box, .pdf");
-    blackBox.forEach(box => {
-        box.addEventListener("mouseenter", () => {
-            gsap.to(".cursor", {
-                duration: 0,
-                background: "var(--white)",
-                ease: "none",
+            const blackBox = document.querySelectorAll(".inner-box, .pdf");
+            blackBox.forEach(box => {
+                box.addEventListener("mouseenter", () => {
+                    gsap.to(".cursor", {
+                        duration: 0,
+                        background: "var(--white)",
+                        ease: "none",
+                    });
+                    gsap.to(".follower", {
+                        duration: 0,
+                        autoAlpha: 0,
+                        ease: "none",
+                    });
+                });
+                box.addEventListener("mouseleave", () => {
+                    gsap.to(".cursor", {
+                        duration: 0,
+                        background: "var(--black)",
+                        ease: "none",
+                    });
+                    gsap.to(".follower", {
+                        duration: 0,
+                        autoAlpha: 1,
+                        ease: "none",
+                    });
+                });
             });
-            gsap.to(".follower", {
-                duration: 0,
-                autoAlpha: 0,
-                ease: "none",
-            });
-        });
-        box.addEventListener("mouseleave", () => {
-            gsap.to(".cursor", {
-                duration: 0,
-                background: "var(--black)",
-                ease: "none",
-            });
-            gsap.to(".follower", {
-                duration: 0,
-                autoAlpha: 1,
-                ease: "none",
-            });
-        });
-    });
+        }
+    }
+    mediaQuery.addListener(handleMediaQuery);
+    handleMediaQuery(mediaQuery);
 };
-
-const footer = document.querySelector(".footer");
-const nav = footer.querySelector(".nav");
-const navElement = nav.querySelectorAll(".menu-element");
-const main = document.querySelector(".main");
-const header = document.querySelector(".header");
-const logo = document.querySelector(".logo");
-const mediaQuery = window.matchMedia("(max-width: 600px)");
 
 const split = (domElement) => {
     let words = domElement.textContent.split(' ');
@@ -669,11 +675,6 @@ const handleGallery = () => {
                     event.stopPropagation();
                 });
                 item.parentNode.classList.remove("--zoom-in");
-                const itemPosition = item.getBoundingClientRect().top;
-                const offsetPosition = itemPosition + window.scrollY - paddingOffset;
-                window.scrollTo({
-                    top: offsetPosition,
-                });
                 gsap.to(".box-container", {
                     autoAlpha: 1,
                     ease: "power1.out",
@@ -690,6 +691,7 @@ const handleGallery = () => {
                     };
                 });
             });
+
             document.body.addEventListener("click", () => {
                 if (zoomedItem !== undefined && zoomedItem.parentNode != undefined) {
                     removeClasses(zoomedItem)

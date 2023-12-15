@@ -1177,8 +1177,6 @@ hr {
 .accordion-divider {
     border-top: var(--border-black);
     padding: .5rem 0;
-    font-weight: 700;
-    color: var(--main-color);
 }
 
 .accordion-topbar {
@@ -1243,6 +1241,8 @@ hr {
     font-size: var(--big-title-size);
     font-weight: 300;
     line-height: 100%;
+    word-break: break-word;
+
 }
 
 .accordion-image {
@@ -1285,8 +1285,6 @@ hr {
     display: none;
 }
 
-/* breackpoint 1 */
-
 @media screen and (max-width: 720px) {
     :root {
         --main-margin: 2.5rem;
@@ -1308,23 +1306,29 @@ hr {
     }
 }
 
-/* mobile only */
-
 @media screen and (max-width: 600px) {
     :root {
         --big-title-size: calc(3rem + 7vw);
         --main-margin: 1.5rem;
         --half-margin: 1rem;
-        --nav-height: 2.5rem;
+        --nav-height: 6rem;
     }
 
     .logo-element {
         margin: 0;
     }
 
+    .nav {
+        justify-content: flex-start;
+    }
+
     .nav-menu {
         width: 100%;
-        justify-content: space-between;
+        flex-direction: column;
+    }
+
+    .nav-menu.menu {
+        gap: 0px;
     }
 
     .banner {
@@ -1395,5 +1399,26 @@ hr {
         bottom: auto;
         top: calc(var(--nav-height) + var(--small-margin));
 
+    }
+
+    .topbar-item:not(.topbar-date) {
+        display: none;
+    }
+
+    .topbar-title {
+        display: none;
+    }
+
+    .accordion-items {
+        flex-direction: column;
+    }
+
+    .accordion-title h3 {
+        font-size: var(--title-size);
+        font-weight: 600;
+    }
+
+    .accordion-image {
+        order: -1;
     }
 }

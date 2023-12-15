@@ -2,7 +2,7 @@
     <div class="accordion --ongoing" data-type="<?= $block->typology()->slug() ?>" data-category="<?= $block->project()->slug() ?>">
         <div class="accordion-wrapper">
             <ul class="accordion-topbar">
-                <li class="topbar-item text-label"><?= $block->date()->toDate('D') ?> <?= $block->date()->toDate('d.m.Y') ?></li>
+                <li class="topbar-item topbar-date text-label"><?= $block->date()->toDate('D') ?> <?= $block->date()->toDate('d.m.Y') ?></li>
                 <?php if ($block->typology()->isNotEmpty()) : ?>
                     <li class="topbar-item text-label">TYPE <?= $block->typology() ?></li>
                 <?php endif ?>
@@ -51,7 +51,7 @@
     <div class="accordion-wrapper">
         <ul class="accordion-topbar">
             <li class="topbar-title text-subtext"><?= $block->title() ?></li>
-            <li class="topbar-item text-label"><?= $block->date()->toDate('D') ?> <?= $block->date()->toDate('d.m.Y') ?></li>
+            <li class="topbar-item topbar-date text-label"><?= $block->date()->toDate('D') ?> <?= $block->date()->toDate('d.m.Y') ?></li>
             <?php if ($block->typology()->isNotEmpty()) : ?>
                 <li class="topbar-item text-label">TYPE <?= $block->typology() ?></li>
             <?php endif ?>
