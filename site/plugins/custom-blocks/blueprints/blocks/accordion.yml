@@ -76,3 +76,14 @@ fields:
       - email
       - clear
     nodes: false
+  info:
+    label: External links
+    type: writer
+    marks:
+      - bold
+      - italic
+      - underline
+      - link
+      - email
+      - clear
+    nodes: false

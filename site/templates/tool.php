@@ -12,7 +12,7 @@
         <div class="gallery-grid">
             <?php foreach ($allmedia->filterBy('tools', '*=', $page->title())->shuffle() as $media) : ?>
                 <?php snippet('gallery', ['media' => $media], slots: true) ?>
-                    <?php slot('filterByProject') ?>
+                    <?php slot('showProject') ?>
                     <?php endslot() ?>
                 <?php endsnippet() ?>
             <?php endforeach ?> 
@@ -21,10 +21,7 @@
 </main>
 
 <div class="box-container">
-<?php snippet('filters', slots: true) ?>
-        <?php slot('filterByProject') ?>
-        <?php endslot() ?>
-    <?php endsnippet() ?>
+    <?= snippet('filters') ?>
 </div>
 
 <?= snippet('slider') ?>

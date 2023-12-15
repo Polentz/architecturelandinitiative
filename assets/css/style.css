@@ -189,7 +189,7 @@ hr {
     -webkit-box-direction: normal;
     -ms-flex-direction: column;
     flex-direction: column;
-    gap: .5rem;
+    gap: var(--small-margin);
 }
 
 .text a,
@@ -1176,6 +1176,8 @@ hr {
 .accordion-divider {
     border-top: var(--border-black);
     padding: .5rem 0;
+    font-weight: 700;
+    color: var(--main-color);
 }
 
 .accordion-topbar {

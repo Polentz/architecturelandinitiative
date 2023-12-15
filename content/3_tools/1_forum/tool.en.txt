@@ -22,7 +22,11 @@ Filtername: Project
 
 ----
 
-Filters: By Us for Us
+Projects: By Us for Us, Schlieren
+
+----
+
+Filters: By Us for Us, Shared Landscapes
 
 ----
 

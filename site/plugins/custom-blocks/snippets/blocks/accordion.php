@@ -1,5 +1,5 @@
 <?php if($block->date()->toDate() > time()) : ?>
-    <div class="accordion --ongoing" data-type="<?= $block->typology()->slug() ?>" data-project="<?= $block->project()->slug() ?>">
+    <div class="accordion --ongoing" data-type="<?= $block->typology()->slug() ?>" data-category="<?= $block->project()->slug() ?>">
         <div class="accordion-wrapper">
             <ul class="accordion-topbar">
                 <li class="topbar-item text-label"><?= $block->date()->toDate('D') ?> <?= $block->date()->toDate('d.m.Y') ?></li>
@@ -28,6 +28,9 @@
                         <div class="accordion-content-block text-caption">
                             <?= $block->credits()->kt() ?>
                         </div>
+                        <div class="accordion-content-block text-subtext">
+                            <?= $block->info()->kt() ?>
+                        </div>
                     </div>
                 </li>
                 <?php if ($image = $block->image()->toFile()) : ?>
@@ -44,7 +47,7 @@
 </div>
 
 <?php elseif ($block->date()->toDate() < time()) : ?>
-    <div class="accordion --past" data-type="<?= $block->typology() ?>" data-project="<?= $block->project() ?>">
+    <div class="accordion --past" data-type="<?= $block->typology() ?>" data-category="<?= $block->project() ?>">
     <div class="accordion-wrapper">
         <ul class="accordion-topbar">
             <li class="topbar-title text-subtext"><?= $block->title() ?></li>
@@ -73,6 +76,9 @@
                     </div>
                     <div class="accordion-content-block text-caption">
                         <?= $block->credits()->kt() ?>
+                    </div>
+                    <div class="accordion-content-block text-subtext">
+                        <?= $block->info()->kt() ?>
                     </div>
                 </div>
             </li>

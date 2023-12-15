@@ -14,10 +14,7 @@
 </main>
 
 <div class="box-container">
-    <?php snippet('filters', slots: true) ?>
-        <?php slot('filterByProject') ?>
-        <?php endslot() ?>
-    <?php endsnippet() ?>
+    <?= snippet('filters') ?>
 </div>
 
 <?= snippet('slider') ?>

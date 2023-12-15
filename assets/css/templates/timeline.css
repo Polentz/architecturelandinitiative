@@ -12,3 +12,7 @@
     padding-bottom: calc(var(--main-margin) + var(--nav-height));
     padding-left: var(--main-margin);
 }
+
+.text {
+    text-indent: 0;
+}

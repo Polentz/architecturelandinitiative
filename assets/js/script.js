@@ -567,21 +567,19 @@ const handleFilters = () => {
 
     const applyFilters = (filter) => {
         window.scrollTo(0, 0);
-        const filterByType = filter.dataset.type;
-        const filterByCategory = filter.dataset.category;
-        const filterByProject = filter.dataset.project;
+        const filterId = filter.id;
 
         items.forEach(item => {
             const itemType = item.dataset.type;
             const itemCategory = item.dataset.category;
             const itemProject = item.dataset.project;
-            if (itemType == filterByType) {
+            if (itemType == filterId) {
                 item.classList.remove("--unfiltered");
                 item.classList.add("--filtered");
-            } else if (itemCategory == filterByCategory) {
+            } else if (itemCategory == filterId) {
                 item.classList.remove("--unfiltered");
                 item.classList.add("--filtered");
-            } else if (itemProject == filterByProject) {
+            } else if (itemProject == filterId) {
                 item.classList.remove("--unfiltered");
                 item.classList.add("--filtered");
             } else {
@@ -611,7 +609,6 @@ const handleFilters = () => {
             setTimeout(() => {
                 filterClear.classList.add("--opacity");
             }, 100);
-            console.log(filter.dataset.project)
             applyFilters(filter);
         });
     });
