@@ -4,11 +4,6 @@
 <?php endsnippet() ?>
 
 <main class="main">
-    <section class="page-intro">
-        <div class="text-intro">
-            <h3><?= $page->intro() ?></h3>
-        </div>
-    </section>
     <section class="cover-layout scroll-x">    
         <div class="scroll-container">
             <div class="scroll-items">
@@ -20,6 +15,11 @@
                     <?php endif ?>
                 <?php endforeach ?>
             </div>
+        </div>
+    </section>
+    <section class="page-intro">
+        <div class="text-intro">
+            <h3><?= $page->intro() ?></h3>
         </div>
     </section>
 </main>

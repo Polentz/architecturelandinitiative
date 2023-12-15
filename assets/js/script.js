@@ -122,6 +122,7 @@ const navElement = nav.querySelectorAll(".menu-element");
 const main = document.querySelector(".main");
 const header = document.querySelector(".header");
 const logo = document.querySelector(".logo");
+const mediaQuery = window.matchMedia("(max-width: 600px)");
 
 const split = (domElement) => {
     let words = domElement.textContent.split(' ');
@@ -519,7 +520,7 @@ const handleProjectInfo = () => {
         });
     });
 
-    readMoreButton.addEventListener("click", () => {
+    const openInfoSlider = () => {
         const state = Flip.getState(".gallery, .gallery-item");
         gallery.classList.remove("--width");
         innerBox.forEach(box => {
@@ -557,7 +558,22 @@ const handleProjectInfo = () => {
             ease: "power1.out",
             simple: true,
         });
-    });
+    }
+
+    const handleMediaQuery = (e) => {
+        if (e.matches) {
+            gallery.classList.add("--width");
+            infoButton.addEventListener("click", () => {
+                openInfoSlider();
+            });
+        } else {
+            readMoreButton.addEventListener("click", () => {
+                openInfoSlider();
+            });
+        }
+    };
+    mediaQuery.addListener(handleMediaQuery);
+    handleMediaQuery(mediaQuery);
 };
 
 const handleFilters = () => {
@@ -619,50 +635,56 @@ const handleFilters = () => {
 };
 
 const handleGallery = () => {
-    const galleryItems = document.querySelectorAll(".gallery-item img, .gallery-item video, .gallery-item audio, .gallery-item .pdf");
-    const paddingOffset = 128;
-    const addClasses = (item) => {
-        [...galleryItems].filter(i => i !== item).forEach(i => {
-            i.parentNode.classList.remove("--zoom-in");
-            i.parentNode.classList.add("--opacity");
-        });
-        item.parentNode.classList.remove("--opacity");
-        item.parentNode.classList.add("--zoom-in");
-        const itemPosition = item.getBoundingClientRect().top;
-        const offsetPosition = itemPosition + window.scrollY - paddingOffset;
-        window.scrollTo({
-            top: offsetPosition,
-            behavior: "smooth",
-        });
-        gsap.to(".box-container", {
-            autoAlpha: 0,
-            ease: "power1.out",
-        });
-    };
-    const removeClasses = (item) => {
-        [...galleryItems].filter(i => i !== item).forEach(i => {
-            i.parentNode.classList.remove("--opacity");
-        });
-        item.parentNode.classList.remove("--zoom-in");
-        const itemPosition = item.getBoundingClientRect().top;
-        const offsetPosition = itemPosition + window.scrollY - paddingOffset;
-        window.scrollTo({
-            top: offsetPosition,
-        });
-        gsap.to(".box-container", {
-            autoAlpha: 1,
-            ease: "power1.out",
-        });
-    };
-    galleryItems.forEach(item => {
-        item.addEventListener("click", () => {
-            if (item.parentNode.classList.contains("--zoom-in")) {
-                removeClasses(item);
-            } else {
-                addClasses(item);
+    const handleMediaQuery = (e) => {
+        if (!e.matches) {
+            const galleryItems = document.querySelectorAll(".gallery-item img, .gallery-item video, .gallery-item audio, .gallery-item .pdf");
+            const paddingOffset = 128;
+            const addClasses = (item) => {
+                [...galleryItems].filter(i => i !== item).forEach(i => {
+                    i.parentNode.classList.remove("--zoom-in");
+                    i.parentNode.classList.add("--opacity");
+                });
+                item.parentNode.classList.remove("--opacity");
+                item.parentNode.classList.add("--zoom-in");
+                const itemPosition = item.getBoundingClientRect().top;
+                const offsetPosition = itemPosition + window.scrollY - paddingOffset;
+                window.scrollTo({
+                    top: offsetPosition,
+                    behavior: "smooth",
+                });
+                gsap.to(".box-container", {
+                    autoAlpha: 0,
+                    ease: "power1.out",
+                });
             };
-        });
-    });
+            const removeClasses = (item) => {
+                [...galleryItems].filter(i => i !== item).forEach(i => {
+                    i.parentNode.classList.remove("--opacity");
+                });
+                item.parentNode.classList.remove("--zoom-in");
+                const itemPosition = item.getBoundingClientRect().top;
+                const offsetPosition = itemPosition + window.scrollY - paddingOffset;
+                window.scrollTo({
+                    top: offsetPosition,
+                });
+                gsap.to(".box-container", {
+                    autoAlpha: 1,
+                    ease: "power1.out",
+                });
+            };
+            galleryItems.forEach(item => {
+                item.addEventListener("click", () => {
+                    if (item.parentNode.classList.contains("--zoom-in")) {
+                        removeClasses(item);
+                    } else {
+                        addClasses(item);
+                    };
+                });
+            });
+        };
+    };
+    mediaQuery.addListener(handleMediaQuery);
+    handleMediaQuery(mediaQuery);
 };
 
 const accordion = () => {

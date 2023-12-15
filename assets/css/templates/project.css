@@ -84,3 +84,21 @@
     -ms-transform: scale(0);
     transform: scale(0);
 }
+
+@media screen and (max-width: 600px) {
+    .gallery.--width .gallery-grid {
+        -ms-grid-columns: 1fr;
+        grid-template-columns: 1fr;
+    }
+
+    .info-slider {
+        display: none;
+        width: 100%;
+        z-index: 3;
+    }
+
+    .i-button {
+        opacity: 1;
+        pointer-events: all;
+    }
+}

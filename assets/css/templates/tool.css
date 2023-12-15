@@ -33,3 +33,10 @@
 .gallery-item.--zoom-in audio {
     cursor: zoom-out;
 }
+
+@media screen and (max-width: 600px) {
+    .gallery-grid {
+        -ms-grid-columns: 1fr;
+        grid-template-columns: 1fr;
+    }
+}
