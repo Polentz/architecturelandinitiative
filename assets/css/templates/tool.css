@@ -24,6 +24,7 @@
 .gallery-item img,
 .gallery-item video,
 .gallery-item audio {
+    cursor: -webkit-zoom-in;
     cursor: zoom-in;
     pointer-events: all;
 }
@@ -31,6 +32,7 @@
 .gallery-item.--zoom-in img,
 .gallery-item.--zoom-in video,
 .gallery-item.--zoom-in audio {
+    cursor: -webkit-zoom-out;
     cursor: zoom-out;
 }
 
