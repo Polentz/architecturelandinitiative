@@ -1287,16 +1287,11 @@ hr {
 
 /* breackpoint 1 */
 
-@media screen and (max-width: 780px) {
+@media screen and (max-width: 720px) {
     :root {
         --main-margin: 2.5rem;
         --half-margin: 1.5rem;
     }
-}
-
-/* breackpoint 2 */
-
-@media screen and (max-width: 720px) {
 
     .banner-content {
         flex-direction: column;
