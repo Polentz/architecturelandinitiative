@@ -124,8 +124,15 @@ const cursor = () => {
                     });
                 });
             });
-        }
-    }
+        } else {
+            const cursors = document.querySelectorAll(".cursor, .follower");
+            cursors.forEach(cursor => {
+                if (cursor) {
+                    cursor.remove();
+                }
+            });
+        };
+    };
     mediaQuery.addListener(handleMediaQuery);
     handleMediaQuery(mediaQuery);
 };
@@ -307,11 +314,11 @@ const horizontalScroll = (textSnapStart) => {
             trigger: ".page-intro",
             start: textSnapStart,
             scrub: 0.5,
-            snap: {
-                snapTo: 1,
-                duration: 0.5,
-                ease: "power1.inOut",
-            },
+            // snap: {
+            //     snapTo: 1,
+            //     duration: 0.5,
+            //     ease: "power1.inOut",
+            // },
         },
     });
 
@@ -333,11 +340,11 @@ const horizontalScroll = (textSnapStart) => {
                 pin: pageWrapper,
                 scrub: true,
                 invalidateOnRefresh: true,
-                snap: {
-                    snapTo: 1,
-                    duration: 0.5,
-                    ease: "power1.inOut",
-                },
+                // snap: {
+                //     snapTo: 1,
+                //     duration: 0.5,
+                //     ease: "power1.inOut",
+                // },
             },
         });
     });
@@ -728,6 +735,39 @@ const accordion = () => {
     });
 };
 
+const handleMenuOnMobile = () => {
+    const menuButton = document.querySelector(".mobile-menu-button");
+    const menuElements = document.querySelectorAll(".menu-element");
+    const handleMediaQuery = (e) => {
+        if (e.matches) {
+            console.log(menuButton)
+            menuButton.addEventListener("click", () => {
+                nav.classList.toggle("--show");
+                const tl = gsap.timeline();
+                tl.from(menuElements, {
+                    duration: 0.5,
+                    opacity: 0,
+                },);
+                tl.from(menuElements, {
+                    y: 20,
+                    stagger: 0.1,
+                }, "-=75%");
+            });
+            menuElements.forEach(element => {
+                element.addEventListener("click", () => {
+                    if (nav.classList.contains("--show")) {
+                        nav.classList.remove("--show");
+                    };
+                });
+            });
+        } else {
+            menuButton.remove();
+        }
+    };
+    mediaQuery.addListener(handleMediaQuery);
+    handleMediaQuery(mediaQuery);
+};
+
 window.addEventListener("load", () => {
     history.scrollRestoration = "manual";
     documentHeight();
@@ -738,6 +778,7 @@ window.addEventListener("load", () => {
     sliderOpener();
     bannerOpener();
     shuffleColors();
+    handleMenuOnMobile();
 });
 
 window.addEventListener("resize", () => {
