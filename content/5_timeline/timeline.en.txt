@@ -1,0 +1,53 @@
+Title: Timeline
+
+----
+
+Intro: 
+
+----
+
+Blocks: [{"content":{"date":"2024-05-03","typology":"Performance","project":"Shared Landscapes","topbar":[{"category":"Where","text":"St. Pölten (AUT)"},{"category":"Hosted by","text":"Tangente St. Pölten"}],"title":"Shared Landscapes","subtitle":"Caroline Barneaud / Stefan Kaegi (Rimini Protokoll)","image":["file://GBfu8vvGZmaw1xBt"],"body":"<p>How to approach the landscape without simultaneously creating a distance from it? What if art did not imitate nature but enabled us to experience it differently? These are the questions posed by the project “Shared Landscapes”.</p>","credits":"<p>Caroline Barneaud, curator, and Stefan Kaegi, theatre director (Rimini Protokoll), invite the audience to leave the theatre and spend a whole day in nature on the outskirts of St. Pölten among trees, meadows, human, and non-human inhabitants. In the open air, a new kind of community emerges at the intersection of city and country. Walking together, the audience experiences seven productions – musical sculptures, sound creations, choreographic audio tours, subverted picnics and philosophical plays – that will connect nature and culture. By involving various regional partners and participants, the local staging of this European project will be created in the hilly surroundings of St. Pölten. During “Shared Landscapes” visitors of all ages and backgrounds can experience, how theatre engages in a dialogue with nature. </p><p><em>Shared Landscapes</em> is part of the project <em>Performing Landscape</em>, a collaboration between cultural institutions, artists, and scientists, who that develop a reflection on the notions of art, landscape, and territory. They draw a visible and invisble map of the different places they visit and through the prism of arts and sciences they unveil the spaces they share.</p>","info":"<p><a href=\"https://www.tangente-st-poelten.at/en\" target=\"_blank\">Tangente St. Pölten</a><br><a href=\"https://performinglandscape.eu/Events\" target=\"_blank\">Performing Landscape</a></p>"},"id":"19659d2d-3bb8-44e0-9c20-7e3f04b92037","isHidden":false,"type":"accordion"},{"content":{"date":"2024-11-01","typology":"","project":"","topbar":[{"category":"Location","text":"Berlin"},{"category":"Hosted by","text":"Someone"}],"title":"Event title","subtitle":"Event subtitle","image":[],"body":"<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>","credits":"<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>","info":""},"id":"6fc3cc45-2d98-4797-85bf-f24729886137","isHidden":false,"type":"accordion"},{"content":{"date":"2024-11-01","typology":"","project":"","topbar":[{"category":"Location","text":"Berlin"},{"category":"Hosted by","text":"Someone"}],"title":"This is an event!","subtitle":"Event subtitle","image":[],"body":"<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>","credits":"<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>","info":""},"id":"f7e65722-ac21-4e7c-93ff-5983d0243f5b","isHidden":false,"type":"accordion"},{"content":{"date":"2024-11-01","typology":"","project":"","topbar":[{"category":"Location","text":"Berlin"},{"category":"Hosted by","text":"Someone"}],"title":"Title","subtitle":"Event subtitle","image":[],"body":"<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>","credits":"<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>","info":""},"id":"a763daa2-ee93-4b76-b1b7-6a18a19c41e5","isHidden":false,"type":"accordion"},{"content":{"date":"2022-11-01","typology":"","project":"","topbar":[{"category":"Location","text":"Berlin"},{"category":"Hosted by","text":"Someone"}],"title":"Title","subtitle":"Event subtitle","image":[],"body":"<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>","credits":"<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>","info":""},"id":"db9df9b7-a16a-4e39-8505-3de88479a385","isHidden":false,"type":"accordion"}]
+
+----
+
+Typename: Event type
+
+----
+
+Types: Performance, Public Event, Workshop, Exhibition
+
+----
+
+Filtername: Project
+
+----
+
+Filters: Shared Landscapes, By Us for Us, Schlieren
+
+----
+
+Projects: Schlieren, Shared Landscapes, By Us for Us
+
+----
+
+Filtersetatitle: 
+
+----
+
+Filterseta: 
+
+----
+
+Filtersetbtitle: 
+
+----
+
+Filtersetb: 
+
+----
+
+Text: 
+
+----
+
+Uuid: gyVMlkXCNR3wcn9g

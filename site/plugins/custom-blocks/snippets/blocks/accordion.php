@@ -42,11 +42,10 @@
         </div>
     </div>
 
-<div class="accordion-divider">
-    <p class="text-label">PAST</p>
-</div>
-
 <?php elseif ($block->date()->toDate() < time()) : ?>
+    <div class="accordion-divider">
+        <p class="text-label">PAST</p>
+    </div>
     <div class="accordion --past" data-type="<?= $block->typology() ?>" data-category="<?= $block->project() ?>">
     <div class="accordion-wrapper">
         <ul class="accordion-topbar">

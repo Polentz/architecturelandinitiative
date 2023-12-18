@@ -139,7 +139,7 @@ hr {
 .text {
     font-family: var(--body-text-font);
     font-size: var(--body-text-size);
-    text-indent: 2.5rem;
+    /* text-indent: 2.5rem; */
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
@@ -147,7 +147,7 @@ hr {
     -webkit-box-direction: normal;
     -ms-flex-direction: column;
     flex-direction: column;
-    gap: .5rem;
+    gap: var(--small-margin);
 }
 
 .text-intro {
@@ -167,7 +167,7 @@ hr {
     -webkit-box-direction: normal;
     -ms-flex-direction: column;
     flex-direction: column;
-    gap: .5rem;
+    gap: var(--small-margin);
 }
 
 .text-label {
@@ -940,7 +940,7 @@ hr {
 
 .gallery-item.--zoom-in .media-info {
     display: block;
-    text-indent: 0;
+    /* text-indent: 0; */
 }
 
 .gallery-item.--zoom-in .media-text-wrapper {
