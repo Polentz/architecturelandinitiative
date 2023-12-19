@@ -1,7 +1,7 @@
-// console.log(
-//     '%cDesign & Code: Giulia Polenta https://www.iampolenta.com/',
-//     'color: #4c00ff; font-family: sans-serif; font-size: .75rem;'
-// );
+console.log(
+    '%cDesign & Code: Giulia Polenta https://www.iampolenta.com/',
+    'color: #4c00ff; font-family: sans-serif; font-size: .75rem;'
+);
 
 gsap.registerPlugin(ScrollTrigger, Flip);
 
@@ -133,7 +133,6 @@ const cursor = () => {
             });
         };
     };
-    mediaQuery.addListener(handleMediaQuery);
     handleMediaQuery(mediaQuery);
 };
 
@@ -153,7 +152,6 @@ split(document.querySelector(".logo-word-3"));
 if (document.querySelector(".logo-element")) {
     split(document.querySelector(".logo-element"));
 };
-
 
 const architecture = Array.from(document.querySelectorAll(".logo-word-1 .letter"));
 const land = Array.from(document.querySelectorAll(".logo-word-2 .letter"));
@@ -284,7 +282,7 @@ const handleTitleHover = () => {
             });
         });
     });
-}
+};
 
 const shuffleColors = () => {
     const colors = [
@@ -447,7 +445,7 @@ const handleBoxElements = () => {
     boxes.forEach(box => {
         const openButton = box.querySelector(".button");
         const innerBox = box.querySelector(".inner-box");
-        const innerBoxItems = box.querySelectorAll(".inner-box-column");
+        const innerBoxItems = box.querySelectorAll(".inner-box-column, .inner-box-header, .inner-box-content");
         const closeButton = box.querySelector(".x-button");
 
         const addClasses = () => {
@@ -571,7 +569,7 @@ const handleProjectInfo = () => {
             ease: "power1.out",
             simple: true,
         });
-    }
+    };
 
     const handleMediaQuery = (e) => {
         if (e.matches) {
@@ -583,9 +581,8 @@ const handleProjectInfo = () => {
             readMoreButton.addEventListener("click", () => {
                 openInfoSlider();
             });
-        }
+        };
     };
-    mediaQuery.addListener(handleMediaQuery);
     handleMediaQuery(mediaQuery);
 };
 
@@ -706,7 +703,6 @@ const handleGallery = () => {
             });
         };
     };
-    mediaQuery.addListener(handleMediaQuery);
     handleMediaQuery(mediaQuery);
 };
 
@@ -740,7 +736,6 @@ const handleMenuOnMobile = () => {
     const menuElements = document.querySelectorAll(".menu-element");
     const handleMediaQuery = (e) => {
         if (e.matches) {
-            console.log(menuButton)
             menuButton.addEventListener("click", () => {
                 nav.classList.toggle("--show");
                 const tl = gsap.timeline();
@@ -762,9 +757,8 @@ const handleMenuOnMobile = () => {
             });
         } else {
             menuButton.remove();
-        }
+        };
     };
-    mediaQuery.addListener(handleMediaQuery);
     handleMediaQuery(mediaQuery);
 };
 

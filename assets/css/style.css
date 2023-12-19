@@ -44,7 +44,7 @@ html {
     --main-color: ;
     --acc-color: ;
     --background: ;
-    --shade-color: #f0eceb75;
+    --shade-color: #f0eceb50;
     --body-text-font: "GT America";
     --body-text-size: 1rem;
     --secondary-text-font: "GT Cinetype";
@@ -139,7 +139,6 @@ hr {
 .text {
     font-family: var(--body-text-font);
     font-size: var(--body-text-size);
-    /* text-indent: 2.5rem; */
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
@@ -255,9 +254,6 @@ hr {
     left: 0;
     z-index: 3;
     padding: 0 var(--half-margin);
-    background: var(--shade-color);
-    -webkit-backdrop-filter: blur(2rem);
-    backdrop-filter: blur(2rem);
 }
 
 .header-headline a {
@@ -475,6 +471,7 @@ hr {
 
 .mobile-menu-button {
     display: none;
+    background: var(--acc-color);
 }
 
 .banner {
@@ -799,7 +796,6 @@ hr {
 }
 
 .page-intro {
-    /* width: var(--doc-width); */
     width: 100%;
     min-height: var(--doc-height);
     -webkit-box-flex: 0;
@@ -947,7 +943,6 @@ hr {
 
 .gallery-item.--zoom-in .media-info {
     display: block;
-    /* text-indent: 0; */
 }
 
 .gallery-item.--zoom-in .media-text-wrapper {
@@ -1031,9 +1026,6 @@ hr {
     height: auto;
     color: var(--white);
     background: var(--black);
-    display: -ms-grid;
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
     pointer-events: none;
     -webkit-transform: scale(0);
     -ms-transform: scale(0);
@@ -1055,44 +1047,45 @@ hr {
     transform: scale(1);
 }
 
+.inner-box-header,
+.inner-box-content,
 .inner-box-column {
-    -ms-flex-item-align: stretch;
-    -ms-grid-row-align: stretch;
-    align-self: stretch;
-    -ms-grid-column-align: stretch;
-    justify-self: stretch;
-    outline: var(--border-white);
-    outline-offset: -0.5px;
     opacity: 0;
     -webkit-transition: opacity .5s ease;
     -o-transition: opacity .5s ease;
     transition: opacity .5s ease;
 }
 
-.inner-box-column.grid-span-1 {
-    -ms-grid-column-span: 1;
-    grid-column: span 1;
-}
-
-.inner-box-column.grid-span-2 {
-    -ms-grid-column: 1;
-    -ms-grid-column-span: 2;
-    grid-column: 1 / span 2;
-}
-
+.inner-box-header.--opacity,
+.inner-box-content.--opacity,
 .inner-box-column.--opacity {
     opacity: 1;
+}
+
+.inner-box-header,
+.inner-box-content {
+    display: -ms-grid;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
 }
 
 .inner-box-header {
     font-family: var(--secondary-text-font);
     font-size: var(--secondary-text-size);
     line-height: 120%;
+}
+
+.box-header-wrapper {
     padding: var(--small-margin) var(--half-margin);
     border-bottom: var(--border-white);
 }
 
-.inner-box-content {
+.box-header-wrapper:nth-of-type(2),
+.box-content-wrapper:nth-of-type(2) {
+    border-left: var(--border-white);
+}
+
+.box-content-wrapper {
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
@@ -1100,13 +1093,14 @@ hr {
     -webkit-box-direction: normal;
     -ms-flex-direction: column;
     flex-direction: column;
-    gap: var(--small-margin);
+    gap: 4px;
     padding: var(--half-margin);
 }
 
 .deselect-filters {
     display: none;
     padding: var(--small-margin);
+    border-top: var(--border-white);
 }
 
 .deselect-filters.--display {
@@ -1143,7 +1137,7 @@ hr {
 
 .x-button {
     position: absolute;
-    top: var(--half-margin);
+    top: var(--main-margin);
     left: -2rem;
     opacity: 0;
     -webkit-transition: opacity .5s ease;
@@ -1155,22 +1149,10 @@ hr {
     opacity: 1;
 }
 
-.filter-wrapper {
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-orient: vertical;
-    -webkit-box-direction: normal;
-    -ms-flex-direction: column;
-    flex-direction: column;
-    gap: 4px;
-}
-
 .read-more-button p,
 .deselect-filters p,
 .filter {
     position: relative;
-    /* white-space: nowrap; */
     width: -webkit-fit-content;
     width: -moz-fit-content;
     width: fit-content;
@@ -1458,7 +1440,6 @@ hr {
 
     .banner {
         height: var(--doc-height);
-        /* border: var(--border-black); */
     }
 
     .banner-content {
@@ -1479,7 +1460,6 @@ hr {
     .slider-content {
         gap: var(--main-margin);
         padding-top: var(--double-margin);
-        /* border: var(--border-black); */
     }
 
     .slider-button {
@@ -1513,7 +1493,6 @@ hr {
 
     .inner-box {
         width: calc(100vw - var(--half-margin) - var(--half-margin));
-        min-height: calc(var(--doc-height) / 2);
     }
 
     .x-button {
@@ -1543,8 +1522,7 @@ hr {
     }
 
     .accordion-title h3 {
-        font-size: var(--title-size);
-        font-weight: 600;
+        font-size: 3.5rem;
     }
 
     .accordion-image {

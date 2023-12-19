@@ -6,6 +6,23 @@
     text-rendering: optimizeLegibility;
     -moz-osx-font-smoothing: grayscale;
     -webkit-font-smoothing: antialiased;
+    scrollbar-width: thin;
+    scrollbar-gutter: stable;
+    scrollbar-color: var(--shade-color) var(--main-color);
+}
+
+::-webkit-scrollbar {
+    width: 4px;
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--shade-color);
+    -webkit-backdrop-filter: blur(2rem);
+    backdrop-filter: blur(2rem);
+}
+
+::-webkit-scrollbar-track {
+    background: var(--main-color);
 }
 
 a,
