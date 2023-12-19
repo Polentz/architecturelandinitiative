@@ -7,7 +7,6 @@
     -moz-osx-font-smoothing: grayscale;
     -webkit-font-smoothing: antialiased;
     scrollbar-width: thin;
-    scrollbar-gutter: stable;
     scrollbar-color: var(--shade-color) var(--main-color);
 }
 
