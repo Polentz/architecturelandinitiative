@@ -763,6 +763,25 @@ const handleMenuOnMobile = () => {
     handleMediaQuery(mediaQuery);
 };
 
+const lazyloading = () => {
+    let lazyloadMedia;
+    lazyloadMedia = document.querySelectorAll(".lazy");
+    const mediaObserver = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+                const media = entry.target;
+                media.src = media.dataset.src;
+                lazyloadContainer = media.parentNode;
+                media.classList.remove("lazy");
+                mediaObserver.unobserve(media);
+            };
+        });
+    });
+    lazyloadMedia.forEach((media) => {
+        mediaObserver.observe(media);
+    });
+};
+
 window.addEventListener("load", () => {
     history.scrollRestoration = "manual";
     documentHeight();

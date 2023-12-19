@@ -1,6 +1,6 @@
 <?php if ($media->type() == 'image') : ?>
     <figure class="gallery-item image-item" data-type="<?= $media->mediatype()->slug() ?>" data-category="<?= $media->filter()->slug() ?>" data-project="<?= $media->parent()->slug()?>">
-        <img src="<?= $media->resize(1200, null)->url() ?>" alt="<?= $media->alt() ?>">
+        <img class="lazy" src="" data-src="<?= $media->resize(1200, null)->url() ?>" alt="<?= $media->alt() ?>" />
         <figcaption>
             <div class="media-text-wrapper">
                 <div class="media-summary text-label">
@@ -32,7 +32,7 @@
 
 <?php if ($media->type() == 'video') : ?>
     <figure class="gallery-item video-item" data-type="<?= $media->mediatype()->slug() ?>" data-category="<?= $media->filter()->slug() ?>" data-project="<?= $media->parent()->slug()?>">
-        <video src="<?= $media->url() ?>" autoplay muted loop controlslist="noplaybackrate nodownload" disablePictureInPicture type="video"></video>
+        <video class="lazy" src="" data-src="<?= $media->url() ?>" autoplay muted loop controlslist="noplaybackrate nodownload" disablePictureInPicture type="video"></video>
         <figcaption>
             <div class="media-text-wrapper">
                 <div class="media-summary text-label">
