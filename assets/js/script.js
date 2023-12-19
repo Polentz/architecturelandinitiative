@@ -447,6 +447,7 @@ const handleBoxElements = () => {
         const innerBox = box.querySelector(".inner-box");
         const innerBoxItems = box.querySelectorAll(".inner-box-column, .inner-box-header, .inner-box-content");
         const closeButton = box.querySelector(".x-button");
+        const deselecter = document.querySelector(".deselect-filters");
 
         const addClasses = () => {
             innerBox.classList.add("--scale-in");
@@ -478,7 +479,7 @@ const handleBoxElements = () => {
             removeClasses();
         });
 
-        document.querySelector(".deselect-filters").addEventListener("click", () => {
+        deselecter.addEventListener("click", () => {
             removeClasses();
         });
     });
@@ -599,13 +600,13 @@ const handleFilters = () => {
             const itemType = item.dataset.type;
             const itemCategory = item.dataset.category;
             const itemProject = item.dataset.project;
-            if (itemType == filterId) {
+            if (itemType === filterId) {
                 item.classList.remove("--unfiltered");
                 item.classList.add("--filtered");
-            } else if (itemCategory == filterId) {
+            } else if (itemCategory === filterId) {
                 item.classList.remove("--unfiltered");
                 item.classList.add("--filtered");
-            } else if (itemProject == filterId) {
+            } else if (itemProject === filterId) {
                 item.classList.remove("--unfiltered");
                 item.classList.add("--filtered");
             } else {

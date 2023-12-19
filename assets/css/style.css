@@ -641,7 +641,6 @@ hr {
     width: 100%;
     min-height: var(--doc-height);
     pointer-events: all;
-    overflow: hidden;
     -webkit-transition: -webkit-filter .25s ease-in;
     transition: -webkit-filter .25s ease-in;
     -o-transition: filter .25s ease-in;
@@ -840,6 +839,7 @@ hr {
     -ms-flex-direction: column;
     flex-direction: column;
     gap: var(--small-margin);
+    /* transition: background-color 1s ease; */
 }
 
 .media-text-wrapper {
@@ -916,6 +916,8 @@ hr {
     -ms-flex-direction: row;
     flex-direction: row;
     gap: var(--half-margin);
+    padding: var(--half-margin);
+    background: var(--shade-color);
 }
 
 .gallery-item.--zoom-in img {
