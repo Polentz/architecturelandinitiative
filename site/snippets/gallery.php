@@ -32,7 +32,7 @@
 
 <?php if ($media->type() == 'video') : ?>
     <figure class="gallery-item video-item" data-type="<?= $media->mediatype()->slug() ?>" data-category="<?= $media->filter()->slug() ?>" data-project="<?= $media->parent()->slug()?>">
-        <video class="lazy" src="" data-src="<?= $media->url() ?>" autoplay muted loop controlslist="noplaybackrate nodownload" disablePictureInPicture type="video"></video>
+        <video src="<?= $media->url() ?>" autoplay muted loop controlslist="noplaybackrate nodownload" disablePictureInPicture type="video"></video>
         <figcaption>
             <div class="media-text-wrapper">
                 <div class="media-summary text-label">

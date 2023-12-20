@@ -305,7 +305,7 @@ const horizontalScroll = () => {
     let items = gsap.utils.toArray(".scroll-items");
     let pageWrapper = document.querySelector("main");
 
-    items.forEach((container, i) => {
+    items.forEach(container => {
         let localItems = container.querySelectorAll(".scroll-item");
         let distance = () => {
             let lastItemBounds = localItems[localItems.length - 1].getBoundingClientRect();
@@ -454,7 +454,7 @@ const handleBoxElements = () => {
                 innerBox.classList.remove("--scale-in");
                 openButton.classList.remove("--scale-out");
             }, 250);
-        }
+        };
 
         openButton.addEventListener("click", () => {
             addClasses();
@@ -505,7 +505,6 @@ const handleProjectInfo = () => {
                 amount: 0.25,
             },
             ease: "power1.out",
-            simple: true,
         });
 
         gsap.to(infoButton, {
@@ -553,7 +552,6 @@ const handleProjectInfo = () => {
                 amount: 0,
             },
             ease: "power1.out",
-            simple: true,
         });
     };
 

@@ -301,7 +301,7 @@ hr {
     width: -moz-fit-content;
     width: fit-content;
     min-width: 0%;
-    /* border: var(--border-black); */
+    border: var(--border-black);
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
@@ -373,6 +373,7 @@ hr {
     bottom: 0;
     left: 0;
     z-index: 4;
+    border-top: var(--border-black);
 }
 
 .nav {
@@ -390,7 +391,6 @@ hr {
     -ms-flex-align: center;
     align-items: center;
     padding: 0 var(--half-margin);
-    border-top: var(--border-black);
 }
 
 .nav,
@@ -505,7 +505,7 @@ hr {
     position: absolute;
     top: calc(0px - var(--button-size));
     right: var(--main-margin);
-    /* border: var(--border-black); */
+    border: var(--border-black);
     background: var(--shade-color);
 }
 
@@ -551,7 +551,7 @@ hr {
     -webkit-transform: translateX(1px);
     -ms-transform: translateX(1px);
     transform: translateX(1px);
-    /* border: var(--border-black); */
+    border: var(--border-black);
     background: var(--shade-color);
     -webkit-backdrop-filter: blur(2rem);
     backdrop-filter: blur(2rem);
@@ -583,7 +583,7 @@ hr {
     background: var(--shade-color);
     -webkit-backdrop-filter: blur(2rem);
     backdrop-filter: blur(2rem);
-    /* border-left: var(--border-black); */
+    border-left: var(--border-black);
     overflow-y: scroll;
     scrollbar-width: none;
 }
@@ -676,6 +676,7 @@ hr {
 
 .grid-layout {
     padding-right: var(--double-margin);
+    border-bottom: var(--border-black);
 }
 
 .grid-layout-item {
@@ -839,7 +840,6 @@ hr {
     -ms-flex-direction: column;
     flex-direction: column;
     gap: var(--small-margin);
-    /* transition: background-color 1s ease; */
 }
 
 .media-text-wrapper {
@@ -916,8 +916,6 @@ hr {
     -ms-flex-direction: row;
     flex-direction: row;
     gap: var(--half-margin);
-    padding: var(--half-margin);
-    background: var(--shade-color);
 }
 
 .gallery-item.--zoom-in img {
