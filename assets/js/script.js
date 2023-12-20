@@ -301,24 +301,9 @@ const shuffleColors = () => {
     mainBackground.style.setProperty("--background", `linear-gradient(0deg, ${randomColorSet[1]} 0%, ${randomColorSet[1]} 10%, ${randomColorSet[0]} 100%)`);
 };
 
-const horizontalScroll = (textSnapStart) => {
+const horizontalScroll = () => {
     let items = gsap.utils.toArray(".scroll-items");
     let pageWrapper = document.querySelector("main");
-
-    gsap.to(".page-intro", {
-        x: "0",
-        ease: "none",
-        scrollTrigger: {
-            trigger: ".page-intro",
-            start: textSnapStart,
-            scrub: 0.5,
-            // snap: {
-            //     snapTo: 1,
-            //     duration: 0.5,
-            //     ease: "power1.inOut",
-            // },
-        },
-    });
 
     items.forEach((container, i) => {
         let localItems = container.querySelectorAll(".scroll-item");
@@ -338,11 +323,11 @@ const horizontalScroll = (textSnapStart) => {
                 pin: pageWrapper,
                 scrub: true,
                 invalidateOnRefresh: true,
-                // snap: {
-                //     snapTo: 1,
-                //     duration: 0.5,
-                //     ease: "power1.inOut",
-                // },
+                snap: {
+                    snapTo: 1,
+                    duration: 0.5,
+                    ease: "power1.inOut",
+                },
             },
         });
     });

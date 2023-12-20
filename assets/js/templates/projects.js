@@ -4,7 +4,7 @@ document.querySelectorAll(".item-title a, .item-title p").forEach(title => {
 });
 
 window.addEventListener("load", () => {
-    horizontalScroll("25% bottom");
+    horizontalScroll();
     animateTitle(-100, "none", 0.1);
     handleTitleHover();
 });

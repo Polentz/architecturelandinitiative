@@ -35,5 +35,5 @@ observerElements.forEach(el => {
 window.addEventListener("load", () => {
     // animateTitle("none", 100, 0.05);
     handleTitleHover();
-    horizontalScroll("100% bottom");
+    horizontalScroll();
 });
