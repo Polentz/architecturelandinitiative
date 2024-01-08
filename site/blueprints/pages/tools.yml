@@ -6,8 +6,15 @@ sections:
     fields:
       intro:
         label: Introduction text
-        type: textarea
-        buttons: false
+        type: writer
+        marks:
+          - bold
+          - italic
+          - underline
+          - link
+          - email
+          - clear
+        nodes: false
   items:
     label: false
     type: pages

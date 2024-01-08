@@ -382,7 +382,7 @@ const bannerOpener = () => {
     const banner = document.querySelector(".banner");
     const bannerContent = document.querySelector(".banner-content");
     const bannerButton = banner.querySelector(".banner-button");
-    const bodyElements = gsap.utils.toArray(".main, .box-container, .info-slider, .slider");
+    const bodyElements = gsap.utils.toArray(".main section, .box-container, .info-slider, .slider");
     const bannerelements = gsap.utils.toArray(bannerContent, bannerButton);
 
     const addClasses = () => {
