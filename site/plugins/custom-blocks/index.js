@@ -68,16 +68,7 @@ panel.plugin("architecturelandinitiative/blocks", {
         </div>
       `
     },
-    platformblocklist: {
-      template: `
-        <k-input
-          v-bind="field('title')"
-          :value="content.title"
-          @input="update({ title: $event })">
-        </k-input>
-      `
-    },
-    platformblockcolumn: {
+    platformblock: {
       template: `
         <k-input
           v-bind="field('title')"

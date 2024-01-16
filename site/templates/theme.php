@@ -12,13 +12,9 @@
         </section>
     <?php endif ?>
 
-    <?php if ($page->selectLayout()->isTrue()) : ?>
-        <section class="column-layout">
-    <?php else : ?>
-        <section class="list-layout">
-    <?php endif ?>
-            <?= $page->blocks()->toBlocks() ?>
-        </section>
+    <section class="column-layout">
+        <?= $page->blocks()->toBlocks() ?>
+    </section>
 </main>
 
 <div class="box-container">

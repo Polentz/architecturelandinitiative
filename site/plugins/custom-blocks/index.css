@@ -39,8 +39,7 @@
 }
 
 .k-block-container-type-timelineblock,
-.k-block-container-type-platformblocklist,
-.k-block-container-type-platformblockcolumn {
+.k-block-container-type-platformblock {
     padding: 0;
 }
 
