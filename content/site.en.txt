@@ -82,6 +82,37 @@ Timelinefilters:
 
 ----
 
+Platformfilters:
+
+- 
+  filter: Exhibition
+- 
+  filter: Exhibition on-line
+- 
+  filter: Grant
+- 
+  filter: Fellowship
+- 
+  filter: Residency
+- 
+  filter: Report
+- 
+  filter: Publication
+- 
+  filter: Article
+- 
+  filter: Exhibition catalogue
+- 
+  filter: Resource
+- 
+  filter: Reading
+- 
+  filter: Talk
+- 
+  filter: Lecture
+
+----
+
 Description: Architecture Land Initiative (ALIN) is a cooperative based in Geneva and Zurich. ALIN is a non-profit common-benefit platform
 
 ----
@@ -91,6 +122,209 @@ Keywords: architecture, landscape, urbanism, geneva, zurich, cooperative
 ----
 
 Ogimage: 
+
+----
+
+Categories:
+
+- 
+  category: Events type
+- 
+  category: Media type
+- 
+  category: Members
+- 
+  category: Platforms type
+- 
+  category: Process stage
+- 
+  category: Publications type
+
+----
+
+Filters:
+
+- 
+  category: Events type
+  filter: Workshop
+  0: '"content":{"isHidden":"type","filters":[{"id":"filtersettitle"},{"Process Stage":"filterset"},{"filter":"Archival materials"}]}'
+  1: filterset":"filter
+  2: "Images":false
+  3: filter":"Videos
+- 
+  category: Events type
+  filter: Exhibition
+  0: '"content":{"isHidden":"type","filters":[{"id":"filtersettitle"},{"Process Stage":"filterset"},{"filter":"Archival materials"}]}'
+  1: filterset":"filter
+  2: "Images":false
+  3: filter":"Videos
+- 
+  category: Events type
+  filter: Exhibition on-line
+  0: '"content":{"isHidden":"type","filters":[{"id":"filtersettitle"},{"Process Stage":"filterset"},{"filter":"Archival materials"}]}'
+  1: filterset":"filter
+  2: "Images":false
+  3: filter":"Videos
+- 
+  category: Events type
+  filter: Performance
+  0: '"content":{"isHidden":"type","filters":[{"id":"filtersettitle"},{"Process Stage":"filterset"},{"filter":"Archival materials"}]}'
+  1: filterset":"filter
+  2: "Images":false
+  3: filter":"Videos
+- 
+  category: Events type
+  filter: Talk
+  0: '"content":{"isHidden":"type","filters":[{"id":"filtersettitle"},{"Process Stage":"filterset"},{"filter":"Archival materials"}]}'
+  1: filterset":"filter
+  2: "Images":false
+  3: filter":"Videos
+- 
+  category: Events type
+  filter: Public Walk
+  0: '"content":{"isHidden":"type","filters":[{"id":"filtersettitle"},{"Process Stage":"filterset"},{"filter":"Archival materials"}]}'
+  1: filterset":"filter
+  2: "Images":false
+  3: filter":"Videos
+- 
+  category: Events type
+  filter: Teaching Review
+  0: '"content":{"isHidden":"type","filters":[{"id":"filtersettitle"},{"Process Stage":"filterset"},{"filter":"Archival materials"}]}'
+  1: filterset":"filter
+  2: "Images":false
+  3: filter":"Videos
+- 
+  category: Media type
+  filter: Image
+- 
+  category: Media type
+  filter: Map
+- 
+  category: Media type
+  filter: Plan
+- 
+  category: Media type
+  filter: Audio
+- 
+  category: Media type
+  filter: Video
+- 
+  category: Media type
+  filter: Document
+- 
+  category: Media type
+  filter: Drawing
+- 
+  category: Media type
+  filter: Printed Matter
+- 
+  category: Media type
+  filter: Reference
+- 
+  category: Members
+  filter: Zoé Lefèvre
+- 
+  category: Members
+  filter: Guillaume Othenin-Girard
+- 
+  category: Members
+  filter: Aurélie Dupuis
+- 
+  category: Members
+  filter: Guillaume Othenin-Girard
+- 
+  category: Members
+  filter: Léonore Nemec
+- 
+  category: Platforms type
+  filter: Exhibition catalogue
+  0: '"filter":{"content":"filtersettitle","Media type":[{"filter":"Outcomes"},{"id":"5e4c025d-c32f-40bf-b5ca-57d7c2472642"}]}'
+  1: >
+    d4790380-39a3-4926-bd3b-5a9e9ebb4fe4":"isHidden
+  2: "type":false
+  3: filters":"Research
+- 
+  category: Platforms type
+  filter: Virtual Residencies
+- 
+  category: Platforms type
+  filter: Residencies
+- 
+  category: Platforms type
+  filter: Grants
+- 
+  category: Process stage
+  filter: Archive material
+- 
+  category: Process stage
+  filter: Site visit
+- 
+  category: Process stage
+  filter: Research
+- 
+  category: Process stage
+  filter: Public Walk
+- 
+  category: Process stage
+  filter: Event
+- 
+  category: Process stage
+  filter: Outcome
+- 
+  category: Process stage
+  filter: Process
+- 
+  category: Process stage
+  filter: Making
+- 
+  category: Publications type
+  filter: Public Event
+  0: '"content":{"isHidden":"type","filters":[{"id":"filtersettitle"},{"Process Stage":"filterset"},{"filter":"Archival materials"}]}'
+  1: filterset":"filter
+  2: "Images":false
+  3: filter":"Videos
+- 
+  category: Publications type
+  filter: Article
+  0: '"filter":{"content":"filtersettitle","Media type":[{"filter":"Outcomes"},{"id":"5e4c025d-c32f-40bf-b5ca-57d7c2472642"}]}'
+  1: >
+    d4790380-39a3-4926-bd3b-5a9e9ebb4fe4":"isHidden
+  2: "type":false
+  3: filters":"Research
+
+----
+
+Testnewfilters:
+
+- 
+  category: Events type
+  filter: Exhibition
+- 
+  category: Media type
+  filter: Audio
+- 
+  category: Members
+  filter: Zoé Lefèvre
+- 
+  category: Members
+  filter: Aurélie Dupuis
+- 
+  category: Process Stage
+  filter: Archive material
+
+----
+
+Testnewfilter:
+
+- 
+  category: Members
+  filter: Zoé Lefèvre
+- 
+  category: Media
+  filter: Audio
+- 
+  category: Events
+  filter: Exhibition
 
 ----
 
@@ -170,10 +404,6 @@ Audiofiles:
 ----
 
 Videofiles: 
-
-----
-
-Filters: [{"content":{"filtersettitle":"Process Stage","filterset":[{"filter":"Archival materials"},{"filter":"Research"},{"filter":"Outcomes"}]},"id":"5e4c025d-c32f-40bf-b5ca-57d7c2472642","isHidden":false,"type":"filters"},{"content":{"filtersettitle":"Media type","filterset":[{"filter":"Images"},{"filter":"Videos"}]},"id":"d4790380-39a3-4926-bd3b-5a9e9ebb4fe4","isHidden":false,"type":"filters"}]
 
 ----
 

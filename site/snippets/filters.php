@@ -10,14 +10,15 @@
         </svg>
     </button>
     <div class="inner-box">
-
         <div class="inner-box-header">
             <div class="box-header-wrapper">
                 <p>Filter by <?= $page->typeName()->lower() ?></p>
             </div>
-            <div class="box-header-wrapper">
-                <p>Filter by <?= $page->filterName()->lower() ?></p>
-            </div>
+            <?php if ($page->filterName()->isNotEmpty()) :?>
+                <div class="box-header-wrapper">
+                    <p>Filter by <?= $page->filterName()->lower() ?></p>
+                </div>
+            <?php endif ?>
         </div>
 
         <div class="inner-box-content">
@@ -26,11 +27,13 @@
                     <li id="<?= Str::slug($type) ?>" class="filter" data-type="<?= Str::slug($type) ?>"><?= $type ?></li>
                 <?php endforeach ?>
             </ul>
-            <ul class="box-content-wrapper  text-label">
-                <?php foreach ($page->filters()->split() as $filter): ?>
-                    <li id="<?= Str::slug($filter) ?>" class="filter" data-category="<?= Str::slug($filter) ?>"><?= $filter ?></li>
-                <?php endforeach ?>
-            </ul>
+            <?php if ($page->filterName()->isNotEmpty()) :?>
+                <ul class="box-content-wrapper  text-label">
+                    <?php foreach ($page->filters()->split() as $filter): ?>
+                        <li id="<?= Str::slug($filter) ?>" class="filter" data-category="<?= Str::slug($filter) ?>"><?= $filter ?></li>
+                    <?php endforeach ?>
+                </ul>
+            <?php endif ?>
         </div>
         <div class="deselect-filters">
             <p class="text-label">All</p>

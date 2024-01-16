@@ -2,20 +2,4 @@ Title: Talks / Lectures / Readings
 
 ----
 
-Uuid: PU9AHUgHeFAuxWCA
-
-----
-
-Intro: 
-
-----
-
-Summary: 
-
-----
-
-Filterseta: 
-
-----
-
-Filtersetb: 
+Uuid: AxcO3yeQx5n2lwmI

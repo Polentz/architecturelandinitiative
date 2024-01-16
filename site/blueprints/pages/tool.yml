@@ -54,6 +54,7 @@ tabs:
               types: 
                 type: multiselect
                 label: Available filters   
+                layout: list
                 options:
                   type: query
                   query: site.mediaFilters.toStructure
@@ -66,6 +67,7 @@ tabs:
               filters:
                 type: multiselect
                 label: Available filters
+                layout: list
                 options:
                   type: query
                   query: site.grandchildren.template("project")

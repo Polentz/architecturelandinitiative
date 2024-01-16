@@ -16,14 +16,14 @@ tabs:
                 label: Content
                 numbered: false
               intro:
-                label: Text
+                label: Introduction text
                 type: textarea
                 buttons: false
               blocks:
-                label: Timeline
+                label: Items
                 type: blocks
                 fieldsets:
-                  - accordion
+                  - timelineblock
       sidebar:
         width: 1/3
         sections:
@@ -43,6 +43,7 @@ tabs:
               types: 
                 type: multiselect
                 label: Available filters
+                layout: list
                 options:
                   type: query
                   query: site.timelineFilters.toStructure
@@ -55,6 +56,7 @@ tabs:
               filters:
                 type: multiselect
                 label: Available filters
+                layout: list
                 options:
                   type: query
                   query: site.grandchildren.template("project")

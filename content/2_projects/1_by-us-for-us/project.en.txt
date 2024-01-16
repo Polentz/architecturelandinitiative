@@ -21,7 +21,7 @@ Typename: Media type
 
 ----
 
-Types: Image, Video, Drawing, Plan, Map, Document, Printed matter
+Types: Image
 
 ----
 

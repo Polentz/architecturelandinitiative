@@ -26,7 +26,7 @@ fields:
       text: "{{ page.title }}"
       value: "{{ page.title }}"
   topbar:
-    label: "Add topbar elements (max: 2)"
+    label: "Add elements to the topbar (max: 2)"
     type: structure
     max: 2
     columns:
@@ -54,6 +54,15 @@ fields:
     layout: cards
     size: big
     multiple: false 
+    uploads:
+      template: cover     
+  gap:
+    type: gap
+    width: 1/2
+  imagecaption:
+    label: Image caption
+    type: text
+    width: 1/2
   body:
     label: Text
     type: writer

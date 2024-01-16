@@ -189,9 +189,16 @@ hr {
     gap: var(--small-margin);
 }
 
+.text-list {
+    font-family: var(--label-text-font);
+    font-size: var(--label-text-size);
+    line-height: 130%;
+}
+
 .text a,
 .text-subtext a,
 .text-caption a,
+.text-list a,
 .contact-block a {
     position: relative;
 }
@@ -199,6 +206,7 @@ hr {
 .text a::before,
 .text-subtext a::before,
 .text-caption a::before,
+.text-list a::before,
 .contact-block a::before {
     content: "";
     position: absolute;
@@ -871,6 +879,10 @@ hr {
     cursor: zoom-out;
 }
 
+.gallery.--width .gallery-item.--zoom-in figcaption {
+    cursor: none;
+}
+
 .gallery-item img,
 .gallery-item video,
 .gallery-item audio {
@@ -1004,6 +1016,7 @@ hr {
     bottom: 0;
     left: 0;
     pointer-events: all;
+    border: var(--border-white);
     -webkit-transform: scale(1);
     -ms-transform: scale(1);
     transform: scale(1);
@@ -1027,10 +1040,11 @@ hr {
     position: absolute;
     right: -2rem;
     bottom: 0;
-    width: calc(50vw - var(--half-margin));
+    width: calc(40vw - var(--half-margin));
     height: auto;
     color: var(--white);
     background: var(--black);
+    border: var(--border-white);
     pointer-events: none;
     -webkit-transform: scale(0);
     -ms-transform: scale(0);
@@ -1071,7 +1085,7 @@ hr {
 .inner-box-content {
     display: -ms-grid;
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(auto-fit, minmax(50%, 1fr))
 }
 
 .inner-box-header {
@@ -1099,7 +1113,7 @@ hr {
     -ms-flex-direction: column;
     flex-direction: column;
     gap: 4px;
-    padding: var(--half-margin);
+    padding: var(--small-margin) var(--half-margin);
 }
 
 .deselect-filters {
@@ -1142,8 +1156,9 @@ hr {
 
 .x-button {
     position: absolute;
-    top: var(--main-margin);
+    top: var(--half-margin);
     left: -2rem;
+    border: var(--border-white);
     opacity: 0;
     -webkit-transition: opacity .5s ease;
     -o-transition: opacity .5s ease;
@@ -1212,50 +1227,58 @@ hr {
     transform-origin: 0% 50%;
 }
 
-.accordion {
-    -webkit-transition: color .5s ease;
-    -o-transition: color .5s ease;
-    transition: color .5s ease;
+.column-layout {
+    display: grid;
+    -ms-grid-columns: 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr;
+    row-gap: var(--half-margin);
+    column-gap: var(--half-margin);
 }
 
 .accordion.--filtered {
-    pointer-events: all;
-    color: var(--black);
-    opacity: 1;
+    display: block;
 }
 
 .accordion.--unfiltered {
-    pointer-events: none;
-    color: #1d1d1b50;
-    opacity: .25;
-}
-
-.accordion-divider {
-    border-top: var(--border-black);
-    padding: .5rem 0;
+    display: none;
 }
 
 .accordion-topbar {
-    display: -ms-grid;
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(0, 1fr));
-    row-gap: var(--small-margin);
-    -webkit-column-gap: 2rem;
-    -moz-column-gap: 2rem;
-    column-gap: 2rem;
+    display: flex;
+    justify-content: space-between;
+    gap: var(--small-margin);
     border-top: var(--border-black);
     padding: .5rem 0;
     cursor: pointer;
 }
 
-.topbar-item:last-child {
-    -ms-grid-column-align: end;
-    justify-self: end;
-    text-align: end;
+.column-layout .accordion-topbar {
+    flex-direction: column;
+    align-items: flex-start;
+    row-gap: .25rem;
+    padding: var(--small-margin) 0;
 }
 
-.accordion.--ongoing .accordion-topbar,
-.accordion:last-of-type .accordion-topbar {
+.column-layout .accordion-topbar-title {
+    margin-bottom: var(--small-margin);
+}
+
+.column-layout .accordion-text {
+    margin-bottom: 0;
+    padding: var(--small-margin) 0;
+    gap: var(--small-margin);
+}
+
+.column-layout .accordion-items {
+    flex-direction: column;
+    gap: var(--small-margin);
+}
+
+.column-layout .accordion-image {
+    margin-top: 0;
+}
+
+.accordion.--past:last-of-type .accordion-topbar {
     border-bottom: var(--border-black);
 }
 
@@ -1269,7 +1292,7 @@ hr {
     gap: var(--half-margin);
 }
 
-.accordion-text,
+.accordion-content,
 .accordion-image {
     -webkit-box-flex: 1;
     -ms-flex: 1 1;
@@ -1287,7 +1310,6 @@ hr {
     -webkit-box-direction: normal;
     -ms-flex-direction: column;
     flex-direction: column;
-    gap: .5rem;
     margin: var(--small-margin) 0 var(--half-margin) 0;
     cursor: pointer;
 }
@@ -1298,7 +1320,6 @@ hr {
     font-weight: 300;
     line-height: 100%;
     word-break: break-word;
-
 }
 
 .accordion-image {
@@ -1313,7 +1334,18 @@ hr {
     object-fit: contain;
 }
 
-.accordion-content {
+.accordion-image-wrapper {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    gap: var(--small-margin);
+}
+
+.accordion-text {
     display: none;
     -webkit-box-orient: vertical;
     -webkit-box-direction: normal;
@@ -1331,13 +1363,13 @@ hr {
     display: block;
 }
 
-.--open .accordion-content {
+.--open .accordion-text {
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
 }
 
-.--open .topbar-title {
+.list-layout .--open .accordion-topbar-title {
     display: none;
 }
 
@@ -1368,6 +1400,11 @@ hr {
         -ms-flex-pack: start;
         justify-content: flex-start;
     }
+
+    .column-layout {
+        -ms-grid-columns: 1fr 1fr;
+        grid-template-columns: 1fr 1fr;
+    }
 }
 
 @media screen and (max-width: 600px) {
@@ -1383,7 +1420,6 @@ hr {
 
     .header-headline a {
         max-height: unset;
-        background: var(--main-color);
         margin-right: 600px;
     }
 
@@ -1536,12 +1572,35 @@ hr {
 
     }
 
-    .topbar-item:not(.topbar-date) {
-        display: none;
+    .list-layout {
+        display: flex;
+        flex-direction: column;
+        gap: var(--half-margin);
     }
 
-    .topbar-title {
-        display: none;
+    .column-layout {
+        -ms-grid-columns: 1fr;
+        grid-template-columns: 1fr;
+        row-gap: 0;
+    }
+
+    .column-layout .accordion-topbar-title {
+        margin-top: var(--small-margin);
+    }
+
+    .list-layout .accordion-topbar {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: .25rem;
+        padding: var(--small-margin) 0;
+    }
+
+    .accordion.--ongoing .accordion-topbar {
+        border-bottom: none;
+    }
+
+    .list-layout .accordion-title {
+        margin: .25rem 0 var(--half-margin) 0;
     }
 
     .accordion-items {
@@ -1552,7 +1611,14 @@ hr {
     }
 
     .accordion-title h3 {
-        font-size: 3.5rem;
+        font-family: var(--title-font);
+        font-size: var(--title-size);
+        line-height: 110%;
+        font-weight: 400;
+    }
+
+    .accordion-topbar-title {
+        order: 1;
     }
 
     .accordion-image {

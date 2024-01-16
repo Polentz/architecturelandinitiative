@@ -2,20 +2,4 @@ Title: Teaching / Education
 
 ----
 
-Uuid: HuS3laetIiJEbxeJ
-
-----
-
-Intro: 
-
-----
-
-Summary: 
-
-----
-
-Filterseta: 
-
-----
-
-Filtersetb: 
+Uuid: lOcoPnmhDQQWtGwY

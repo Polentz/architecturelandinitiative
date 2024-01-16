@@ -1,0 +1,13 @@
+Caption: <p>Test caption</p>
+
+----
+
+Alt: 
+
+----
+
+Uuid: Rtv7JAn9Fq8NcFVj
+
+----
+
+Template: cover

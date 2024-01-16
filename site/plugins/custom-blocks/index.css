@@ -29,11 +29,21 @@
     flex: 1 1 75%;
 }
 
-.accordion-topbar {
+.timelineblock-input-wrapper {
     display: flex;
     justify-content: space-between;
 }
 
-.k-input {
-    outline: none;
+.timelineblock-input-wrapper p:first-child {
+    width: 100%;
+}
+
+.k-block-container-type-timelineblock,
+.k-block-container-type-platformblocklist,
+.k-block-container-type-platformblockcolumn {
+    padding: 0;
+}
+
+.k-item-content {
+    display: none;
 }

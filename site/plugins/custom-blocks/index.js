@@ -48,24 +48,42 @@ panel.plugin("architecturelandinitiative/blocks", {
       </k-writer>
       `
     },
-    accordion: {
+    timelineblock: {
       template: `
-      <div class="accordion-topbar">
-        <p>
-          <k-input
-            v-bind="field('title')"
-            :value="content.title"
-            @input="update({ title: $event })">
-          </k-input>
-        </p>
-        <p>
-          <k-input
-            v-bind="field('date')"
-            :value="content.date"
-            @input="update({ date: $event })">
-          </k-input>
-        </p>
-      </div>
+        <div class="timelineblock-input-wrapper">
+          <p>
+            <k-input
+              v-bind="field('title')"
+              :value="content.title"
+              @input="update({ title: $event })">
+            </k-input>
+          </p>
+          <p>
+            <k-input
+              v-bind="field('date')"
+              :value="content.date"
+              @input="update({ date: $event })">
+            </k-input>
+          </p>
+        </div>
+      `
+    },
+    platformblocklist: {
+      template: `
+        <k-input
+          v-bind="field('title')"
+          :value="content.title"
+          @input="update({ title: $event })">
+        </k-input>
+      `
+    },
+    platformblockcolumn: {
+      template: `
+        <k-input
+          v-bind="field('title')"
+          :value="content.title"
+          @input="update({ title: $event })">
+        </k-input>
       `
     },
   }

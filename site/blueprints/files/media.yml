@@ -1,8 +1,7 @@
 title: Media
-
+focus: false
 accept: 
   extension: jpg, png, jpeg, mp3, mp4, pdf
-  # mime: image/*, audio/*, video/*, pdf/*
   type: image, audio, video, document
 
 columns:
@@ -46,6 +45,7 @@ columns:
             width: 1/2
             type: multiselect
             label: Related Tools  
+            layout: list
             options:
               type: query
               query: site.grandchildren.template("tool")

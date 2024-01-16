@@ -4,11 +4,15 @@
 <?php endsnippet() ?>
 
 <main class="main">
-    <section class="text-intro">
-        <h3><?= $page->intro() ?></h3>
-    </section>
+    <?php if ($page->intro()->isNotEmpty()) : ?>
+        <section class="intro">
+            <div class="text-intro">
+                <h3><?= $page->intro() ?></h3>
+            </div>
+        </section>
+    <?php endif ?>
     
-    <section class="accordion-layout">
+    <section class="list-layout">
         <?= $page->blocks()->toBlocks()->sortBy('date', 'desc') ?>
     </section>
 </main>

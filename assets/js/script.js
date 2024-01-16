@@ -323,11 +323,6 @@ const horizontalScroll = () => {
                 pin: pageWrapper,
                 scrub: true,
                 invalidateOnRefresh: true,
-                snap: {
-                    snapTo: 1,
-                    duration: 0.5,
-                    ease: "power1.inOut",
-                },
             },
         });
     });
@@ -654,6 +649,7 @@ const handleGallery = () => {
                     autoAlpha: 0,
                     ease: "power1.out",
                 });
+                main.style.cursor = "zoom-out";
             };
             const removeClasses = (item) => {
                 [...galleryItems].filter(i => i !== item).forEach(i => {
@@ -667,6 +663,7 @@ const handleGallery = () => {
                     autoAlpha: 1,
                     ease: "power1.out",
                 });
+                main.style.cursor = "none";
             };
             galleryItems.forEach(item => {
                 item.addEventListener("click", (event) => {
@@ -682,7 +679,7 @@ const handleGallery = () => {
 
             document.body.addEventListener("click", () => {
                 if (zoomedItem !== undefined && zoomedItem.parentNode != undefined) {
-                    removeClasses(zoomedItem)
+                    removeClasses(zoomedItem);
                 };
             });
         };
@@ -694,7 +691,7 @@ const accordion = () => {
     const accordion = document.querySelectorAll(".accordion");
     accordion.forEach(item => {
         const openers = item.querySelectorAll(".accordion-title, .accordion-topbar");
-        const elements = item.querySelectorAll(".accordion-image, .accordion-content-block");
+        const elements = item.querySelectorAll(".accordion-image, .accordion-text");
         openers.forEach(opener => {
             opener.addEventListener("click", () => {
                 [...accordion].filter(i => i !== item).forEach(i => i.classList.remove("--open"));
