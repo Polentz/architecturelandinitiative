@@ -50,31 +50,44 @@ panel.plugin("architecturelandinitiative/blocks", {
     },
     timelineblock: {
       template: `
-        <div class="timelineblock-input-wrapper">
-          <p>
-            <k-input
-              v-bind="field('title')"
-              :value="content.title"
-              @input="update({ title: $event })">
-            </k-input>
-          </p>
-          <p>
-            <k-input
-              v-bind="field('date')"
-              :value="content.date"
-              @input="update({ date: $event })">
-            </k-input>
-          </p>
+        <div class="input-wrapper">
+          <k-input class="input-title"
+            v-bind="field('title')"
+            :value="content.title"
+            @input="update({ title: $event })">
+          </k-input>
+          <k-input
+            v-bind="field('eventdate')"
+            :value="content.eventdate"
+            @input="update({ eventdate: $event })">
+          </k-input>
+          <k-input 
+            v-bind="field('typology')"
+            :value="content.typology"
+            @input="update({ typology: $event })">
+          </k-input>
         </div>
       `
     },
     platformblock: {
       template: `
-        <k-input
-          v-bind="field('title')"
-          :value="content.title"
-          @input="update({ title: $event })">
-        </k-input>
+        <div class="input-wrapper">
+            <k-input class="input-title"
+              v-bind="field('title')"
+              :value="content.title"
+              @input="update({ title: $event })">
+            </k-input>
+            <k-input 
+              v-bind="field('typology')"
+              :value="content.typology"
+              @input="update({ typology: $event })">
+            </k-input>
+            <k-input 
+              v-bind="field('members')"
+              :value="content.members"
+              @input="update({ members: $event })">
+            </k-input>
+        </div>
       `
     },
   }

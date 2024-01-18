@@ -10,10 +10,20 @@
 
 :root {
     --rounded: 0rem;
+    --shadow: 0;
 }
 
 html {
     font-family: "GT America";
     font-style: normal;
     font-weight: 400;
+}
+
+.k-tag {
+    background-color: #4862f985;
+    color: initial;
+}
+
+.k-label-text {
+    font-weight: 600;
 }

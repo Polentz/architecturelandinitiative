@@ -37,17 +37,23 @@ columns:
             width: 1/2 
           types: 
             type: multiselect
-            label: Available filters   
+            label: "Available filters (category: platform)"   
             layout: list
             options:
               type: query
               query: site.platformFilters.toStructure
               text: "{{ item.filter }}"
               value: "{{ item.filter }}"
-      selector:
-        type: fields
-        fields:
-          selectLayout:
-            label: Layout
-            type: toggle
-            disabled: true
+          filterName:
+            label: Filter by    
+            type: text
+            width: 1/2
+          filters:
+            type: multiselect
+            label: "Available filters (category: members)"   
+            layout: list
+            options:
+              type: query
+              query: site.membersFilters.toStructure
+              text: "{{ item.filter }}"
+              value: "{{ item.filter }}"

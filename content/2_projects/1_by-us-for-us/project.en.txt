@@ -21,7 +21,7 @@ Typename: Media type
 
 ----
 
-Types: Image
+Types: Image, Document
 
 ----
 
@@ -132,6 +132,7 @@ Gallery:
 - file://cEk7YFWtYhHXXmJ3
 - file://HRf5sXtKZ12pXsZP
 - file://TxjxWT4NDvxhALOX
+- file://YY8Yc4rQ0Ia1jmSi
 
 ----
 

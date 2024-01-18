@@ -42,7 +42,7 @@ tabs:
                 default: "Event type"        
               types: 
                 type: multiselect
-                label: Available filters
+                label: "Available filters (category: events)"
                 layout: list
                 options:
                   type: query
@@ -55,7 +55,7 @@ tabs:
                 width: 1/2
               filters:
                 type: multiselect
-                label: Available filters
+                label: "Available filters (category: projects)"
                 layout: list
                 options:
                   type: query

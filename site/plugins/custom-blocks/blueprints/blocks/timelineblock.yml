@@ -1,21 +1,51 @@
-name: Event
-icon: bars
+name: Timeline item
 wysiwyg: true
 fields:
   date:
-    label: Date
+    label: Sort by date
     type: date
     width: 1/2
     display: DD.MM.YYYY 
+    required: true
+  gap1:
+    type: gap
+    width: 1/2
+  dateinfo: 
+    label: false
+    type: info
+    width: 1/2
+    text: "Tip: add the last day of the event here."
+  gap2:
+    type: gap
+    width: 1/2
+  line:
+    type: line
+  title:
+    label: Title
+    type: text
+    required: true
+  subtitle:
+    label: Subtitle
+    type: text
+  eventdate:
+    label: Event date
+    type: text
+    width: 1/2
+    required: true
   typology:
     label: Filter by event type
     type: select 
     width: 1/2 
+    required: true
     options:
       type: query
       query: site.timelineFilters.toStructure
       text: "{{ item.filter }}"
       value: "{{ item.filter }}"   
+  where:
+    label: Where
+    type: text
+    width: 1/2
   project:
     label: Related project
     type: select
@@ -25,28 +55,6 @@ fields:
       query: site.grandchildren.template("project")
       text: "{{ page.title }}"
       value: "{{ page.title }}"
-  topbar:
-    label: "Add elements to the topbar (max: 2)"
-    type: structure
-    max: 2
-    columns:
-      category:
-        width: 1/2
-      text:
-        width: 1/2
-    fields:
-      category:
-        type: text
-      text:
-        type: text
-  title:
-    label: Title
-    type: text
-    width: 1/2
-  subtitle:
-    label: Subtitle
-    type: text
-    width: 1/2
   image:
     label: Image
     type: files
@@ -56,7 +64,7 @@ fields:
     multiple: false 
     uploads:
       template: cover     
-  gap:
+  gap3:
     type: gap
     width: 1/2
   imagecaption:

@@ -2,15 +2,17 @@
     <div class="accordion --ongoing" data-type="<?= $block->typology()->slug() ?>" data-category="<?= $block->project()->slug() ?>">
         <div class="accordion-wrapper">
             <ul class="accordion-topbar">
-                <li class="accordion-topbar-item topbar-date text-label"><?= $block->date()->toDate('d.m.Y') ?></li>
-                <?php if ($block->typology()->isNotEmpty()) : ?>
-                    <li class="accordion-topbar-item text-label">TYPE <?= $block->typology() ?></li>
+                <li class="accordion-topbar-item topbar-date text-label"><?= $block->eventdate() ?></li>
+                <li class="accordion-topbar-item text-label"><?= $type ?> <?= $block->typology() ?></li>
+                <?php if ($block->where()->isNotEmpty()) : ?>
+                    <li class="accordion-topbar-item text-label"><?= $where ?> <?= $block->where() ?></li>
+                <?php else : ?>
+                    <li class="accordion-topbar-item text-label"><?= $where ?> -</li>
                 <?php endif ?>
-                <?php foreach ($block->topbar()->toStructure() as $item): ?>
-                    <li class="accordion-topbar-item text-label"><?= $item->category()->upper() ?> <?= $item->text() ?></li>
-                <?php endforeach ?>
                 <?php if ($block->project()->isNotEmpty()) : ?>
-                    <li class="accordion-topbar-item text-label">PROJECT <?= $block->project() ?></li>
+                    <li class="accordion-topbar-item text-label"><?= $project ?> <?= $block->project() ?></li>
+                <?php else : ?>
+                    <li class="accordion-topbar-item text-label"><?= $project ?> -</li>
                 <?php endif ?>
             </ul>
             <ul class="accordion-items">
@@ -55,15 +57,17 @@
         <div class="accordion-wrapper">
             <ul class="accordion-topbar">
                 <li class="accordion-topbar-title text-subtext"><?= $block->title() ?></li>
-                <li class="accordion-topbar-item topbar-date text-label"><?= $block->date()->toDate('d.m.Y') ?></li>
-                <?php if ($block->typology()->isNotEmpty()) : ?>
-                    <li class="accordion-topbar-item text-label">TYPE <?= $block->typology() ?></li>
+                <li class="accordion-topbar-item topbar-date text-label"><?= $block->eventdate() ?></li>
+                <li class="accordion-topbar-item text-label"><?= $type ?> <?= $block->typology() ?></li>
+                <?php if ($block->where()->isNotEmpty()) : ?>
+                    <li class="accordion-topbar-item text-label"><?= $where ?> <?= $block->where() ?></li>
+                <?php else : ?>
+                    <li class="accordion-topbar-item text-label"><?= $where ?> -</li>
                 <?php endif ?>
-                <?php foreach ($block->topbar()->toStructure() as $item): ?>
-                    <li class="accordion-topbar-item text-label"><?= $item->category()->upper() ?> <?= $item->text() ?></li>
-                <?php endforeach ?>
                 <?php if ($block->project()->isNotEmpty()) : ?>
-                    <li class="accordion-topbar-item text-label">PROJECT <?= $block->project() ?></li>
+                    <li class="accordion-topbar-item text-label"><?= $project ?> <?= $block->project() ?></li>
+                <?php else : ?>
+                    <li class="accordion-topbar-item text-label"><?= $project ?> -</li>
                 <?php endif ?>
             </ul>
             <ul class="accordion-items">

@@ -13,7 +13,7 @@
     <?php endif ?>
 
     <section class="column-layout">
-        <?= $page->blocks()->toBlocks() ?>
+        <?= $page->blocks()->toBlocks()->sortBy('date', 'desc') ?>
     </section>
 </main>
 

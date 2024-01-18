@@ -100,7 +100,14 @@ tabs:
             fields:
               filter:
                 type: text
-                label: Filter              
+                label: Filter      
+          membersFilters:
+            label: "Category: members"
+            type: structure
+            fields:
+              filter:
+                type: text
+                label: Filter                    
   seo:
     label: Website metadata
     icon: angle-right

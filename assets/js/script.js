@@ -578,6 +578,7 @@ const handleFilters = () => {
             const itemType = item.dataset.type;
             const itemCategory = item.dataset.category;
             const itemProject = item.dataset.project;
+            const itemMembers = item.dataset.members;
             if (itemType === filterId) {
                 item.classList.remove("--unfiltered");
                 item.classList.add("--filtered");
@@ -585,6 +586,9 @@ const handleFilters = () => {
                 item.classList.remove("--unfiltered");
                 item.classList.add("--filtered");
             } else if (itemProject === filterId) {
+                item.classList.remove("--unfiltered");
+                item.classList.add("--filtered");
+            } else if (itemMembers && itemMembers.includes(filter.textContent)) {
                 item.classList.remove("--unfiltered");
                 item.classList.add("--filtered");
             } else {
