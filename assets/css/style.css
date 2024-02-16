@@ -1263,18 +1263,6 @@ hr {
     grid-template-columns: repeat(5, 1fr);
 }
 
-.accordion-topbar-item {
-    text-align: center;
-}
-
-.accordion-topbar-item:first-of-type {
-    text-align: start;
-}
-
-.accordion-topbar-item:last-of-type {
-    text-align: end;
-}
-
 .column-layout .accordion-topbar {
     display: flex;
     flex-direction: column;

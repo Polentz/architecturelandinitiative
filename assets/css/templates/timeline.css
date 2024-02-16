@@ -12,3 +12,15 @@
     padding-bottom: calc(var(--main-margin) + var(--nav-height));
     padding-left: var(--main-margin);
 }
+
+.accordion-topbar-item {
+    text-align: center;
+}
+
+.accordion-topbar-item:first-of-type {
+    text-align: start;
+}
+
+.accordion-topbar-item:last-of-type {
+    text-align: end;
+}

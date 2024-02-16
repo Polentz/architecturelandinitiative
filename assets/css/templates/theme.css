@@ -12,3 +12,7 @@
     padding-bottom: calc(var(--main-margin) + var(--nav-height));
     padding-left: var(--main-margin);
 }
+
+.accordion-topbar-item {
+    text-align: start;
+}
