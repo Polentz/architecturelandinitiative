@@ -873,14 +873,22 @@ hr {
     pointer-events: all;
 }
 
-.gallery.--width .gallery-item.--zoom-in img,
-.gallery.--width .gallery-item.--zoom-in video,
+.gallery.--width .gallery-item.--zoom-in img {
+    cursor: pointer;
+}
+
+/* .gallery.--width .gallery-item.--zoom-in video,
 .gallery.--width .gallery-item.--zoom-in audio {
+    cursor: -webkit-zoom-out;
+    cursor: zoom-out;
+} */
+
+.gallery.--width .gallery-item.--zoom-in figcaption {
     cursor: -webkit-zoom-out;
     cursor: zoom-out;
 }
 
-.gallery.--width .gallery-item.--zoom-in figcaption {
+.gallery.--width .gallery-item.--zoom-in .media-text-wrapper {
     cursor: none;
 }
 
@@ -990,6 +998,59 @@ hr {
 
 .gallery-item.--filtered figcaption div.--opacity {
     opacity: 1;
+}
+
+.zoomed-container {
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 5;
+    padding-top: 8px;
+    padding-bottom: 8px;
+    padding-left: 8px;
+    background: var(--background);
+    background-attachment: fixed;
+    display: none;
+}
+
+.zoomed-button {
+    position: fixed;
+    top: var(--half-margin);
+    right: var(--half-margin);
+    border: var(--border-black);
+    background: var(--shade-color);
+    -webkit-backdrop-filter: blur(2rem);
+    backdrop-filter: blur(2rem);
+    opacity: 0;
+    -webkit-transition: opacity .5s ease;
+    -o-transition: opacity .5s ease;
+    transition: opacity .5s ease;
+}
+
+.zoomed-container.--portrait {
+    overflow-y: scroll;
+}
+
+.zoomed-container.--landscape {
+    overflow-x: scroll;
+}
+
+.zoomed-button.--opacity {
+    opacity: 1;
+}
+
+.zoomed-container img {
+    display: block;
+}
+
+.zoomed-container.--portrait img {
+    width: 100%;
+}
+
+.zoomed-container.--landscape img {
+    height: 100%;
 }
 
 .box-container {

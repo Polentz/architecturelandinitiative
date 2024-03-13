@@ -3,6 +3,7 @@ window.addEventListener("load", () => {
     handleBoxElements();
     handleProjectInfo();
     handleFilters();
+    zoomer();
     handleGallery();
 });
 

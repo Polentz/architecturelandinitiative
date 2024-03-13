@@ -30,6 +30,14 @@
     </section>
 <?php endif ?>
 
+<div class="zoomed-container">
+    <button class="button zoomed-button" type="button">
+        <svg viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M8 8L20 20M20 20L32 32M20 20L32 8M20 20L8 32" stroke="#1d1d1b"/>
+        </svg>
+    </button>
+</div>
+
 <div class="box-container">
     <div id="infos" class="box">
         <button class="button i-button" type="button">

@@ -1,6 +1,6 @@
 <?php if ($media->type() == 'image') : ?>
     <figure class="gallery-item image-item" data-type="<?= $media->mediatype()->slug() ?>" data-category="<?= $media->filter()->slug() ?>" data-project="<?= $media->parent()->slug()?>">
-        <img class="lazy" src="" data-src="<?= $media->resize(1200, null)->url() ?>" alt="<?= $media->alt() ?>" />
+        <img class="image lazy" src="" data-src="<?= $media->resize(1200, null)->url() ?>" alt="<?= $media->alt() ?>" />
         <figcaption>
             <div class="media-text-wrapper">
                 <div class="media-summary text-label">

@@ -630,17 +630,18 @@ const handleFilters = () => {
 const handleGallery = () => {
     const handleMediaQuery = (e) => {
         if (!e.matches) {
-            let zoomedItem;
+            // let zoomedItem;
             const galleryItems = document.querySelectorAll(".gallery-item img, .gallery-item video, .gallery-item audio, .gallery-item .pdf");
             const paddingOffset = 128;
+
             const addClasses = (item) => {
                 [...galleryItems].filter(i => i !== item).forEach(i => {
                     i.parentNode.classList.remove("--zoom-in");
                     i.parentNode.classList.add("--opacity");
                 });
-                item.parentNode.addEventListener("click", (event) => {
-                    event.stopPropagation();
-                });
+                // item.parentNode.addEventListener("click", (event) => {
+                //     event.stopPropagation();
+                // });
                 item.parentNode.classList.remove("--opacity");
                 item.parentNode.classList.add("--zoom-in");
                 const itemPosition = item.getBoundingClientRect().top;
@@ -659,9 +660,9 @@ const handleGallery = () => {
                 [...galleryItems].filter(i => i !== item).forEach(i => {
                     i.parentNode.classList.remove("--opacity");
                 });
-                item.parentNode.removeEventListener('click', (event) => {
-                    event.stopPropagation();
-                });
+                // item.parentNode.removeEventListener('click', (event) => {
+                //     event.stopPropagation();
+                // });
                 item.parentNode.classList.remove("--zoom-in");
                 gsap.to(".box-container", {
                     autoAlpha: 1,
@@ -671,25 +672,71 @@ const handleGallery = () => {
             };
             galleryItems.forEach(item => {
                 item.addEventListener("click", (event) => {
-                    if (item.parentNode.classList.contains("--zoom-in")) {
-                        removeClasses(item);
-                    } else {
-                        zoomedItem = item;
-                        addClasses(item);
-                        event.stopPropagation();
-                    };
+                    // if (item.parentNode.classList.contains("--zoom-in")) {
+                    //     removeClasses(item);
+                    // } else {
+                    //     // zoomedItem = item;
+                    //     addClasses(item);
+                    //     event.stopPropagation();
+                    // };
+                    addClasses(item);
+                });
+
+                document.body.addEventListener("click", () => {
+                    const nonClickableElements = document.querySelectorAll(".media-text-wrapper, .gallery-item img, .gallery-item video, .gallery-item audio, .gallery-item .pdf");
+                    nonClickableElements.forEach(element => {
+                        element.addEventListener("click", (event) => {
+                            event.stopPropagation();
+                        });
+                    });
+                    removeClasses(item);
                 });
             });
+            // document.body.addEventListener("click", () => {
+            //     if (zoomedItem !== undefined && zoomedItem.parentNode != undefined) {
+            //         removeClasses(zoomedItem);
+            //     };
+            // });
 
-            document.body.addEventListener("click", () => {
-                if (zoomedItem !== undefined && zoomedItem.parentNode != undefined) {
-                    removeClasses(zoomedItem);
-                };
-            });
         };
     };
     handleMediaQuery(mediaQuery);
 };
+
+const zoomer = () => {
+    const imageItems = document.querySelectorAll(".image-item");
+    const zoomedContainer = document.querySelector(".zoomed-container");
+    const zoomedButton = zoomedContainer.querySelector(".zoomed-button");
+    imageItems.forEach(item => {
+        const imageElement = item.querySelector(".image");
+        imageElement.addEventListener("click", () => {
+            if (item.classList.contains("--zoom-in")) {
+                if (imageElement.naturalHeight * 2 > imageElement.naturalWidth) {
+                    zoomedContainer.classList.add("--portrait");
+                } else {
+                    zoomedContainer.classList.add("--landscape");
+                }
+                zoomedContainer.style.display = "block";
+                const clonedImage = imageElement.cloneNode(true);
+                zoomedContainer.appendChild(clonedImage);
+                setTimeout(() => {
+                    zoomedButton.classList.add("--opacity");
+                }, 500);
+            };
+        });
+    });
+
+    zoomedButton.addEventListener("click", () => {
+        zoomedButton.classList.remove("--opacity");
+        setTimeout(() => {
+            zoomedContainer.classList.remove("--portrait");
+            zoomedContainer.classList.remove("--landscape");
+            zoomedContainer.style.display = "none";
+            const zoomedImage = zoomedContainer.querySelector(".image");
+            zoomedImage.remove();
+        }, 500);
+    });
+}
 
 const accordion = () => {
     const accordion = document.querySelectorAll(".accordion");
