@@ -673,17 +673,18 @@ const zoomer = () => {
 const handleGallery = () => {
     const handleMediaQuery = (e) => {
         if (!e.matches) {
-            const galleryItems = document.querySelectorAll(".gallery-item img, .gallery-item video");
-            const nonClickableElements = document.querySelectorAll(".media-text-wrapper, .gallery-item img, .gallery-item video");
+            const galleryItems = document.querySelectorAll(".gallery-item");
+            const triggerElements = document.querySelectorAll(".gallery-item img, .gallery-item video");
+            const ignoredElements = document.querySelectorAll(".media-text-wrapper, .gallery-item img, .gallery-item video, .zoomed-button");
             const paddingOffset = 128;
 
             const addClasses = (item) => {
                 [...galleryItems].filter(i => i !== item).forEach(i => {
-                    i.parentNode.classList.remove("--zoom-in");
-                    i.parentNode.classList.add("--opacity");
+                    i.classList.remove("--zoom-in");
+                    i.classList.add("--opacity");
                 });
-                item.parentNode.classList.remove("--opacity");
-                item.parentNode.classList.add("--zoom-in");
+                item.classList.remove("--opacity");
+                item.classList.add("--zoom-in");
 
                 const itemPosition = item.getBoundingClientRect().top;
                 const offsetPosition = itemPosition + window.scrollY - paddingOffset;
@@ -697,9 +698,9 @@ const handleGallery = () => {
                     ease: "power1.out",
                 });
 
-                const video = item.parentNode.querySelector("video");
-                if (item.parentNode.contains(video)) {
-                    item.controls = true;
+                const video = item.querySelector("video");
+                if (item.contains(video)) {
+                    video.controls = true;
                 };
 
                 main.style.cursor = "zoom-out";
@@ -707,37 +708,37 @@ const handleGallery = () => {
 
             const removeClasses = (item) => {
                 [...galleryItems].filter(i => i !== item).forEach(i => {
-                    i.parentNode.classList.remove("--opacity");
+                    i.classList.remove("--opacity");
                 });
-                item.parentNode.classList.remove("--zoom-in");
+                item.classList.remove("--zoom-in");
 
                 gsap.to(".box-container", {
                     autoAlpha: 1,
                     ease: "power1.out",
                 });
 
-                const video = item.parentNode.querySelector("video");
-                if (item.parentNode.contains(video)) {
-                    item.controls = false;
+                const video = item.querySelector("video");
+                if (item.contains(video)) {
+                    video.controls = false;
                 };
 
                 main.style.cursor = "none";
             };
 
-            galleryItems.forEach(item => {
+            triggerElements.forEach(item => {
                 item.addEventListener("click", () => {
-                    addClasses(item);
+                    addClasses(item.parentNode);
                 });
             });
             document.body.addEventListener("click", () => {
-                nonClickableElements.forEach(element => {
+                ignoredElements.forEach(element => {
                     element.addEventListener("click", (event) => {
                         event.stopPropagation();
                     });
                 });
-                galleryItems.forEach(item => {
+                triggerElements.forEach(item => {
                     if (item.parentNode.classList.contains("--zoom-in")) {
-                        removeClasses(item);
+                        removeClasses(item.parentNode);
                     };
                 });
             });
