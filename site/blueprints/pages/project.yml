@@ -43,6 +43,14 @@ tabs:
                   - email
                   - clear
                 nodes: false
+              infoSummury:
+                label: false
+                type: info
+                text: | 
+                  The summary and the excerpt fields will appear in the Info [ i ] black box. 
+                  In excerpt, copy/paste a full sentence. It will be automatically cut to 300 characters.
+              divider:
+                type: line
               blocks:
                 label: Text
                 type: blocks
