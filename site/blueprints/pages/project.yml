@@ -32,6 +32,17 @@ tabs:
                     type: text
                   text:
                     type: text
+              excerpt:
+                label: Excerpt
+                type: writer
+                marks:
+                  - bold
+                  - italic
+                  - underline
+                  - link
+                  - email
+                  - clear
+                nodes: false
               blocks:
                 label: Text
                 type: blocks

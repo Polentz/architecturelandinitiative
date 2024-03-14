@@ -30,14 +30,6 @@
     </section>
 <?php endif ?>
 
-<div class="zoomed-container">
-    <button class="button zoomed-button" type="button">
-        <svg viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M8 8L20 20M20 20L32 32M20 20L32 8M20 20L8 32" stroke="#1d1d1b"/>
-        </svg>
-    </button>
-</div>
-
 <div class="box-container">
     <div id="infos" class="box">
         <button class="button i-button" type="button">
@@ -55,18 +47,21 @@
                         <?php endforeach ?>
                     </ul>
                 <?php endif ?>
-                <?php if ($page->blocks()->isNotEmpty()) : ?>
-                    <div class="box-content-wrapper">
+                <div class="box-content-wrapper">
+                    <?php if ($page->excerpt()->isNotEmpty()) : ?>
                         <div class="text">
-                            <?php if ($blocks = $page->blocks()->toBlocks('sectionblock')) : ?>
-                                <?= $blocks->first()->copy()->short(300) ?>
-                            <?php endif ?>
+                            <?= $page->excerpt()->short(300) ?>
                         </div>
-                        <button class="read-more-button" type="button">
-                            <p>Read More</p>
-                        </button>
-                    </div>
-                <?php endif ?>
+                    <?php else : ?>
+                        <div class="text">
+                            <p><?= $page->title() ?></p>
+                        </div>
+                    <?php endif ?>
+                    <button class="read-more-button" type="button">
+                        <p>Read More</p>
+                    </button>
+                </div>
+                
             </div>
             <button class="button x-button" type="button">
                 <svg viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -78,6 +73,14 @@
         </div>
     </div>
     <?= snippet('filters') ?>
+</div>
+
+<div class="zoomed-container">
+    <button class="button zoomed-button" type="button">
+        <svg viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M8 8L20 20M20 20L32 32M20 20L32 8M20 20L8 32" stroke="#1d1d1b"/>
+        </svg>
+    </button>
 </div>
 
 <?= snippet('slider') ?>

@@ -5,5 +5,5 @@ window.addEventListener("load", () => {
     handleFilters();
     zoomer();
     handleGallery();
+    audioPlayer();
 });
-

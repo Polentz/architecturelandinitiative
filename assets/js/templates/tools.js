@@ -23,6 +23,9 @@ const observer = new IntersectionObserver((entries) => {
                 yPercent: 100,
                 stagger: 0.05,
             });
+            tl.to(".word", {
+                clipPath: "none"
+            });
             observer.unobserve(entry.target);
         };
     });

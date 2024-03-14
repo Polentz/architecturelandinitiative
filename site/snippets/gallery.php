@@ -1,6 +1,6 @@
 <?php if ($media->type() == 'image') : ?>
     <figure class="gallery-item image-item" data-type="<?= $media->mediatype()->slug() ?>" data-category="<?= $media->filter()->slug() ?>" data-project="<?= $media->parent()->slug()?>">
-        <img class="image lazy" src="" data-src="<?= $media->resize(1200, null)->url() ?>" alt="<?= $media->alt() ?>" />
+        <img class="image lazy" src="" data-src="<?= $media->resize(1600, null)->url() ?>" alt="<?= $media->alt() ?>" />
         <figcaption>
             <div class="media-text-wrapper">
                 <div class="media-summary text-label">
@@ -64,7 +64,41 @@
 
 <?php if ($media->type() == 'audio') : ?>
     <figure class="gallery-item audio-item" data-type="<?= $media->mediatype()->slug() ?>" data-category="<?= $media->filter()->slug() ?>" data-project="<?= $media->parent()->slug()?>">
-        <audio src="<?= $media->url() ?>" controls controlslist="noplaybackrate nodownload" preload="metadata" type="audio"></audio>
+        <div class="audio-player">
+            <div class="audio-player-wrapper">
+                <div class="audio-play button">
+                    <svg class="play-icon" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <rect x="0.5" y="0.5" width="39" height="39"/>
+                        <path d="M8.5 8.80902L30.882 20L8.5 31.191L8.5 8.80902Z"/>
+                    </svg>
+                    <svg class="pause-icon" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <rect x="0.5" y="0.5" width="39" height="39"/>
+                        <path d="M16 8L16 32M24 8L24 32"/>
+                    </svg>
+                </div>
+                <div class="audio-time">
+                    <span class="audio-progress">0:00</span> / <span class="audio-duration"></span>
+                </div>
+                <div class="audio-volume button">
+                    <svg class="volume-icon" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <rect x="0.5" y="0.5" width="39" height="39"/>
+                        <path d="M15.5377 24.5991L15.4048 24.5H15.2389H8.43457V15.5H15.2389H15.4048L15.5377 15.4009L24.1302 8.9963V31.0037L15.5377 24.5991Z"/>
+                        <path d="M28.9346 16V24M32.065 14V26"/>
+                    </svg>
+                    <svg class="mute-icon" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <rect x="0.5" y="0.5" width="39" height="39"/>
+                        <path d="M15.6032 24.5991L15.4702 24.5H15.3043H8.5V15.5H15.3043H15.4702L15.6032 15.4009L24.1957 8.9963V31.0037L15.6032 24.5991Z"/>
+                        <path d="M32 18L28 22M32 22L28 18"/>
+                    </svg>
+                </div>
+            </div>
+            <div class="audio-player-wrapper">
+                <div class="seek-slider-container">
+                    <input type="range" class="seek-slider" max="100" value="0">
+                </div>
+            </div>
+            <audio src="<?= $media->url() ?>" controlslist="noplaybackrate nodownload" preload="metadata" type="audio"></audio>
+        </div>
         <figcaption>
             <div class="media-text-wrapper">
                 <div class="media-summary text-label">
